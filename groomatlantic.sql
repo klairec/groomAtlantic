@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 03 Juillet 2017 à 13:55
--- Version du serveur :  10.1.21-MariaDB
--- Version de PHP :  7.1.1
+-- Hôte : 127.0.0.1
+-- Généré le :  lun. 03 juil. 2017 à 15:16
+-- Version du serveur :  10.1.22-MariaDB
+-- Version de PHP :  7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -76,7 +78,7 @@ CREATE TABLE `groom_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Contenu de la table `groom_services`
+-- Déchargement des données de la table `groom_services`
 --
 
 INSERT INTO `groom_services` (`id`, `skills`) VALUES
@@ -104,7 +106,8 @@ CREATE TABLE `rentals` (
   `city` varchar(100) NOT NULL,
   `street` varchar(100) NOT NULL,
   `postcode` varchar(100) NOT NULL,
-  `id_owner` int(11) NOT NULL
+  `id_owner` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -133,7 +136,7 @@ CREATE TABLE `types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `types`
+-- Déchargement des données de la table `types`
 --
 
 INSERT INTO `types` (`id`, `type`) VALUES
@@ -149,20 +152,28 @@ INSERT INTO `types` (`id`, `type`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `firstname` int(100) NOT NULL,
-  `lastname` int(100) NOT NULL,
-  `email` int(100) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(150) NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `address` varchar(100) NOT NULL,
   `postcode` varchar(50) NOT NULL,
   `city` varchar(100) NOT NULL,
   `photo` varchar(250) NOT NULL,
-  `date_creation` date NOT NULL
+  `date_creation` date NOT NULL,
+  `role` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Index pour les tables exportées
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `address`, `postcode`, `city`, `photo`, `date_creation`, `role`) VALUES
+(2, 'nicolas', 'ulmann', 'nicolas_ulmann@yahoo.fr', '$2y$10$OhgJeM5FLujm8yAjHW9PJephYsPiig8K3sGwZyfbzAvqUPlcALUPi', '', '9 cours portal', '33000', 'Bordeaux', '', '2003-07-17', 'owner');
+
+--
+-- Index pour les tables déchargées
 --
 
 --
@@ -214,7 +225,7 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -256,7 +267,8 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

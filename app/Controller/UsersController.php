@@ -51,11 +51,7 @@ class UsersController extends Controller
 					$errors[] = 'Le nom doit comporter au moins 2 caractères';
 				}
 
-				if(!in_array($post['role'], $rolesAvailable)){
-
-					$errors[] = 'Choisissez un rôle';
-				}
-			
+						
 
 		  	if(count($errors) === 0){
 		  			$authModel = new \W\Security\AuthentificationModel;
@@ -64,9 +60,12 @@ class UsersController extends Controller
 						'firstname' => $post['firstname'], 
 						'lastname' => $post['lastname'],
 						'email'	 => $post['email'],
-						'role' => 'groom',
-						'username' => $post['username'],
+						'role' => 'groom',						
 						'password' => $authModel->hashPassword($post['password']),
+						'address' => $post['address'],
+						'postcode' => $post['postcode'],
+						'city' => $post['city'],
+						'date_creation' => date('d.m.y'),
 
 					];
 
@@ -118,10 +117,7 @@ class UsersController extends Controller
 					$errors[] = 'Le nom doit comporter au moins 2 caractères';
 				}
 
-				if(!in_array($post['role'], $rolesAvailable)){
-
-					$errors[] = 'Choisissez un rôle';
-				}
+				
 			
 
 		  	if(count($errors) === 0){
@@ -131,15 +127,21 @@ class UsersController extends Controller
 						'firstname' => $post['firstname'], 
 						'lastname' => $post['lastname'],
 						'email'	 => $post['email'],
-						'role' => $post['role'],
-						'username' => $post['username'],
+						'role' => 'owner',						
 						'password' => $authModel->hashPassword($post['password']),
+						'address' => $post['address'],
+						'postcode' => $post['postcode'],
+						'city' => $post['city'],
+						'date_creation' => date('d.m.y'),
+
+
+
 
 					];
 
-			$articlesModel = new ArticlesModel();
+			$usersModel = new UsersModel();
 
-			$insert = $articlesModel->insert($data);
+			$insert = $usersModel->insert($data);
 			//retourne false si une erreur survient ou les nouvelles donnes inseres sous forme de array
 
 				if(!empty($insert)){

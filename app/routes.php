@@ -1,12 +1,11 @@
 <?php
 	
 $w_routes = array(
-	['GET', '/', 'Default#home', 'default_home'],
+	['GET|POST', '/', 'Users#home', 'Users_home', 'connect'],
 
 
 
-	['GET|POST', '/users/connect', 'Users#connect', 'connect'],
-
+	['GET|POST', '/users/connect', 'Users#connect', 'connect_user'],
 	['GET|POST', '/users/add', 'Users#add', 'users_add'],
 	['GET|POST', '/login', 'Users#login', 'users_login'],
 	['GET|POST', '/logout', 'Users#logout', 'users_logout'],

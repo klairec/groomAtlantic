@@ -1,7 +1,9 @@
-<?php $this->layout('layout', ['title' => 'Connexion / Inscription']) ?>
+<?php $this->layout('layout', [
+	'title' => 'Page d\'accueil de Groom Atlantic ',
+	'description' => '',
+]); ?>
 
 <?php $this->start('main_content') ?>
-
 
 
 	<?php 

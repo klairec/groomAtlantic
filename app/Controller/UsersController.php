@@ -13,12 +13,88 @@ class UsersController extends Controller
 	 * Page d'accueil par défaut
 	 */
 	public function home(){
-		$this->show('default/home');
+			$post = [];
+			$errors = [];
+			$formValid = false;
+			$deco = false;
+			$Userlog = [];
+		
+
+
+
+			if(!empty($_POST)){
+				// Permet de nettoyer les données
+				foreach($_POST as $key => $value){
+					$post[$key] = trim(strip_tags($value));
+				}
+		
+				if(strlen($post['email']) < 2){
+					$errors[] = 'Le mail doit comporter au moins 2 caractères';
+				}
+
+				if(strlen($post['password']) < 2){
+					$errors[] = 'Le mdp doit comporter au moins 2 caractères';
+				}
+
+
+					if(count($errors) === 0){
+
+		  			$authModel = new \W\Security\AuthentificationModel;
+		  			$connectMatch = $authModel->isValidLoginInfo($post['email'], $post['password']);
+
+		  			
+
+
+
+			
+
+		
+				  				
+						if($connectMatch != 0){
+							$formValid = true;		
+							
+						
+		  						$authModel->logUserIn($connectMatch);
+		  						$Userlog = $authModel->getLoggedUser();
+
+		  						
+
+
+
+						}
+						
+
+	
+					}
+
+			
+
+			}
+			if (isset($_GET['deco'])){
+				if ($_GET['deco']="1"){
+
+		  			$authModel = new \W\Security\AuthentificationModel;
+					$authModel->logUserOut();
+					$deco=true;
+					
+				}
+			}
+
+			$params = [
+					'formValid' => $formValid,
+					'errors' => $errors,
+					'mail' => isset($post['email']),
+					'Userlog' => $Userlog,
+					'deco' => $deco,
+
+
+				];
+		$this->show('default/home', $params);
 	}
 
 	public function connect(){
 
-		$post = [];
+			$post = [];
 			$errors = [];
 			$formValid = false;
 			$deco = false;

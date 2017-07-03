@@ -15,7 +15,7 @@
         }
         else {                    
 ?>
-<div>
+<section class="myProfile">
     <h3>Mon profil</h3>
 
     <p>Nom : <?= $users['lastname'] ?></p>
@@ -30,7 +30,7 @@
     <a href="">Modifier mon profil</a>
     <a href="">Modifier mon mot de passe</a>
     <a href="">Désincription</a>
-</div>
+</section>
 <?php
              }
     }
@@ -38,7 +38,7 @@
 
 
 
-<div>
+<section class="servicesInfos">
     <h3>Services proposés</h3>
 
     <a href="">Liste des services</a>
@@ -47,10 +47,10 @@
     <a href="">Supprimer des services</a>
     <a href="">Villes d'action</a>
     <a href="">Disponibilités</a>
-</div>
+</section>
 
 
-<div>
+<section class="notifications">
     <h3>Notifications</h3>
     <?php
     if{
@@ -95,14 +95,14 @@
     <?php 
     }
     ?>
-</div>
+</section>
 
-<<div>
+<section class="comments">
     <h3>Avis reçus</h3>
     <div>
         <p><?= 'Avis de '.$users['firstname'] .' '. $users['lastname'].' : '.$comments['content']; ?></p>
     </div>
-</div>
+</section>
 
 
 <?php $this->stop('main_content') ?>

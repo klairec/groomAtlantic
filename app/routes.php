@@ -7,10 +7,10 @@ $w_routes = array(
 	['GET|POST', '/login', 'Users#login', 'users_login'],
 	['GET', '/logout', 'Users#logout', 'users_logout'],
 
-	['GET', '/ownerProfil/showRentals', 'Rentals#show', 'rentals_show'],
-	['GET|POST', '/ownerProfil/addRental', 'Rentals#add', 'rentals_add'],
-	['GET|POST', '/ownerProfil/changeRental', 'Rentals#change', 'rentals_change'],
-	['GET|POST', '/ownerProfil/deleteRental', 'Rentals#delete', 'rentals_delete'],
+	['GET', '/ownerProfil/showRentals', 'Rentals#showRentals', 'rentals_show'],
+	['GET|POST', '/ownerProfil/addRental', 'Rentals#addRental', 'rentals_add'],
+	['GET|POST', '/ownerProfil/changeRental', 'Rentals#changeRental', 'rentals_change'],
+	['GET|POST', '/ownerProfil/deleteRental', 'Rentals#deleteRental', 'rentals_delete'],
 
     ['GET|POST', '/usersProfil/ShowProfileUsers', 'Users#showProfile', 'users_showprofile'],
 

@@ -15,8 +15,10 @@ class RentalsController extends Controller
 		$this->show('default/home');
 	}
 
-	public function add(){
+	public function showRentals(){
+
 		
+
 	}
 
 }

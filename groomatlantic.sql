@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 03 Juillet 2017 à 10:39
+-- Généré le :  Lun 03 Juillet 2017 à 11:55
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  7.1.1
 
@@ -136,7 +136,8 @@ CREATE TABLE `users` (
   `address` varchar(100) NOT NULL,
   `postcode` varchar(50) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `photo` varchar(250) NOT NULL
+  `photo` varchar(250) NOT NULL,
+  `date_creation` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --

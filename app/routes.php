@@ -7,14 +7,17 @@ $w_routes = array(
 	['GET|POST', '/login', 'Users#login', 'users_login'],
 	['GET', '/logout', 'Users#logout', 'users_logout'],
 
-	['GET', '/ownerProfil/showRentals', 'Rentals#showRentals', 'rentals_show'],
-	['GET|POST', '/ownerProfil/addRental', 'Rentals#addRental', 'rentals_add'],
-	['GET|POST', '/ownerProfil/changeRental', 'Rentals#changeRental', 'rentals_change'],
-	['GET|POST', '/ownerProfil/deleteRental', 'Rentals#deleteRental', 'rentals_delete'],
+	['GET', 'users/ownerProfile/showRentals', 'Rentals#showRentals', 'rentals_show'],
+	['GET|POST', 'users/ownerProfile/addRental', 'Rentals#addRental', 'rentals_add'],
+	['GET|POST', 'users/ownerProfile/changeRental', 'Rentals#changeRental', 'rentals_change'],
+	['GET|POST', 'users/ownerProfile/deleteRental', 'Rentals#deleteRental', 'rentals_delete'],
 
-    ['GET|POST', '/groomProfil/showProfileGroom', 'Groom#ShowProfile', 'groom_showprofile'],
-	['GET|POST', '/groomProfil/changeProfileGroom', 'Groom#ChangeProfile', 'groom_changeprofile'],
-	['GET|POST', '/groomProfil/deleteProfileGroom', 'Groom#DeleteProfile', 'groom_deleteprofile'],
-    ['GET|POST', '/groomProfil/addServiceGroom', 'Groom#AddService', 'groom_addservice'],
+    ['GET', 'users/Profile/showProfile', 'Users#showProfile', 'show_profile'],
+	['GET|POST', 'users/Profile/changeProfile', 'Users#changeProfile', 'change_profile'],
+	['GET|POST', 'users/Profile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
+	['GET|POST', 'users/Profile/changePassword', 'Users#changePassword', 'change_password'],
+    
+
+    ['GET|POST', 'users/Profile/addService', 'Groom#addService', 'groom_addservice'],
 
 );

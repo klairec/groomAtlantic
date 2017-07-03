@@ -4,7 +4,15 @@ $w_routes = array(
 	['GET', '/', 'Default#home', 'default_home'],
 
 
+
 	['GET|POST', '/users/connect', 'Users#connect', 'connect'],
+
+	['GET|POST', '/users/add', 'Users#add', 'users_add'],
+	['GET|POST', '/login', 'Users#login', 'users_login'],
+	['GET|POST', '/logout', 'Users#logout', 'users_logout'],
+
+
+	['GET|POST', '/users/add_user', 'Users#addUser', 'add_user'],
 	['GET|POST', '/users/add_groom', 'Users#addGroom', 'add_groom'],
 	['GET|POST', '/users/add_owner', 'Users#addOwner', 'add_owner'],
 	['GET|POST', '/users/add_role', 'Users#add_role', 'add_role'],

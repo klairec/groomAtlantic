@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 03 juil. 2017 à 15:16
+-- Généré le :  lun. 03 juil. 2017 à 15:46
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `groomatlantic`
 --
+CREATE DATABASE IF NOT EXISTS `groomatlantic` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `groomatlantic`;
 
 -- --------------------------------------------------------
 

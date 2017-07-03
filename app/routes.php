@@ -11,6 +11,6 @@ $w_routes = array(
 	['GET|POST', '/ownerProfil/changeRental', 'Rentals#change', 'rentals_change'],
 	['GET|POST', '/ownerProfil/deleteRental', 'Rentals#delete', 'rentals_delete'],
 
-    ['GET|POST', '/usersProfil/showUsers', 'Users#show', 'users_show'],
+    ['GET|POST', '/usersProfil/ShowProfileUsers', 'Users#showProfile', 'users_showprofile'],
 
 );

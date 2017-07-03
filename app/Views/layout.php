@@ -18,7 +18,6 @@
 			<?php endif; ?>
 
 
-			<p class="pull-right">Bonjour <?=$w_user['firstname']; ?></p>
 		</header>
 
 		<section>

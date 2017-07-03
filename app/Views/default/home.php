@@ -1,12 +1,12 @@
 <?php $this->layout('layout', [
-	'title' => '',
+	'title' => 'Page d\'accueil de Groom Atlantic ',
 	'description' => '',
 ]); ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Let's code.</h2>
-	<p>Vous avez atteint la page d'accueil. Bravo.</p>
-	<p>Et maintenant, RTFM dans <strong><a href="../docs/tuto/" title="Documentation de W">docs/tuto</a></strong>.</p>
+	<h2>Groom Atlantic</h2>
+	<a href="users/connect">Se connecter</a>
+	<a href="users/add_role">Pas encore inscrit ?</a>
 <?php $this->stop('main_content') ?>
 
 <?php $this->start('css') ?>

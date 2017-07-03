@@ -5,7 +5,7 @@ $w_routes = array(
 
 	['GET|POST', '/users/add', 'Users#add', 'users_add'],
 	['GET|POST', '/login', 'Users#login', 'users_login'],
-	['GET', '/logout', 'Users#logout', 'users_logout'],
+	['GET|POST', '/logout', 'Users#logout', 'users_logout'],
 
 	['GET', 'users/Profile/showProfile', 'Users#showProfile', 'show_profile'],
 	['GET|POST', 'users/Profile/changeProfile', 'Users#changeProfile', 'change_profile'],

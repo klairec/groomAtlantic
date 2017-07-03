@@ -69,9 +69,9 @@ class UsersController extends Controller
 
 					];
 
-			$articlesModel = new ArticlesModel();
+			$usersModel = new UsersModel();
 
-			$insert = $articlesModel->insert($data);
+			$insert = $usersModel->insert($data);
 			//retourne false si une erreur survient ou les nouvelles donnes inseres sous forme de array
 
 				if(!empty($insert)){
@@ -132,7 +132,8 @@ class UsersController extends Controller
 						'address' => $post['address'],
 						'postcode' => $post['postcode'],
 						'city' => $post['city'],
-						'date_creation' => date('d.m.y'),
+						'date_creation' => date('Y.m.d'),
+						'phone' => $post['phone'],
 
 
 

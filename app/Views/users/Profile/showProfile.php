@@ -29,7 +29,7 @@
     
     <a href="">Modifier mon profil</a>
     <a href="">Modifier mon mot de passe</a>
-    <a href="">Désincription</a>
+    <a href="">Désinscription</a>
 </section>
 <?php
              }

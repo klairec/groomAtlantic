@@ -6,15 +6,15 @@ use \W\Controller\Controller;
 
 class Groom_servicesController extends Controller
 {
+    public function showServices(){
+        $GroomServModel = new Groom_servicesModel();
+        $groomservices = $GroomServModel->findGroom_servicesWithId();
 
-    $GroomServModel = new Groom_servicesModel();
-    $groomskills = $GroomServModel->findGroom_servicesWithId();
-    
-    $params = [
-				'groomskills' => $groomskills,
-			];
+        $params = [
+            'groomskills' => $groomservices,
+        ];
 
 
-			$this->show('users/Profile/showProfile', $params);
-
+        $this->show('users/Profile/showService', $params);
+    }
 }

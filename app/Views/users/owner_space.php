@@ -30,7 +30,7 @@
 	</section>
 
 	<section class="groom_research">
-		
+		<a href="<?= $this->url(''); ?>">Rechercher un groom</a>
 	</section>
 
 	<section class="notifications">

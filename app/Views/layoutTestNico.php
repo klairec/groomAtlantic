@@ -28,10 +28,12 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('css/cardio.css') ?>">
     
 </head>
+    
 <body>
     <div class="preloader">
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
 	</div>
+   
 	<nav class="navbar">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -56,16 +58,33 @@
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
+        
 		<!-- /.container-fluid -->
+        
 	</nav>
+   <section>
+    </section>
     
+    
+    
+         <section>
+        <?=$this->section('errors'); ?>
+        </section>
+        
+        
+
+
+   
         <header id="intro">
+           
             <?=$this->section('header'); ?>
 		
-	</header>
+        </header>
+    
 		
 
 	<section>
+          
 			<?= $this->section('main_content') ?>
     </section>
 

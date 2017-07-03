@@ -4,45 +4,38 @@
 
 
 
+
+
+
+
+
+
+
 <?php $this->start('header') ?>
+
+        
+
+
+
             <div class="container">
 
-
-
+                 
                 <div class="table">
+                    
 
                     <div class="header-text">
-
-                        <div class="row">
-
-                            <div class="col-md-12 text-center">
-
-                                <h3 class="light white">Groom Atlantic</h3>
-                                <h1 class="white typed">blablazzzzzzzzzzz</h1>
-                                <span class="typed-cursor">|</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-<?php $this->stop('header') ?>
-
-<?php $this->start('main_content') ?>
-
-
-
-<?php 
+                                  <?php 
     
                 if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
 
-			         echo'<div style="margin-top:0%" id="error" class="alert alert-danger alert-dismissable fade in ">
+			         echo'<div  id="error" class="alert alert-danger alert-dismissable fade in ">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
 
                 }
                 
                 if($formValid == true){
 
-			         echo'<div style="margin-top:15%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$Userlog.'</div>';
+			         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$Userlog.'</div>';
 
                 }
                 if($deco == true){
@@ -54,6 +47,26 @@
 
 
 	       ?>
+                        <div class="row">
+
+                            <div class="col-md-12 text-center">
+
+
+                                <h3 class="light white">Groom Atlantic</h3>
+                                <h1 class="white typed">blablazzzzzzzzzzz</h1>
+                                <span class="typed-cursor">|</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php $this->stop('header') ?>
+
+
+<?php $this->start('main_content') ?>
+
+
+
 
 
     

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 03 Juillet 2017 à 10:39
+-- Généré le :  Lun 03 Juillet 2017 à 13:55
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  7.1.1
 
@@ -95,6 +95,7 @@ INSERT INTO `groom_services` (`id`, `skills`) VALUES
 
 CREATE TABLE `rentals` (
   `id` int(100) NOT NULL,
+  `id_type` int(11) NOT NULL,
   `in_area` int(11) NOT NULL,
   `in_area_cb` tinyint(1) NOT NULL,
   `out_area` int(11) NOT NULL,
@@ -123,6 +124,26 @@ CREATE TABLE `services_infos` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `types`
+--
+
+CREATE TABLE `types` (
+  `id` int(11) NOT NULL,
+  `type` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `types`
+--
+
+INSERT INTO `types` (`id`, `type`) VALUES
+(1, 'Maison'),
+(2, 'Appartement'),
+(3, 'Mobil-home');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -136,7 +157,8 @@ CREATE TABLE `users` (
   `address` varchar(100) NOT NULL,
   `postcode` varchar(50) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `photo` varchar(250) NOT NULL
+  `photo` varchar(250) NOT NULL,
+  `date_creation` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
@@ -180,6 +202,12 @@ ALTER TABLE `services_infos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -219,6 +247,11 @@ ALTER TABLE `rentals`
 --
 ALTER TABLE `services_infos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `types`
+--
+ALTER TABLE `types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `users`
 --

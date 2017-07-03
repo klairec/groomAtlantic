@@ -17,3 +17,11 @@
 </section>
 
 
+<?php foreach($groomservice as $gskills): ?>
+    <ul>
+        <li><?=$gskills['id']; ?></li>
+        <li><?=$gskills['skills']; ?></li>
+    </ul>
+    <?php endforeach; ?>
+    
+   <?php $this->stop('main_content') ?>

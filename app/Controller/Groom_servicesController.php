@@ -3,15 +3,16 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+use \Model\Groom_ServicesModel;
 
 class Groom_servicesController extends Controller
 {
-    public function showServices(){
+    public function showService(){
         $GroomServModel = new Groom_servicesModel();
-        $groomservices = $GroomServModel->findGroom_servicesWithId();
+        $groomservice = $GroomServModel->findGroom_servicesWithId();
 
         $params = [
-            'groomskills' => $groomservices,
+            'groomservice' => $groomservice,
         ];
 
 

@@ -396,7 +396,7 @@
 					<button type="submit" class="btn btn-submit">Submit</button>
                  
 				</form>
-                <button type="button" class="btn btn-submit" ><a href="users/add_role">Pas encore inscrit ?</a></button>
+                <button style="background:white"type="button" class="btn btn-link" ><a href="users/add_role">Pas encore inscrit ?</a></button>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->

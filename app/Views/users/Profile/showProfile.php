@@ -3,40 +3,24 @@
 
 <?php $this->start('main_content') ?>
 
-<p>Bonjour, <?= $_SESSION['firstname'] ?></p>
+<p>Bonjour, <?= $w_user['firstname'] ?></p>
 
-
-<?php
-
-    if(isset($_SESSION)){
-
-        if(isset($error)){
-            echo '<p style="color:red;">'.$error.'</p>';
-        }
-        else {              
-            print_r($_SESSION);
-?>
 <section class="myProfile">
     <h3>Mon profil</h3>
 
-    <p>Nom : <?= $_SESSION['lastname'] ?></p>
-    <p>Prénom : <?= $_SESSION['firstname'] ?></p>
-    <p>Email : <?= $_SESSION['email'] ?></p>
-    <p>Téléphone : <?= $_SESSION['phone'] ?></p>
-    <p>Adresse : <?= $_SESSION['address'] ?></p>
-    <p>Code postal : <?= $_SESSION['postcode'] ?></p>
-    <p>Ville : <?= $_SESSION['city'] ?></p>
-    <p>Date d'inscription : <?= $_SESSION['date_creation'] ?></p>
+    <p>Nom : <?= $w_user['lastname'] ?></p>
+    <p>Prénom : <?= $w_user['firstname'] ?></p>
+    <p>Email : <?= $w_user['email'] ?></p>
+    <p>Téléphone : <?= $w_user['phone'] ?></p>
+    <p>Adresse : <?= $w_user['address'] ?></p>
+    <p>Code postal : <?= $w_user['postcode'] ?></p>
+    <p>Ville : <?= $w_user['city'] ?></p>
+    <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
     
     <a href="">Modifier mon profil</a>
     <a href="">Modifier mon mot de passe</a>
     <a href="">Désinscription</a>
 </section>
-<?php
-             }
-    }
-?>
-
 
 
 <section class="servicesInfos">

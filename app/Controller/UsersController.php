@@ -83,7 +83,7 @@ class UsersController extends Controller
 /******************CONNEXION*********************/
     
     
-    public function connect(){
+    public function login(){
 
         $post = [];
         $errors = [];
@@ -287,17 +287,11 @@ class UsersController extends Controller
     
     public function showProfile()
     {
-        $authModel = new \W\Security\AuthentificationModel;
-        $Userlog = $authModel->getLoggedUser();
-        $usersModel = new UsersModel();
-        $truc = $usersModel->find($Userlog);
-        $authModel->logUserIn($truc);
-        
-        $params = [
-            'truc' => $truc,
-        ];
-       
-        $this->show('users/Profile/showProfile', $params);
+        $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
+
+        $this->show('users/Profile/showProfile');
     }
     
     

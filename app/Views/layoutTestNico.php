@@ -61,11 +61,7 @@
 					<?php } else{ ?> 
 						<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
 					<?php } ?>
-					<li><a href="#intro">Qui Sommes Nous?</a></li>
-					<li><a href="#services">Devenir Concierge</a></li>
-					<li><a href="#team">Infos Pratiques</a></li>
-					<!--<li><a href="#pricing">Pricing</a></li>-->
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Se Connecter</a></li>
+					
 
 				</ul>
 			</div>

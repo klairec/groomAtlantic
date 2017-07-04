@@ -326,6 +326,7 @@ section {
 }
 
 .intro-table-hover h4 {
+	
 	-webkit-transform: translateY(170px);
 	transform: translateY(170px);
 	-webkit-transition: -webkit-transform 0.3s;

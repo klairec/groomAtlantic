@@ -59,6 +59,7 @@
                     </div>
                 </div>
             </div>
+    
 <?php $this->stop('header') ?>
 
 <?php $this->start('main_content') ?>
@@ -69,34 +70,6 @@
 				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
 						<h5 class="white heading">Today's Schedule</h5>
-						<div class="owl-carousel owl-schedule bottom">
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -136,8 +109,7 @@
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
-				<h2>Services</h2>
-				<h4 class="light muted">Achieve the best results with our wide variety of training options!</h4>
+				<h2>Découvrez nos Grooms Atlantic</h2>
 			</div>
 			<div class="row services">
 				<div class="col-md-3">
@@ -180,6 +152,7 @@
 		</div>
 		<div class="cut cut-bottom"></div>
 	</section>
+	<!--
 	<section id="team" class="section gray-bg">
 		<div class="container">
 			<div class="row title text-center">
@@ -238,6 +211,7 @@
 			</div>
 		</div>
 	</section>
+	-->
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">

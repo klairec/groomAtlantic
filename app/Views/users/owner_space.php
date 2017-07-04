@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Espace Propriétaire']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Espace Propriétaire']) ?>
 
 <?php $this->start('main_content') ?>
 

@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?= $this->e($title) ?></title>
-    <meta name="description" content="Cardio is a free one page template made exclusively for Codrops by Luka Cvetinovic" />
-	<meta name="keywords" content="html template, css, free, one page, gym, fitness, web design" />
-	<meta name="author" content="Luka Cvetinovic for Codrops" />
+    <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de beins saisonners et de concierges" />
+	<meta name="keywords" content="location, saisonniere, concierge, femme de menage, contact" />
+	
      <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
       <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-60x60.png') ?>">
      <link rel="icon" sizes="32x32" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-32x32.png') ?>">
@@ -46,17 +46,23 @@
 				</button>
 
 				<a class="navbar-brand" href="<?= $this->url('default_home') ?>">.
-					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="">
+					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
 				</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="#intro">Qui Sommes Nous?</a></li>
-					<li><a href="#services">Devenir Concierge</a></li>
-					<li><a href="#team">Infos Pratiques</a></li>
-					<!--<li><a href="#pricing">Pricing</a></li>-->
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Se Connecter</a></li>
+					<li><a href="#intro">Intro</a></li>
+					<li><a href="#services">Services</a></li>
+					<li><a href="#team">Team</a></li>
+					<li><a href="#pricing">Pricing</a></li>
+					<?php if(!empty($w_user)){ ?> 
+						<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
+					<?php } else{ ?> 
+						<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
+					<?php } ?>
+					
+
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -65,25 +71,62 @@
 		<!-- /.container-fluid -->
         
 	</nav>
-   <section>
+
+	<section>
     </section>
     
-      
-         <section>
-        <?=$this->section('errors'); ?>
-        </section>
+    <section>
+	    <?=$this->section('errors'); ?>
+    </section>
         
-      
-        <header id="intro">
-           
-            <?=$this->section('header'); ?>
-		
-        </header>
+  
+    <header id="intro">
+	    <?=$this->section('header'); ?>
+    </header>
    
 	<section>
-          
 			<?= $this->section('main_content') ?>
     </section>
+
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Connexion</h3>
+                
+				<form method="post" class="popup-form">
+					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
+					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
+					
+                    <!-- USELESS MAIS PEUT SERVUR PLUS TARD 
+                    <div class="dropdown">
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Pricing Plan
+						</button>
+                        
+						<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
+							<li class="animated lightSpeedIn"><a href="#">1 month membership ($150)</a></li>
+							<li class="animated lightSpeedIn"><a href="#">3 month membership ($350)</a></li>
+							<li class="animated lightSpeedIn"><a href="#">1 year membership ($1000)</a></li>
+							<li class="animated lightSpeedIn"><a href="#">Free trial class</a></li>
+						</ul>
+
+					</div>
+                      
+					<div class="checkbox-holder text-left">
+						<div class="checkbox">
+					5		<input type="checkbox" value="None" id="squaredOne" name="check" />
+							<label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+						</div>
+					</div>
+                        -->
+					<button type="submit" class="btn btn-submit">Submit</button>
+                 
+				</form>
+                <button style="background:white"type="button" class="btn btn-link" ><a href="users/add_role">Pas encore inscrit ?</a></button>
+			</div>
+		</div>
+	</div><!--FIN DE LA FENETRE MODALE -->
 
 
 			<footer>
@@ -117,13 +160,13 @@
                 
 	</footer>
 
-    <script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/owl.carousel.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/wow.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/main.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/owl.carousel.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/wow.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
   
 </body>

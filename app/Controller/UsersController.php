@@ -48,18 +48,16 @@ class UsersController extends Controller
                     $authModel->logUserIn($infoUser);
 
                     if(!empty($authModel->getLoggedUser())){
-                    // Ici la session est complétée avec les infos du membre (hors mdp)
-                    $formValid = true;
+                        // Ici la session est complétée avec les infos du membre (hors mdp)
+                           $formValid = true;
                     }
-
                     
                 }
-
-                else {
-                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
-                }
-
+            }   
+            else {
+                $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
             }
+
         }
         if (isset($_GET['deco'])){
             if ($_GET['deco']="1"){
@@ -67,9 +65,10 @@ class UsersController extends Controller
                 $authModel = new \W\Security\AuthentificationModel;
                 $authModel->logUserOut();
                 $deco=true;
+                
+
             }
         }
-
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
@@ -78,7 +77,6 @@ class UsersController extends Controller
         ];
         $this->show('default/home', $params);
     }
-    
 
 /******************CONNEXION*********************/
     
@@ -121,15 +119,11 @@ class UsersController extends Controller
                     // Ici la session est complétée avec les infos du membre (hors mdp)
                     $this->flash('Vous êtes desormais connecté', 'success');
                     $this->redirectToRoute('default_home');
-                    }
-
-                    
+                    } 
                 }
-
                 else {
                     $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
                 }
-
             }
         }
         if (isset($_GET['deco'])){
@@ -184,8 +178,8 @@ class UsersController extends Controller
                 $data = [
                     'firstname' => $post['firstname'], 
                     'lastname' => $post['lastname'],
-                    'email'	 => $post['email'],
-                    'role' => 'groom',						
+                    'email'  => $post['email'],
+                    'role' => 'groom',                      
                     'password' => $authModel->hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
@@ -202,9 +196,6 @@ class UsersController extends Controller
                     $formValid = true;
                     $this->flash('Vous êtes desormais inscrit', 'success');
                     $this->redirectToRoute('default_home');
-
-
-
                 }
             }
         }
@@ -249,9 +240,9 @@ class UsersController extends Controller
                 $data = [
                     'firstname' => $post['firstname'], 
                     'lastname' => $post['lastname'],
-                    'email'	 => $post['email'],
+                    'email'  => $post['email'],
                     'role' => 'owner',
-                    'password' => $authModel-ggg>hashPassword($post['password']),
+                    'password' => $authModel->hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
                     'city' => $post['city'],
@@ -269,11 +260,8 @@ class UsersController extends Controller
 
                     $this->flash('Vous êtes desormais inscrit', 'success');
                     $this->redirectToRoute('add_groom');
-
-
                 }
             }
-
         }
         $params = [
             'formValid' => $formValid,
@@ -285,16 +273,28 @@ class UsersController extends Controller
     
 /******************VOIR PROFIL GROOM********************/
     
-    public function showProfile()
+    public function showGroom()
     {
         $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
 
-        $this->show('users/Profile/showProfile');
+        $this->show('users/groomProfile/showGroom');
     }
     
     
+    
+     
+/******************VOIR PROFIL PROPRIETAIRE********************/
+    
+    public function showOwner()
+    {
+        $this->allowTo(['owner']); // limite par défaut à l'utilisateur ayant pour role "owner"
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
+
+        $this->show('users/ownerProfile/owner_space');
+    }
     
      
 /******************AJOUTER ROLE*********************/
@@ -302,7 +302,7 @@ class UsersController extends Controller
 
     public function addRole(){
 
-        $this->show('users/addRole');
+        $this->show('users/add_role');
 
     }
 

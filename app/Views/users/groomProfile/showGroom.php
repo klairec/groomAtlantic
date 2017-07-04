@@ -1,5 +1,5 @@
-<?php $this->layout('layout', ['title' => 'Mon profil']) ?>
-<?php session_start(); ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
+
 
 <?php $this->start('main_content') ?>
 
@@ -7,6 +7,10 @@
 
 <section class="myProfile">
     <h3>Mon profil</h3>
+    
+    <figure>
+        <img src="<?= $w_user['photo'] ?>">
+    </figure>
 
     <p>Nom : <?= $w_user['lastname'] ?></p>
     <p>Prénom : <?= $w_user['firstname'] ?></p>

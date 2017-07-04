@@ -269,11 +269,8 @@ class UsersController extends Controller
 
                     $this->flash('Vous êtes desormais inscrit', 'success');
                     $this->redirectToRoute('add_groom');
-
-
                 }
             }
-
         }
         $params = [
             'formValid' => $formValid,
@@ -285,22 +282,22 @@ class UsersController extends Controller
     
 /******************VOIR PROFIL GROOM********************/
     
-    public function showProfile()
+    public function showGroom()
     {
         $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
 
-        $this->show('users/Profile/showProfile');
+        $this->show('users/groomProfile/showGroom');
     }
     
     
     
 /******************VOIR PROFIL PROPRIETAIRE********************/
     
-    public function showProfile()
+    public function showOwner()
     {
-        $this->allowTo(['owner']); // limite par défaut à l'utilisateur ayant pour role "groom"
+        $this->allowTo(['owner']); // limite par défaut à l'utilisateur ayant pour role "owner"
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
 
@@ -313,7 +310,7 @@ class UsersController extends Controller
 
     public function addRole(){
 
-        $this->show('users/addRole');
+        $this->show('users/add_role');
 
     }
 

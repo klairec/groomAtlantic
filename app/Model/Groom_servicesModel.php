@@ -4,15 +4,17 @@ namespace Model;
 
 class Groom_servicesModel extends \W\Model\Model
 {
-	public function findGroom_servicesWithId(){
-		// Selectionne tous les champs de la table Groom_services et l'ID du connecté
-		$sql = 'SELECT g.*, u.id FROM '.$this->table.' AS g INNER JOIN users AS u ON g.id_groom = u.id';
+	public function showGroom_services(){
 
-		$select = $this->dbh->prepare($sql);
-		if($select->execute()){
-			return $select->fetchAll(); // Renvoie les résultats
-		}
+		$groom_servicesModel = new Groom_servicesModel();
+		$gservice = $groom_servicesModel->find();
 
-		return false;
+		var_dump($gservice);
+        
+		// return
+
 	}
 }
+
+
+

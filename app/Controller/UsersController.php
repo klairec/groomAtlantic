@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
+use \W\Security\AuthentificationModel;
 
 
 class UsersController extends Controller
@@ -250,7 +251,7 @@ class UsersController extends Controller
                     'lastname' => $post['lastname'],
                     'email'	 => $post['email'],
                     'role' => 'owner',
-                    'password' => $authModel->hashPassword($post['password']),
+                    'password' => $authModel-ggg>hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
                     'city' => $post['city'],
@@ -261,7 +262,7 @@ class UsersController extends Controller
                 $usersModel = new UsersModel();
 
                 $insert = $usersModel->insert($data);
-                //retourne false si une erreur survient ou les nouvelles donnes inseres sous forme de array
+                //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
 
                 if(!empty($insert)){
                     $formValid = true;
@@ -281,6 +282,26 @@ class UsersController extends Controller
         $this->show('users/add_owner', $params);
     }
 
+    
+/******************VOIR GROOM********************/
+    
+    public function showProfile()
+    {
+        $authModel = new \W\Security\AuthentificationModel;
+        $Userlog = $authModel->getLoggedUser();
+        $usersModel = new UsersModel();
+        $truc = $usersModel->find($Userlog);
+        $authModel->logUserIn($truc);
+        
+        $params = [
+            'truc' => $truc,
+        ];
+       
+        $this->show('users/Profile/showProfile', $params);
+    }
+    
+    
+    
      
 /******************AJOUTER ROLE*********************/
     

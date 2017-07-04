@@ -37,23 +37,8 @@
                                 <h1 class="white typed">Bienvenue</h1>
                                 <span class="typed-cursor">|</span>
                             </div>
-                        </div>
-                        <div class="row">
-							<div class="col-md-12 text-center">
-							<h2>Je recherche un concierge.</h2>
-								<form class="navbar-form navbar-center" role="search">
-  									<div class="form-group">
-    									<input type="text" class="form-control" placeholder="Search" size=25>
-  									</div>
- 									<button type="submit" class="btn btn-default">Submit</button>
-								</form>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12 text center">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.982724041397!2d-0.5848211840206283!3d44.842285179098624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527e77e69473b%3A0x3d8cf4889f76db18!2s66+Rue+Abb%C3%A9+de+l&#39;%C3%89p%C3%A9e%2C+33000+Bordeaux!5e0!3m2!1sfr!2sfr!4v1499088159853" width="600" height="450" frameborder="50" style="border:5" allowfullscreen></iframe>
-							</div>
-						</div>
+                        </div>				
+						
                     </div>
                 </div>
             </div>
@@ -258,8 +243,6 @@
 		</div>
 	</section>
 	
-	
-
 <?php $this->stop('main_content') ?>
 
 <!--FENETRE MODALE QUI S AFFICHE QUAND ON CLIQUE SUR CONNEXION -->

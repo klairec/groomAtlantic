@@ -1,4 +1,4 @@
-<?php $this->layout('layout', [
+<?php $this->layout('layoutTestNico', [
 	'title' => 'Page d\'accueil de Groom Atlantic ',
 	'description' => '',
 ]); ?>

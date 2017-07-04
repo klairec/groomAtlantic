@@ -40,6 +40,7 @@ class RentalsController extends Controller
 				$errors[] = 'Le code postal doit contenir 5 chiffres';
 			}
 
+
 			if(!v::notEmpty()->stringType()->length(3, 30)->validate($post['city'])){
 				$errors[] = 'La ville doit comporter entre 3 et 30 caractères';
 			}
@@ -77,13 +78,20 @@ class RentalsController extends Controller
 					$this->redirectToRoute('rentals_show'); // Redirige vers la route donnée
 				}
 			}
+
 			else {
 				$errorsText = implode('<br>', $errors);
 				$this->flash($errorsText, 'danger');
 
 			}
 		}
+	}
+
+	public function showRentals(){
+
+		$rentalsModel = new RentalsModel();
+		$rentals = $rentalsModel->findRentalsWithId();
 
 		$this->show('users/ownerProfile/addRental');
 	}
-}
+

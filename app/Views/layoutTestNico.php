@@ -52,37 +52,21 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-<<<<<<< HEAD
-<<<<<<< HEAD
 					<li><a href="#intro">Intro</a></li>
 					<li><a href="#services">Services</a></li>
 					<li><a href="#team">Team</a></li>
 					<li><a href="#pricing">Pricing</a></li>
-					<?php 
-
-						if(!empty($_SESSION['user'])){
-
-						?> <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
-						<?php						
-						}
-
-						else{
-							?> <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> <?php
-						}		
-
-						?>
-=======
-=======
->>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
+					<?php if(!empty($w_user)){ ?> 
+						<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
+					<?php } else{ ?> 
+						<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
+					<?php } ?>
 					<li><a href="#intro">Qui Sommes Nous?</a></li>
 					<li><a href="#services">Devenir Concierge</a></li>
 					<li><a href="#team">Infos Pratiques</a></li>
 					<!--<li><a href="#pricing">Pricing</a></li>-->
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Se Connecter</a></li>
-<<<<<<< HEAD
->>>>>>> 1389ec62098b50e4876f000c6f94b9270806b01f
-=======
->>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
+
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -91,23 +75,20 @@
 		<!-- /.container-fluid -->
         
 	</nav>
-   <section>
+
+	<section>
     </section>
     
-      
-         <section>
-        <?=$this->section('errors'); ?>
-        </section>
+    <section>
+	    <?=$this->section('errors'); ?>
+    </section>
         
-      
-        <header id="intro">
-           
-            <?=$this->section('header'); ?>
-		
-        </header>
+  
+    <header id="intro">
+	    <?=$this->section('header'); ?>
+    </header>
    
 	<section>
-          
 			<?= $this->section('main_content') ?>
     </section>
 
@@ -183,13 +164,13 @@
                 
 	</footer>
 
-    <script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/owl.carousel.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/wow.min.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
-     <script src="<?= $this->assetUrl('js/main.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/owl.carousel.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/wow.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
   
 </body>

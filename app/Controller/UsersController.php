@@ -48,28 +48,17 @@ class UsersController extends Controller
                     $authModel->logUserIn($infoUser);
 
                     if(!empty($authModel->getLoggedUser())){
-                    // Ici la session est complétée avec les infos du membre (hors mdp)
-                    $formValid = true;
-<<<<<<< HEAD
-
+                        // Ici la session est complétée avec les infos du membre (hors mdp)
+                           $formValid = true;
                     }
-
                     
                 }
-
-                
-
-
-                    }   
-                
-                else {
-                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
-=======
-                    } 
->>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
-                }
+            }   
+            else {
+                $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
             }
-        }    
+
+        }
         if (isset($_GET['deco'])){
             if ($_GET['deco']="1"){
 
@@ -85,7 +74,6 @@ class UsersController extends Controller
             'deco' => $deco,
         ];
         $this->show('default/home', $params);
-    }
     }
 
 /******************CONNEXION*********************/
@@ -188,8 +176,8 @@ class UsersController extends Controller
                 $data = [
                     'firstname' => $post['firstname'], 
                     'lastname' => $post['lastname'],
-                    'email'	 => $post['email'],
-                    'role' => 'groom',						
+                    'email'  => $post['email'],
+                    'role' => 'groom',                      
                     'password' => $authModel->hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
@@ -250,9 +238,9 @@ class UsersController extends Controller
                 $data = [
                     'firstname' => $post['firstname'], 
                     'lastname' => $post['lastname'],
-                    'email'	 => $post['email'],
+                    'email'  => $post['email'],
                     'role' => 'owner',
-                    'password' => $authModel-ggg>hashPassword($post['password']),
+                    'password' => $authModel->hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
                     'city' => $post['city'],

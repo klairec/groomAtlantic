@@ -14,7 +14,7 @@ class UsersController extends Controller
 /**************PAGE D'ACCCUEIL PAR DEFAUT*************************/
     
     
-    public function login(){
+    public function home(){
         $post = [];
         $errors = [];
         $formValid = false;

@@ -17,7 +17,6 @@
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
 
                 }
-
                 
                 if($formValid == true){
                 		
@@ -38,7 +37,6 @@
                                 <span class="typed-cursor">|</span>
                             </div>
                         </div>				
-						
                     </div>
                 </div>
             </div>

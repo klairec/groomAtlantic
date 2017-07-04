@@ -290,7 +290,7 @@ class UsersController extends Controller
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
 
-        $this->show('users/ownerProfile/showProfile');
+        $this->show('users/ownerProfile/owner_space');
     }
     
      

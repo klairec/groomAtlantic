@@ -32,8 +32,12 @@ $w_routes = array(
 	['GET|POST', 'users/ownerProfile/addRental', 'Rentals#addRental', 'rentals_add'],
 	['GET|POST', 'users/ownerProfile/changeRental', 'Rentals#changeRental', 'rentals_change'],
 	['GET|POST', 'users/ownerProfile/deleteRental', 'Rentals#deleteRental', 'rentals_delete'],
+    
+    ['GET|POST', '/users/ownerProfile/owner_space', 'Users#showOwner', 'owner_space'],
 
 
     ['GET|POST', 'users/Profile/addService', 'Groom#addService', 'groom_addservice'],
     ['GET|POST', '/users/Profile/showService', 'Groom_services#showService', 'groom_services_showService'],
 );
+
+

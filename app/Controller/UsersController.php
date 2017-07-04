@@ -64,8 +64,9 @@ class UsersController extends Controller
 
                 $authModel = new \W\Security\AuthentificationModel;
                 $authModel->logUserOut();
-                $deco=true;
-                
+                $deco==true;
+                /*$this->redirectToRoute('default_home');*/
+
 
             }
         }

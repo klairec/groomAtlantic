@@ -258,49 +258,8 @@
 		</div>
 	</section>
 	
-	  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content modal-popup">
-				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<h3 class="white">Connexion</h3>
-                
-				<form method="post" class="popup-form">
-					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
-					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
-					
-                    <!-- USELESS MAIS PEUT SERVUR PLUS TARD 
-                    <div class="dropdown">
-						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Pricing Plan
-						</button>
-                        
-						<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
-							<li class="animated lightSpeedIn"><a href="#">1 month membership ($150)</a></li>
-							<li class="animated lightSpeedIn"><a href="#">3 month membership ($350)</a></li>
-							<li class="animated lightSpeedIn"><a href="#">1 year membership ($1000)</a></li>
-							<li class="animated lightSpeedIn"><a href="#">Free trial class</a></li>
-						</ul>
+	
 
-					</div>
-                      
-					<div class="checkbox-holder text-left">
-						<div class="checkbox">
-					5		<input type="checkbox" value="None" id="squaredOne" name="check" />
-							<label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
-						</div>
-					</div>
-                        -->
-					<button type="submit" class="btn btn-submit">Submit</button>
-                 
-				</form>
-                <button style="background:white"type="button" class="btn btn-link" ><a href="users/add_role">Pas encore inscrit ?</a></button>
-			</div>
-		</div>
-	</div><!--FIN DE LA FENETRE MODALE -->
-<<<<<<< HEAD
->>>>>>> 1389ec62098b50e4876f000c6f94b9270806b01f
-=======
->>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
 <?php $this->stop('main_content') ?>
 
 <!--FENETRE MODALE QUI S AFFICHE QUAND ON CLIQUE SUR CONNEXION -->

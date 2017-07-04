@@ -65,6 +65,8 @@ class UsersController extends Controller
                 $authModel = new \W\Security\AuthentificationModel;
                 $authModel->logUserOut();
                 $deco=true;
+                
+
             }
         }
         $params = [

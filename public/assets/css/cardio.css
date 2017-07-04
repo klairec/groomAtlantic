@@ -192,6 +192,40 @@ nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
 }
 /* Buttons */
 
+/* BOUTON 'PAS ENCORE INSCRIT ?' */
+#subscribe{    
+    font-size: 1em;
+    background:transparent;
+    width: 90%; 
+}
+#subscribe:hover {   
+    text-decoration: none;
+    color: #00a8ff;
+    background:white;    
+}
+#subscribe:hover a {   
+    text-decoration: none;
+    color: #00a8ff;
+       
+}
+
+/* BOUTON CHOIX INSCRIPTION OWNER / USER */
+.btn-link{
+    font-size: 2em;
+    background:rgba(240, 100, 103, 0.8);
+    width: 40%;
+
+}
+
+.btn-link:hover{
+    text-decoration: none;
+    background-color: rgba(240, 100, 103, 1);
+
+    
+    
+}
+/******/
+
 .btn {
 	font-size: 18px;
 	display: inline-block;
@@ -1054,13 +1088,6 @@ footer .social-footer li:hover a {
 		padding: 30px 0;
 	}
 }
-/* BOUTON 'PAS ENCORE INSCRIT ?' */
-#subscribe{    
-    font-size: 1em;
-    background:transparent;
-    width: 90%; 
-}
-
 
 
 

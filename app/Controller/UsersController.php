@@ -283,7 +283,7 @@ class UsersController extends Controller
     }
 
     
-/******************VOIR GROOM********************/
+/******************VOIR PROFIL GROOM********************/
     
     public function showProfile()
     {
@@ -300,9 +300,9 @@ class UsersController extends Controller
 /******************AJOUTER ROLE*********************/
     
 
-    public function add_role(){
+    public function addRole(){
 
-        $this->show('users/add_role');
+        $this->show('users/addRole');
 
     }
 

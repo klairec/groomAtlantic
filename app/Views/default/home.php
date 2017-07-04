@@ -44,7 +44,7 @@
 							<h2>Je recherche un concierge.</h2>
 								<form class="navbar-form navbar-center" role="search">
   									<div class="form-group">
-    									<input type="text" class="form-control" placeholder="Search">
+    									<input type="text" class="form-control" placeholder="Search" size=25>
   									</div>
  									<button type="submit" class="btn btn-default">Submit</button>
 								</form>
@@ -95,58 +95,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -156,7 +104,6 @@
 						<div class="bottom">
 							<h4 class="white heading small-heading no-margin regular">Register Today</h4>
 							<h4 class="white heading small-pt">20% Discount</h4>
-							<a href="#" class="btn btn-white-fill expand">Register</a>
 						</div>
 					</div>
 				</div>
@@ -293,8 +240,8 @@
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">
-				<h2 class="margin-top white">Pricing</h2>
-				<h4 class="light white">Choose your favorite pricing plan and sign up today!</h4>
+				<h2 class="margin-top white">Optimisation des revenus</h2>
+				<h4 class="light white">Pour toutes vos locations saisonnières !!</h4>
 			</div>
 			<div class="row no-margin">
 				<div class="col-md-7 no-padding col-md-offset-5 pricings text-center">

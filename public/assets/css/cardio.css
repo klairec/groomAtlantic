@@ -322,12 +322,7 @@ section {
 
 .intro-table-first {
 	background-color: #7cadf0;
-}
-
-.intro-table-hover {
-	-webkit-transition: background-image 0.3s ease, background-position 0.3s;
-	transition: background-image 0.3s ease, background-position 0.3s;
-	background-image: url('../img/table-2.jpg');
+	color: white;
 }
 
 .intro-table-hover h4 {
@@ -344,6 +339,10 @@ section {
 
 .intro-table-third {
 	background-color: #868588;
+}
+
+.intro-table-four {
+	background-color: #7cadf0;
 }
 
 .intro-table-hover .expand {
@@ -549,7 +548,7 @@ section {
 /* Pricing */
 
 #pricing {
-	background: #00a8ff url('../img/pricing1.jpg') no-repeat center center;
+	background: url(../img/pricing1.jpg) no-repeat center center;
 	-webkit-background-size: cover;
 	background-size: cover;
 	-webkit-transition: background-image 0.6s linear 0.3s;
@@ -1110,8 +1109,3 @@ footer .social-footer li:hover a {
 		padding-top: 0;
 	}
 }
-
-
-
-
-

@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
+use \W\Security\AuthentificationModel;
 
 
 class UsersController extends Controller
@@ -40,11 +41,24 @@ class UsersController extends Controller
                 $connectMatch = $authModel->isValidLoginInfo($post['email'], $post['password']);
 
                 if($connectMatch != 0){
-                    $formValid = true;		
 
-                    $authModel->logUserIn($connectMatch);
-                    $Userlog = $authModel->getLoggedUser();
+                    $usersModel = new UsersModel();
+                    $infoUser = $usersModel->find($connectMatch);                 
+
+                    $authModel->logUserIn($infoUser);
+
+                    if(!empty($authModel->getLoggedUser())){
+                    // Ici la session est complétée avec les infos du membre (hors mdp)
+                    $formValid = true;
+                    }
+
+                    
                 }
+
+                else {
+                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
+                }
+
             }
         }
         if (isset($_GET['deco'])){
@@ -59,8 +73,7 @@ class UsersController extends Controller
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
-            'mail' => isset($post['email']),
-            'Userlog' => $Userlog,
+            'mail' => isset($post['email']),            
             'deco' => $deco,
         ];
         $this->show('default/home', $params);
@@ -98,14 +111,27 @@ class UsersController extends Controller
                 $connectMatch = $authModel->isValidLoginInfo($post['email'], $post['password']);
 
                 if($connectMatch != 0){
-                    $formValid = true;		
 
-                    $authModel->logUserIn($connectMatch);
-                    $Userlog = $authModel->getLoggedUser();
+                    $usersModel = new UsersModel();
+                    $infoUser = $usersModel->find($connectMatch);                 
+
+                    $authModel->logUserIn($infoUser);
+
+                    if(!empty($authModel->getLoggedUser())){
+                    // Ici la session est complétée avec les infos du membre (hors mdp)
+                    $this->flash('Vous êtes desormais connecté', 'success');
+                    $this->redirectToRoute('default_home');
+                    }
+
+                    
                 }
+
+                else {
+                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
+                }
+
             }
         }
-        
         if (isset($_GET['deco'])){
             if ($_GET['deco']="1"){
 
@@ -118,8 +144,7 @@ class UsersController extends Controller
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
-            'mail' => isset($post['email']),
-            'Userlog' => $Userlog,
+            'mail' => isset($post['email']),            
             'deco' => $deco,
         ];
         $this->show('users/connect', $params);
@@ -175,6 +200,11 @@ class UsersController extends Controller
 
                 if(!empty($insert)){
                     $formValid = true;
+                    $this->flash('Vous êtes desormais inscrit', 'success');
+                    $this->redirectToRoute('default_home');
+
+
+
                 }
             }
         }
@@ -221,7 +251,7 @@ class UsersController extends Controller
                     'lastname' => $post['lastname'],
                     'email'	 => $post['email'],
                     'role' => 'owner',
-                    'password' => $authModel->hashPassword($post['password']),
+                    'password' => $authModel-ggg>hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
                     'city' => $post['city'],
@@ -232,10 +262,14 @@ class UsersController extends Controller
                 $usersModel = new UsersModel();
 
                 $insert = $usersModel->insert($data);
-                //retourne false si une erreur survient ou les nouvelles donnes inseres sous forme de array
+                //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
 
                 if(!empty($insert)){
                     $formValid = true;
+
+                    $this->flash('Vous êtes desormais inscrit', 'success');
+                    $this->redirectToRoute('add_groom');
+
 
                 }
             }
@@ -248,6 +282,26 @@ class UsersController extends Controller
         $this->show('users/add_owner', $params);
     }
 
+    
+/******************VOIR GROOM********************/
+    
+    public function showProfile()
+    {
+        $authModel = new \W\Security\AuthentificationModel;
+        $Userlog = $authModel->getLoggedUser();
+        $usersModel = new UsersModel();
+        $truc = $usersModel->find($Userlog);
+        $authModel->logUserIn($truc);
+        
+        $params = [
+            'truc' => $truc,
+        ];
+       
+        $this->show('users/Profile/showProfile', $params);
+    }
+    
+    
+    
      
 /******************AJOUTER ROLE*********************/
     

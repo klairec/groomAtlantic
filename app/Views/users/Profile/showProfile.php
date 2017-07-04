@@ -3,29 +3,30 @@
 
 <?php $this->start('main_content') ?>
 
-<p>Bonjour, <?= $users['firstname'] ?></p>
+<p>Bonjour, <?= $_SESSION['firstname'] ?></p>
 
 
 <?php
 
-    if(isset($_SESSION['email'], ['id'])){
+    if(isset($_SESSION)){
 
         if(isset($error)){
             echo '<p style="color:red;">'.$error.'</p>';
         }
-        else {                    
+        else {              
+            print_r($_SESSION);
 ?>
 <section class="myProfile">
     <h3>Mon profil</h3>
 
-    <p>Nom : <?= $users['lastname'] ?></p>
-    <p>Prénom : <?= $users['firstname'] ?></p>
-    <p>Email : <?= $users['email'] ?></p>
-    <p>Téléphone : <?= $users['phone'] ?></p>
-    <p>Adresse : <?= $users['address'] ?></p>
-    <p>Code postal : <?= $users['postcode'] ?></p>
-    <p>Ville : <?= $users['city'] ?></p>
-    <p>Date d'inscription : <?= $users['date_creation'] ?></p>
+    <p>Nom : <?= $_SESSION['lastname'] ?></p>
+    <p>Prénom : <?= $_SESSION['firstname'] ?></p>
+    <p>Email : <?= $_SESSION['email'] ?></p>
+    <p>Téléphone : <?= $_SESSION['phone'] ?></p>
+    <p>Adresse : <?= $_SESSION['address'] ?></p>
+    <p>Code postal : <?= $_SESSION['postcode'] ?></p>
+    <p>Ville : <?= $_SESSION['city'] ?></p>
+    <p>Date d'inscription : <?= $_SESSION['date_creation'] ?></p>
     
     <a href="">Modifier mon profil</a>
     <a href="">Modifier mon mot de passe</a>
@@ -53,7 +54,7 @@
 <section class="notifications">
     <h3>Notifications</h3>
     <?php
-    if{
+    
     ?>
     <div>
         <p><?= 'Vous avez été contacté par '.$users['firstname'] .' '. $users['lastname'].', pour la location suivante :'; ?></p>
@@ -64,10 +65,9 @@
         </form>
     </div>
     <?php
-    }
+   
 
-
-    if{
+    
     ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
@@ -77,23 +77,23 @@
         </form>
     </div>
     <?php
-    }
+    
 
-    if{
+    
     ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
     </div>
     <?php
-    }
+    
 
-    if{
+    
     ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
     </div>
     <?php 
-    }
+    
     ?>
 </section>
 

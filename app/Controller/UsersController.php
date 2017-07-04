@@ -14,7 +14,7 @@ class UsersController extends Controller
 /**************PAGE D'ACCCUEIL PAR DEFAUT*************************/
     
     
-    public function home(){
+    public function login(){
         $post = [];
         $errors = [];
         $formValid = false;
@@ -81,7 +81,7 @@ class UsersController extends Controller
 /******************CONNEXION*********************/
     
     
-    public function login(){
+   /* public function login(){
 
         $post = [];
         $errors = [];
@@ -145,7 +145,7 @@ class UsersController extends Controller
 
     }
  
-
+*/
 /******************AJOUTER CONCIERGE*********************/
     
     

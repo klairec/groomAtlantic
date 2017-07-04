@@ -1054,6 +1054,15 @@ footer .social-footer li:hover a {
 		padding: 30px 0;
 	}
 }
+/* BOUTON 'PAS ENCORE INSCRIT ?' */
+#subscribe{    
+    font-size: 1em;
+    background:transparent;
+    width: 90%; 
+}
+
+
+
 
 /* Media Queries */
 

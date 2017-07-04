@@ -5,7 +5,7 @@
 <?php $this->start('header') ?>
 
             <div class="container">
-                 
+                  <?php echo $deco; ?>
                 <div class="table">
 
                     <div class="header-text">
@@ -17,25 +17,23 @@
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
 
                 }
+
                 
                 if($formValid == true){
                 		
-			         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$_SESSION(['user'](['firstname'])).'</div>';
+			         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$w_user['firstname'].'</div>';
 
                 }
-                var_dump([$_SESSION]);
+                
                 if($deco == true){
 
 			     echo'<p>Vous êtes déconnecté</p>';		
 
                 }
 
-
-
 	       ?>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h3 class="light white">Groom Atlantic</h3>
                                 <h1 class="white typed">Bienvenue</h1>
                                 <span class="typed-cursor">|</span>
                             </div>
@@ -65,6 +63,7 @@
 <?php $this->start('main_content') ?>
     
     <section>
+    <div class="cut cut-top"></div>
 		<div class="container">
 			<div class="row intro-tables">
 				<div class="col-md-3">
@@ -258,10 +257,11 @@
 			</div>
 		</div>
 	</section>
+<<<<<<< HEAD
 
-<!--FENETRE MODALE QUI S AFFICHE QUAND ON CLIQUE SUR CONNEXION -->
 
-    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+=======
+	  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
@@ -300,9 +300,12 @@
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->
-
+>>>>>>> 1389ec62098b50e4876f000c6f94b9270806b01f
 <?php $this->stop('main_content') ?>
 
+<!--FENETRE MODALE QUI S AFFICHE QUAND ON CLIQUE SUR CONNEXION -->
 
+<?=$this->start('footer') ?>
+  
 
-
+<?=$this->stop('footer') ?>

@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img src="<?= $this->assetUrl('img/logo.png') ?>" data-active-url="<?= $this->assetUrl('img/logo-active.png') ?>" alt=""></a>
+				<a class="navbar-brand" href="#"><img src="<?= $this->assetUrl('img/logoDef.jpg') ?>" data-active-url="<?= $this->assetUrl('img/logo-active.png') ?>" alt=""></a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -2,26 +2,11 @@
 	'title' => 'Page d\'accueil de Groom Atlantic ', 'title2' => 'Groom Atlantic', 'title3' => 'Ami manouche bienvenue',
 ]); ?>
 
-
-
-
-
-
-
-
-
-
 <?php $this->start('header') ?>
 
-        
-
-
-
             <div class="container">
-
                  
                 <div class="table">
-                    
 
                     <div class="header-text">
                                   <?php 
@@ -48,33 +33,39 @@
 
 	       ?>
                         <div class="row">
-
                             <div class="col-md-12 text-center">
-
-
                                 <h3 class="light white">Groom Atlantic</h3>
-                                <h1 class="white typed">blablazzzzzzzzzzz</h1>
+                                <h1 class="white typed">Bienvenue</h1>
                                 <span class="typed-cursor">|</span>
                             </div>
                         </div>
+                        <div class="row">
+							<div class="col-md-12 text-center">
+							<h2>Je recherche un concierge.</h2>
+								<form class="navbar-form navbar-center" role="search">
+  									<div class="form-group">
+    									<input type="text" class="form-control" placeholder="Search" size=25>
+  									</div>
+ 									<button type="submit" class="btn btn-default">Submit</button>
+								</form>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text center">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.982724041397!2d-0.5848211840206283!3d44.842285179098624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527e77e69473b%3A0x3d8cf4889f76db18!2s66+Rue+Abb%C3%A9+de+l&#39;%C3%89p%C3%A9e%2C+33000+Bordeaux!5e0!3m2!1sfr!2sfr!4v1499088159853" width="600" height="450" frameborder="50" style="border:5" allowfullscreen></iframe>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
 <?php $this->stop('header') ?>
 
-
 <?php $this->start('main_content') ?>
-
-
-
-
-
     
     <section>
-		<div class="cut cut-top"></div>
 		<div class="container">
 			<div class="row intro-tables">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
 						<h5 class="white heading">Today's Schedule</h5>
 						<div class="owl-carousel owl-schedule bottom">
@@ -104,83 +95,33 @@
 									</div>
 								</div>
 							</div>
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
-							<div class="item">
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Early Exercise</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Muscle Building</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-								<div class="schedule-row row">
-									<div class="col-xs-6">
-										<h5 class="regular white">Cardio</h5>
-									</div>
-									<div class="col-xs-6 text-right">
-										<h5 class="white">8:30 - 10:00</h5>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="intro-table intro-table-hover">
 						<h5 class="white heading hide-hover">Premium Membership</h5>
 						<div class="bottom">
 							<h4 class="white heading small-heading no-margin regular">Register Today</h4>
 							<h4 class="white heading small-pt">20% Discount</h4>
-							<a href="#" class="btn btn-white-fill expand">Register</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="intro-table intro-table-third">
 						<h5 class="white heading">Happy Clients</h5>
 						<div class="owl-testimonials bottom">
 							<div class="item">
-								<h4 class="white heading content">I couldn't be more happy with the results!</h4>
-								<h5 class="white heading light author">Adam Jordan</h5>
+								<h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
+								<h5 class="white heading light author">Christina Goldman</h5>
 							</div>
-							<div class="item">
-								<h4 class="white heading content">I can't believe how much better I feel!</h4>
-								<h5 class="white heading light author">Greg Pardon</h5>
-							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="intro-table intro-table-four">
+						<h5 class="white heading">Happy Clients</h5>
+						<div class="owl-testimonials bottom">
 							<div class="item">
 								<h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
 								<h5 class="white heading light author">Christina Goldman</h5>
@@ -198,7 +139,7 @@
 				<h4 class="light muted">Achieve the best results with our wide variety of training options!</h4>
 			</div>
 			<div class="row services">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="service">
 						<div class="icon-holder">
 							<img src="img/icons/heart-blue.png" alt="" class="icon">
@@ -207,7 +148,7 @@
 						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="service">
 						<div class="icon-holder">
 							<img src="img/icons/guru-blue.png" alt="" class="icon">
@@ -216,12 +157,21 @@
 						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="service">
 						<div class="icon-holder">
 							<img src="img/icons/weight-blue.png" alt="" class="icon">
 						</div>
 						<h4 class="heading">Power Training</h4>
+						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/heart-blue.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Cardio Training</h4>
 						<p class="description">A elementum ligula lacus ac quam ultrices a scelerisque praesent vel suspendisse scelerisque a aenean hac montes.</p>
 					</div>
 				</div>
@@ -290,8 +240,8 @@
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">
-				<h2 class="margin-top white">Pricing</h2>
-				<h4 class="light white">Choose your favorite pricing plan and sign up today!</h4>
+				<h2 class="margin-top white">Optimisation des revenus</h2>
+				<h4 class="light white">Pour toutes vos locations saisonnières !!</h4>
 			</div>
 			<div class="row no-margin">
 				<div class="col-md-7 no-padding col-md-offset-5 pricings text-center">
@@ -333,32 +283,9 @@
 			</div>
 		</div>
 	</section>
-	<section class="section section-padded blue-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="owl-twitter owl-carousel">
-						<div class="item text-center">
-							<i class="icon fa fa-twitter"></i>
-							<h4 class="white light">To enjoy the glow of good health, you must exercise.</h4>
-							<h4 class="light-white light">#health #training #exercise</h4>
-						</div>
-						<div class="item text-center">
-							<i class="icon fa fa-twitter"></i>
-							<h4 class="white light">To enjoy the glow of good health, you must exercise.</h4>
-							<h4 class="light-white light">#health #training #exercise</h4>
-						</div>
-						<div class="item text-center">
-							<i class="icon fa fa-twitter"></i>
-							<h4 class="white light">To enjoy the glow of good health, you must exercise.</h4>
-							<h4 class="light-white light">#health #training #exercise</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+
 <!--FENETRE MODALE QUI S AFFICHE QUAND ON CLIQUE SUR CONNEXION -->
+
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
@@ -369,13 +296,11 @@
 					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
 					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
 					
-                    
                     <!-- USELESS MAIS PEUT SERVUR PLUS TARD 
                     <div class="dropdown">
 						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Pricing Plan
 						</button>
-                        
                         
 						<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
 							<li class="animated lightSpeedIn"><a href="#">1 month membership ($150)</a></li>
@@ -396,11 +321,10 @@
 					<button type="submit" class="btn btn-submit">Submit</button>
                  
 				</form>
-                <button type="button" class="btn btn-submit" ><a href="users/add_role">Pas encore inscrit ?</a></button>
+                <button style="background:white"type="button" class="btn btn-link" ><a href="users/add_role">Pas encore inscrit ?</a></button>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->
-
 
 <?php $this->stop('main_content') ?>
 

@@ -296,6 +296,17 @@ class UsersController extends Controller
     
     
     
+/******************VOIR PROFIL PROPRIETAIRE********************/
+    
+    public function showProfile()
+    {
+        $this->allowTo(['owner']); // limite par défaut à l'utilisateur ayant pour role "groom"
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
+
+        $this->show('users/ownerProfile/showProfile');
+    }
+    
      
 /******************AJOUTER ROLE*********************/
     

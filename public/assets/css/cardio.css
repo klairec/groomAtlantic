@@ -321,7 +321,7 @@ section {
 }
 
 .intro-table-first {
-	background-image: url('../img/table-1.jpg');
+	background-color: #7cadf0;
 }
 
 .intro-table-hover {
@@ -337,13 +337,13 @@ section {
 	transition: transform 0.3s;
 }
 
-.intro-table-hover:hover {
-	background-image: url('../img/table-2-hover.jpg');
+.intro-table-hover {
+	background-color: #f06467;
 	background-position: 50% 50%;
 }
 
 .intro-table-third {
-	background-image: url('../img/table-3.jpg');
+	background-color: #868588;
 }
 
 .intro-table-hover .expand {

@@ -34,10 +34,11 @@
                 }
                 
                 if($formValid == true){
-
-			         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$Userlog.'</div>';
+                		
+			         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$_SESSION(['user'](['firstname'])).'</div>';
 
                 }
+                var_dump([$_SESSION]);
                 if($deco == true){
 
 			     echo'<p>Vous êtes déconnecté</p>';		

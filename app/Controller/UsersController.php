@@ -40,11 +40,24 @@ class UsersController extends Controller
                 $connectMatch = $authModel->isValidLoginInfo($post['email'], $post['password']);
 
                 if($connectMatch != 0){
-                    $formValid = true;		
 
-                    $authModel->logUserIn($connectMatch);
-                    $Userlog = $authModel->getLoggedUser();
+                    $usersModel = new UsersModel();
+                    $infoUser = $usersModel->find($connectMatch);                 
+
+                    $authModel->logUserIn($infoUser);
+
+                    if(!empty($authModel->getLoggedUser())){
+                    // Ici la session est complétée avec les infos du membre (hors mdp)
+                    $formValid = true;
+                    }
+
+                    
                 }
+
+                else {
+                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
+                }
+
             }
         }
         if (isset($_GET['deco'])){
@@ -59,8 +72,7 @@ class UsersController extends Controller
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
-            'mail' => isset($post['email']),
-            'Userlog' => $Userlog,
+            'mail' => isset($post['email']),            
             'deco' => $deco,
         ];
         $this->show('default/home', $params);
@@ -98,14 +110,27 @@ class UsersController extends Controller
                 $connectMatch = $authModel->isValidLoginInfo($post['email'], $post['password']);
 
                 if($connectMatch != 0){
-                    $formValid = true;		
 
-                    $authModel->logUserIn($connectMatch);
-                    $Userlog = $authModel->getLoggedUser();
+                    $usersModel = new UsersModel();
+                    $infoUser = $usersModel->find($connectMatch);                 
+
+                    $authModel->logUserIn($infoUser);
+
+                    if(!empty($authModel->getLoggedUser())){
+                    // Ici la session est complétée avec les infos du membre (hors mdp)
+                    $this->flash('Vous êtes desormais connecté', 'success');
+                    $this->redirectToRoute('default_home');
+                    }
+
+                    
                 }
+
+                else {
+                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
+                }
+
             }
         }
-        
         if (isset($_GET['deco'])){
             if ($_GET['deco']="1"){
 
@@ -118,8 +143,7 @@ class UsersController extends Controller
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
-            'mail' => isset($post['email']),
-            'Userlog' => $Userlog,
+            'mail' => isset($post['email']),            
             'deco' => $deco,
         ];
         $this->show('users/connect', $params);
@@ -175,6 +199,11 @@ class UsersController extends Controller
 
                 if(!empty($insert)){
                     $formValid = true;
+                    $this->flash('Vous êtes desormais inscrit', 'success');
+                    $this->redirectToRoute('default_home');
+
+
+
                 }
             }
         }
@@ -236,6 +265,10 @@ class UsersController extends Controller
 
                 if(!empty($insert)){
                     $formValid = true;
+
+                    $this->flash('Vous êtes desormais inscrit', 'success');
+                    $this->redirectToRoute('add_groom');
+
 
                 }
             }

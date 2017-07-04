@@ -93,7 +93,7 @@ jQuery(function($) {
 		$('header').height($(window).height());
 	});
 
-	// Pricing Box Click Event
+	/*// Pricing Box Click Event
 	$('.pricing .box-main').click(function() {
 		$('.pricing .box-main').removeClass('active');
 		$('.pricing .box-second').removeClass('active');
@@ -101,7 +101,7 @@ jQuery(function($) {
 		$(this).next($('.box-second')).addClass('active');
 		$('#pricing').css("background-image", "url(" + $(this).data('img') + ")");
 		$('#pricing').css("background-size", "cover");
-	});
+	});*/
 
 	// Mobile Nav
 	$('body').on('click', 'nav .navbar-toggle', function() {

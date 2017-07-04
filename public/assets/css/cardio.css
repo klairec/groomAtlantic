@@ -155,7 +155,7 @@ header .typed-cursor {
 
 a {
 	text-decoration: none;
-	color: #00a8ff;
+	color: #fff;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
@@ -210,22 +210,22 @@ nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
 }
 
 .btn.btn-blue {
-	background: #00a8ff;
+	background: #f06467;
 }
 
 .btn.btn-blue:hover {
-	background: #31b9ff;
+	background: #f06467;
 }
 
 .btn.btn-blue-fill {
-	color: #00a8ff;
+	color: #f06467;
 	border-color: #00a8ff;
 	background: transparent;
 }
 
 .btn.btn-blue-fill:hover {
 	color: white;
-	background: #00a8ff;
+	background: #f06467;
 }
 
 .btn.btn-white-fill {
@@ -655,7 +655,7 @@ section {
 /* Footer */
 
 footer {
-	padding: 140px 0 40px;
+	padding: 100px 0 40px;
 	background: url('../img/footer.jpg');
 	-webkit-background-size: cover;
 	background-size: cover;

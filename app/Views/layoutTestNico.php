@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?= $this->e($title) ?></title>
-    <meta name="description" content="Cardio is a free one page template made exclusively for Codrops by Luka Cvetinovic" />
-	<meta name="keywords" content="html template, css, free, one page, gym, fitness, web design" />
-	<meta name="author" content="Luka Cvetinovic for Codrops" />
+    <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de beins saisonners et de concierges" />
+	<meta name="keywords" content="location, saisonniere, concierge, femme de menage, contact" />
+	
      <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
       <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-60x60.png') ?>">
      <link rel="icon" sizes="32x32" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-32x32.png') ?>">
@@ -46,7 +46,7 @@
 				</button>
 
 				<a class="navbar-brand" href="<?= $this->url('default_home') ?>">.
-					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="">
+					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
 				</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->

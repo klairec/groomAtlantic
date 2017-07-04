@@ -65,6 +65,8 @@ class UsersController extends Controller
                 $authModel = new \W\Security\AuthentificationModel;
                 $authModel->logUserOut();
                 $deco=true;
+                
+
             }
         }
         $params = [
@@ -139,7 +141,7 @@ class UsersController extends Controller
             'mail' => isset($post['email']),            
             'deco' => $deco,
         ];
-        $this->show('users/connect', $params);
+        $this->show('users/login', $params);
 
     }
  

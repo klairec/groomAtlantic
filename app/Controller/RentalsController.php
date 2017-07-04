@@ -31,15 +31,7 @@ class RentalsController extends Controller
 			if(!v::notEmpty()->length(10, 150)->validate($post['street'])){
 				$errors[] = 'La voie doit comporter entre 10 et 150 caractères';
 			}
-
-			
-			
-
 		}
-
-
-
-
 
 		if(count($errors) === 0){
 				$data = [
@@ -59,11 +51,7 @@ class RentalsController extends Controller
 					$this->redirectToRoute('blog_list'); // Redirige vers la route donnée
 				}
 			}
-
-		
-
-	}
-
+		}
 
 	public function showRentals(){
 
@@ -72,11 +60,7 @@ class RentalsController extends Controller
 
 		var_dump($rentals);
 
-
 		// return
 
 	}
-
-	
-
 }

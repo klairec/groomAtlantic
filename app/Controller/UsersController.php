@@ -142,7 +142,7 @@ class UsersController extends Controller
             'mail' => isset($post['email']),            
             'deco' => $deco,
         ];
-        $this->show('users/connect', $params);
+        $this->show('users/login', $params);
 
     }
  

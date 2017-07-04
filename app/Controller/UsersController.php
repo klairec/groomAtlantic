@@ -82,7 +82,7 @@ class UsersController extends Controller
 /******************CONNEXION*********************/
     
     
-   /* public function login(){
+    public function login(){
 
         $post = [];
         $errors = [];
@@ -146,7 +146,7 @@ class UsersController extends Controller
 
     }
  
-*/
+
 /******************AJOUTER CONCIERGE*********************/
     
     

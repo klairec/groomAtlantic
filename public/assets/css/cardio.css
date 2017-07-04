@@ -333,16 +333,16 @@ section {
 }
 
 .intro-table-hover {
-	background-image: url('../img/table-2-hover.jpg');
+	background-color: #f06467;
 	background-position: 50% 50%;
 }
 
 .intro-table-third {
-	background-image: url('../img/table-3.jpg');
+	background-color: #868588;
 }
 
 .intro-table-four {
-	background-image: url('../img/table-3.jpg');
+	background-color: #7cadf0;
 }
 
 .intro-table-hover .expand {

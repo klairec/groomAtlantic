@@ -50,6 +50,7 @@ class UsersController extends Controller
                     if(!empty($authModel->getLoggedUser())){
                     // Ici la session est complétée avec les infos du membre (hors mdp)
                     $formValid = true;
+<<<<<<< HEAD
 
                     }
 
@@ -63,10 +64,12 @@ class UsersController extends Controller
                 
                 else {
                     $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
+=======
+                    } 
+>>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
                 }
-
             }
-        }
+        }    
         if (isset($_GET['deco'])){
             if ($_GET['deco']="1"){
 

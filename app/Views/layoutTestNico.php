@@ -53,6 +53,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<li><a href="#intro">Intro</a></li>
 					<li><a href="#services">Services</a></li>
 					<li><a href="#team">Team</a></li>
@@ -71,12 +72,17 @@
 
 						?>
 =======
+=======
+>>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
 					<li><a href="#intro">Qui Sommes Nous?</a></li>
 					<li><a href="#services">Devenir Concierge</a></li>
 					<li><a href="#team">Infos Pratiques</a></li>
 					<!--<li><a href="#pricing">Pricing</a></li>-->
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Se Connecter</a></li>
+<<<<<<< HEAD
 >>>>>>> 1389ec62098b50e4876f000c6f94b9270806b01f
+=======
+>>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

@@ -50,15 +50,11 @@ class UsersController extends Controller
                     if(!empty($authModel->getLoggedUser())){
                     // Ici la session est complétée avec les infos du membre (hors mdp)
                     $formValid = true;
-                    }
-
-                    
-                }
-
+                    }   
+                
                 else {
                     $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
                 }
-
             }
         }
         if (isset($_GET['deco'])){
@@ -69,7 +65,6 @@ class UsersController extends Controller
                 $deco=true;
             }
         }
-
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
@@ -78,7 +73,7 @@ class UsersController extends Controller
         ];
         $this->show('default/home', $params);
     }
-    
+    }
 
 /******************CONNEXION*********************/
     
@@ -121,15 +116,11 @@ class UsersController extends Controller
                     // Ici la session est complétée avec les infos du membre (hors mdp)
                     $this->flash('Vous êtes desormais connecté', 'success');
                     $this->redirectToRoute('default_home');
-                    }
-
-                    
+                    } 
                 }
-
                 else {
                     $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
                 }
-
             }
         }
         if (isset($_GET['deco'])){
@@ -202,9 +193,6 @@ class UsersController extends Controller
                     $formValid = true;
                     $this->flash('Vous êtes desormais inscrit', 'success');
                     $this->redirectToRoute('default_home');
-
-
-
                 }
             }
         }
@@ -293,6 +281,7 @@ class UsersController extends Controller
     
     
     
+     
 /******************VOIR PROFIL PROPRIETAIRE********************/
     
     public function showOwner()

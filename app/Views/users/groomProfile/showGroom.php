@@ -1,5 +1,4 @@
 <?php $this->layout('layout', ['title' => 'Mon profil']) ?>
-<?php session_start(); ?>
 
 <?php $this->start('main_content') ?>
 

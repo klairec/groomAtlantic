@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?= $this->e($title) ?></title>
-    <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de beins saisonners et de concierges" />
+    <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de biens saisonners et de concierges" />
 	<meta name="keywords" content="location, saisonniere, concierge, femme de menage, contact" />
 	
      <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
@@ -123,7 +123,7 @@
 					<button type="submit" class="btn btn-submit">Submit</button>
                  
 				</form>
-                <button style="background:white"type="button" class="btn btn-link" ><a href="users/add_role">Pas encore inscrit ?</a></button>
+                <button style="background:white" type="button" class="btn btn-link" ><a href="users/add_role">Pas encore inscrit ?</a></button>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->

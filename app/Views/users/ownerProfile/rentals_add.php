@@ -15,7 +15,7 @@
 			<option value="loft">Loft</option>
 			<option value="mobilhome">Mobilhome</option>
 		</select>
-	
+
 		<h3>Adresse</h3>
 		<label for="street">Voie</label>
 		<input type="text" name="street" id="street" placeholder="">

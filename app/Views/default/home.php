@@ -297,10 +297,7 @@
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->
-<<<<<<< HEAD
->>>>>>> 1389ec62098b50e4876f000c6f94b9270806b01f
-=======
->>>>>>> 6906c9b228ade0ee202e811292555f5add181cba
+
 <?php $this->stop('main_content') ?>
 
 <!--FENETRE MODALE QUI S AFFICHE QUAND ON CLIQUE SUR CONNEXION -->

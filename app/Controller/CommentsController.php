@@ -20,14 +20,15 @@ class CommentsController extends Controller
     
     
     /* AJOUTER DANS UsersController
+    
+    public function commentList(){
     $comments = new CommentsController();
-    $comments = $commentsController->showCommentById();
+    $comments = $CommentsController->showCommentById();
     
     $params = [
             'comments' => $comments,
         ];
-
-        return $comments ;
         
     $this->show('url', $params); 
+    }
     */

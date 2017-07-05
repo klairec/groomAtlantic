@@ -13,10 +13,10 @@ use \Model\Reset_passwordModel;
 class UsersController extends Controller
 {
 
-   
-/**************PAGE D'ACCCUEIL PAR DEFAUT*************************/
-    
-    
+
+    /**************PAGE D'ACCCUEIL PAR DEFAUT*************************/
+
+
     public function home(){
         $post = [];
         $errors = [];
@@ -52,13 +52,13 @@ class UsersController extends Controller
 
                     if(!empty($authModel->getLoggedUser())){
                         // Ici la session est complétée avec les infos du membre (hors mdp)
-                           $formValid = true;
-                           if($formValid = true){
-                                $this->redirectToRoute($post['current_url']);
-                           }
-                           
+                        $formValid = true;
+                        if($formValid = true){
+                            $this->redirectToRoute($post['current_url']);
+                        }
+
                     }
-                    
+
                 }
             }   
             else {
@@ -86,9 +86,9 @@ class UsersController extends Controller
         $this->show('default/home', $params);
     }
 
-/******************CONNEXION*********************/
-    
-    
+    /******************CONNEXION*********************/
+
+
     public function login(){
 
         $post = [];
@@ -124,9 +124,9 @@ class UsersController extends Controller
                     $authModel->logUserIn($infoUser);
 
                     if(!empty($authModel->getLoggedUser())){
-                    // Ici la session est complétée avec les infos du membre (hors mdp)
-                    $this->flash('Vous êtes desormais connecté', 'success');
-                    $this->redirectToRoute('default_home');
+                        // Ici la session est complétée avec les infos du membre (hors mdp)
+                        $this->flash('Vous êtes desormais connecté', 'success');
+                        $this->redirectToRoute('default_home');
                     } 
                 }
                 else {
@@ -152,11 +152,11 @@ class UsersController extends Controller
         $this->show('users/login', $params);
 
     }
- 
 
-/******************AJOUTER CONCIERGE*********************/
-    
-    
+
+    /******************AJOUTER CONCIERGE*********************/
+
+
     public function addGroom(){
 
         // $this->show('users/add', $params);
@@ -214,11 +214,11 @@ class UsersController extends Controller
         $this->show('users/addGroom', $params);
     }
 
- 
 
-/******************AJOUTER PROPRIETAIRE*********************/
-        
-    
+
+    /******************AJOUTER PROPRIETAIRE*********************/
+
+
     public function addOwner(){
 
         // $this->show('users/add', $params);
@@ -278,9 +278,9 @@ class UsersController extends Controller
         $this->show('users/addOwner', $params);
     }
 
-    
-/******************VOIR PROFIL GROOM********************/
-    
+
+    /******************VOIR PROFIL GROOM********************/
+
     public function showGroom()
     {
         $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
@@ -289,12 +289,12 @@ class UsersController extends Controller
 
         $this->show('users/groomProfile/showGroom');
     }
-    
-    
-    
-     
-/******************VOIR PROFIL PROPRIETAIRE********************/
-    
+
+
+
+
+    /******************VOIR PROFIL PROPRIETAIRE********************/
+
     public function showOwner()
     {
         $this->allowTo(['owner']); // limite par défaut à l'utilisateur ayant pour role "owner"
@@ -303,25 +303,25 @@ class UsersController extends Controller
 
         $this->show('users/ownerProfile/owner_space');
     }
-    
-     
-/******************AJOUTER ROLE*********************/
-    
+
+
+    /******************AJOUTER ROLE*********************/
+
 
     public function pickRole(){
 
         $this->show('users/pickRole');
 
     }
-    
+
     public function pwdReset(){
-        
-        
+
+
         $post = [];
         $errors = [];
         $formValid = false;
-        
-        
+
+
         if(!empty($_POST)){
             // Permet de nettoyer les données
             foreach($_POST as $key => $value){
@@ -332,34 +332,34 @@ class UsersController extends Controller
                 $errors[] = 'Le mail doit comporter au moins 2 caractères';
             }
 
-          
+
             if(count($errors) === 0){
-                
+
                 $usersModel = new UsersModel();                
                 $emailExist = $usersModel->emailExists($post['email']);
 
                 if($emailExist = true){ // Si l'email existe 
-                    
+
                     $token = md5(uniqid(rand(), true));// on génère un token
-                    
+
                     $usersModel = new UsersModel();  
                     $userInfo = $usersModel->getUserByUsernameOrEmail($post['email']);        // on va chercher l'id qui correspond au mail
-                    
+
                     $data = [
-                        
-                    'token' => $token,
-                    'id_user' => $userInfo['id'],
-                   
+
+                        'token' => $token,
+                        'id_user' => $userInfo['id'],
+
                     ];
-                    
+
                     $reset_passwordModel = new Reset_passwordModel(); // on insère
                     $insert = $reset_passwordModel->insert($data);
-                    
-                    
-                   
-                    
-                     if(!empty($insert)){// si l'insertion s'est bien passé on envoie le mail
-                        
+
+
+
+
+                    if(!empty($insert)){// si l'insertion s'est bien passé on envoie le mail
+
 
                         $mail = new \PHPMailer();
 
@@ -377,7 +377,7 @@ class UsersController extends Controller
                         $mail->addAddress($post['email']);
                         $mail->isHTML(true);
 
-                        
+
                         //Ask for HTML-friendly debug output
                         $mail->Debugoutput = 'html';
 
@@ -385,20 +385,20 @@ class UsersController extends Controller
                         $mail->Subject = 'Sujet';
                         $mail->Body = '<a href="http://localhost/Back/testgithub/groomatlantic/public/users/traitementReset?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
 
-                                  
+
                         if(!$mail->Send()){
 
-                           
+
                             echo 'Erreur : ' . $mail->ErrorInfo;
                         }
                         else{
-                                                
-                          $formValid = true;
-                                                
+
+                            $formValid = true;
+
                         }                      
-                       
+
                     }
-                    
+
                 }
             }   
             else {
@@ -406,107 +406,114 @@ class UsersController extends Controller
             }
 
         }
-    
-        
-        
-        
+
+
+
+
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
-            
-            
-             
-             
+
+
+
+
         ];
-        
+
         $this->show('users/pwdReset', $params);
-         
+
     }
 
 
     public function traitementReset(){
 
-            $showForm = false;
-            //si les variables existent, ne sont pas vides et que l'id est composé uniquement de chiffres
-            //on va chercher s'il y a une correspondance dans la bdd
+        $showForm = false;
+        //si les variables existent, ne sont pas vides et que l'id est composé uniquement de chiffres
+        //on va chercher s'il y a une correspondance dans la bdd
 
         if(isset($_GET['idUser']) AND isset($_GET['token']) AND !empty($_GET['idUser']) AND !empty($_GET['token']) AND ctype_digit($_GET['idUser'])){
 
-                $reset_passwordModel = new Reset_passwordModel();
-                $matchToken = $reset_passwordModel->findToken($_GET['idUser'], $_GET['token']);
+            $reset_passwordModel = new Reset_passwordModel();
+            $matchToken = $reset_passwordModel->findToken($_GET['idUser'], $_GET['token']);
 
 
-                    if(count($matchToken) == 1){ // si le token correspond on affiche le formulaire
+            if(count($matchToken) == 1){ // si le token correspond on affiche le formulaire
 
-                        $showForm = true;
+                $showForm = true;
 
-                        $post = [];
-                        $errors = [];
-                        $formValid = false;
-                
-                
-                        if(!empty($_POST)){
-                            // Permet de nettoyer les données
-                            foreach($_POST as $key => $value){
-                                $post[$key] = trim(strip_tags($value));
-                            }
-                                    //Verifs form
-                            if(strlen($post['password']) < 5){
-                                $errors[] = 'Le mot de passe doit comporter au moins 5 caractères';
-                            }
-                            if($post['password'] != $post['password2']){
-                                $errors[] = 'Le mot de passe et sa confirmation ne correspondent pas';
-                            }
-
-                                    //si pas d'erreurs on insère
+                $post = [];
+                $errors = [];
+                $formValid = false;
 
 
-                            if(count($errors) === 0){ 
-                                $authModel = new \W\Security\AuthentificationModel;
+                if(!empty($_POST)){
+                    // Permet de nettoyer les données
+                    foreach($_POST as $key => $value){
+                        $post[$key] = trim(strip_tags($value));
+                    }
+                    //Verifs form
+                    if(strlen($post['password']) < 5){
+                        $errors[] = 'Le mot de passe doit comporter au moins 5 caractères';
+                    }
+                    if($post['password'] != $post['password2']){
+                        $errors[] = 'Le mot de passe et sa confirmation ne correspondent pas';
+                    }
 
-                                $data = [
+                    //si pas d'erreurs on insère
 
-                                    'password' => $authModel->hashPassword($post['password']), 
-                                    
-                                ];
 
-                                $usersModel = new UsersModel();
+                    if(count($errors) === 0){ 
+                        $authModel = new \W\Security\AuthentificationModel;
 
-                                $update = $usersModel->update($data, $_GET['idUser'], $stripTags = true);
+                        $data = [
 
+                            'password' => $authModel->hashPassword($post['password']), 
+
+                        ];
+
+                        $usersModel = new UsersModel();
+
+                        $update = $usersModel->update($data, $_GET['idUser'], $stripTags = true);
+
+                        
                                 if(!empty($update)){
                                     $reset_passwordModel = new Reset_passwordModel();
                                     $DelToken = $reset_passwordModel->deleteToken($_GET['idUser'], $_GET['token']);
                                     
                                     $formValid = true;
                                 }
-                            }
-
-
-                              
-
-                            //on compare vaec la table reset
-
-
+                    }                            
                 }
-
-                $params = [
-                    'showForm' => $showForm,
-                    'formValid' => $formValid,
-                    'errors' => $errors,
-                    
-                ];
-
-
-                $this->show('users/traitementReset', $params);
             }
+                    //on compare vaec la table reset
+
 
         }
+
+        $params = [
+            'showForm' => $showForm,
+            'formValid' => $formValid,
+            'errors' => $errors,
+        ];
+
+        $this->show('users/traitementReset', $params);
     }
 
-        public function infos() {
 
-            $this->show('users/infos');
-        }
+
+    public function infos() {
+
+        $this->show('users/infos');
+    }
+
+    public function commentList(){
+        $comments = new CommentsController();
+        $comments = $commentsController->showCommentById();
+
+        $params = [
+            'comments' => $comments,
+        ];
+
+        $this->show('url', $params); 
+    }
 
 }   

@@ -17,7 +17,7 @@ class CommentsController extends Controller
 
         return $comments ;
     }
-    
+}
     
     /* AJOUTER DANS UsersController
     

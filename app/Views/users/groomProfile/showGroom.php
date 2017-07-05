@@ -85,7 +85,7 @@
 
     <?php foreach ($comments as $comment): ?>
     <div>
-        <p><?= $users['firstname'] .' '. $users['lastname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
+        <p><?= $comment['id_owner'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
     </div>
     <?php endforeach; ?>
     <?php else: ?>

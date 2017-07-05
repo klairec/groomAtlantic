@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\Reset_passwordModel;
+use \Controller\CommentsController;
 
 
 
@@ -286,8 +287,15 @@ class UsersController extends Controller
         $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
+        
+        $commentsController = new CommentsController();
+        $comments = $commentsController->commentList();
+        
+        $params = [
+            'comments' => $comments,
+        ];
 
-        $this->show('users/groomProfile/showGroom');
+        $this->show('users/groomProfile/showGroom', $params);
     }
 
 
@@ -505,15 +513,6 @@ class UsersController extends Controller
         $this->show('users/infos');
     }
 
-    public function commentList(){
-        $comments = new CommentsController();
-        $comments = $commentsController->showCommentById();
-
-        $params = [
-            'comments' => $comments,
-        ];
-
-        $this->show('url', $params); 
-    }
+   
 
 }   

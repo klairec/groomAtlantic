@@ -1069,6 +1069,7 @@ footer .social-footer li:hover a {
     font-size: 1em;
     background:transparent;
     width: 90%; 
+    color: #00a8ff;
 }
 #subscribe:hover {   
     text-decoration: none;
@@ -1078,7 +1079,6 @@ footer .social-footer li:hover a {
 #subscribe:hover a {   
     text-decoration: none;
     color: #00a8ff;
-       
 }
 
 /* BOUTON CHOIX INSCRIPTION OWNER / USER */
@@ -1086,13 +1086,11 @@ footer .social-footer li:hover a {
     font-size: 2em;
     background:rgba(240, 100, 103, 0.8);
     width: 40%;
-
 }
 
 .btn-link:hover{
     text-decoration: none;
     background-color: rgba(240, 100, 103, 1);
-    
 }
 
 /* Media Queries */

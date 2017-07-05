@@ -426,9 +426,84 @@ class UsersController extends Controller
 
     public function traitementReset(){
 
-        $this->show('users/traitementReset');
+            $showForm = false;
+            //si les variables existent, ne sont pas vides et que l'id est composé uniquement de chiffres
+            //on va chercher s'il y a une correspondance dans la bdd
+
+            if(isset($_GET['idUser']) AND isset($_GET['token']) AND !empty($_GET['idUser']) AND !empty($_GET['token']) AND ctype_digit($_GET['idUser'])){
+
+                $reset_passwordModel = new Reset_passwordModel();
+                $matchToken = $reset_passwordModel->findToken($_GET['idUser'], $_GET['token']);
+
+
+                    if(count($matchToken) == 1){ // si le token correspond on affiche le formulaire
+
+                        $showForm = true;
+
+                        $post = [];
+                        $errors = [];
+                        $formValid = false;
+                
+                
+                        if(!empty($_POST)){
+                            // Permet de nettoyer les données
+                            foreach($_POST as $key => $value){
+                                $post[$key] = trim(strip_tags($value));
+                            }
+                                    //Verifs form
+                            if(strlen($post['password']) < 5){
+                                $errors[] = 'Le mail doit comporter au moins 5 caractères';
+                            }
+                            if($post['password'] != $post['password2']){
+                                $errors[] = 'Le mot de passe et sa confirmation ne correspondent pas';
+                            }
+
+                                    //si pas d'erreurs on insère
+
+
+                            if(count($errors) === 0){ 
+                                $authModel = new \W\Security\AuthentificationModel;
+
+                                $data = [
+
+                                    'password' => $authModel->hashPassword($post['password']), 
+                                    
+                                ];
+
+                                $usersModel = new UsersModel();
+
+                                $update = $usersModel->update($data, $_GET['idUser'], $stripTags = true);
+
+                                if(!empty($update)){
+
+                                    $formValid = true;
+                                }
+                            }
+
+
+                              
+
+                            //on compare vaec la table reset
+
+
+                }
+
+                $params = [
+                    'showForm' => $showForm,
+                    'formValid' => $formValid,
+                    
+                ];
+
+
+                $this->show('users/traitementReset', $params);
+            }
+
+        }
     }
 
+        public function infos() {
 
+            $this->show('users/infos');
+        }
 
 }   

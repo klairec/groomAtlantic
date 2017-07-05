@@ -1,4 +1,4 @@
-<?php $this->layout('layoutTestNico', ['title' => 'Connexion / Inscription', 'title2' => 'Groom Atlantic', 'title3' => 'je sais pas flemme']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Connexion / Inscription', 'title2' => 'Groom Atlantic']) ?>
 
 <?php $this->start('header') ?>
 

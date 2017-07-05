@@ -50,7 +50,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
-					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous?</a></li>
+					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous ?</a></li>
 					<li><a href="">Infos Pratiques</a></li>
                         <?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     

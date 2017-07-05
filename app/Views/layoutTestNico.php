@@ -52,9 +52,9 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
-					<li><a href="">Qui Sommes Nous?</a></li>
+					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous?</a></li>
 					<li><a href="">Infos Pratiques</a></li>
-					<li><a href="">Devenir Groom</a></li>
+					<li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
 					<?php if(!empty($w_user)){ ?> 
 
 							<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
@@ -132,10 +132,10 @@
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
 				</div>
 				<div class="col-sm-4 text-center-mobile">
-					<h5><a href="#intro">QUI SOMMES NOUS</a></h5><br>
-					<h5><a href="#team">INFOS PRATIQUES</a></h5><br>
-					<h5 class="white">NOTRE CHARTE </h5><br>
-					<h5 class="white">MENTIONS LEGALES </h5><br>
+					<h5><a href="<?= $this->url('users_infos') ?>">QUI SOMMES NOUS</a></h5><br>
+					<h5><a href="">INFOS PRATIQUES</a></h5><br>
+					<h5 class="">NOTRE CHARTE </h5><br>
+					<h5 class="">MENTIONS LEGALES </h5><br>
 				</div>
 				<div class="col-sm-4 text-center-mobile">
 				<h5 class="white">NOUS SUIVRE</h5>

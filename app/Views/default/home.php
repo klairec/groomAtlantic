@@ -5,9 +5,8 @@
 <?php $this->start('header') ?>
 
             <div class="container">
-                  <?php echo $deco; ?>
+                <?php echo $deco; ?>
                 <div class="table">
-
                     <div class="header-text">
                                   <?php 
     

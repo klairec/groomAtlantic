@@ -430,7 +430,7 @@ class UsersController extends Controller
             //si les variables existent, ne sont pas vides et que l'id est composé uniquement de chiffres
             //on va chercher s'il y a une correspondance dans la bdd
 
-            if(isset($_GET['idUser']) AND isset($_GET['token']) AND !empty($_GET['idUser']) AND !empty($_GET['token']) AND ctype_digit($_GET['idUser'])){
+        if(isset($_GET['idUser']) AND isset($_GET['token']) AND !empty($_GET['idUser']) AND !empty($_GET['token']) AND ctype_digit($_GET['idUser'])){
 
                 $reset_passwordModel = new Reset_passwordModel();
                 $matchToken = $reset_passwordModel->findToken($_GET['idUser'], $_GET['token']);
@@ -476,7 +476,7 @@ class UsersController extends Controller
 
                                 if(!empty($update)){
 
-                                    $formValid = true;
+                                    $formValid == true;
                                 }
                             }
 

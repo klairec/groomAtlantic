@@ -20,8 +20,8 @@
 
                                 <p>Inscription en tant que :</p>
                                 
-                                <button type="button" class="btn btn-link"><a href="<?=  $this->url('add_groom') ?>">Groom</a></button>
-                                <button type="button" class="btn btn-link"><a href="<?=  $this->url('add_owner') ?>">Propéiétaire</a></button>
+                                <button type="button" class="btn btn-link"><a href="<?=  $this->url('users_addGroom') ?>">Groom</a></button>
+                                <button type="button" class="btn btn-link"><a href="<?=  $this->url('users_addOwner') ?>">Propriétaire</a></button>
                                 
                                 
 

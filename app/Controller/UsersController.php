@@ -5,6 +5,9 @@ namespace Controller;
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
+use \Model\Reset_passwordModel;
+
+
 
 
 class UsersController extends Controller
@@ -204,7 +207,7 @@ class UsersController extends Controller
             'formValid' => $formValid,
             'errors' => $errors,
         ];
-        $this->show('users/add_groom', $params);
+        $this->show('users/addGroom', $params);
     }
 
  
@@ -260,7 +263,7 @@ class UsersController extends Controller
                     $formValid = true;
 
                     $this->flash('Vous êtes desormais inscrit', 'success');
-                    $this->redirectToRoute('add_groom');
+                    $this->redirectToRoute('default_home');
                 }
             }
         }
@@ -268,7 +271,7 @@ class UsersController extends Controller
             'formValid' => $formValid,
             'errors' => $errors,
         ];
-        $this->show('users/add_owner', $params);
+        $this->show('users/addOwner', $params);
     }
 
     
@@ -301,10 +304,87 @@ class UsersController extends Controller
 /******************AJOUTER ROLE*********************/
     
 
-    public function addRole(){
+    public function pickRole(){
 
-        $this->show('users/add_role');
+        $this->show('users/pickRole');
 
+    }
+    
+    public function pwdReset(){
+        
+        
+        $post = [];
+        $errors = [];
+        $formValid = false;
+        
+        
+        if(!empty($_POST)){
+            // Permet de nettoyer les données
+            foreach($_POST as $key => $value){
+                $post[$key] = trim(strip_tags($value));
+            }
+
+            if(strlen($post['email']) < 2){
+                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            }
+
+          
+            if(count($errors) === 0){
+                
+                $usersModel = new UsersModel();                
+                $emailExist = $usersModel->emailExists($post['email']);
+
+                if($emailExist = true){ // Si l'email existe 
+                    
+                    $token = md5(uniqid(rand(), true));// on génère un token
+                    
+                    $usersModel = new UsersModel();  
+                    $userInfo = $usersModel->getUserByUsernameOrEmail($post['email']);        // on va chercher l'id qui correspond au mail
+                    
+                    $data = [
+                        
+                    'token' => $token,
+                    'id_user' => $userInfo['id'],
+                   
+                    ];
+                    
+                    $reset_passwordModel = new Reset_passwordModel(); // on insère
+                    $insert = $reset_passwordModel->insert($data);
+                    
+                    
+                   
+                    
+                     if(!empty($insert)){// si l'insertion s'est bien passé on envoie le mail
+                        $formValid = true;
+                        
+                        
+                    
+                    }
+                    
+                }
+            }   
+            else {
+                $this->flash('Email inconnu', 'danger');
+            }
+
+        }
+    
+        
+        $email = $post['email'];
+        
+        $params = [
+            'formValid' => $formValid,
+            'errors' => $errors,
+            'token' => $token,
+            'email' => $email,
+            'userInfo' => $userInfo,
+            
+             
+             
+        ];
+        
+        $this->show('users/pwdReset', $params);
+         
     }
 
 

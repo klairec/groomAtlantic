@@ -11,10 +11,12 @@ $w_routes = array(
 	['GET|POST', '/logout', 'Users#logout', 'users_logout'],
 
 
-	['GET|POST', '/users/add_user', 'Users#addUser', 'add_user'],
-	['GET|POST', '/users/add_groom', 'Users#addGroom', 'add_groom'],
-	['GET|POST', '/users/add_owner', 'Users#addOwner', 'add_owner'],
-	['GET|POST', '/users/add_role', 'Users#addRole', 'add_role'],
+
+	['GET|POST', '/users/addGroom', 'Users#addGroom', 'users_addGroom'],
+	['GET|POST', '/users/addOwner', 'Users#addOwner', 'users_addOwner'],
+	['GET|POST', '/users/pickRole', 'Users#pickRole', 'users_pickRole'],
+    ['GET|POST', '/users/pwdReset', 'Users#pwdReset', 'users_pwdReset'],
+    
 
 
 

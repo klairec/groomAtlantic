@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-<?php $this->layout('layout', ['title' => 'Mon profil']) ?>
-=======
 <?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
-
->>>>>>> d27815574fd88ea8cb949ce286af3110825e349d
 
 <?php $this->start('main_content') ?>
 

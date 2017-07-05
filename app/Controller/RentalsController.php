@@ -3,7 +3,9 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \vendor\Respect\Validation\Validator as v;
+use \Models\RentalsModel;
+use \vendor\respect\validation\validator as v;
+
 
 class RentalsController extends Controller
 {
@@ -16,7 +18,6 @@ class RentalsController extends Controller
 
 		// on limite l'accès à la page à un utilisateur non connecté
 		if(empty($me)){
-			die('Hello Claire');
 			$this->showNotFound(); // affichera une page 404
 		}
 
@@ -39,7 +40,6 @@ class RentalsController extends Controller
 			if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
 				$errors[] = 'Le code postal doit contenir 5 chiffres';
 			}
-
 
 			if(!v::notEmpty()->stringType()->length(3, 30)->validate($post['city'])){
 				$errors[] = 'La ville doit comporter entre 3 et 30 caractères';
@@ -85,13 +85,12 @@ class RentalsController extends Controller
 
 			}
 		}
-	}
-
-	public function showRentals(){
-
-		$rentalsModel = new RentalsModel();
-		$rentals = $rentalsModel->findRentalsWithId();
 
 		$this->show('users/ownerProfile/addRental');
+
 	}
+}
+
+
+	
 

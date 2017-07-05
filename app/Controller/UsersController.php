@@ -387,7 +387,7 @@ class UsersController extends Controller
 
 
                         //Ask for HTML-friendly debug output
-                        $mail->Debugoutput = 'html';
+                        
 
 
                         $mail->Subject = 'Sujet';

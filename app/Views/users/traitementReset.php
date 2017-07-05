@@ -10,7 +10,11 @@
 
                             <?php if($formValid == true) {
 
-                                echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Votre mot de passe a bien été réinitialisé</div>';
+                                    echo'
+                                    <div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
+                                        Votre mot de passe a bien été réinitialisé
+                                    </div>';
                             }?>
 
                             <?php if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES

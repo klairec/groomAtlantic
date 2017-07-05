@@ -476,7 +476,7 @@ class UsersController extends Controller
 
                                 if(!empty($update)){
 
-                                    $formValid == true;
+                                    $formValid = true;
                                 }
                             }
 

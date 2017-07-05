@@ -452,7 +452,7 @@ class UsersController extends Controller
                             }
                                     //Verifs form
                             if(strlen($post['password']) < 5){
-                                $errors[] = 'Le mail doit comporter au moins 5 caractères';
+                                $errors[] = 'Le mot de passe doit comporter au moins 5 caractères';
                             }
                             if($post['password'] != $post['password2']){
                                 $errors[] = 'Le mot de passe et sa confirmation ne correspondent pas';
@@ -491,6 +491,7 @@ class UsersController extends Controller
                 $params = [
                     'showForm' => $showForm,
                     'formValid' => $formValid,
+                    'errors' => $errors,
                     
                 ];
 

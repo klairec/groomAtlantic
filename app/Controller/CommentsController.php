@@ -14,12 +14,12 @@ class CommentsController extends Controller
 
         $commentsModel = new Model();
 
-        $comment = $commentsModel->findAll();
+        $comments = $commentsModel->findAll();
 
 
 
         $params = [
-            'comment' => $comment,
+            'comments' => $comments,
         ];
 
 

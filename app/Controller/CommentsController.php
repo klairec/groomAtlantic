@@ -14,12 +14,20 @@ class CommentsController extends Controller
 
         $commentsModel = new CommentsModel();
         $comments = $commentsModel->showCommentById();
-        
-        $params = [
-            'comments' => $comments,
-        ];
 
-        $this->show('users/groomProfile/showGroom', $params);
+        return $comments ;
     }
     
     
+    /* AJOUTER DANS UsersController
+    $comments = new CommentsController();
+    $comments = $commentsController->showCommentById();
+    
+    $params = [
+            'comments' => $comments,
+        ];
+
+        return $comments ;
+        
+    $this->show('url', $params); 
+    */

@@ -379,7 +379,7 @@ class UsersController extends Controller
 
 
                         $mail->Subject = 'Sujet';
-                        $mail->Body = '<a href="http://localhost/groomatlantic/public/users/traitement_reset.php?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+                        $mail->Body = '<a href="http://localhost/Back/testgithub/groomatlantic/public/users/traitementReset?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
 
                                   
                         if(!$mail->Send()){
@@ -392,9 +392,7 @@ class UsersController extends Controller
                           $formValid = true;
                                                 
                         }                      
-                        
-                        
-                    
+                       
                     }
                     
                 }
@@ -422,7 +420,11 @@ class UsersController extends Controller
     }
 
 
+    public function traitementReset(){
+
+        $this->show('users/traitementReset');
+    }
 
 
 
-}
+}   

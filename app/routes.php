@@ -16,6 +16,7 @@ $w_routes = array(
 	['GET|POST', '/users/addOwner', 'Users#addOwner', 'users_addOwner'],
 	['GET|POST', '/users/pickRole', 'Users#pickRole', 'users_pickRole'],
     ['GET|POST', '/users/pwdReset', 'Users#pwdReset', 'users_pwdReset'],
+    ['GET|POST', '/users/traitementReset', 'Users#traitementReset', 'users_traitementReset'],
     
 
 

@@ -39,9 +39,12 @@
 
 <section class="notifications">
     <h3>Notifications</h3>
-    <?php
+    
+    
+    <!-- CONTACT ENGAGE -->
+    <?php if(!empty($contacts)):?>
 
-    ?>
+    <?php foreach ($contacts as $contact): ?>
     <div>
         <p><?= 'Vous avez été contacté par '.$users['firstname'] .' '. $users['lastname'].', pour la location suivante :'; ?></p>
         <p><?= $rentals['id_type'].', '.$rentals['city'].'<br>'.'Souhaitez-vous lui communiquer vos coordonnées ?'; ?></p>
@@ -50,9 +53,18 @@
             <input type="checkbox" id="cbox2" value="checkbox2">Non
         </form>
     </div>
-    <?php
+    <?php endforeach; ?>
+    <?php else: ?>
+    <div class="alert alert-danger">
+        Pas de contact pour le moment
+    </div>
+    <?php endif; ?>
+    
+    
+    <!-- CONFIRMATION DE CONTACT -->
+    <?php if(!empty($confirmation)):?>
 
-    ?>
+    <?php foreach ($confirmation as $confirmation): ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
         <form method="POST" action="">
@@ -60,23 +72,32 @@
             <input type="checkbox" id="cbox4" value="checkbox2">Non
         </form>
     </div>
-    <?php
+    <?php endforeach; ?>
+    <?php else: ?>
+    <div class="alert alert-danger">
+        Pas de confirmation pour le moment
+    </div>
+    <?php endif; ?>
+    
+    
+    <!-- NOUVEAU COMMENTAIRE DISPONIBLE -->
+    <?php if(!empty($comments)):?>
 
-    ?>
+    <?php foreach ($comments as $comment): ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
     </div>
-    <?php
-
-    ?>
-    <div>
-        <p><?= $users['firstname'] .' '. $users['lastname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
+    <?php endforeach; ?>
+    <?php else: ?>
+    <div class="alert alert-danger">
+        Pas de dernier commentaire pour le moment.
     </div>
-    <?php 
-
-    ?>
+    <?php endif; ?>
+    
 </section>
 
+
+<!-- DIFFERENTS AVIS OBTENUS -->
 <section class="comments">
     <?php if(!empty($comments)):?>
 

@@ -3,8 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Models\RentalsModel;
-use \vendor\respect\validation\validator as v;
+use \Model\RentalsModel;
+use \Respect\Validation\Validator as v;
 
 
 class RentalsController extends Controller
@@ -26,10 +26,19 @@ class RentalsController extends Controller
 		$errors = [];
 		// on nettoie le tableau POST
 		if(!empty($_POST)){
-			$post = array_map('trim', array_map('strip_tags', $_POST));
+
+			foreach ($_POST as $key => $value){
+
+				if(is_array($value)){
+					$post[$key] = array_map('trim', array_map('strip_tags', $value));
+				}
+				else {
+					$post[$key] = trim(strip_tags($value));
+				}
+			}
 
 			// on vérifie les champs insérés
-			if(!v::notEmpty()->stringType()->length(10, 50)->validate($post['title'])){
+			if(!v::notEmpty()->stringType()->length(10, 50)->validate($post['name'])){
 				$errors[] = 'Le titre doit comporter entre 10 et 50 caractères';
 			}
 
@@ -56,7 +65,7 @@ class RentalsController extends Controller
 			// si pas d'erreurs
 			if(count($errors) === 0){
 				$data = [
-					'title' 			=> ucfirst($post['title']),
+					'name' 			=> ucfirst($post['name']),
 					'type'				=> $post['type'],
 					'street'   			=> strtoupper($post['street']),
 					'postcode'    		=> $post['postcode'],

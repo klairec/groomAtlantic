@@ -4,8 +4,8 @@
 
 	<form method="POST">
 
-		<label for="title">Titre</label>
-		<input type="text" name="title" id="title">
+		<label for="name">Titre</label>
+		<input type="text" name="name" id="name">
 
 		<label for="type">Type de location</label>
 		<select name="type">

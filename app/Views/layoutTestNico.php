@@ -95,7 +95,8 @@
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
 				<h3 class="white">Se Connecter</h3>
                 
-				<form id="LoginForm" method="post" class="popup-form">
+				<form id="LoginForm" method="post" class="popup-form" action="<?= $this->url('default_home') ?>">
+					<input type="hidden" name="current_url" value="<?=$w_current_route;?>">
 					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
 					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
 					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>

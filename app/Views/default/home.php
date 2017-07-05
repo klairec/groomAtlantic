@@ -51,37 +51,35 @@
 			<div class="row intro-tables">
 				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
-						<h5 class="white heading">Today's Schedule</h5>
+						<h4 class="white heading">Propriétaire</h4>
+						<h5 class="white heading small-pt">Des professionnels à votre service</h5>
+						<h5 class="white heading small-pt">Maximisez vos revenus locatifs saisonniers</h>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="intro-table intro-table-hover">
-						<h5 class="white heading hide-hover">Premium Membership</h5>
-						<div class="bottom">
-							<h4 class="white heading small-heading no-margin regular">Register Today</h4>
-							<h4 class="white heading small-pt">20% Discount</h4>
+					<div class="intro-table intro-table-second">
+						<h4 class="white heading">Concierge</h4>
+						<h5 class="white heading small-pt">Pourquoi pas vous? Inscrivez vous!</h5>
+						<div class="owl-testimonials bottom">
+							
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-third">
-						<h5 class="white heading">Happy Clients</h5>
+						<h4 class="white heading">Charte de qualité</h4>
+<h5 class="white heading small-pt">Des concierges qui s'engagent.</h5>
 						<div class="owl-testimonials bottom">
-							<div class="item">
-								<h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
-								<h5 class="white heading light author">Christina Goldman</h5>
-							</div>
+							
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-four">
-						<h5 class="white heading">Happy Clients</h5>
+						<h4 class="white heading">Sans Engagement</h4>
+						<h5 class="white heading small-pt">Uniquement une mise en relation</h5>
 						<div class="owl-testimonials bottom">
-							<div class="item">
-								<h4 class="white heading content">Incredible transformation and I feel so healthy!</h4>
-								<h5 class="white heading light author">Christina Goldman</h5>
-							</div>
+							
 						</div>
 					</div>
 				</div>

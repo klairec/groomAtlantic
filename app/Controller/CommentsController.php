@@ -12,19 +12,14 @@ class CommentsController extends Controller
 
     public function commentList(){
 
-        $commentsModel = new Model();
-
-        $comments = $commentsModel->findAll();
-
-
-
+        $commentsModel = new CommentsModel();
+        $comments = $commentsModel->showCommentById();
+        
         $params = [
             'comments' => $comments,
         ];
 
-
         $this->show('users/groomProfile/showGroom', $params);
-
     }
     
     

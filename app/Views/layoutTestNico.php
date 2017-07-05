@@ -52,14 +52,22 @@
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous?</a></li>
 					<li><a href="">Infos Pratiques</a></li>
-					<li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
-					<?php if(!empty($w_user)){ ?> 
-
-							<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
-							<?php } else{ ?> 
-							<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
-
-					<?php } ?>
+                        <?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
+                    
+                            <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
+                                <li><a href="<?= $this->url('users_showowner') ?>">Mon profil</a></li>
+                            <?php } ?> 
+                            <?php if($w_user['role'] == 'groom'){ ?> <!-- Si c'est un groom on affiche "mon profil" qui pointe le profil groom-->
+                                <li><a href="<?= $this->url('users_showgroom') ?>">Mon profil</a></li>
+                            <?php } ?>
+                            <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco -->
+                            <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
+                        <?php } 
+                                                  
+                        else{ ?> <!-- Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription -->
+                            <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
+				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
+				        <?php } ?>
 					
 				</ul>
 			</div>

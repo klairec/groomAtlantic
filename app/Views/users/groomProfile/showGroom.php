@@ -1,7 +1,5 @@
 
-
 <?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
-
 
 <?php $this->start('main_content') ?>
 

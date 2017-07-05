@@ -18,7 +18,6 @@
 	<meta name="msapplication-config" content="<?= $this->assetUrl('img/favicons/browserconfig.xml') ?>">
 	<meta name="theme-color" content="#ffffff">
     
-    
     <link rel="stylesheet" href="<?= $this->assetUrl('css/normalize.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/owl.css') ?>">
@@ -63,44 +62,39 @@
 							<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
 					<?php } ?>
 					
-
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
-        
 		<!-- /.container-fluid -->
-        
 	</nav>
-
-	<section>
-    </section>
-    
     <section>
-	    <?=$this->section('errors'); ?>
-    </section>
-        
-  
-    <header id="intro">
-	    <?=$this->section('header'); ?>
-    </header>
-   
-	<section>
-			<?= $this->section('main_content') ?>
-    </section>
 
+	    <?=$this->section('errors'); ?>
+
+    </section>
+    <header id="intro">
+
+	    <?=$this->section('header'); ?>
+
+    </header>
+	<section>
+
+			<?= $this->section('main_content') ?>
+
+    </section>
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
 				<h3 class="white">Se Connecter</h3>
-                
-				<form id="LoginForm" method="post" class="popup-form">
+				<form id="LoginForm" method="post" class="popup-form" action="<?= $this->url('default_home') ?>">
+					<input type="hidden" name="current_url" value="<?=$w_current_route;?>">
 					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
 					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
 					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
 					
-                    <!-- USELESS MAIS PEUT SERVUR PLUS TARD 
+                    <!-- USELESS MAIS PEUT SERVIR PLUS TARD 
                     <div class="dropdown">
 						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Pricing Plan
@@ -114,7 +108,6 @@
 						</ul>
 
 					</div>
-                      
 					<div class="checkbox-holder text-left">
 						<div class="checkbox">
 					5		<input type="checkbox" value="None" id="squaredOne" name="check" />
@@ -129,9 +122,7 @@
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->
-
-
-			<footer>
+	<footer>
 		<div class="container">
 			<div class="row">
 
@@ -157,9 +148,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		
-                
+		</div>       
 	</footer>
 
 	<script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
@@ -169,7 +158,6 @@
 	<script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/main.js') ?>"></script>
-
   
 </body>
 </html>

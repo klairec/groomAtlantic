@@ -53,6 +53,10 @@ class UsersController extends Controller
                     if(!empty($authModel->getLoggedUser())){
                         // Ici la session est complétée avec les infos du membre (hors mdp)
                            $formValid = true;
+                           if($formValid = true){
+                                $this->redirectToRoute($post['current_url']);
+                           }
+                           
                     }
                     
                 }

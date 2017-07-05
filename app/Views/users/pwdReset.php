@@ -31,37 +31,10 @@
                                         }
 
                                         if($formValid == true){
+
+                                              echo '<p style="color: white; text-align: center; font-size:20px;">Veuillez consulter votre boite email pour modifier votre mot de passe.</p>';
                                             
-                                            $mail = new PHPMailer();
-
-                                            $mail->isSMTP();
-                                            $mail->Host = 'smtp.gmail.com';
-                                            $mail->SMTPAuth   = true;
-
-                                            $mail->Username   = 'groomatlantic@gmail.com';
-                                            $mail->Password   = 'manouche123';
-
-                                            $mail->SMTPSecure = 'ssl';
-                                            $mail->Port = 465;
-
-                                            $mail->SetFrom('reset.password@email.fr', 'GroomAtlantic');
-                                            $mail->addAddress($email);
-                                            $mail->isHTML(true);
-
-                                            $mail->Subject = 'Sujet';
-                                            $mail->Body = '<a href="http://localhost/groomatlantic/public/users/traitement_reset.php?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
-
-                                            echo'<p>Un message de réinitialisation a été envoyé à l\'adresse indiquée</p>';
                                             
-                                            if(!$mail->Send()){
-                                                echo 'Erreur d\'envoi';
-                                                echo 'Erreur : ' . $mail->ErrorInfo;
-                                            }
-                                            else{
-                                                
-                                                echo '<p style="color: green; text-align: center; font-size:20px;">Veuillez consulter votre boite email pour modifier votre mot de passe.</p>';
-                                                
-                                            }
                                             
                                             
                                         }

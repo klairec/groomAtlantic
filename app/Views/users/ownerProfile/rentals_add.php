@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-	<form method="POST">
+	<form method="POST" action="<?= $this->url('rentals_add') ?>">
 
 		<label for="name">Titre</label>
 		<input type="text" name="name" id="name">

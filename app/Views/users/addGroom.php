@@ -9,17 +9,17 @@
                             <div class="col-md-12 text-center">
                             <h2 class="light white">S'inscrire en tant que groom</h2>
                                 <?php 
-                                        if(!empty($errors)){
+                                    if(!empty($errors)){
 
-                                            echo'<p>'.implode('<br>', $errors).'</p>';
+                                        echo'<p>'.implode('<br>', $errors).'</p>';
 
-                                        }
+                                    }
 
-                                        if($formValid == true){
+                                    if($formValid == true){
 
-                                            echo'<p> Vous êtes inscrit</p>';
+                                        echo'<p> Vous êtes inscrit</p>';
 
-                                        }
+                                    }
 
                                     ?>
                                 <form method="post" style="text-align:center;">   <div class="form-group">
@@ -57,20 +57,5 @@
 <?php $this->stop('header') ?>
 
 <?php $this->start('main_content') ?>
-
-	<?php 
-		if(!empty($errors)){
-
-			echo'<p>'.implode('<br>', $errors).'</p>';
-
-		}
-
-		if($formValid == true){
-
-			echo'<p> Vous êtes inscrit</p>';
-
-		}
-
-	?>
 
 <?php $this->stop('main_content') ?>

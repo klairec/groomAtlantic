@@ -67,7 +67,7 @@
 				<div class="col-md-3">
 					<div class="intro-table intro-table-third">
 						<h4 class="white heading">Charte de qualité</h4>
-<h5 class="white heading small-pt">Des concierges qui s'engagent.</h5>
+<h5 class="white heading small-pt">Des concierges qui s'engagent</h5>
 						<div class="owl-testimonials bottom">
 							
 						</div>

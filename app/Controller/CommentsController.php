@@ -14,17 +14,17 @@ class CommentsController extends Controller
 
         $commentsModel = new Model();
 
-        $ListComments = $commentsModel->findAll();
+        $comments = $commentsModel->findAll();
 
 
 
         $params = [
-            'ListComments' => $ListComments,
-
-
+            'comments' => $comments,
         ];
 
 
-        $this->show('users/Profile/showProfile', $params);
+        $this->show('users/groomProfile/showGroom', $params);
 
     }
+    
+    

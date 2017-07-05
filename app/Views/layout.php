@@ -18,9 +18,8 @@
 		<main>
 			<div class="container">
 				<header>
-					<h1>W :: <?= $this->e($title) ?></h1>
 					<?php if(isset($description) && !empty($description)): ?>
-					<h3>W :: <?= $this->e($description) ?></h3>
+						<?= $this->e($description) ?>
 					<?php endif; ?>
 				</header>
 				<section>

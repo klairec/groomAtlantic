@@ -32,7 +32,6 @@
     <div class="preloader">
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
 	</div>
-   
 	<nav class="navbar">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -43,7 +42,6 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-
 				<a class="navbar-brand" href="<?= $this->url('default_home') ?>">
 					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
 				</a>
@@ -134,8 +132,8 @@
 				<div class="col-sm-4 text-center-mobile">
 					<h5><a href="<?= $this->url('users_infos') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="">INFOS PRATIQUES</a></h5><br>
-					<h5 class="">NOTRE CHARTE </h5><br>
-					<h5 class="">MENTIONS LEGALES </h5><br>
+					<h5><a href="">NOTRE CHARTE </a></h5><br>
+					<h5><a href="">MENTIONS LEGALES </a></h5><br>
 				</div>
 				<div class="col-sm-4 text-center-mobile">
 				<h5 class="white">NOUS SUIVRE</h5>

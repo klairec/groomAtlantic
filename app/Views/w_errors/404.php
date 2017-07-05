@@ -2,15 +2,17 @@
 
 <?php $this->start('header'); ?>
 	
-	<section class="error_404">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h1>Perdu ??</h1>
-					<img src="../public/assets/img/404.jpg" class="img-responsive" alt="Responsive image">
-				</div>
-			</div>
-		</div>
-	</section>
+	<div class="container">
+        <div class="table">
+        	<div class="header-text">
+        		<div class="row">
+        			<div class="col-md-12 text-center">
+        				<h1 class="white">Perdu??</h1>
+        				<h2 class="white">Oups, il semblerait qu'il y ait une erreur!!</h2>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    </div>
 
 <?php $this->stop('header'); ?>

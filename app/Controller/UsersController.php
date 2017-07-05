@@ -355,7 +355,43 @@ class UsersController extends Controller
                    
                     
                      if(!empty($insert)){// si l'insertion s'est bien passé on envoie le mail
-                        $formValid = true;
+                        
+
+                        $mail = new \PHPMailer();
+
+                        $mail->isSMTP();
+                        $mail->Host = 'smtp.gmail.com';
+                        $mail->SMTPAuth   = true;
+
+                        $mail->Username   = 'groomatlantic@gmail.com';
+                        $mail->Password   = 'manouche123';
+
+                        $mail->SMTPSecure = 'ssl';
+                        $mail->Port = 465;
+
+                        $mail->SetFrom('reset.password@email.fr', 'GroomAtlantic');
+                        $mail->addAddress($post['email']);
+                        $mail->isHTML(true);
+
+                        
+                        //Ask for HTML-friendly debug output
+                        $mail->Debugoutput = 'html';
+
+
+                        $mail->Subject = 'Sujet';
+                        $mail->Body = '<a href="http://localhost/groomatlantic/public/users/traitement_reset.php?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+
+                                  
+                        if(!$mail->Send()){
+
+                           
+                            echo 'Erreur : ' . $mail->ErrorInfo;
+                        }
+                        else{
+                                                
+                          $formValid = true;
+                                                
+                        }                      
                         
                         
                     
@@ -370,14 +406,12 @@ class UsersController extends Controller
         }
     
         
-        $email = $post['email'];
+        
         
         $params = [
             'formValid' => $formValid,
             'errors' => $errors,
-            'token' => $token,
-            'email' => $email,
-            'userInfo' => $userInfo,
+            
             
              
              

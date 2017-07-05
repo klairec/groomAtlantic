@@ -52,14 +52,15 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="#intro">Intro</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#team">Team</a></li>
-					<li><a href="#pricing">Pricing</a></li>
+					<li><a href="#intro">Qui Sommes Nous?</a></li>
+					<li><a href="#services">Infos Pratiques</a></li>
+					<li><a href="#team">Devenir Groom</a></li>
+					<li><a href="#pricing">xxxxx</a></li>
 					<?php if(!empty($w_user)){ ?> 
-						<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
-					<?php } else{ ?> 
-						<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
+
+							<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
+							<?php } else{ ?> 
+							<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
 					<?php } ?>
 					
 
@@ -92,12 +93,12 @@
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<h3 class="white">Connexion</h3>
+				<h3 class="white">Se Connecter</h3>
                 
 				<form id="LoginForm" method="post" class="popup-form">
 					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
 					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
-                     <a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
+					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
 					
                     <!-- USELESS MAIS PEUT SERVUR PLUS TARD 
                     <div class="dropdown">
@@ -124,9 +125,7 @@
 					<button type="submit" class="btn btn-submit">Submit</button>
                  
 				</form>
-               
                 <button id="subscribe" class="btn btn-submit"><a  href="<?= $this->url('users_pickRole') ?>">Pas encore inscrit ?</a></button>
-                
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->

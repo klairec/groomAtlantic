@@ -15,7 +15,6 @@
 		<a href="<?= $this->url('delete_profile'); ?>">Supprimer mon compte</a>
 	</section>
 
-
 	<section class="rentals">
 		<?php // return infos location du connecté rentals_show?>
 		<h1>MA/MES LOCATIONS</h1>

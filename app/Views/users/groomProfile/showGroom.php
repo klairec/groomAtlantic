@@ -1,10 +1,12 @@
 <<<<<<< HEAD
-<?php $this->layout('layout', ['title' => 'Mon profil']) ?>
+
+<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
+
+
 =======
 <?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
->>>>>>> d27815574fd88ea8cb949ce286af3110825e349d
-
+>>>>>>> 125f36623226d630abecc17793c7969dc0b61777
 <?php $this->start('main_content') ?>
 
 <p>Bonjour, <?= $w_user['firstname'] ?></p>
@@ -30,7 +32,6 @@
     <a href="">Désinscription</a>
 </section>
 
-
 <section class="servicesInfos">
     <h3>Services proposés</h3>
 
@@ -41,7 +42,6 @@
     <a href="">Villes d'action</a>
     <a href="">Disponibilités</a>
 </section>
-
 
 <section class="notifications">
     <h3>Notifications</h3>
@@ -58,8 +58,6 @@
     </div>
     <?php
    
-
-    
     ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
@@ -70,15 +68,11 @@
     </div>
     <?php
     
-
-    
     ?>
     <div>
         <p><?= $users['firstname'] .' '. $users['lastname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
     </div>
     <?php
-    
-
     
     ?>
     <div>
@@ -95,6 +89,5 @@
         <p><?= 'Avis de '.$users['firstname'] .' '. $users['lastname'].' : '.$comments['content']; ?></p>
     </div>
 </section>
-
 
 <?php $this->stop('main_content') ?>

@@ -44,22 +44,23 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="<?= $this->url('default_home') ?>">.
+				<a class="navbar-brand" href="<?= $this->url('default_home') ?>">
 					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
 				</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="#intro">Qui Sommes Nous?</a></li>
-					<li><a href="#services">Infos Pratiques</a></li>
-					<li><a href="#team">Devenir Groom</a></li>
-					<li><a href="#pricing">xxxxx</a></li>
+					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
+					<li><a href="">Qui Sommes Nous?</a></li>
+					<li><a href="">Infos Pratiques</a></li>
+					<li><a href="">Devenir Groom</a></li>
 					<?php if(!empty($w_user)){ ?> 
 
 							<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
 							<?php } else{ ?> 
-							<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
+							<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
+
 					<?php } ?>
 					
 				</ul>
@@ -115,37 +116,32 @@
 						</div>
 					</div>
                         -->
-					<button type="submit" class="btn btn-submit">Submit</button>
-                 
+					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
 				</form>
-                <button id="subscribe" class="btn btn-submit"><a  href="<?= $this->url('users_pickRole') ?>">Pas encore inscrit ?</a></button>
+                <button id="subscribe" class="btn btn-submit">
+                	<a  href="<?= $this->url('users_pickRole') ?>">Pas encore inscrit ?</a>
+                </button>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->
 	<footer>
 		<div class="container">
 			<div class="row">
-
 				<div class="col-sm-4 text-center-mobile">
 					<h3 class="white">GROOM ATLANTIC</h3>
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
 				</div>
-
 				<div class="col-sm-4 text-center-mobile">
-					<h5><a href="#intro">QUI SOMMES NOUS</a></h5>
-					<h5><a href="#team">INFOS PRATIQUES</a></h5>
-					<h5 class="white">NOTRE CHARTE </h5>
-					<h5 class="white">MENTIONS LEGALES </h5>
-					
+					<h5><a href="#intro">QUI SOMMES NOUS</a></h5><br>
+					<h5><a href="#team">INFOS PRATIQUES</a></h5><br>
+					<h5 class="white">NOTRE CHARTE </h5><br>
+					<h5 class="white">MENTIONS LEGALES </h5><br>
 				</div>
-						
 				<div class="col-sm-4 text-center-mobile">
 				<h5 class="white">NOUS SUIVRE</h5>
-					<ul>
-						<li><a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
+						<a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a><br>
+						<a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a><br>
+						<a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a><br>
 				</div>
 			</div>
 		</div>       

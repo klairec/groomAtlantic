@@ -57,9 +57,10 @@
 					<li><a href="#team">Devenir Groom</a></li>
 					<li><a href="#pricing">xxxxx</a></li>
 					<?php if(!empty($w_user)){ ?> 
-						<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
-					<?php } else{ ?> 
-						<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
+
+							<li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
+							<?php } else{ ?> 
+							<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li> 
 					<?php } ?>
 					
 
@@ -94,9 +95,10 @@
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
 				<h3 class="white">Se Connecter</h3>
                 
-				<form method="post" class="popup-form">
+				<form id="LoginForm" method="post" class="popup-form">
 					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
 					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
+					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
 					
                     <!-- USELESS MAIS PEUT SERVUR PLUS TARD 
                     <div class="dropdown">
@@ -123,7 +125,7 @@
 					<button type="submit" class="btn btn-submit">Submit</button>
                  
 				</form>
-                <button id="subscribe" class="btn btn-submit"><a  href="<?= $this->url('add_role') ?>">Pas encore inscrit ?</a></button>
+                <button id="subscribe" class="btn btn-submit"><a  href="<?= $this->url('users_pickRole') ?>">Pas encore inscrit ?</a></button>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->

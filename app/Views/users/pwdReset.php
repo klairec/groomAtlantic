@@ -12,13 +12,13 @@
                                     <label for="email">Veuillez rentrer voter adresse de messagerie</label>
                                     <input type="email" class="form-control" id="email" placeholder="Votre email" name="email">
                                 </div>
-                            <button type="submit" class="btn btn-link">Envoyer le lien de réinitialisation</button>
+                            <button type="submit" class="btn btn-link">Envoyer le lien</button>
                             </form>
 
                             <?php 
                                         if(!empty($errors)){
 
-                                            echo'<p>'.implode('<br>', $errors).'</p>';
+                                            echo'<p style="color: red; text-align: center; font-size: 20px;">'.implode('<br>', $errors).'</p>';
 
                                         }
 

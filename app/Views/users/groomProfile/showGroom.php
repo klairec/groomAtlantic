@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 
 <?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
-
-=======
-<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
-
->>>>>>> 125f36623226d630abecc17793c7969dc0b61777
 <?php $this->start('main_content') ?>
 
 <p>Bonjour, <?= $w_user['firstname'] ?></p>

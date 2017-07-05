@@ -475,7 +475,9 @@ class UsersController extends Controller
                                 $update = $usersModel->update($data, $_GET['idUser'], $stripTags = true);
 
                                 if(!empty($update)){
-
+                                    $reset_passwordModel = new Reset_passwordModel();
+                                    $DelToken = $reset_passwordModel->deleteToken($_GET['idUser'], $_GET['token']);
+                                    
                                     $formValid = true;
                                 }
                             }

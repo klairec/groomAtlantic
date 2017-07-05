@@ -26,9 +26,10 @@ class Reset_passwordModel extends \W\Model\Model
 
 		$sql = 'DELETE FROM ' . $this->table . ' WHERE id_user = :idUser AND token = :token';
 		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(':token', $idUser);
-		$sth->bindValue(':idUser', $token);
+		$sth->bindValue(':token', $token);
+		$sth->bindValue(':idUser', $idUser);
 		$sth->execute();
+
 
 
 	}

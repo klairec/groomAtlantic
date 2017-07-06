@@ -1,5 +1,18 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Nothing to see here']) ?>
 
-<?php $this->start('main_content'); ?>
-<h1>403. Nothing to see here.</h1>
-<?php $this->stop('main_content'); ?>
+<?php $this->start('header'); ?>
+	
+	<div class="container">
+        <div class="table">
+        	<div class="header-text">
+        		<div class="row">
+        			<div class="col-md-12 text-center">
+        				<h1 class="white">Attention!!</h1>
+        				<h2 class="white">Vous n'êtes pas autorisé à accéder à cette page!</h2>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+
+<?php $this->stop('header'); ?>

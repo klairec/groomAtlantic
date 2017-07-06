@@ -821,7 +821,7 @@ footer .social-footer li:hover a {
 	position: relative;
 	padding: 45px 30px;
 	text-align: center;
-	background: url('../img/popup.jpg');
+	background-image: url('../img/pop_up.jpg');
 	box-shadow: none;
 	border-radius: 2px;
 }

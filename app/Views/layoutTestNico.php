@@ -7,7 +7,6 @@
 	<title><?= $this->e($title) ?></title>
     <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de biens saisonners et de concierges" />
 	<meta name="keywords" content="location, saisonniere, concierge, femme de menage, contact" />
-	
      <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
       <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-60x60.png') ?>">
      <link rel="icon" sizes="32x32" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-32x32.png') ?>">
@@ -26,7 +25,6 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('fonts/eleganticons/et-icons.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/cardio.css') ?>">
 </head>
-    
 <body>
     <div class="preloader">
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
@@ -61,7 +59,7 @@
                             <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco -->
                             <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
                         <?php } 
-                                                  
+            
                         else{ ?> <!-- Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription-->
                             <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
 				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
@@ -131,8 +129,6 @@
 	<section>
 		<?= $this->section('main_content') ?>
     </section>
-
-    
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
@@ -144,7 +140,8 @@
 					<input name="password" type="password" class="form-control form-white" placeholder="Votre mot de passe">
 					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
 					
-                    <!-- USELESS MAIS PEUT SERVIR PLUS TARD 
+                    <!--
+                    USELESS MAIS PEUT SERVIR PLUS TARD 
                     <div class="dropdown">
 						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Pricing Plan
@@ -167,9 +164,11 @@
                         -->
 					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
 				</form>
+				<a  href="<?= $this->url('users_pickRole') ?>" class="blue">
                 <button id="subscribe" class="btn btn-submit">
-                	<a  href="<?= $this->url('users_pickRole') ?>" class="blue">Pas encore inscrit ?</a>
+                	Pas encore inscrit ?
                 </button>
+                </a>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->

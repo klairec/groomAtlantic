@@ -20,6 +20,10 @@ $w_config = [
 
 	// configuration globale
 	'site_name'	=> '', 								// contiendra le nom du site
+
+
+	'smtp_email_ident' => 'groomatlantic@gmail.com', // L'adresse email pour s'authentifier sur le smtp
+	'smtp_email_pass' => '',	// Le mot de passe qui va bien
 ];
 
 require('routes.php');

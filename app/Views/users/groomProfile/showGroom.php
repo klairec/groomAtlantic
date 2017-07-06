@@ -22,7 +22,6 @@
                             <p>Ville : <?= $w_user['city'] ?></p>
                             <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
                             <a href="">Modifier mon profil</a><br>
-                            <a href="">Modifier mon mot de passe</a><br>
                             <a href="">Désinscription</a><br>
                         </section>
                     </div>
@@ -66,8 +65,10 @@
                         <?php foreach ($contacts as $contact): ?>
 
                         <div>
-                            <p><?= 'Vous avez été contacté par '.$users['firstname'] .' '. $users['lastname'].', pour la location suivante :'; ?></p>
-                            <p><?= $rentals['id_type'].', '.$rentals['city'].'<br>'.'Souhaitez-vous lui communiquer vos coordonnées ?'; ?></p>
+                            <p><?= 'Vous avez été contacté par '.$contact['firstname'] .' '. $contact['lastname'].', pour la location suivante :'; ?></p>
+                            <?php foreach ($propositions as $proposition): ?>
+                            <p><?= $proposition['id'] . $proposition['id_type'].', '.$proposition['city'].'<br>'.'Souhaitez-vous lui communiquer vos coordonnées ?'; ?></p>
+                            <?php endforeach; ?>
                             <form method="POST" action="">
                                 <label>
                                     <input type="checkbox" id="cbox1" value="checkbox1">Oui
@@ -85,11 +86,11 @@
                         <?php endif; ?>
                             
                         <!-- CONFIRMATION DE CONTACT -->
-                        <?php if(!empty($confirmation)):?>
+                        <?php if(!empty($contacts)):?>
 
-                        <?php foreach ($confirmation as $confirmation): ?>
+                        <?php foreach ($contacts as $contact): ?>
                         <div>
-                            <p><?= $users['firstname'] .' '. $users['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
+                            <p><?= $contact['firstname'] .' '. $contact['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
                             <form method="POST" action="">
                                 <label>
                                     <input type="checkbox" id="cbox3" value="checkbox1">Oui

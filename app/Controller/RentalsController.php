@@ -96,17 +96,16 @@ class RentalsController extends Controller
 			}
 		}
 
-		$this->show('users/ownerProfile/addRental');
-
 	}
 
 
-	public function showRentals(){
+	public function showRentals($id_user){
+		if(!is_numeric($id_user) || empty($id_user)){
+			return false;
+		}
 
-		$id_user = $w_user;
-
-		$showRentals = new RentalsModel();
-		$listRentals = $showRentals->findRentalsWithId($id_user);
+		$rentalsModel = new RentalsModel();
+		$listRentals = $rentalsModel->findRentalsWithId($id_user);
 
 		return $listRentals;
 	}

@@ -1,7 +1,6 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Espace Propriétaire']) ?>
 
 <?php $this->start('main_content') ?>
-
 <section class="myProfile">
     <a href="">Modifier mon profil</a>
     <a href="">Me désinscrire</a>
@@ -9,22 +8,20 @@
 
 
 <section class="myRentals">
-    <h1>MA/MES LOCATIONS</h1>
+
+    <h1><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h1>
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
         <?php foreach ($locations as $location): ?>
             <article>
-                <figure>
-                    <img src="<!-- Image par défaut -->" alt="">
-                </figure>
-                    <h3><?=$location['title']; ?></h3>
-                    <p><span><?=$location['type']; ?></span>&nbsp;<span><?=$location['rooms']; ?></span>&nbsp;<span><?=$location['area']; ?></span>&nbsp;<span><?=$location['outdoor_fittings']; ?></span>
+                    <h3><i class="fa fa-home" aria-hidden="true">&nbsp;<?=$location['title']; ?></i></h3>
+                    <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;<span><?=$location['outdoor_fittings']; ?></span>
                     </p>
                     <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
                     </p>
-                        <a href="">Modifier</a>
-                        <a href="">Supprimer</a>
+                        <a href="#">Modifier</a>
+                        <a href="#">Supprimer</a>
             </article>
             <hr>
 
@@ -121,7 +118,7 @@
                     </div>
                         -->
                  
-                </form>
+               
             </div>
         </div>
     </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->

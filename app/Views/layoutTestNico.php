@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('fonts/font-awesome-4.1.0/css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('fonts/eleganticons/et-icons.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/cardio.css') ?>">
-    
 </head>
     
 <body>
@@ -42,7 +41,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt=""></a>
+				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="Logo de l'entreprise"></a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -76,7 +75,7 @@
 	<!--
 	<nav class="navbar">
 		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display
+			Brand and toggle get grouped for better mobile display
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
@@ -88,35 +87,35 @@
 					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
 				</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling
+			Collect the nav links, forms, and other content for toggling
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous ?</a></li>
 					<li><a href="">Infos Pratiques</a></li>
 
-                        <?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
+                        <?php if(!empty($w_user)){ ?>  Si un utilisateur est connecté-->
                     
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio
                                 <li><a href="<?= $this->url('users_showowner') ?>">Mon profil</a></li>
                             <?php } ?> 
-                            <?php if($w_user['role'] == 'groom'){ ?> <!-- Si c'est un groom on affiche "mon profil" qui pointe le profil groom
+                            <?php if($w_user['role'] == 'groom'){ ?>  Si c'est un groom on affiche "mon profil" qui pointe le profil groom
                                 <li><a href="<?= $this->url('users_showgroom') ?>">Mon profil</a></li>
                             <?php } ?>
-                            <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco 
+                            Dans tous les cas si un utilisateur est connecté, on affiche la déco 
                             <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
                         <?php } 
                                                   
-                        else{ ?> <!-- Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription 
+                        else{ ?>  Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription 
                             <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
 				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
 				        <?php } ?>
 					
 				</ul>
 			</div>
-			<!-- /.navbar-collapse 
+			 /.navbar-collapse 
 		</div>
-		<!-- /.container-fluid 
+		 /.container-fluid 
 	</nav>
 	-->
     <section>
@@ -130,10 +129,10 @@
 
     </header>
 	<section>
-
-			<?= $this->section('main_content') ?>
-
+		<?= $this->section('main_content') ?>
     </section>
+
+    
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
@@ -197,6 +196,16 @@
 		</div>       
 	</footer>
 
+	<!-- Holder for mobile navigation -->
+
+	<div class="mobile-nav">
+		<ul>
+		</ul>
+		<a href="#" class="close-link"><i class="arrow_up"></i></a>
+	</div>
+
+	<!-- Scripts -->
+
 	<script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/owl.carousel.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
@@ -204,6 +213,10 @@
 	<script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/main.js') ?>"></script>
+
+	<!-- Bout de JS Guillaume -->
+
+	<?=$this->section('js');?>
   
 </body>
 </html>

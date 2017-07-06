@@ -2,7 +2,13 @@
 
 namespace Model;
 
-class Reset_passwordModel extends \W\Model\Model
+
+/**
+	UsersModel => table users
+	ShopModel => table shop
+	MyShopModel => table my_shop
+*/
+class ResetPasswordModel extends \W\Model\Model
 {
     	public function findToken($idUser, $token)
 	{

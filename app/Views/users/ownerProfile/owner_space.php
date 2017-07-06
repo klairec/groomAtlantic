@@ -1,8 +1,21 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Espace Propriétaire']) ?>
 
+<<<<<<< HEAD
+<?php $this->start('main_content') ?>
+<section class="myProfile">
+    <a href="">Modifier mon profil</a>
+    <a href="">Me désinscrire</a>
+</section>
+=======
+>>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
 
 <?php $this->start('main_content') ?>
 
+<<<<<<< HEAD
+<section class="myRentals">
+
+    <h1><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h1>
+=======
 <p>Bonjour, <?= $w_user['firstname'] ?></p>
 
 <!-- AFFICHAGE DES DONNEES UTILISATEURS CONNECTE -->
@@ -27,19 +40,29 @@
 <!-- AFFICHAGE INFOS LOCATIONS -->
 <section class="rentals">
     <h3><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h3>
+>>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
         <?php foreach ($locations as $location): ?>
             <article>
+<<<<<<< HEAD
+                    <h3><i class="fa fa-home" aria-hidden="true">&nbsp;<?=$location['title']; ?></i></h3>
+=======
                     <h3>&nbsp;<?=$location['title']; ?></h3>
+>>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
                     <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;<span><?=$location['outdoor_fittings']; ?></span>
                     </p>
                     <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
                     </p>
+<<<<<<< HEAD
+                        <a href="#">Modifier</a>
+                        <a href="#">Supprimer</a>
+=======
                         <a href="#" data-toggle="modal" data-target="#modal2" class="btn btn-blue" value="<?=$location['id']; ?>">Modifier</a>
 
                         <button name="choixAction" value="delete"onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</button>
+>>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
             </article>
             <hr>
 
@@ -113,6 +136,34 @@
                         <button type="submit" class="btn btn-submit">Ajouter une location</button>
 
                     </form>
+<<<<<<< HEAD
+                    
+                    <!-- USELESS MAIS PEUT SERVIR PLUS TARD 
+                    <div class="dropdown">
+                        <button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pricing Plan
+                        </button>
+                        
+                        <ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
+                            <li class="animated lightSpeedIn"><a href="#">1 month membership ($150)</a></li>
+                            <li class="animated lightSpeedIn"><a href="#">3 month membership ($350)</a></li>
+                            <li class="animated lightSpeedIn"><a href="#">1 year membership ($1000)</a></li>
+                            <li class="animated lightSpeedIn"><a href="#">Free trial class</a></li>
+                        </ul>
+
+                    </div>
+                      
+                    <div class="checkbox-holder text-left">
+                        <div class="checkbox">
+                    5       <input type="checkbox" value="None" id="squaredOne" name="check" />
+                            <label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
+                        </div>
+                    </div>
+                        -->
+                 
+               
+=======
+>>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
             </div>
         </div>
     </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->

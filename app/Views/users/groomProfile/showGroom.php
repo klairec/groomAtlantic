@@ -143,6 +143,7 @@
                             <div class="content">
                                 <?=nl2br($comment['content']); ?>
                             </div>
+                            <p><?=$comment['date']; ?></p>
                         </article>
                         <hr>
 

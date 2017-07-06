@@ -391,7 +391,7 @@ class UsersController extends Controller
 
 
                         $mail->Subject = 'Sujet';
-                        $mail->Body = '<a href="http://localhost/Back/testgithub/groomatlantic/public/users/traitementReset?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+                        $mail->Body = '<a href="'. $this->redirectToRoute('users_traitementReset') . '?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
 
 
                         if(!$mail->Send()){
@@ -433,7 +433,12 @@ class UsersController extends Controller
 
 
     public function traitementReset(){
-
+        
+        
+        
+        $post = [];
+        $errors = [];
+        $formValid = false;
         $showForm = false;
         //si les variables existent, ne sont pas vides et que l'id est composé uniquement de chiffres
         //on va chercher s'il y a une correspondance dans la bdd
@@ -448,9 +453,7 @@ class UsersController extends Controller
 
                 $showForm = true;
 
-                $post = [];
-                $errors = [];
-                $formValid = false;
+               
 
 
                 if(!empty($_POST)){

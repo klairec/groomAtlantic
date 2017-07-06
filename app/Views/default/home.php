@@ -39,7 +39,7 @@
                 <div class="input-group stylish-input-group">
 
                 	<form action="<?= $this->url('search_result') ?>">
-	                    <input type="text" class="form-control"  placeholder="Search" >
+	                    <input name="SearchTown" type="text" class="form-control"  placeholder="Search" >
 	                    
 	                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 	                </form>

@@ -288,7 +288,7 @@ class UsersController extends Controller
         $contacts = $contactReq->ContactAuthor();
         
         $rentalsPpt = new RentalsController();
-        $propositions = $rentalsPpt->showRentals();
+        $propositions = $rentalsPpt->showRentals($user_connect['id']);
         
         $params = [
             'comments'  => $comments,

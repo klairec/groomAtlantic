@@ -22,7 +22,6 @@
                             <p>Ville : <?= $w_user['city'] ?></p>
                             <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
                             <a href="">Modifier mon profil</a><br>
-                            <a href="">Modifier mon mot de passe</a><br>
                             <a href="">Désinscription</a><br>
                         </section>
                     </div>

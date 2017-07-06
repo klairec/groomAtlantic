@@ -98,7 +98,7 @@
 				<form id="LoginForm" method="post" class="popup-form" action="<?= $this->url('default_home') ?>">
 					<input type="hidden" name="current_url" value="<?=$w_current_route;?>">
 					<input name="email" type="text" class="form-control form-white" placeholder="Votre email">
-					<input name="password" type="text" class="form-control form-white" placeholder="Votre mot de passe">
+					<input name="password" type="password" class="form-control form-white" placeholder="Votre mot de passe">
 					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
 					
                     <!-- USELESS MAIS PEUT SERVIR PLUS TARD 

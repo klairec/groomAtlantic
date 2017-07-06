@@ -13,22 +13,17 @@ class CommentsController extends Controller
     public function commentList(){
 
         $commentsModel = new CommentsModel();
-        $comments = $commentsModel->showCommentById();
+        $comments= $commentsModel->showCommentById();
 
-        return $comments ;
+        return $comments;
+    }
+    
+    public function commentsAuthor(){
+        $commentsAuthor = new CommentsModel();
+        $commentsAut = $commentsAuthor->commentsAuthorName();
+        
+        return $commentsAut;
     }
 }
     
-    /* AJOUTER DANS UsersController
-    
-    public function commentList(){
-    $comments = new CommentsController();
-    $comments = $CommentsController->showCommentById();
-    
-    $params = [
-            'comments' => $comments,
-        ];
-        
-    $this->show('url', $params); 
-    }
-    */
+  

@@ -18,13 +18,13 @@
 	<meta name="msapplication-config" content="<?= $this->assetUrl('img/favicons/browserconfig.xml') ?>">
 	<meta name="theme-color" content="#ffffff">
     
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/normalize.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/owl.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/animate.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('fonts/font-awesome-4.1.0/css/font-awesome.min.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('fonts/eleganticons/et-icons.css') ?>">
-    <link rel="stylesheet" href="<?= $this->assetUrl('css/cardio.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/normalize.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/owl.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/animate.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('fonts/font-awesome-4.1.0/css/font-awesome.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('fonts/eleganticons/et-icons.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/cardio.css') ?>">
 </head>
     
 <body>
@@ -32,7 +32,7 @@
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
 	</div>
 	<nav class="navbar">
-		<div class="container-fluid">
+		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

@@ -250,7 +250,7 @@
 	-->
 	
 
-	</section>
+
 
 	<section id="pricing" class="section">
 		<div class="container">

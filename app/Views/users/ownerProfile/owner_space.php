@@ -1,7 +1,6 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Espace Propriétaire']) ?>
 
 <?php $this->start('main_content') ?>
-
 <section class="myProfile">
     <a href="">Modifier mon profil</a>
     <a href="">Me désinscrire</a>
@@ -9,7 +8,8 @@
 
 
 <section class="myRentals">
-    <h1>MA/MES LOCATIONS</h1>
+
+    <h1><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h1>
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
@@ -121,7 +121,7 @@
                     </div>
                         -->
                  
-                </form>
+               
             </div>
         </div>
     </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->

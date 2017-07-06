@@ -130,10 +130,10 @@
 
     </header>
 	<section>
-
-			<?= $this->section('main_content') ?>
-
+		<?= $this->section('main_content') ?>
     </section>
+
+    
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">

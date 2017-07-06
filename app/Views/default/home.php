@@ -179,7 +179,7 @@
 						<div class="icon-holder">
 							<img src="<?= $this->assetUrl('img/icons/plage-charenteMaritime.png')?>" alt="" class="icon">
 						</div>
-						<h4 class="heading">Carte de qualité</h4>
+						<h4 class="heading">Charte de qualité</h4>
 						<p class="description">Des concierges qui s'engagent pour vous proposer les meilleurs services.</p>
 					</div>
 				</div>
@@ -194,7 +194,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="cut cut-bottom"></div>
+		
 	</section>
 	
 	

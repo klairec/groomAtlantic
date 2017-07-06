@@ -33,9 +33,7 @@ $w_routes = array(
 	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],
 	['GET|POST', '/users/groomProfile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
 	['GET|POST', '/users/groomProfile/changePassword', 'Users#changePassword', 'change_password'],
-
-	['GET', '/users/ownerProfile/showRentals', 'Rentals#showRentals', 'rentals_show'],
-	['GET|POST', '/users/ownerProfile/addRental', 'Rentals#addRental', 'rentals_add'],
+	
 	['GET|POST', '/users/ownerProfile/changeRental', 'Rentals#changeRental', 'rentals_change'],
 	['GET|POST', '/users/ownerProfile/deleteRental', 'Rentals#deleteRental', 'rentals_delete'],
     

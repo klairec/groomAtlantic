@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Espace Propriétaire']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Espace Propriétaire']) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -19,9 +19,9 @@
                     <img src="<!-- Image par défaut -->" alt="">
                 </figure>
                     <h3><?=$location['title']; ?></h3>
-                    <p><span><?=$location['type']; ?></span>&nbsp<span><?=$location['rooms']; ?></span>&nbsp<span><?=$location['area']; ?></span>&nbsp<span><?=$location['outdoor_fittings']; ?></span>
+                    <p><span><?=$location['type']; ?></span>&nbsp;<span><?=$location['rooms']; ?></span>&nbsp;<span><?=$location['area']; ?></span>&nbsp;<span><?=$location['outdoor_fittings']; ?></span>
                     </p>
-                    <p><span><?=$location['street']; ?></span>&nbsp<span><?=$location['city']; ?></span>&nbsp
+                    <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
                     </p>
                         <a href="">Modifier</a>
                         <a href="">Supprimer</a>
@@ -130,7 +130,7 @@
 </section>
 
 <section class="groom_research">
-    <a href="<?= $this->redirectToRoute('default_home'); ?>">Rechercher un groom</a>
+    <a href="<?= $this->url('default_home'); ?>">Rechercher un groom</a>
 </section>
 
 <section class="notifications">

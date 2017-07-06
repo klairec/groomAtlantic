@@ -112,7 +112,9 @@
 
                         <?php foreach ($comments as $comment): ?>
                         <div>
-                            <p><?= $comment['id_owner'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
+                           <?php foreach ($commentsA as $commentA): ?>
+                            <p><?= $commentA['firstname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
+                            <?php endforeach; ?>
                         </div>
                         <?php endforeach; ?>
                         <?php else: ?>
@@ -139,10 +141,13 @@
                         <?php foreach ($comments as $comment): ?>
 
                         <article>
-                            <h3><?=$comment['id_owner']; ?></h3>
+                           <?php foreach ($commentsA as $commentA): ?>
+                            <h3><?=$commentA['firstname']; ?></h3>
+                            <?php endforeach; ?>
                             <div class="content">
                                 <?=nl2br($comment['content']); ?>
                             </div>
+                            <p><?=$comment['date']; ?></p>
                         </article>
                         <hr>
 

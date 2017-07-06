@@ -17,5 +17,16 @@ class CommentsModel extends \W\Model\Model
 		}
 		return false;
     }
+    
+    // Récupération de l'auteur du commentaire (propriétaire)
+    public function commentsAuthorName(){
+
+        $sql = 'SELECT c.*, u.firstname, u.id FROM '.$this->table.' AS c INNER JOIN users AS u ON c.id_owner = u.id';
+        $select = $this->dbh->prepare($sql);
+		if($select->execute()){
+			return $select->fetchAll(); // Renvoie les résultats
+		}
+		return false;
+    }
 }
 

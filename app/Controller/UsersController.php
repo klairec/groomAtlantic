@@ -291,8 +291,12 @@ class UsersController extends Controller
         $commentsController = new CommentsController();
         $comments = $commentsController->commentList();
         
+        $commentsAut = new CommentsController();
+        $commentsA = $commentsAut->commentsAuthor();
+        
         $params = [
             'comments' => $comments,
+            'commentsA' => $commentsA,
         ];
 
         $this->show('users/groomProfile/showGroom', $params);
@@ -307,9 +311,20 @@ class UsersController extends Controller
     {
         $this->allowTo(['owner']); // limite par défaut à l'utilisateur ayant pour role "owner"
 
-        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
 
-        $this->show('users/ownerProfile/owner_space');
+        $ajouterLoc = new RentalsController();
+        $addRental = $ajouterLoc->addRental(); 
+
+        $voirLoc = new RentalsController();
+        $locations = $voirLoc->showRentals(); 
+
+        $params = [
+            'addRental' => $addRentals,
+            'locations' => $locations,
+        ];  
+
+        $this->show('users/ownerProfile/owner_space', $params);
     }
 
 

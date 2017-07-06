@@ -95,7 +95,6 @@ class RentalsController extends Controller
 
 			}
 		}
-
 	}
 
 
@@ -111,7 +110,7 @@ class RentalsController extends Controller
 	}
 
 
-	public function changeRental(){
+	public function changeRental($id_rental){
 
 		// on récupère les données de l'utilisateur connecté
 		$me = $this->getUser();

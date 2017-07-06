@@ -8,7 +8,7 @@
                 <?php echo $deco; ?>
                 <div class="table">
                     <div class="header-text">
-                                  <?php 
+                        <?php 
     
                 if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
 
@@ -29,30 +29,22 @@
 
                 }
 
-	       ?>
-	       
-
-                                
-
-    	<div class="col-sm-6 col-sm-offset-3">
-            <div id="imaginary_container"> 
-                <div class="input-group stylish-input-group">
-
-                	<form action="<?= $this->url('search_result') ?>">
-	                    <input type="text" class="form-control"  placeholder="Search" >
-	                    
-	                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
-	                </form>
-
-                </div>
+	       				?>	
+						<div class="col-sm-6 col-sm-offset-3">
+						    <div id="imaginary_container"> 
+						        <div class="input-group stylish-input-group">
+						            <form action="<?= $this->url('search_result') ?>">
+							            <input type="text" class="form-control"  placeholder="Search" >
+							            <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
+							        </form>
+						        </div>
+						    </div>
+						</div>
+                    </div>
+                </div>				
             </div>
         </div>
-
-                            </div>
-                        </div>				
-                    </div>
-                </div>
-            </div>
+    </div>
     
 <?php $this->stop('header') ?>
 
@@ -66,7 +58,6 @@
 					<div class="intro-table intro-table-first">
 						<h4 class="white heading">Propriétaire</h4>
 						<i class="fa fa-line-chart" aria-hidden="true"></i>
-
 						<h5 class="white heading small-pt">Des professionnels à votre service</h5>
 						<h5 class="white heading small-pt">Maximisez vos revenus locatifs saisonniers</h5>
 					</div>
@@ -77,40 +68,31 @@
 						<i class="fa fa-check" aria-hidden="true"></i>
 						<h5 class="white heading small-pt">Pourquoi pas vous? Inscrivez vous!</h5>
 						<div class="owl-testimonials bottom">
-							
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-third">
-
 						<h4 class="white heading">Charte de qualité</h4>
 						<i class="fa fa-star-o" aria-hidden="true"></i>
-						
-
-<h5 class="white heading small-pt">Des concierges qui s'engagent.</h5>
-
-
-						<div class="owl-testimonials bottom">
-							
+						<h5 class="white heading small-pt">Des concierges qui s'engagent.</h5>
+						<div class="owl-testimonials bottom">	
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-four">
-					
 						<h4 class="white heading">Sans Engagement</h4>
 						<i class="fa fa-exchange" aria-hidden="true"></i>
-
 						<h5 class="white heading small-pt">Uniquement une mise en relation</h5>
 						<div class="owl-testimonials bottom">
-							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
 	<!--
 	<section id="services" class="section section-padded">
 		<div class="container">
@@ -160,7 +142,6 @@
 	
 	<section id="team" class="section">
 		<div class="container">
-
 			<div class="row title text-center">
 				<h2 class="margin-top">Team</h2>
 				<h4 class="light muted">We're a dream team!</h4>
@@ -179,7 +160,6 @@
 						<div class="title">
 							<h4>Ben Adamson</h4>
 							<h5 class="muted regular">Ronce les Bains</h5>
-
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
@@ -204,7 +184,6 @@
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
-
 						</div>
 						<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</a>
 					</div>
@@ -233,7 +212,6 @@
 			</div>
 		</div>
 	</section>
-	
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">
@@ -245,7 +223,6 @@
 					<div class="pricing">
 						<div class="box-main active" data-img="img/pricing1.jpg">
 							<h4 class="white">Vos Avantages</h4>
-							
 							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">S'inscrire</a>
 							<i class="info-icon icon_question"></i>
 						</div>

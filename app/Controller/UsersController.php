@@ -288,7 +288,7 @@ class UsersController extends Controller
         $contacts = $contactReq->ContactAuthor();
         
         $rentalsPpt = new RentalsController();
-        $propositions = $rentalsPpt->showRentals();
+        $propositions = $rentalsPpt->showRentals($user_connect['id']);
         
         $params = [
             'comments'  => $comments,
@@ -316,11 +316,19 @@ class UsersController extends Controller
         $addRental = $ajouterLoc->addRental(); 
 
         $voirLoc = new RentalsController();
-        $locations = $voirLoc->showRentals($user_connect['id']); 
+        $locations = $voirLoc->showRentals($user_connect['id']);
+
+        $commentsController = new CommentsController();
+        $comments = $commentsController->commentListOwner();
+        
+        $commentsAddr = new CommentsController();
+        $commentsAd = $commentsAddr->commentsAddressee(); 
 
         $params = [
             'addRental' => $addRental,
             'locations' => $locations,
+            'comments'  => $comments,
+            'commentsAd' => $commentsAd,
         ];  
 
         $this->show('users/ownerProfile/owner_space', $params);

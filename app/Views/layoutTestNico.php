@@ -7,7 +7,6 @@
 	<title><?= $this->e($title) ?></title>
     <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de biens saisonners et de concierges" />
 	<meta name="keywords" content="location, saisonniere, concierge, femme de menage, contact" />
-	
      <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
       <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-60x60.png') ?>">
      <link rel="icon" sizes="32x32" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-32x32.png') ?>">
@@ -25,9 +24,7 @@
     <link rel="stylesheet" href="<?= $this->assetUrl('fonts/font-awesome-4.1.0/css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('fonts/eleganticons/et-icons.css') ?>">
     <link rel="stylesheet" href="<?= $this->assetUrl('css/cardio.css') ?>">
-    
 </head>
-    
 <body>
     <div class="preloader">
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
@@ -42,7 +39,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt=""></a>
+				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="Logo de l'entreprise"></a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -62,7 +59,7 @@
                             <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco -->
                             <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
                         <?php } 
-                                                  
+            
                         else{ ?> <!-- Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription-->
                             <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
 				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
@@ -76,7 +73,7 @@
 	<!--
 	<nav class="navbar">
 		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display
+			Brand and toggle get grouped for better mobile display
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
@@ -88,35 +85,35 @@
 					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
 				</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling
+			Collect the nav links, forms, and other content for toggling
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous ?</a></li>
 					<li><a href="">Infos Pratiques</a></li>
 
-                        <?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
+                        <?php if(!empty($w_user)){ ?>  Si un utilisateur est connecté-->
                     
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio
                                 <li><a href="<?= $this->url('users_showowner') ?>">Mon profil</a></li>
                             <?php } ?> 
-                            <?php if($w_user['role'] == 'groom'){ ?> <!-- Si c'est un groom on affiche "mon profil" qui pointe le profil groom
+                            <?php if($w_user['role'] == 'groom'){ ?>  Si c'est un groom on affiche "mon profil" qui pointe le profil groom
                                 <li><a href="<?= $this->url('users_showgroom') ?>">Mon profil</a></li>
                             <?php } ?>
-                            <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco 
+                            Dans tous les cas si un utilisateur est connecté, on affiche la déco 
                             <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
                         <?php } 
                                                   
-                        else{ ?> <!-- Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription 
+                        else{ ?>  Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription 
                             <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
 				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
 				        <?php } ?>
 					
 				</ul>
 			</div>
-			<!-- /.navbar-collapse 
+			 /.navbar-collapse 
 		</div>
-		<!-- /.container-fluid 
+		 /.container-fluid 
 	</nav>
 	-->
     <section>
@@ -132,8 +129,6 @@
 	<section>
 		<?= $this->section('main_content') ?>
     </section>
-
-    
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
@@ -145,7 +140,8 @@
 					<input name="password" type="password" class="form-control form-white" placeholder="Votre mot de passe">
 					<a href="<?= $this->url('users_pwdReset') ?>">Mot de passe oublié ?</a>
 					
-                    <!-- USELESS MAIS PEUT SERVIR PLUS TARD 
+                    <!--
+                    USELESS MAIS PEUT SERVIR PLUS TARD 
                     <div class="dropdown">
 						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Pricing Plan
@@ -168,9 +164,11 @@
                         -->
 					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
 				</form>
+				<a  href="<?= $this->url('users_pickRole') ?>" class="blue">
                 <button id="subscribe" class="btn btn-submit">
-                	<a  href="<?= $this->url('users_pickRole') ?>" class="blue">Pas encore inscrit ?</a>
+                	Pas encore inscrit ?
                 </button>
+                </a>
 			</div>
 		</div>
 	</div><!--FIN DE LA FENETRE MODALE -->
@@ -197,6 +195,16 @@
 		</div>       
 	</footer>
 
+	<!-- Holder for mobile navigation -->
+
+	<div class="mobile-nav">
+		<ul>
+		</ul>
+		<a href="#" class="close-link"><i class="arrow_up"></i></a>
+	</div>
+
+	<!-- Scripts -->
+
 	<script src="<?= $this->assetUrl('js/jquery-1.11.1.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/owl.carousel.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.min.js') ?>"></script>
@@ -204,6 +212,10 @@
 	<script src="<?= $this->assetUrl('js/typewriter.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/main.js') ?>"></script>
+
+	<!-- Bout de JS Guillaume -->
+
+	<?=$this->section('js');?>
   
 </body>
 </html>

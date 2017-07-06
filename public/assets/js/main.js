@@ -93,7 +93,7 @@ jQuery(function($) {
 		$('header').height($(window).height());
 	});
 
-	/*// Pricing Box Click Event
+	/* // Pricing Box Click Event
 	$('.pricing .box-main').click(function() {
 		$('.pricing .box-main').removeClass('active');
 		$('.pricing .box-second').removeClass('active');

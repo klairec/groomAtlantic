@@ -1,5 +1,7 @@
 <?php $this->layout('layoutTestNico', [
-	'title' => 'Page d\'accueil de Groom Atlantic ', 'title2' => 'Groom Atlantic', 'title3' => 'Ami manouche bienvenue',
+	'title' => 'Page d\'accueil de Groom Atlantic ', 
+	'title2' => 'Groom Atlantic', 
+	'title3' => 'Ami manouche bienvenue',
 ]); ?>
 
 <?php $this->start('header') ?>
@@ -8,7 +10,6 @@
                 <?php echo $deco; ?>
                 <div class="table">
                     <div class="header-text">
-<<<<<<< HEAD
                      <div class="row">
 						<div class="col-md-12 text-center">
 							<h3 class="light white">Prenez soin de votre location saisonnière.</h3>
@@ -18,11 +19,7 @@
 							<!--<span class="typed-cursor">|</span>-->
 						</div>
 					</div>
-                                  <?php 
-=======
-                        <?php 
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
-    
+             <?php 
                 if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
 
 			         echo'<div  id="error" class="alert alert-danger alert-dismissable fade in ">
@@ -41,8 +38,6 @@
 			     echo'<p>Vous êtes déconnecté</p>';		
 
                 }
-
-<<<<<<< HEAD
 	       ?>
 	       
                         <div class="row">
@@ -55,21 +50,6 @@
                 </div>
             </div>
         </div>
-                            </div>
-                        </div>				
-=======
-	       				?>	
-						<div class="col-sm-6 col-sm-offset-3">
-						    <div id="imaginary_container"> 
-						        <div class="input-group stylish-input-group">
-						            <form action="<?= $this->url('search_result') ?>">
-							            <input type="text" class="form-control"  placeholder="Search" >
-							            <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
-							        </form>
-						        </div>
-						    </div>
-						</div>
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
                     </div>
                 </div>				
             </div>
@@ -87,7 +67,7 @@
 			<div class="row intro-tables">
 				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
-<<<<<<< HEAD
+
 						<h4 class="white heading">Ben Adamson</h4>
 						
 						<div class="row">
@@ -100,17 +80,13 @@
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					
-=======
-						<h4 class="white heading">Propriétaire</h4>
-						<i class="fa fa-line-chart" aria-hidden="true"></i>
-						<h5 class="white heading small-pt">Des professionnels à votre service</h5>
-						<h5 class="white heading small-pt">Maximisez vos revenus locatifs saisonniers</h5>
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
+
+
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-second">
-<<<<<<< HEAD
+
 						<h4 class="white heading">Ben Adamson</h4>
 						
 						<div class="row">
@@ -118,12 +94,8 @@
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
-=======
-						<h4 class="white heading">Concierge</h4>
-						<i class="fa fa-check" aria-hidden="true"></i>
-						<h5 class="white heading small-pt">Pourquoi pas vous? Inscrivez vous!</h5>
-						<div class="owl-testimonials bottom">
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
+
+						
 						</div>
 
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
@@ -132,7 +104,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-third">
-<<<<<<< HEAD
+
 
 						<h4 class="white heading">Ben Adamson</h4>
 						
@@ -147,20 +119,12 @@
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 
 
-						<div class="owl-testimonials bottom">
-							
-=======
-						<h4 class="white heading">Charte de qualité</h4>
-						<i class="fa fa-star-o" aria-hidden="true"></i>
-						<h5 class="white heading small-pt">Des concierges qui s'engagent.</h5>
-						<div class="owl-testimonials bottom">	
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
-						</div>
 					</div>
-				</div>
+					</div>
+				
 				<div class="col-md-3">
 					<div class="intro-table intro-table-four">
-<<<<<<< HEAD
+
 					
 						<h4 class="white heading">Ben Adamson</h4>
 						
@@ -169,17 +133,13 @@
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
-=======
-						<h4 class="white heading">Sans Engagement</h4>
-						<i class="fa fa-exchange" aria-hidden="true"></i>
-						<h5 class="white heading small-pt">Uniquement une mise en relation</h5>
-						<div class="owl-testimonials bottom">
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
-						</div>
+
+						
 
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					</div>
+				</div>
 				</div>
 				<div class="search">
 <button data-toggle="modal" data-target="#modal1" class="btn btn-blue">Trouver mon Groom</button>
@@ -189,12 +149,7 @@
 		</div>
 
 	</section>
-<<<<<<< HEAD
-	
-=======
 
-	<!--
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
@@ -318,9 +273,9 @@
 	</section> 
 	-->
 	
-=======
+
 	</section>
->>>>>>> 4be8a37615a7f4875b217e9b06d4c962e04f4552
+
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">

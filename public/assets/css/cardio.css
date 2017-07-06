@@ -276,12 +276,12 @@ section {
 }
 
 .section {
-	padding: 40px 0;
+	padding: 10px 0;
 	background: #fff;
 }
 
 .section-padded {
-	padding: 10px 0 40px;
+	padding: 10px 0 10px;
 }
 
 .cut-top {

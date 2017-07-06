@@ -49,9 +49,7 @@
 						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 						                </form>
-					                    <input type="text" class="form-control"  placeholder="Search" >
 					                    
-					                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 					                </div>
 					            </div>
 					        </div>
@@ -121,9 +119,7 @@
 					</div>
 				</div>
 				</div>
-				<div class="search">
-				<button data-toggle="modal" data-target="#modal1" class="btn btn-blue">Trouver mon Groom</button>
-				</div>
+			
 			</div>
 	
 		</div>

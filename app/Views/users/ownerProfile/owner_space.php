@@ -17,9 +17,9 @@
         <p>Code postal : <?= $w_user['postcode'] ?></p>
         <p>Ville : <?= $w_user['city'] ?></p>
         <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
-            <a href="">Modifier mon profil</a><br>
-            <a href="">Modifier mon mot de passe</a><br>
-            <a href="">Désinscription</a><br>
+            <a href="#" class="btn btn-blue">Modifier mon profil</a><br>
+            <a href="#" class="btn btn-blue">Modifier mon mot de passe</a><br>
+            <a href="#" class="btn btn-blue">Me désinscrire</a><br>
 </section><!-- AFFICHAGE DES DONNEES UTILISATEURS CONNECTE -->
 
 <!-- AFFICHAGE INFOS LOCATIONS -->
@@ -30,15 +30,14 @@
     <?php if(!empty($locations)):?>
         <?php foreach ($locations as $location): ?>
             <article>
-                    <h3><i class="fa fa-home" aria-hidden="true">&nbsp;<?=$location['title']; ?></i></h3>
-                    <h3>&nbsp;<?=$location['title']; ?></h3>
+                    <h3><?=$location['title']; ?></h3>
                     <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;<span><?=$location['outdoor_fittings']; ?></span>
                     </p>
                     <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
                     </p>
                         <a href="#" data-toggle="modal" data-target="#modal2" class="btn btn-blue" value="<?=$location['id']; ?>">Modifier</a>
 
-                        <button name="choixAction" value="delete"onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</button>
+                        <button name="choixAction" value="delete" class="btn btn-blue" onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</button>
             </article>
             <hr>
 
@@ -183,20 +182,22 @@
 <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 <section class="groom_research">
     <h3>ACCUEIL</h3>
-    <button href="<?= $this->url('default_home'); ?>">Rechercher un groom</button>
+    <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
 </section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
 
 <!-- AFFICHAGE NOTIFICATIONS -->
 <section class="notifications">
+    <h3>NOTIFICATIONS</h3>
+
+<!-- AFFICHAGE DES COORDONNES RECUES -->
+    <div></div>
+<!-- AFFICHAGE CONFIRMATION  -->
+    <div></div>
+<!-- AFFICHAGE NOTATION -->
+    <div></div>
 
 </section><!-- AFFICHAGE NOTIFICATIONS -->
-
-
-<!-- AFFICHAGE REPERTOIRE GROOM CONTACTES -->
-<section class="my_grooms_book">
-
-</section><!-- AFFICHAGE REPERTOIRE GROOM CONTACTES -->
 
 
 <!-- AFFICHAGE AVIS LAISSES -->

@@ -32,8 +32,8 @@
     <div class="preloader">
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
 	</div>
-	<nav class="navbar">
-		<div class="container">
+	<nav class="navbar-fixed-top">
+		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -169,7 +169,7 @@
 					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
 				</form>
                 <button id="subscribe" class="btn btn-submit">
-                	<a  href="<?= $this->url('users_pickRole') ?>">Pas encore inscrit ?</a>
+                	<a  href="<?= $this->url('users_pickRole') ?>" class="blue">Pas encore inscrit ?</a>
                 </button>
 			</div>
 		</div>

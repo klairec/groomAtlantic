@@ -7,6 +7,7 @@ use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
+use \Controller\Contact_requestsController;
 
 
 class UsersController extends Controller
@@ -283,10 +284,18 @@ class UsersController extends Controller
         $commentsAut = new CommentsController();
         $commentsA = $commentsAut->commentsAuthor();
         
+        $contactReq = new Contact_requestsController();
+        $contacts = $contactReq->ContactAuthor();
+        
+        $rentalsPpt = new RentalsController();
+        $propositions = $rentalsPpt->showRentals();
+        
         $params = [
             'comments'  => $comments,
             'commentsA' => $commentsA,
-        ];
+            'contacts' => $contacts,
+            'propositions' => $propositions
+            ];
 
         $this->show('users/groomProfile/showGroom', $params);
     }

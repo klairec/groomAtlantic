@@ -44,27 +44,21 @@
                             <div class="col-sm-6 col-sm-offset-3">
 					            <div id="imaginary_container"> 
 					                <div class="input-group stylish-input-group">
-
-
 					                	<form action="<?= $this->url('search_result') ?>">
 						                    <input name="SearchTown" type="text" class="form-control"  placeholder="Search" >
 						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 						                </form>
-
-
 					                    <input type="text" class="form-control"  placeholder="Search" >
 					                    
 					                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
-
 					                </div>
 					            </div>
 					        </div>
-                    </div>
-                </div>				
-            </div>
-        </div>
-  
+	                    </div>
+	                </div>				
+	            </div>
+	        </div>
     
 <?php $this->stop('header') ?>
 
@@ -77,83 +71,59 @@
 			<div class="row intro-tables">
 				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
-
 						<h4 class="white heading">Ben Adamson</h4>
-						
 						<div class="row">
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 						</div>
-
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
-					
-
-
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-second">
-
 						<h4 class="white heading">Ben Adamson</h4>
-						
 						<div class="row">
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-
-						
+							<i class="fa fa-star-o" aria-hidden="true"></i>	
 						</div>
-
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="intro-table intro-table-third">
-
-
 						<h4 class="white heading">Ben Adamson</h4>
-						
 						<div class="row">
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 						</div>
-
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
-
-
 					</div>
 					</div>
-				
 				<div class="col-md-3">
 					<div class="intro-table intro-table-four">
-
-					
 						<h4 class="white heading">Ben Adamson</h4>
-						
 						<div class="row">
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
-
-						
-
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					</div>
 				</div>
 				</div>
 				<div class="search">
-<button data-toggle="modal" data-target="#modal1" class="btn btn-blue">Trouver mon Groom</button>
-</div>
+				<button data-toggle="modal" data-target="#modal1" class="btn btn-blue">Trouver mon Groom</button>
+				</div>
 			</div>
 	
 		</div>

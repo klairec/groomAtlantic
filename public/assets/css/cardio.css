@@ -159,6 +159,7 @@ a {
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
+
 /* Navigation Bar ( Navbar ) */
 
 nav.navbar {
@@ -190,6 +191,7 @@ nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
 .icon-bar {
 	background: #bbb;
 }
+
 /* Buttons */
 
 .btn {

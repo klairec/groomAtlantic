@@ -32,8 +32,15 @@
 	       ?>
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h1 class="white typed">Bienvenue</h1>
+                                <h1 class="white typed">Bienvenue</h1>                               
                                 <span class="typed-cursor">|</span>
+                                
+                                <form action="<?= $this->url('search_result') ?>">
+                                
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    
+                                </form>
+                                
                             </div>
                         </div>				
                     </div>
@@ -52,7 +59,7 @@
 					<div class="intro-table intro-table-first">
 						<h4 class="white heading">Propriétaire</h4>
 						<h5 class="white heading small-pt">Des professionnels à votre service</h5>
-						<h5 class="white heading small-pt">Maximisez vos revenus locatifs saisonniers</h>
+						<h5 class="white heading small-pt">Maximisez vos revenus locatifs saisonniers</h5>
 					</div>
 				</div>
 				<div class="col-md-3">

@@ -183,6 +183,7 @@
 
 <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 <section class="groom_research">
+    <h3>ACCUEIL</h3>
     <button href="<?= $this->url('default_home'); ?>">Rechercher un groom</button>
 </section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
@@ -201,6 +202,7 @@
 
 <!-- AFFICHAGE AVIS LAISSES -->
 <section class="marks_history">
+    <h3>MES AVIS LAISSES</h3>
     <?php if(!empty($comments)):?>
 
         <?php foreach ($comments as $comment): ?>

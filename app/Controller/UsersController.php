@@ -8,7 +8,7 @@ use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
 use \Controller\Contact_requestsController;
-
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
 {
@@ -289,8 +289,11 @@ class UsersController extends Controller
         
         $rentalsPpt = new RentalsController();
         $propositions = $rentalsPpt->showRentals($user_connect['id']);
+    
+        /*$image = Image::make('public/images.jpg')->resize(100, 100); */
         
         $params = [
+           /* 'image' => $image, */
             'comments'  => $comments,
             'commentsA' => $commentsA,
             'contacts' => $contacts,

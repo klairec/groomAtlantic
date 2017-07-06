@@ -70,52 +70,6 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<!--
-	<nav class="navbar">
-		<div class="container">
-			Brand and toggle get grouped for better mobile display
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="<?= $this->url('default_home') ?>">
-					<img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="logo">
-				</a>
-			</div>
-			Collect the nav links, forms, and other content for toggling
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
-					<li><a href="<?= $this->url('users_infos') ?>">Qui Sommes Nous ?</a></li>
-					<li><a href="">Infos Pratiques</a></li>
-
-                        <?php if(!empty($w_user)){ ?>  Si un utilisateur est connecté-->
-                    
-                            <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio
-                                <li><a href="<?= $this->url('users_showowner') ?>">Mon profil</a></li>
-                            <?php } ?> 
-                            <?php if($w_user['role'] == 'groom'){ ?>  Si c'est un groom on affiche "mon profil" qui pointe le profil groom
-                                <li><a href="<?= $this->url('users_showgroom') ?>">Mon profil</a></li>
-                            <?php } ?>
-                            Dans tous les cas si un utilisateur est connecté, on affiche la déco 
-                            <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
-                        <?php } 
-                                                  
-                        else{ ?>  Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription 
-                            <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
-				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
-				        <?php } ?>
-					
-				</ul>
-			</div>
-			 /.navbar-collapse 
-		</div>
-		 /.container-fluid 
-	</nav>
-	-->
     <section>
 
 	    <?=$this->section('errors'); ?>

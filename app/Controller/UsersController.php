@@ -291,8 +291,12 @@ class UsersController extends Controller
         $commentsController = new CommentsController();
         $comments = $commentsController->commentList();
         
+        $commentsAut = new CommentsController();
+        $commentsA = $commentsAut->commentsAuthor();
+        
         $params = [
             'comments' => $comments,
+            'commentsA' => $commentsA
         ];
 
         $this->show('users/groomProfile/showGroom', $params);

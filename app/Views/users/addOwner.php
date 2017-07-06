@@ -2,30 +2,28 @@
 
 <?php $this->start('header') ?>
 
-	<div class="container">
-    	<div class="table">
-            <div class="header-text">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                    <h2 class="light white">S'inscrire en tant que propriétaire</h2>
+            <div class="container">
+                <div class="table">
+                    <div class="header-text">
+                        <div id="DivFormO" class="row">
+                            <h2 class="light white">S'inscrire en tant que Propriétaire</h2>
+                                <?php 
 
-					<?php 
+                                    if(!empty($errors)){
 
-					if(!empty($errors)){
+                                        echo'<p>'.implode('<br>', $errors).'</p>';
 
-						echo'<p>'.implode('<br>', $errors).'</p>';
+                                    }
 
-					}
+                                    if($formValid == true){
 
-					if($formValid == true){
+                                        echo'<p> Vous êtes inscrit</p>';
 
-						echo'<p> Vous êtes inscrit</p>';
+                                    }
 
-					}
+                                ?>
 
-						?>
-
-						<form method="post" style="text-align:center;">
+						<form id="FormAddOwner" method="post" style="text-align:center;">
 							<div class="form-group">
 								<input name="firstname" type="text" placeholder="Votre prénom" class="form-control">
 							</div>
@@ -52,11 +50,10 @@
 							</div>
 							<button type="submit" class="btn btn-default">S'inscrire</button>
 						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <?php $this->stop('header') ?>
 

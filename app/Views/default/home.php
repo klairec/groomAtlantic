@@ -5,47 +5,46 @@
 ]); ?>
 
 <?php $this->start('header') ?>
-
-            <div class="container">
-                <?php echo $deco; ?>
+        
+            <div class="container">               
                 <div class="table">
                     <div class="header-text">
-                     <div class="row">
-						<div class="col-md-12 text-center">
-							<h3 class="light white">Prenez soin de votre location saisonnière.</h3>
-							<h1 class="white typed">Choisissez le concierge qui vous convient</h1>
-							<br>
-							<br>
-							<!--<span class="typed-cursor">|</span>-->
-						</div>
-					</div>
-             <?php 
-                if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h3 class="light white">Prenez soin de votre location saisonnière.</h3>
+                                <h1 class="white typed">Choisissez le concierge qui vous convient</h1>
+                                <br>
+                                <br>
+                                <!--<span class="typed-cursor">|</span>-->
+                            </div>
+                        </div>
+                                <?php 
+                                    if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
 
-			         echo'<div  id="error" class="alert alert-danger alert-dismissable fade in ">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
+                                         echo'<div  id="error" class="alert alert-danger alert-dismissable fade in ">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
 
-                }
-                
-                if($formValid == true){
-                		
-			         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$w_user['firstname'].'</div>';
+                                    }
 
-                }
-                
-                if($deco == true){
+                                    if($formValid == true){
 
-			     echo'<p>Vous êtes déconnecté</p>';		
+                                         echo'<div  margin-bottom:50%" class="alert alert-success alert-dismissable fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Bonjour '.$mail.' Vous êtes connecté, votre session : '.$w_user['firstname'].'</div>';
 
-                }
-	       ?>
+                                    }
+
+                                    if($deco == true){
+
+                                     echo'<p>Vous êtes déconnecté</p>';		
+
+                                    }
+                               ?>
 	       
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
 					            <div id="imaginary_container"> 
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
-						                    <input name="SearchTown" type="text" class="form-control"  placeholder="Search" >
+						                    <input name="SearchTown" type="text" class="form-control"  placeholder="Ville de recherche" >
 						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 						                </form>
@@ -57,7 +56,7 @@
 	                </div>				
 	            </div>
 	        </div>
-    
+        
 <?php $this->stop('header') ?>
 
 <?php $this->start('main_content') ?>

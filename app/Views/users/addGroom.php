@@ -5,24 +5,26 @@
             <div class="container">
                 <div class="table">
                     <div class="header-text">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                            <h2 class="light white">S'inscrire en tant que groom</h2>
+                        <div id="DivFormG" class="row">
+                            <h2 class="light white">S'inscrire en tant que Groom</h2>
                                 <?php 
-                                    if(!empty($errors)){
 
-                                        echo'<p>'.implode('<br>', $errors).'</p>';
+                                if(!empty($errors)){
 
-                                    }
+                                    echo'<p>'.implode('<br>', $errors).'</p>';
 
-                                    if($formValid == true){
+                                }
 
-                                        echo'<p> Vous êtes inscrit</p>';
+                                if($formValid == true){
 
-                                    }
+                                    echo'<p> Vous êtes inscrit</p>';
 
-                                    ?>
-                                <form method="post" style="text-align:center;">   <div class="form-group">
+                                }
+
+                                ?>
+                            
+                            <form id="FormAddGroom" method="post" style="text-align:center;">   
+                                <div class="form-group">
                                         <input  name="firstname" type="text" placeholder="Votre prénom" class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -48,11 +50,11 @@
                                     </div>
 				                    <button type="submit" class="btn btn-default">S'inscrire</button>
                                 </form>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
 
 <?php $this->stop('header') ?>
 

@@ -7,6 +7,7 @@
                     <div class="header-text">
                         <div id="DivFormG" class="row">
                             <h2 class="light white">S'inscrire en tant que Groom</h2>
+                            
                                 <?php 
 
                                 if(!empty($errors)){
@@ -17,7 +18,7 @@
 
                                 if($formValid == true){
 
-                                    echo'<p> Vous êtes inscrit</p>';
+                                    echo'<p style="color: white; text-align: center; font-size:20px;> Vous êtes inscrit</p>';
 
                                 }
 
@@ -54,7 +55,6 @@
                     </div>
                 </div>
             </div>
-            
 
 <?php $this->stop('header') ?>
 

@@ -8,6 +8,7 @@ use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
 use \Controller\Contact_requestsController;
+use \Controller\RentalsController;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
@@ -302,6 +303,19 @@ class UsersController extends Controller
 
         $this->show('users/groomProfile/showGroom', $params);
     }
+    
+    public function modifProfilegroom()
+    {
+        $groomController = new GroomController();
+        $groomModif = $groomController->modifGroom();
+        
+        $params = [
+            'groomModif' => $groomModif
+        ];
+        
+        $this->show('users/groomProfile/modifGroom', $params); 
+    }
+        
 
     /**
      * Voir profil proprietaire
@@ -327,7 +341,10 @@ class UsersController extends Controller
         $commentsAddr = new CommentsController();
         $commentsAd = $commentsAddr->commentsAddressee(); 
 
+    
+
         $params = [
+            
             'addRental' => $addRental,
             'locations' => $locations,
             'comments'  => $comments,

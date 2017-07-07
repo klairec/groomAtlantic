@@ -35,7 +35,6 @@
                                     if($deco == true){
 
                                      echo'<p>Vous êtes déconnecté</p>';		
-
                                     }
                                ?>
 	       
@@ -44,11 +43,12 @@
 					            <div id="imaginary_container"> 
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
+
 						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal !" >
 						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
+
 						                </form>
-					                    
 					                </div>
 					            </div>
 					        </div>
@@ -65,7 +65,6 @@
     <section>
     <div class="cut cut-top"></div>
 		<div class="container">
-
 			<div class="row intro-tables">
 				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
@@ -114,18 +113,15 @@
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
 							<i class="fa fa-star-o" aria-hidden="true"></i>
+						</div>
 						<h5 class="white heading small-pt">Ronce les Bains</h5>
 						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					</div>
 				</div>
 				</div>
-			
 			</div>
-	
 		</div>
-
 	</section>
-
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
@@ -133,46 +129,53 @@
 			</div>
 			<div class="row services">
 				<div class="col-md-3">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?= $this->assetUrl('img/icons/pont-ile-re.png')?>" alt="" class="icon">
+					<div class="proprietaire">
+						<div class="service">
+							<div class="icon-holder">
+								<img src="<?= $this->assetUrl('img/icons/pont-ile-re.png')?>" alt="" class="icon">
+							</div>
+							<h4 class="heading">Propriétaire</h4>
+							<p class="description white">Des professionnels à votre service. <br> Maximisez vos revenus locatifs saisonniers.</p>
 						</div>
-						<h4 class="heading">Propriétaire</h4>
-						<p class="description">Des professionnels à votre service. <br> Maximisez vos revenus locatifs saisonniers.</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?= $this->assetUrl('img/icons/les-tours-de-la-rochelle.png')?>" alt="" class="icon">
+					<div class="concierge">
+						<div class="service">
+							<div class="icon-holder">
+								<img src="<?= $this->assetUrl('img/icons/les-tours-de-la-rochelle.png')?>" alt="" class="icon">
+							</div>
+							<h4 class="heading">Concierge</h4>
+							<p class="description white">Pourquoi pas vous? <br>Inscrivez vous!</p>
 						</div>
-						<h4 class="heading">Concierge</h4>
-						<p class="description">Pourquoi pas vous? <br>Inscrivez vous!</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?= $this->assetUrl('img/icons/plage-charenteMaritime.png')?>" alt="" class="icon">
+					<div class="charte_qualite">
+						<div class="service">
+							<div class="icon-holder">
+								<img src="<?= $this->assetUrl('img/icons/plage-charenteMaritime.png')?>" alt="" class="icon">
+							</div>
+							<h4 class="heading">Charte de qualité</h4>
+							<p class="description white">Des concierges qui s'engagent pour vous proposer les meilleurs services.</p>
 						</div>
-						<h4 class="heading">Charte de qualité</h4>
-						<p class="description">Des concierges qui s'engagent pour vous proposer les meilleurs services.</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="service">
-						<div class="icon-holder">
-							<img src="<?= $this->assetUrl('img/icons/fort-boyard.png')?>" alt="" class="icon">
+					<div class="engagement">
+						<div class="service">
+							<div class="icon-holder">
+								<img src="<?= $this->assetUrl('img/icons/fort-boyard.png')?>" alt="" class="icon">
+							</div>
+							<h4 class="heading">Sans engagement</h4>
+							<p class="description white">Pourquoi pas vous? <br>Inscrivez vous!</p>
+							<p class="description white">Nous proposons de vous mettre en relation avec des concierges de votre secteur géographique, pas d'abonnement!</p>
 						</div>
-						<h4 class="heading">Sans engagement</h4>
-						<p class="description">Nous proposons de vous mettre en relation avec des concierges de votre secteur géographique, pas d'abonnement. C'est gratuit!</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</section>
-	
 	
 	<!--<section id="team" class="section">
 		<div class="container">
@@ -245,13 +248,9 @@
 				</div>
 			</div>
 		</div>
-
 	</section> 
 	-->
 	
-
-
-
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">
@@ -270,7 +269,7 @@
 							<ul class="white-list text-left">
 								<li>Gain de temps</li>
 								<li>Proximité</li>
-								<li>Sans Engagement</li>
+								<li>Simplicité</li>
 								<li>Maximisez vos revenus</li>
 								<li>Sans Engagement</li>
 							</ul>
@@ -300,9 +299,6 @@
 	
 <?php $this->stop('main_content') ?>
 
-
-
 <?=$this->start('footer') ?>
   
-
 <?=$this->stop('footer') ?>

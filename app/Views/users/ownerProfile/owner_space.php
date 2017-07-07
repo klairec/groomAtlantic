@@ -2,6 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
+
 <p>Bonjour, <?= $w_user['firstname'] ?></p>
 <!-- AFFICHAGE DES DONNEES UTILISATEURS CONNECTE -->
 <section class="profile">
@@ -18,7 +19,6 @@
         <p>Ville : <?= $w_user['city'] ?></p>
         <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
             <a href="#" class="btn btn-blue">Modifier mon profil</a><br>
-            <a href="#" class="btn btn-blue">Modifier mon mot de passe</a><br>
             <a href="#" class="btn btn-blue">Me désinscrire</a><br>
 </section><!-- AFFICHAGE DES DONNEES UTILISATEURS CONNECTE -->
 
@@ -28,10 +28,17 @@
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
+
         <?php foreach ($locations as $location): ?>
+
+            <?php $locs = explode('|', $location['outdoor_fittings']); ?>
+
             <article>
                     <h3><?=$location['title']; ?></h3>
-                    <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;<span><?=$location['outdoor_fittings']; ?></span>
+                    <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;
+                    <?php foreach ($locs as $loc): ?>
+                        <span><?= $loc; ?></span>
+                    <?php endforeach; ?>
                     </p>
                     <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
                     </p>
@@ -40,7 +47,6 @@
                         <button name="choixAction" value="delete" class="btn btn-blue" onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</button>
             </article>
             <hr>
-
         <?php endforeach; ?>
 
     <?php else: ?>
@@ -61,7 +67,7 @@
 
                 <div><!-- affichage msg d'erreurs --></div>
                 
-                    <form method="POST" action="<?= $this->url('rentals_add') ?>">
+                    <form method="POST" action="<?= $this->url('users_showowner') ?>">
 
                         <label for="title">Titre</label>
                         <input type="text" name="title" id="title">
@@ -124,7 +130,7 @@
 
                 <div><!-- affichage msg d'erreurs --></div>
                 
-                    <form method="POST" action="<?= $this->url('rentals_change') ?>">
+                    <form method="POST" action="<?= $this->url('users_showowner') ?>">
 
                         <label for="newTitle">Titre</label>
                         <input type="text" name="newTitle" id="newTitle" value="<?=$location['title']; ?>">

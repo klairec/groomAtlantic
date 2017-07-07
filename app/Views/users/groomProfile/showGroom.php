@@ -8,11 +8,13 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <p>Bonjour, <?= $w_user['firstname'] ?></p>
-                        <section class="myProfile">
+                        <section>
                             <h3>Mon profil</h3>
+                            
                             <figure>
                                 <img src="<?= $w_user['photo'] ?>">
                             </figure>
+                            
                             <p>Nom : <?= $w_user['lastname'] ?></p>
                             <p>Prénom : <?= $w_user['firstname'] ?></p>
                             <p>Email : <?= $w_user['email'] ?></p>
@@ -21,7 +23,7 @@
                             <p>Code postal : <?= $w_user['postcode'] ?></p>
                             <p>Ville : <?= $w_user['city'] ?></p>
                             <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
-                            <a href="">Modifier mon profil</a><br>
+                            <a href="<?= $this->url('modif_groom'); ?>">Modifier mon profil</a><br>
                             <a href="">Désinscription</a><br>
                         </section>
                     </div>

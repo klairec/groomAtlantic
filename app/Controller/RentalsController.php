@@ -66,7 +66,7 @@ class RentalsController extends Controller
 			// si pas d'erreurs
 			if(count($errors) === 0){
 				$data = [
-					'title' 				=> ucfirst($post['title']),
+					'title' 			=> ucfirst($post['title']),
 					'type'				=> $post['type'],
 					'street'   			=> strtoupper($post['street']),
 					'postcode'    		=> $post['postcode'],
@@ -102,8 +102,6 @@ class RentalsController extends Controller
 		if(!is_numeric($id_user) || empty($id_user)){
 			return false;
 		}
-
-		// explode les outdoor_fittings
 
 		$rentalsModel = new RentalsModel();
 		$listRentals = $rentalsModel->findRentalsWithId($id_user);

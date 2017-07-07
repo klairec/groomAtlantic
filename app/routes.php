@@ -27,16 +27,13 @@ $w_routes = array(
 	/*Laisser Vide ci-dessus */
 
 
-
+    ['GET|POST', '/users/groomProfile/modifGroom', 'Users#modifProfilegroom', 'modif_groom'],
 	['GET', '/users/groomProfile/showGroom', 'Users#showGroom', 'users_showgroom'],
     
 	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],
 	['GET|POST', '/users/groomProfile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
 	['GET|POST', '/users/groomProfile/changePassword', 'Users#changePassword', 'change_password'],
 
-	['GET', '/users/ownerProfile/showRentals', 'Rentals#showRentals', 'rentals_show'],
-	['GET|POST', '/users/ownerProfile/addRental', 'Rentals#addRental', 'rentals_add'],
-	['GET|POST', '/users/ownerProfile/changeRental', 'Rentals#changeRental', 'rentals_change'],
 	['GET|POST', '/users/ownerProfile/deleteRental', 'Rentals#deleteRental', 'rentals_delete'],
     
     ['GET|POST', '/users/ownerProfile/owner_space', 'Users#showOwner', 'users_showowner'],
@@ -44,6 +41,9 @@ $w_routes = array(
 
     ['GET|POST', '/users/Profile/addService', 'Groom#addService', 'groom_addservice'],
     ['GET|POST', '/users/Profile/showService', 'Groom_services#showService', 'groom_services_showService'],
+
+
+	['GET|POST', '/infos/infosPratiques', 'Infos#infosPratiques', 'infos_infospratiques'],
 );
 
 

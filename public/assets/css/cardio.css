@@ -1092,6 +1092,106 @@ footer .social-footer li:hover a {
 	}
 }
 
+/* FOND DIV NOS SERVICES */
+.proprietaire {
+	background:#f27577;
+}
+
+.concierge {
+	background: #613ff4;
+}
+
+.charte_qualite {
+	background:#f27577;
+}
+
+.engagement {
+	background: #8ab5f2;
+}
+
+.engagement .icon-holder {
+	background: #8ab5f2;
+	border-radius: 50%;
+}
+
+.charte_qualite .icon-holder {
+	background:#f27577;
+	border-radius: 50%;
+}
+
+.concierge .icon-holder {
+	background: #613ff4;
+	border-radius: 50%;
+}
+
+.proprietaire .icon-holder {
+	background:#f27577;
+	border-radius: 50%;
+}
+
+.proprietaire:hover .icon-holder {
+	-webkit-transform: scale(3);
+    -moz-transform: scale(3);
+     -ms-transform: scale(3);
+      -o-transform: scale(3);
+       transform: scale(3);
+         -webkit-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+    -moz-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+     -ms-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+      -o-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+         transition: all .5s cubic-bezier( .6, 2, .4, 1);
+}
+
+.concierge:hover .icon-holder {
+	-webkit-transform: scale(3);
+    -moz-transform: scale(3);
+     -ms-transform: scale(3);
+      -o-transform: scale(3);
+         transform: scale(3);
+         -webkit-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+    -moz-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+     -ms-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+      -o-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+         transition: all .5s cubic-bezier( .6, 2, .4, 1);
+}
+
+.charte_qualite:hover .icon-holder {
+	-webkit-transform: scale(3);
+    -moz-transform: scale(3);
+     -ms-transform: scale(3);
+      -o-transform: scale(3);
+         transform: scale(3);
+         -webkit-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+    -moz-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+     -ms-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+      -o-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+         transition: all .5s cubic-bezier( .6, 2, .4, 1);
+}
+
+.engagement:hover .icon-holder {
+	-webkit-transform: scale(3);
+    -moz-transform: scale(3);
+     -ms-transform: scale(3);
+      -o-transform: scale(3);
+         transform: scale(3);
+         -webkit-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+    -moz-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+     -ms-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+      -o-transition: all .5s cubic-bezier( .6, 2, .4, 1);
+         transition: all .5s cubic-bezier( .6, 2, .4, 1);
+}
+
+/* BOUTONS FORMULAIRES */
+.btn-default {
+	background: #7cadf0;
+}
+
+.btn-default:hover {
+	background: #f06467;
+	border: 2px solid transparent;
+	border-radius: 2px;
+}
+
 /* BOUTON 'PAS ENCORE INSCRIT ?' */
 #subscribe{    
     font-size: 1em;
@@ -1106,7 +1206,17 @@ footer .social-footer li:hover a {
 #subscribe:hover a {   
     text-decoration: none;
     color: #00a8ff;
-       
+}
+
+/* BOUTON TROUVER MON GROOM */
+#imaginary_container .btn {
+	margin-top: 50px;
+	padding: 25px;
+	background: #296190;
+}
+
+#imaginary_container .btn:hover {
+	background: #f06467;
 }
 
 /* BOUTON CHOIX INSCRIPTION OWNER / USER */
@@ -1120,15 +1230,12 @@ footer .social-footer li:hover a {
 .btn-link:hover{
     text-decoration: none;
     background-color: rgba(240, 100, 103, 1);
-    
 }
 
-/*FORMS INSCRIPTION */
+/* FORMS INSCRIPTION */
 
 #DivFormG, #DivFormO {
-    
     margin-top: 12em;
-    
 }
 
 #FormAddGroom .form-group, #FormAddOwner .form-group{
@@ -1136,6 +1243,7 @@ footer .social-footer li:hover a {
     width: 50%;
     margin: 10px auto;
 }
+
 #FormAddGroom .form-group input,
 #FormAddOwner .form-group input
 { 

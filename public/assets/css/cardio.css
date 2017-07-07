@@ -1092,6 +1092,17 @@ footer .social-footer li:hover a {
 	}
 }
 
+/*BOUTONS FORMULAIRES*/
+.btn-default {
+	background: #7cadf0;
+}
+
+.btn-default:hover {
+	background: #f06467;
+	border: 2px solid transparent;
+	border-radius: 2px;
+}
+
 /* BOUTON 'PAS ENCORE INSCRIT ?' */
 #subscribe{    
     font-size: 1em;
@@ -1106,7 +1117,12 @@ footer .social-footer li:hover a {
 #subscribe:hover a {   
     text-decoration: none;
     color: #00a8ff;
-       
+}
+
+/* BOUTON TROUVER MON GROOM */
+#imaginary_container, .btn {
+margin-top: 50px;
+padding: 25px;
 }
 
 /* BOUTON CHOIX INSCRIPTION OWNER / USER */
@@ -1123,7 +1139,7 @@ footer .social-footer li:hover a {
     
 }
 
-/*FORMS INSCRIPTION */
+/* FORMS INSCRIPTION */
 
 #DivFormG, #DivFormO {
     
@@ -1136,6 +1152,7 @@ footer .social-footer li:hover a {
     width: 50%;
     margin: 10px auto;
 }
+
 #FormAddGroom .form-group input,
 #FormAddOwner .form-group input
 { 

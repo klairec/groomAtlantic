@@ -45,10 +45,8 @@
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
 						                    <input name="SearchTown" type="text" class="form-control"  placeholder="Ville de recherche" >
-						                    
-						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
+						                     <button id="btn_imaginary_container" data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 						                </form>
-					                    
 					                </div>
 					            </div>
 					        </div>
@@ -64,7 +62,6 @@
     <section>
     <div class="cut cut-top"></div>
 		<div class="container">
-
 			<div class="row intro-tables">
 				<div class="col-md-3">
 					<div class="intro-table intro-table-first">
@@ -118,13 +115,9 @@
 					</div>
 				</div>
 				</div>
-			
 			</div>
-	
 		</div>
-
 	</section>
-
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
@@ -169,9 +162,7 @@
 				</div>
 			</div>
 		</div>
-		
 	</section>
-	
 	
 	<!--<section id="team" class="section">
 		<div class="container">
@@ -244,13 +235,9 @@
 				</div>
 			</div>
 		</div>
-
 	</section> 
 	-->
 	
-
-
-
 	<section id="pricing" class="section">
 		<div class="container">
 			<div class="row title text-center">
@@ -299,9 +286,6 @@
 	
 <?php $this->stop('main_content') ?>
 
-
-
 <?=$this->start('footer') ?>
   
-
 <?=$this->stop('footer') ?>

@@ -339,19 +339,20 @@ class UsersController extends Controller
         $comments = $commentsController->commentListOwner();
         
         $commentsAddr = new CommentsController();
-        $commentsAd = $commentsAddr->commentsAddressee(); 
-
-    
-
+        $commentsAd = $commentsAddr->commentsAddressee();
+        /*
+        $supprLoc = new RentalsController();
+        $deleteRental = $supprLoc->delete($id);
+        */
         $params = [
-            
             'addRental' => $addRental,
             'locations' => $locations,
             'comments'  => $comments,
             'commentsAd' => $commentsAd,
+            //'deleteRental' => $deleteRental,
         ];  
 
-        $this->show('users/ownerProfile/owner_space', $params);
+        $this->show('users/ownerProfile/ownerSpace', $params);
     }
 
 

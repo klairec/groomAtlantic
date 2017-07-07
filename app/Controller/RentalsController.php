@@ -110,7 +110,7 @@ class RentalsController extends Controller
 	}
 
 
-	public function changeRental(){
+	public function changeRental($id){
 
 		// on récupère les données de l'utilisateur connecté
 		$me = $this->getUser();
@@ -137,54 +137,53 @@ class RentalsController extends Controller
 			}
 
 			// on vérifie les champs insérés
-			if(!v::notEmpty()->stringType()->length(5, 150)->validate($post['newStreet'])){
+			if(!v::notEmpty()->stringType()->length(5, 150)->validate($post['street'])){
 				$errors[] = 'La voie doit comporter entre 5 et 150 caractères';
 			}
 
-			if(!v::notEmpty()->stringType()->length(5, 50)->validate($post['newTitle'])){
+			if(!v::notEmpty()->stringType()->length(5, 50)->validate($post['title'])){
 				$errors[] = 'Le nom doit comporter entre 5 et 50 caractères';
 			}
 
 
-			if(!v::notEmpty()->intVal()->length(5)->validate($post['newPostcode'])){
+			if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
 				$errors[] = 'Le code postal doit contenir 5 chiffres';
 			}
 
-			if(!v::notEmpty()->stringType()->length(3, 30)->validate($post['newCity'])){
+			if(!v::notEmpty()->stringType()->length(3, 30)->validate($post['city'])){
 				$errors[] = 'La ville doit comporter entre 3 et 30 caractères';
 			}
 
-			if(!v::notEmpty()->intVal()->length(1, 4)->validate($post['newArea'])){
+			if(!v::notEmpty()->intVal()->length(1, 4)->validate($post['area'])){
 				$errors[] = 'Le surface doit contenir entre 1 et 4 chiffres';
 			}
 
-			if(!v::notEmpty()->intVal()->length(1, 15)->validate($post['newRooms'])){
+			if(!v::notEmpty()->intVal()->length(1, 15)->validate($post['rooms'])){
 				$errors[] = 'Le nombre de pièces doit être compris entre 1 et 15 pièces';
 			}
 
 			// si pas d'erreurs
 			if(count($errors) === 0){
 				$data = [
-					'title' 			=> ucfirst($post['newTitle']),
-					'type'				=> $post['newType'],
-					'street'   			=> strtoupper($post['newStreet']),
-					'postcode'    		=> $post['newPostcode'],
-					'city'    			=> strtoupper($post['newCity']),
-					'area'    			=> $post['newArea'],
-					'rooms'    			=> $post['newRooms'],
-					'outdoor_fittings'  => implode('|', $post['newOutdoor_fittings']),
+					'title' 			=> ucfirst($post['title']),
+					'type'				=> $post['type'],
+					'street'   			=> strtoupper($post['street']),
+					'postcode'    		=> $post['postcode'],
+					'city'    			=> strtoupper($post['city']),
+					'area'    			=> $post['area'],
+					'rooms'    			=> $post['rooms'],
+					'outdoor_fittings'  => implode('|', $post['outdoor_fittings']),
 					'id_owner'			=> $me['id'],
 				];
 
 				// on insère les données tappées par l'utilisateur dans la BDD
 				$rentalsModel = new RentalsModel();
-				$changeRental = $rentalsModel->update($data);
+				$changeRental = $rentalsModel->update($data, $id);
 				if(!empty($changeRental)){
 					// Ajoute un message "flash" (stocké en session temporairement)
 					// Note : il faut toutefois ajouter l'affichage de ce message au layout
 					$this->flash('Votre location a été modifiée', 'success');
 
-					return $changeRental;
 				}
 			}
 
@@ -193,13 +192,26 @@ class RentalsController extends Controller
 				$this->flash($errorsText, 'danger');
 
 			}
-		}
+		} 
+
+		$this->show('users/ownerProfile/rentalsChange');
 	}
 
 
-	public function deleteRental(){
+	public function deleteRental($id){
 
+		// on récupère les données de l'utilisateur connecté
+		$me = $this->getUser();
 
+		// on limite l'accès à la page à un utilisateur non connecté
+		if(empty($me)){
+			$this->showNotFound(); // affichera une page 404
+		}
+
+		$rentalsModel = new RentalsModel();
+		$deleteRental = $rentalsModel->delete($id);
+
+		return $deleteRental;
 
 	}
 }

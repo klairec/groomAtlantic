@@ -138,10 +138,10 @@
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
 				</div>
 				<div class="col-sm-4 text-center-mobile">
-					<h5><a href="<?= $this->url('users_infos') ?>">QUI SOMMES NOUS</a></h5><br>
+					<h5><a href="<?= $this->url('infos_quisommesnous') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
 					<h5><a href="<?= $this->url('infos_chartequalite') ?>">NOTRE CHARTE </a></h5><br>
-					<h5><a href="">MENTIONS LEGALES </a></h5><br>
+					<h5><a href="<?= $this->url('infos_mentionslegales') ?>">MENTIONS LEGALES </a></h5><br>
 				</div>
 				<div class="col-sm-4 text-center-mobile">
 				<h5 class="white">NOUS SUIVRE</h5>

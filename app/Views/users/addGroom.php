@@ -7,6 +7,7 @@
                     <div class="header-text">
                         <div id="DivFormG" class="row">
                             <h2 class="light white">S'inscrire en tant que Groom</h2>
+                            
                                 <?php 
 
                                 if(!empty($errors)){
@@ -54,7 +55,6 @@
                     </div>
                 </div>
             </div>
-            
 
 <?php $this->stop('header') ?>
 

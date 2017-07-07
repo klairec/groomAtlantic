@@ -50,7 +50,7 @@
 					<li><a href="#services">Nos Grooms</a></li>
 					<li><a href="#pricing">Pricing</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
-                    
+                    	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
                                 <li><a href="<?= $this->url('users_showowner') ?>">Mon profil</a></li>
                             <?php } ?> 

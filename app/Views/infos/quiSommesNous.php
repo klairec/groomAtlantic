@@ -4,7 +4,7 @@
         
             <div class="container">
                 <div class="table">
-                    
+                    <p>page qui sommes nous en cours par flo</p>
                     </div>
                 </div>
             </div>

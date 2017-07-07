@@ -18,7 +18,7 @@
 
                                 if($formValid == true){
 
-                                    echo'<p> Vous êtes inscrit</p>';
+                                    echo'<p style="color: white; text-align: center; font-size:20px;> Vous êtes inscrit</p>';
 
                                 }
 

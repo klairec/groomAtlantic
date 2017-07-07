@@ -28,11 +28,11 @@
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
-
+        
         <?php foreach ($locations as $location): ?>
 
             <?php $locs = explode('|', $location['outdoor_fittings']); ?>
-
+            
             <article>
                     <h3><?=$location['title']; ?></h3>
                     <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;
@@ -42,11 +42,12 @@
                     </p>
                     <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
                     </p>
-                        <a href="#" data-toggle="modal" data-target="#modal2" class="btn btn-blue" value="<?=$location['id']; ?>">Modifier</a>
+                    <a href="<?= $this->url('rentals_change', ['id' => $location['id_rental']]) ?>" class="btn btn-blue" value="change">Modifier</a>
 
-                        <button name="choixAction" value="delete" class="btn btn-blue" onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</button>
+                    <a href="<?= $this->url('rentals_delete', ['id' => $location['id_rental']]) ?>" class="btn btn-blue" value="delete">Supprimer</a>
             </article>
-            <hr>
+            <br>
+            
         <?php endforeach; ?>
 
     <?php else: ?>
@@ -121,70 +122,7 @@
         </div>
     </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
-    <!-- MODIFICATION D'UNE LOCATION / FENETRE MODALE -->
-    <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content modal-popup">
-                <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-                <h3 class="white">Modifier</h3>
-
-                <div><!-- affichage msg d'erreurs --></div>
-                
-                    <form method="POST" action="<?= $this->url('users_showowner') ?>">
-
-                        <label for="newTitle">Titre</label>
-                        <input type="text" name="newTitle" id="newTitle" value="<?=$location['title']; ?>">
-
-                        <label for="newType">Type de location</label>
-                        <select name="newType">
-                            <option value="" selected disabled>--Sélectionnez--</option>
-                            <option value="flat">Appartement</option>
-                            <option value="house">Maison</option>
-                            <option value="loft">Loft</option>
-                            <option value="mobilhome">Mobilhome</option>
-                        </select>
-
-                        <label for="newArea">Surface</label>
-                        <input type="text" name="newArea" id="newArea" placeholder="..m²">
-
-                        <label for="newRooms">Nombre de pièces</label>
-                        <input type="text" name="newRooms" id="newRooms">
-
-                        <label for="newOutdoor_fittings">Equipements extérieurs</label>
-                        <label for="newJardin">
-                            <input type="checkbox" name="newOutdoor_fittings[]" value="jardin">
-                        Jardin</label>
-                        <label for="newTerrasse">
-                            <input type="checkbox" name="newOutdoor_fittings[]" value="terrasse">
-                        Terrasse</label>
-                        <label for="newBalcon">
-                            <input type="checkbox" name="newOutdoor_fittings[]" value="balcon">
-                        Balcon</label>
-                        <label for="newPiscine">
-                            <input type="checkbox" name="newOutdoor_fittings[]" value="piscine">
-                        Piscine</label>
-                        <label for="newJacuzzi">
-                            <input type="checkbox" name="newOutdoor_fittings[]" value="jacuzzi">
-                        Jacuzzi</label>
-
-                        <h3>Adresse</h3>
-                        <label for="newStreet">Voie</label>
-                        <input type="text" name="newStreet" id="newStreet" placeholder="">
-
-                        <label for="newPostcode">Code postal</label>
-                        <input type="text" name="newPostcode" id="newPostcode" placeholder="">
-
-                        <label for="newCity">Ville</label>
-                        <input type="text" name="newCity" id="newCity" placeholder="">
-
-                        <button type="submit" class="btn btn-submit">Modifier</button>
-                    </form>
-            </div>
-        </div>
-    </div><!-- FIN MODIFICATION D'UNE LOCATION / FENETRE MODALE -->
-</section><!-- AFFICHAGE INFOS LOCATIONS -->
-
-
+    
 <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 <section class="groom_research">
     <h3>ACCUEIL</h3>

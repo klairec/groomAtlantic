@@ -41,6 +41,9 @@ $w_routes = array(
 
     ['GET|POST', '/users/Profile/addService', 'Groom#addService', 'groom_addservice'],
     ['GET|POST', '/users/Profile/showService', 'Groom_services#showService', 'groom_services_showService'],
+
+
+	['GET|POST', '/infos/infosPratiques', 'Infos#infosPratiques', 'infos_infospratiques'],
 );
 
 

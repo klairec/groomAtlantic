@@ -330,21 +330,24 @@ class UsersController extends Controller
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
 
         $ajouterLoc = new RentalsController();
-        $rentalsAdd = $ajouterLoc->rentalsAddaddRental(); 
+        $addRental = $ajouterLoc->addRental(); 
 
         $voirLoc = new RentalsController();
-        $rentalsList = $voirLoc->showRentals($user_connect['id']);
+        $locations = $voirLoc->showRentals($user_connect['id']);
 
-        $voirCom = new CommentsController();
-        $commentsList = $voirCom->commentListOwner();
+        $commentsController = new CommentsController();
+        $comments = $commentsController->commentListOwner();
         
-        $voirDestinataireCom = new CommentsController();
-        $commentsAd = $voirDestinataireCom->commentsAddressee(); 
+        $commentsAddr = new CommentsController();
+        $commentsAd = $commentsAddr->commentsAddressee(); 
+
+    
 
         $params = [
-            'rentalsAdd' => $rentalsAdd,
-            'rentalsList' => $rentalsList,
-            'commentsList'  => $commentsList,
+            
+            'addRental' => $addRental,
+            'locations' => $locations,
+            'comments'  => $comments,
             'commentsAd' => $commentsAd,
         ];  
 

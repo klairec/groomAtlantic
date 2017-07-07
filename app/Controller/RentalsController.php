@@ -103,8 +103,6 @@ class RentalsController extends Controller
 			return false;
 		}
 
-		// explode les outdoor_fittings
-
 		$rentalsModel = new RentalsModel();
 		$listRentals = $rentalsModel->findRentalsWithId($id_user);
 

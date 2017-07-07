@@ -7,21 +7,17 @@
 <section class="profile">
     <h3>MON PROFIL</h3>
 
-    <?php foreach ($showInfos as $showInfo): ?>
-        <?= print_r($showInfos); ?>
-        <p>Bonjour, <?=$showInfo['firstname']; ?></p>
-        <p>Nom : <?=$showInfo['lastname']; ?></p>
-        <p>Prénom : <?=$showInfo['firstname']; ?></p>
-        <p>Email : <?=$showInfo['email']; ?></p>
-        <p>Téléphone : <?=$showInfo['phone']; ?></p>
-        <p>Adresse : <?=$showInfo['address']; ?></p>
-        <p>Code postal : <?=$showInfo['postcode']; ?></p>
-        <p>Ville : <?=$showInfo['city']; ?></p>
-        <p>Date d'inscription : <?=$showInfo['date_creation']; ?></p>
-    <?php endforeach; ?>
+        <p>Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
+        <p>Email : <?=$showInfos['email']; ?></p>
+        <p>Téléphone : <?=$showInfos['phone']; ?></p>
+        <p>Adresse : <?=$showInfos['address']; ?></p>
+        <p>Code postal : <?=$showInfos['postcode']; ?></p>
+        <p>Ville : <?=$showInfos['city']; ?></p>
+        <p>Date d'inscription : <?=$showInfos['date_creation']; ?></p>
 
-    <a href="<?= $this->url('change_profileO');?>" 
+        <a href="<?= $this->url('change_profileO');?>" 
         class="btn btn-blue">Modifier mon profil</a><br>
+
         <a href="#" class="btn btn-blue">Me désinscrire</a><br>
 
     </section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->

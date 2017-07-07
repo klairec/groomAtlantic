@@ -11,8 +11,7 @@
                 <section class="profile">
                     <h3>MODIFICATION DE MON PROFIL</h3>
 
-                    <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-                    <h3 class="white">Modifier</h3>
+                    <h3 class="">Modifier</h3>
 
                     <div><!-- affichage msg d'erreurs --></div>
 
@@ -23,26 +22,26 @@
                         </figure>
 
                         <label for="newLastname">Nom</label>
-                        <input type="text" name="newLastname" id="newLastname" value="<?=$user['lastname']; ?>">
+                        <input type="text" name="newLastname" id="newLastname" value="<?=$w_user['lastname']; ?>">
 
                         <label for="newFirstname">Prénom</label>
-                        <input type="text" name="newFirstname" id="newFirstname" value="<?=$user['firstname']; ?>">
+                        <input type="text" name="newFirstname" id="newFirstname" value="<?=$w_user['firstname']; ?>">
 
                         <label for="newEmail">Email</label>
-                        <input type="text" name="newEmail" id="newEmail" placeholder="" value="<?=$user['email']; ?>">
+                        <input type="text" name="newEmail" id="newEmail" placeholder="" value="<?=$w_user['email']; ?>">
 
                         <label for="newPhone">Téléphone</label>
-                        <input type="text" name="newPhone" id="newPhone" value="<?=$user['phone']; ?>">
+                        <input type="text" name="newPhone" id="newPhone" value="<?=$w_user['phone']; ?>">
 
                         <h3>Adresse</h3>
-                        <label for="newStreet">Voie</label>
-                        <input type="text" name="newStreet" id="newStreet" placeholder="">
+                        <label for="newAddress">Voie</label>
+                        <input type="text" name="newAddress" id="newAddress" placeholder="" value="<?=$w_user['address']; ?>">
 
                         <label for="newPostcode">Code postal</label>
-                        <input type="text" name="newPostcode" id="newPostcode" placeholder="">
+                        <input type="text" name="newPostcode" id="newPostcode" placeholder="" value="<?=$w_user['postcode']; ?>">
 
                         <label for="newCity">Ville</label>
-                        <input type="text" name="newCity" id="newCity" placeholder="">
+                        <input type="text" name="newCity" id="newCity" placeholder="" value="<?=$w_user['city']; ?>">
 
                         <button type="submit" class="btn btn-submit">Modifier</button>
                     </form>

@@ -27,7 +27,7 @@ $w_routes = array(
 	/*Laisser Vide ci-dessus */
 
 
-
+    ['GET|POST', '/users/groomProfile/modifGroom', 'Users#modifGroom', 'modif_groom'];
 	['GET', '/users/groomProfile/showGroom', 'Users#showGroom', 'users_showgroom'],
     
 	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],

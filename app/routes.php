@@ -28,16 +28,15 @@ $w_routes = array(
 
 	// ROUTES USERS
 	['GET|POST', '/users/groomProfile/modifGroom', 'Users#modifProfilegroom', 'modif_groom'],
+	['GET|POST', '/users/changeProfile', 'Users#changeProfile', 'change_profile'],
+	['GET|POST', '/users/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
+	// ['GET|POST', '/users/changePassword', 'Users#changePassword', 'change_password'],
 
 
 	// ROUTES PROFIL CONCIERGE
 	['GET', '/users/groomProfile/showGroom', 'Users#showGroom', 'users_showgroom'],
     
-	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],
-	['GET|POST', '/users/groomProfile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
-	['GET|POST', '/users/groomProfile/changePassword', 'Users#changePassword', 'change_password'],
-
-
+	
 	// ROUTES PROFIL PROPRIETAIRE
 	['GET|POST', '/users/ownerProfile/ownerSpace', 'Users#showOwner', 'users_showowner'],
 	['GET|POST', '/users/ownerProfile/rentalsChange/[:id]/', 'Rentals#changeRental', 'rentals_change'],

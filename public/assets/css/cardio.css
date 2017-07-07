@@ -482,6 +482,8 @@ section {
 	}
 }
 
+
+
 .services {
 	margin: 40px 0;
 }
@@ -689,6 +691,13 @@ section {
 	margin-bottom: 60px;
 	color: white;
 }
+/* page charte de qualite */
+
+.charte{
+	font-size: 10px;
+	color: #3b3a3a;
+}
+
 /* Footer */
 
 footer {

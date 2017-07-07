@@ -11,7 +11,7 @@
                     <div class="header-text">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h3 class="light white">Prenez soin de votre location saisonnière.</h3>
+                                <h3 class="light white">Optimisez vos locations saisonnières.</h3>
                                 <h1 class="white typed">Choisissez le concierge qui vous convient</h1>
                                 <br>
                                 <br>

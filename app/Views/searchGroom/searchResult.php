@@ -24,6 +24,13 @@
                         <div class="row">
 
                             <?php
+                                print_r($resultSearch);
+                                ?><hr><hr><?php
+                                
+                                    echo $testSkills;
+                                ?><hr><hr><?php
+
+                                
                                 if(!empty($resultSearch)){
 
                                         
@@ -37,7 +44,24 @@
                                                     <div class="team text-center">
                                                         <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
                                                             <div class="overlay text-center">
-                                                                <h3 class="white"><?=$datas['id_skill'] ?></h3>
+                                                                <h3 class="white">
+
+                                                                <?php //TEST//
+                                                                    
+
+                                                                $skills =  explode('|', $datas['id_skill']); 
+                                                                foreach ($skills as $groomSkills) {
+                                                                    
+                                                                    echo $groomSkills;
+                                                                }
+                                                                
+
+
+
+                                                                    
+                                                                ?>
+                                                                    
+                                                                </h3>
                                                                 <h5 class="light light-white"><?=$datas['price'] ?></h5>
                                                             </div>
                                                         </div>

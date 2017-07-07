@@ -44,7 +44,7 @@
 					            <div id="imaginary_container"> 
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
-						                    <input name="SearchTown" type="text" class="form-control"  placeholder="Ville de recherche" >
+						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal !" >
 						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 						                </form>
@@ -56,6 +56,7 @@
 	                </div>				
 	            </div>
 	        </div>
+	  
         
 <?php $this->stop('header') ?>
 

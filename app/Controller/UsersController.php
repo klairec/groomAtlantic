@@ -8,6 +8,7 @@ use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
 use \Controller\Contact_requestsController;
+use \Controller\RentalsController;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
@@ -405,21 +406,21 @@ class UsersController extends Controller
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
 
         $ajouterLoc = new RentalsController();
-        $addRental = $ajouterLoc->addRental(); 
+        $rentalsAdd = $ajouterLoc->rentalsAddaddRental(); 
 
         $voirLoc = new RentalsController();
-        $locations = $voirLoc->showRentals($user_connect['id']);
+        $rentalsList = $voirLoc->showRentals($user_connect['id']);
 
-        $commentsController = new CommentsController();
-        $comments = $commentsController->commentListOwner();
+        $voirCom = new CommentsController();
+        $commentsList = $voirCom->commentListOwner();
         
-        $commentsAddr = new CommentsController();
-        $commentsAd = $commentsAddr->commentsAddressee(); 
+        $voirDestinataireCom = new CommentsController();
+        $commentsAd = $voirDestinataireCom->commentsAddressee(); 
 
         $params = [
-            'addRental' => $addRental,
-            'locations' => $locations,
-            'comments'  => $comments,
+            'rentalsAdd' => $rentalsAdd,
+            'rentalsList' => $rentalsList,
+            'commentsList'  => $commentsList,
             'commentsAd' => $commentsAd,
         ];  
 

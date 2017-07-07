@@ -66,7 +66,7 @@ class RentalsController extends Controller
 			// si pas d'erreurs
 			if(count($errors) === 0){
 				$data = [
-					'title' 				=> ucfirst($post['title']),
+					'title' 			=> ucfirst($post['title']),
 					'type'				=> $post['type'],
 					'street'   			=> strtoupper($post['street']),
 					'postcode'    		=> $post['postcode'],

@@ -32,7 +32,7 @@
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
 	</div>
 	<nav class="navbar">
-		<div class="container">
+		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,7 +48,6 @@
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="#intro">Accueil</a></li>
 					<li><a href="#services">Nos Grooms</a></li>
-					<li><a href="#team">Team</a></li>
 					<li><a href="#pricing">Pricing</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     

@@ -51,6 +51,7 @@ $w_routes = array(
 
 
 	['GET|POST', '/infos/infosPratiques', 'Infos#infosPratiques', 'infos_infospratiques'],
+	['GET|POST', '/infos/charteDeQualite', 'Infos#CharteQualite', 'infos_chartequalite'],
 );
 
 

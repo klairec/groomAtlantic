@@ -5,13 +5,13 @@
 ]); ?>
 
 <?php $this->start('header') ?>
-        
+     
             <div class="container">               
                 <div class="table">
                     <div class="header-text">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h3 class="light white">Prenez soin de votre location saisonnière.</h3>
+                                <h3 class="light white">Optimisez vos locations saisonnières.</h3>
                                 <h1 class="white typed">Choisissez le concierge qui vous convient</h1>
                                 <br>
                                 <br>
@@ -43,8 +43,11 @@
 					            <div id="imaginary_container"> 
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
-						                    <input name="SearchTown" type="text" class="form-control"  placeholder="Ville de recherche" >
-						                     <button id="btn_imaginary_container" data-toggle="modal" data-target="#modal1" class="btn btn-default">Trouver mon Groom</button>
+
+						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal !" >
+						                    
+						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
+
 						                </form>
 					                </div>
 					            </div>
@@ -53,6 +56,7 @@
 	                </div>				
 	            </div>
 	        </div>
+	  
         
 <?php $this->stop('header') ?>
 

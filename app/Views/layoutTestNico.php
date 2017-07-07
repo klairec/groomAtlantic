@@ -139,8 +139,8 @@
 				</div>
 				<div class="col-sm-4 text-center-mobile">
 					<h5><a href="<?= $this->url('users_infos') ?>">QUI SOMMES NOUS</a></h5><br>
-					<h5><a href="">INFOS PRATIQUES</a></h5><br>
-					<h5><a href="">NOTRE CHARTE </a></h5><br>
+					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
+					<h5><a href="<?= $this->url('infos_chartequalite') ?>">NOTRE CHARTE </a></h5><br>
 					<h5><a href="">MENTIONS LEGALES </a></h5><br>
 				</div>
 				<div class="col-sm-4 text-center-mobile">

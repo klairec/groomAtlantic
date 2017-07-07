@@ -2,7 +2,7 @@
 
 <?php $this->start('header') ?>
         
-            <div class="container">
+<div class="container">
                 <div class="table">
                     <div class="header-text">
                         <div class="row">
@@ -17,11 +17,12 @@
                                 ?>
                                 <!-- Penser à mettre une maj au début de la recherche -->
 
-                                <h3 class="light white">Nos Grooms à : <?= $_GET['SearchTown'] ?></h3>
+                                <h3 class="light white">Nos Grooms près de : <?= $fullCp ?></h3>
                             </div>
                         </div>        
                                 
                         <div class="row">
+
                             <?php
                                 if(!empty($resultSearch)){
 
@@ -66,9 +67,11 @@
                 </div>
             </div>
 
-
 <?php $this->stop('header') ?>
 
 <?php $this->start('main_content') ?>
+
+            
+
 
 <?php $this->stop('main_content') ?>

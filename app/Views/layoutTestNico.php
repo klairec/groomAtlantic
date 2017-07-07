@@ -83,6 +83,11 @@
 
     </header>
 	<section>
+		<?php if(!empty($w_flash_message->message)): ?>
+				<div class="alert alert-<?=$w_flash_message->level;?>">
+					<?=$w_flash_message->message;?>
+				</div>
+			<?php endif; ?>
 		<?= $this->section('main_content') ?>
     </section>
 

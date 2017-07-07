@@ -329,8 +329,11 @@ class UsersController extends Controller
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
 
+        $usersModel = new UsersModel();
+        $showInfos = $usersModel->find($user_connect['id']);
+
         $ajouterLoc = new RentalsController();
-        $addRental = $ajouterLoc->addRental(); 
+        $addRental = $ajouterLoc->addRental();
 
         $voirLoc = new RentalsController();
         $locations = $voirLoc->showRentals($user_connect['id']);
@@ -340,19 +343,70 @@ class UsersController extends Controller
         
         $commentsAddr = new CommentsController();
         $commentsAd = $commentsAddr->commentsAddressee();
-        /*
-        $supprLoc = new RentalsController();
-        $deleteRental = $supprLoc->delete($id);
-        */
+
+        
         $params = [
+            'showInfos' => $showInfos,
             'addRental' => $addRental,
             'locations' => $locations,
             'comments'  => $comments,
             'commentsAd' => $commentsAd,
-            //'deleteRental' => $deleteRental,
         ];  
 
-        $this->show('users/ownerProfile/ownerSpace', $params);
+        $this->show('users/ownerProfile/showOwner', $params);
+    }
+
+
+    /**
+     * Update des infos propriétaire
+     */
+    public function changeProfileO()
+    {
+        $post = [];
+        $errors = [];
+        $formValid = false;
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
+
+        if(!empty($_POST)){
+            // Permet de nettoyer les données
+            foreach($_POST as $key => $value){
+                $post[$key] = trim(strip_tags($value));
+            }
+
+
+            if(count($errors) === 0){
+                $authModel = new \W\Security\AuthentificationModel;
+
+                $data = [
+                    'firstname' => $post['firstname'], 
+                    'lastname' => $post['lastname'],
+                    'email'  => $post['email'],
+                    'address' => $post['address'],
+                    'postcode' => $post['postcode'],
+                    'city' => $post['city'],
+                    'phone' => $post['phone'],
+                ];
+
+                $usersModel = new UsersModel();
+
+                $update = $usersModel->update($data, $user_connect['id']);
+                //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
+
+                if(!empty($update)){
+                    $formValid = true;
+
+                    $this->flash('Vos informations ont été modifiées', 'success');
+                    $this->redirectToRoute('users_showowner');
+                }
+            }
+        }
+        $params = [
+            'formValid' => $formValid,
+            'errors'    => $errors,
+        ];
+
+        $this->show('users/ownerProfile/changeProfileO');
     }
 
 

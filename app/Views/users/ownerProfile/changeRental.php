@@ -1,4 +1,4 @@
-<?php $this->layout('layoutTestNico', ['title' => 'Modifier mon profil']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Modifier une location']) ?>
 
 <?php $this->start('main_content') ?>
 	<form method="POST">

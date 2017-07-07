@@ -194,7 +194,7 @@ class RentalsController extends Controller
 			}
 		} 
 
-		$this->show('users/ownerProfile/rentalsChange');
+		$this->show('users/ownerProfile/changeRental');
 	}
 
 
@@ -211,7 +211,7 @@ class RentalsController extends Controller
 		$rentalsModel = new RentalsModel();
 		$deleteRental = $rentalsModel->delete($id);
 
-		return $deleteRental;
+		$this->redirectToRoute('users_showowner');
 
 	}
 }

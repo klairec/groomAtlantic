@@ -411,6 +411,30 @@ class UsersController extends Controller
 
 
     /**
+     * Delete des infos propriétaires
+     */
+    public function deleteProfileO($id){
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
+
+        // on limite l'accès à la page à un utilisateur non connecté
+        if(empty($user_connect)){
+            $this->showNotFound(); // affichera une page 404
+        }
+
+        $usersModel = new UsersModel();
+        $deleteUser = $usersModel->delete($user_connect['id']);
+        if(!empty($deleteUser)){
+            $authentificationModel = new AuthentificationModel();
+            $logoutUser = $authentificationModel->logUserOut();
+        }
+
+        $this->redirectToRoute('default_home');
+
+    }
+
+
+    /**
      * Ajoute role
      */
     public function pickRole(){

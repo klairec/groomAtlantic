@@ -10,6 +10,7 @@ use \Controller\CommentsController;
 use \Controller\Contact_requestsController;
 use \Controller\RentalsController;
 use Intervention\Image\ImageManagerStatic as Image;
+use \Respect\Validation\Validator as v;
 
 class UsersController extends Controller
 {
@@ -331,6 +332,7 @@ class UsersController extends Controller
 
         $usersModel = new UsersModel();
         $showInfos = $usersModel->find($user_connect['id']);
+        
 
         $ajouterLoc = new RentalsController();
         $addRental = $ajouterLoc->addRental();
@@ -374,9 +376,28 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
+            // vérifications des critères d'insertion de l'image
+            if(!v::image()->validate($_FILES['photo']['tmp_name'])){
+                $errors[] = 'La photo ne possède pas la bonne extension.';
+            }
+
+            if(!v::size(null, '2MB')->validate($_FILES['photo']['tmp_name'])){
+                $errors[] = 'La photo dépasse les 2 Mo.';
+            }
 
             if(count($errors) === 0){
-                $authModel = new \W\Security\AuthentificationModel;
+
+                // création d'un nom unique
+                $nom = md5(uniqid(rand(), true));
+
+                $fileInfo = pathinfo($_FILES['photo']['name']);
+                $extension = $fileInfo['extension'];
+
+                // création de la route à suivre pour le stockage de l'image
+                move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+
+                $fileName = $nom.'.'.$extension;
+
 
                 $data = [
                     'firstname' => $post['firstname'], 
@@ -386,6 +407,7 @@ class UsersController extends Controller
                     'postcode' => $post['postcode'],
                     'city' => $post['city'],
                     'phone' => $post['phone'],
+                    'photo' => $fileName,
                 ];
 
                 $usersModel = new UsersModel();

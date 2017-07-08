@@ -1,8 +1,12 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Modifier mon profil']) ?>
 
 <?php $this->start('main_content') ?>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 	
+	<div class="form-group">
+		<label for="photo">Ajouter une photo de profil</label>
+		<input type="file" name="photo">
+	</div>
 	<div class="form-group">
 		<label for="firstname">Prénom</label>
 		<input name="firstname" type="text" class="form-control" value="">

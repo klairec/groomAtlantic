@@ -7,6 +7,10 @@
 <section class="profile">
     <h3>MON PROFIL</h3>
 
+
+    <figure>
+        <img src="/assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
+    </figure>
     <p>Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
     <p>Email : <?=$showInfos['email']; ?></p>
     <p>Téléphone : <?=$showInfos['phone']; ?></p>
@@ -174,3 +178,6 @@
                             </section><!-- AFFICHAGE AVIS LAISSES -->
 
                             <?php $this->stop('main_content') ?>
+
+
+

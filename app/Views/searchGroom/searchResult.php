@@ -1,68 +1,96 @@
+
+
 <?php $this->layout('layoutTestNico', ['title' => 'Résultats de la recherche']) ?>
 
-<?php $this->start('header') ?>
+<?php $this->start('header'); use \W\Model\UsersModel; use \Model\ServicesInfosModel; ?>
         
 <div class="container">
-                <div class="table">
-                    <div class="header-text">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                            <h2 class="light white">Résultats de vote recherche</h2>
-                                <?php 
-                                    if(!empty($errors)){
+    <div class="table">
+        <div class="header-text">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="light white">Résultats de vote recherche</h2>
+                        <?php 
+                            if(!empty($errors)){
 
-                                        echo'<p>'.implode('<br>', $errors).'</p>';
+                            echo'<p>'.implode('<br>', $errors).'</p>';
 
-                                    }
-                                ?>
+                            }
+                        ?>
                                 <!-- Penser à mettre une maj au début de la recherche -->
 
-                                <h3 class="light white">Nos Grooms près de : <?= $fullCp ?></h3>
-                            </div>
-                        </div>        
+                    <h3 class="light white">Nos Grooms près de : <?= $fullCp ?></h3>
+                </div>
+            </div>        
                                 
                         <div class="row">
 
                             <?php
-                                print_r($resultSearch);
-                                ?><hr><hr><?php
-                                
-                                    echo $testSkills;
-                                ?><hr><hr><?php
+                               
 
                                 
                                 if(!empty($resultSearch)){
 
                                         
 
-                                        foreach ($resultSearch as $datas) {
+                                        foreach ($InfosGroom as $datas) {
 
                                         /*    echo '' .$datas['id_groom']. ' ' .$datas['id_skill']. ' ' .$datas['price']. ' ' .$datas['city']. '';*/
-                                            
+
+
+                                        
                                             ?>
-                                                <div class="col-md-3">
+                                                <div class="col-md-4">
                                                     <div class="team text-center">
                                                         <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
-                                                            <div class="overlay text-center">
-                                                                <h3 class="white">
+                                                            <div style="text-align: center" class="overlay text-center">
+                                                                <h5 class="white">Mes compétences & tarifs : </h5>
+                                                                <h5 class="light light-white"></h5>
+                                                                   <?php //TEST //                                                                
 
-                                                                <?php //TEST//
-                                                                    
-
-                                                                $skills =  explode('|', $datas['id_skill']); 
-                                                                foreach ($skills as $groomSkills) {
-                                                                    
-                                                                    echo $groomSkills;
-                                                                }
-                                                                
+                                                                                                         
 
 
+                                                                    $skillJoint = new ServicesInfosModel(); // on insère
+                                                                    $tabSkill = $skillJoint->findSkillsWithId($datas['id_groom']);
+                                                                    $pricesTab = explode(',', $datas['price']);                                                        
 
-                                                                    
+                                                                  
+                                                                    ?>
+                                                                        <table id="TabComp">
+                                                                            <tr>
+                                                                                <?php
+                                                                        
+                                                                                    foreach ($tabSkill as $Gskill) {
+                                                                                        
+                                                                                          ?><?= '<th>' .$Gskill['skills']. '&nbsp </th>'; //.$datas['price'];                                                                              
+
+                                                                                    }
+                                                                                ?>
+                                                                            </tr>
+
+                                                                                <?php
+                                                                             
+                                                                                    foreach ($pricesTab as $prices) {
+                                                                                              echo '<td>' .$prices. '€</td>'?><?php
+                                                                                    } 
+                                                                                    ?>                                                                                     
+
+                                                                            </tr>
+                                                                        </table>
+
+
+                                                                    <?php
+                                                                 
+
+                                                                   
                                                                 ?>
+                                                                
                                                                     
-                                                                </h3>
-                                                                <h5 class="light light-white"><?=$datas['price'] ?></h5>
+
+
+
+                                                               
                                                             </div>
                                                         </div>
                                                         <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">

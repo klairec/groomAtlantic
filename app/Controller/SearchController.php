@@ -11,13 +11,9 @@ use \W\Model\UsersModel;
 
 class SearchController extends Controller
 {
-    
-    public function searchResult()
+
+	public function searchResult()
 	{
-
-
-
-
 
 		//Code postal entier :
 		$fullCp = $_GET['postCode'];
@@ -26,42 +22,34 @@ class SearchController extends Controller
 
 		];
 
-		
-
-
 		$searchTown = new ServicesInfosModel(); // on insère
-        $resultSearch = $searchTown->search($cp,'OR', $stripTags = true);
+		$resultSearch = $searchTown->search($cp,'OR', $stripTags = true);
 
-        $InfosGroom = $resultSearch;
-        
+		$InfosGroom = $resultSearch;
 
-        $params = [
-				'resultSearch' => $resultSearch,
-				'fullCp'	=> $_GET['postCode'],
-				'InfosGroom' => $InfosGroom,
-				//'tabSkill' => $tabSkill,
-				
-				
-					
-				
 
+		$params = [
+		'fullCp'	=> $_GET['postCode'], // paramètre dynamique dans l'url ?
+		'resultSearch' => $resultSearch,
+		'InfosGroom' => $InfosGroom,
+		//'tabSkill' => $tabSkill,
 		];
 
 
 
 		$this->show('searchGroom/searchResult', $params);
 	}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

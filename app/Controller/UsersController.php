@@ -336,7 +336,7 @@ class UsersController extends Controller
         $addRental = $ajouterLoc->addRental();
 
         $voirLoc = new RentalsController();
-        $locations = $voirLoc->showRentals($user_connect['id']);
+        $locations = $voirLoc->showRentals($user_connect['id']); 
 
         $commentsController = new CommentsController();
         $comments = $commentsController->commentListOwner();

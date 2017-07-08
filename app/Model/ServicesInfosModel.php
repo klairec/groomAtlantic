@@ -15,7 +15,6 @@ class ServicesInfosModel extends \W\Model\Model
 	public function findSkillsWithId($id)
 	{
 
-
 		$sql = 'SELECT skills FROM ' . $this->table . ' , groom_services  WHERE id_groom  = :id AND FIND_IN_SET(groom_services.id, id_skill) ';
 
 		$sth = $this->dbh->prepare($sql);
@@ -47,6 +46,7 @@ class ServicesInfosModel extends \W\Model\Model
 			$sql .= " `$key` LIKE :$key ";
 			$sql .= $operator;
 		}
+		
 		// Supprime les caractères superflus en fin de requète
 		if($operator == 'OR') {
 			$sql = substr($sql, 0, -3);

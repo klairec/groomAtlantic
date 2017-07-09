@@ -693,12 +693,6 @@ section {
 	margin-bottom: 60px;
 	color: white;
 }
-/* page charte de qualite */
-
-.charte{
-	font-size: 10px;
-	color: #3b3a3a;
-}
 
 /* Footer */
 
@@ -1271,6 +1265,26 @@ width: 10px;
 text-align: center;
 padding: 0 5px
 
+}
+
+/* page charte de qualite */
+
+.charte{
+	font-size: 10px;
+	color: #3b3a3a;
+}
+
+/* page infos pratiques */
+
+.panel-body p{
+	font-size: 12px;
+}
+
+.panel-body a {
+	text-decoration: none;
+	color: black;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
 

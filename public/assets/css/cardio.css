@@ -6,6 +6,8 @@ body {
 	color: #2a3237;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: url('../img/header.jpg');
+
 }
 
 .parallax {
@@ -115,7 +117,7 @@ header {
 	width: 100%;
 	color: white;
 	background: rgba(28, 36, 65, 0.93);
-	background: url('../img/header.jpg');
+	
 	background-size: cover;
 }
 
@@ -220,14 +222,14 @@ nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
 }
 
 .btn.btn-blue-fill {
-	color: #f06467;
-	border-color: #00a8ff;
+	color: white;
+	border-color: #296190;
 	background: transparent;
 }
 
 .btn.btn-blue-fill:hover {
 	color: white;
-	background: #f06467;
+	background: #296190;
 }
 
 .btn.btn-white-fill {
@@ -1070,7 +1072,7 @@ footer .social-footer li:hover a {
 }
 
 .muted {
-	color: #989da0;
+	color: white;
 }
 
 .margin-top {
@@ -1243,8 +1245,8 @@ footer .social-footer li:hover a {
 
 /* FORMS INSCRIPTION */
 
-#DivFormG, #DivFormO {
-    margin-top: 12em;
+#DivFormG, #DivFormO, #DivSearch {
+    margin-top: 16em;
 }
 
 #FormAddGroom .form-group, #FormAddOwner .form-group{

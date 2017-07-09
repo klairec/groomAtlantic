@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e960279618976a1f636112811d28239e",
+    "content-hash": "b2a0a8796c69fc675f6351de5db8f7c6",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -338,6 +338,34 @@
             "description": "A Base Security Library",
             "homepage": "https://github.com/ircmaxell/SecurityLib",
             "time": "2015-03-20T14:31:23+00:00"
+        },
+        {
+            "name": "kylekatarnls/vicopo",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/vicopo.git",
+                "reference": "f5b74132d039bea0a7a5129e30f79468201995e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/vicopo/zipball/f5b74132d039bea0a7a5129e30f79468201995e7",
+                "reference": "f5b74132d039bea0a7a5129e30f79468201995e7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vicopo\\Vicopo\\": "src/Vicopo/Vicopo/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "API HTTP et Script pour trouver les villes à partir d'un code postal et code postaux à partir d'une ville",
+            "homepage": "https://vicopo.selfbuild.fr",
+            "time": "2016-08-28T11:07:11+00:00"
         },
         {
             "name": "league/plates",

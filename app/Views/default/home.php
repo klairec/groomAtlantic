@@ -46,6 +46,7 @@
 
 						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal !" >
 						                    
+						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
 
 						                </form>

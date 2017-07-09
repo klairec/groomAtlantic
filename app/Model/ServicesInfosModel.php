@@ -26,6 +26,18 @@ class ServicesInfosModel extends \W\Model\Model
 	}
 
 
+
+	    public function showCommentById(){
+
+        $sql = 'SELECT c.*, u.* FROM '.$this->table.' AS c INNER JOIN users AS u ON c.id_groom = u.id ORDER BY date DESC';
+        $select = $this->dbh->prepare($sql);
+		if($select->execute()){
+			return $select->fetchAll(); // Renvoie les résultats
+		}
+		return false;
+    }
+
+
 		/**
 	 * Effectue une recherche
 	 * @param array $data Un tableau associatif des valeurs à rechercher
@@ -33,34 +45,19 @@ class ServicesInfosModel extends \W\Model\Model
 	 * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
 	 * @return mixed false si erreur, le résultat de la recherche sinon
 	 */
-	public function search2(array $search, $operator = 'OR', $stripTags = true){
+	public function searchByCP($search){
 
 		// Sécurisation de l'opérateur
-		$operator = strtoupper($operator);
-		if($operator != 'OR' && $operator != 'AND'){
-			die('Error: invalid operator param');
-		}
+		
+		
+		// TENTATIVE D'INCLURE LE FIND IN SET DANS LA RECHERHE  : $sql = 'SELECT s.*, u.*, g.* FROM groom_services AS g, ' . $this->table.' AS s INNER JOIN users AS u ON s.id_groom = u.id WHERE s.city LIKE :city AND FIND_IN_SET(g.id, id_skill) ';
 
-        $sql = 'SELECT * FROM ' . $this->table.' , groom_services WHERE';
-                
-		foreach($search as $key => $value){
-			$sql .= " `$key` LIKE :$key ";
-			$sql .= $operator;
-		}
-		// Supprime les caractères superflus en fin de requète
-		if($operator == 'OR') {
-			$sql = substr($sql, 0, -3);
-		}
-		elseif($operator == 'AND') {
-			$sql = substr($sql, 0, -4);
-		}
-
-		$sth = $this->dbh->prepare($sql);
-
-		foreach($search as $key => $value){
-			$value = ($stripTags) ? strip_tags($value) : $value;
-			$sth->bindValue(':'.$key, '%'.$value.'%');
-		}
+        $sql = 'SELECT s.*, u.* FROM ' . $this->table.' AS s INNER JOIN users AS u ON s.id_groom = u.id WHERE s.work_area LIKE :city';               
+		
+		$sth = $this->dbh->prepare($sql);	
+			
+		$sth->bindValue(':city', '%'.$search.'%');
+	
 		if(!$sth->execute()){
 			return false;
 		}

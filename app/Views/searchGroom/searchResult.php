@@ -125,8 +125,8 @@
                                              ?></h5>
                                         </div>
                                             
-                                         <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
-                                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails') ?>">Fiche détaillée</a>
+                                        
+                                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
                                        
                                         
                                                     

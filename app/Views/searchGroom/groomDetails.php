@@ -8,33 +8,6 @@
         header {
             display: none;
         }
-        #retourAccueil {
-            color: #fff; 
-            text-align: center; 
-            display: block; 
-            font-size: 1.5em;
-            background:rgba(240, 100, 103, 0.8);
-            margin:auto 20em;
-            border-radius: 30px;
-            padding: 5px 0 5px 0px;
-
-
-        }
-           #retourAccueil:hover {
-           background:rgba(240, 100, 103, 1);
-        }
-        #details{
-            background:rgba(41, 97, 144, 0.7);      
-            font-size: 1.5em; 
-            border-radius: 30px;
-            display: block; 
-            margin: auto 4em;
-            padding: 10px;
-        }
-        #details:hover{
-            background:rgba(41, 97, 144, 1);
-        }
-
          
 
 
@@ -55,7 +28,7 @@
                                 echo'<p>'.implode('<br>', $errors).'</p>';
 
                                 }
-                           
+                            print_r($GroomInfos);
                             ?>
                                     
 

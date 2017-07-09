@@ -52,6 +52,36 @@ class ServicesInfosModel extends \W\Model\Model
 		}
         return $sth->fetchAll();
 	}
+
+
+	public function groomById($id){ // Fonction qui recherche le groom en fonction du CP rentré, jointé avec les infos de users
+
+		
+		
+		// TENTATIVE D'INCLURE LE FIND IN SET DANS LA RECHERHE  : $sql = 'SELECT s.*, u.*, g.* FROM groom_services AS g, ' . $this->table.' AS s INNER JOIN users AS u ON s.id_groom = u.id WHERE s.city LIKE :city AND FIND_IN_SET(g.id, id_skill) ';
+
+
+        $sql = '
+        SELECT s.*, u.* 
+        FROM ' . $this->table.' AS s 
+        INNER JOIN users AS u 
+        ON s.id_groom = u.id 
+        WHERE s.id_groom = :id_groom';               
+		
+		$sth = $this->dbh->prepare($sql);	
+			
+		$sth->bindValue(':id_groom', $id);
+	
+		if(!$sth->execute()){
+			return false;
+		}
+        return $sth->fetchAll();
+	}
+
+
+
+
+
 		
 
 

@@ -21,14 +21,29 @@
             <div class="header-text">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
+                   <?php print_r($GroomInfos); ?>
+                    <?php 
+                        foreach ($GroomInfos as $datas) { ?>
+                            <h2 style="color:#f06467" class="light white">Fiche de <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h2>
+
+                            
+                            
+
+
+
+
+                    <?php
+                        }
+                    ?>
+
+                  
                             <?php 
                                 if(!empty($errors)){
 
                                 echo'<p>'.implode('<br>', $errors).'</p>';
 
                                 }
-                            print_r($GroomInfos);
+                            
                             ?>
                                     
 

@@ -60,10 +60,16 @@ class UsersController extends Controller
                     }
 
                 }
-            }   
-            else {
+                else {
+                $this->redirectToRoute($post['current_url']);
                 $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
             }
+            }  
+            else {
+
+               
+            } 
+
 
         }
         if (isset($_GET['deco'])){
@@ -226,8 +232,8 @@ class UsersController extends Controller
 
                 if(!empty($insert)){
                     $formValid = true;
-                    $this->flash('Vous êtes desormais inscrit', 'success');
-                    $this->redirectToRoute('default_home');
+                    
+                    
                 }
             }
         }

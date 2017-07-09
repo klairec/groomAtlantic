@@ -21,13 +21,17 @@ class SearchController extends Controller
 
 		$InfosGroom = [];
 		$tabSkill = [];
+		$params=[];
+
   
 
 		//Code postal entier :
-		$fullCp = $_GET['postCode'];
+		
 		
 
-		if (strlen($fullCp) == 5){
+		if (isset($_GET['postCode']) && strlen($_GET['postCode']) == 5){
+
+			$fullCp = $_GET['postCode'];
 
 			$searchVille = new VilleModel(); // On récupère le nom de la ville recherchée à partir du CP
         	$ville = $searchVille->findVille($fullCp);
@@ -69,7 +73,7 @@ class SearchController extends Controller
 
 		}
 			else{
-				$this->redirectToRoute('default_home');
+				
 				      
 	            $this->flash('Le code postal est trop court', 'danger');
 	           

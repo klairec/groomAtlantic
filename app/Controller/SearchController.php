@@ -29,7 +29,7 @@ class SearchController extends Controller
 
 		if (strlen($fullCp) == 5){
 
-			$searchVille = new VilleModel(); // on insère
+			$searchVille = new VilleModel(); // On récupère le nom de la ville recherchée à partir du CP
         	$ville = $searchVille->findVille($fullCp);
 			
 		}
@@ -45,39 +45,22 @@ class SearchController extends Controller
 		$search = new ServicesInfosModel(); // on insère
         $resultSearch = $search->searchByCP($shortCp);			
 					
-					/*	$searchTown = new ServicesInfosModel(); // on insère
-				   		$resultSearch = $searchTown->search($cp,'OR', $stripTags = true); */ 
+
 
 		if (!empty($resultSearch)){
-			
-			// $InfosGroom[] = $resultSearch;
+			/* Ici j'ajoute au tableau contenant les résultats de la recherche les infos supplémentaires croisées avec les autres tables 
+			*/
+			for($i=0;$i<count($resultSearch);$i++){ 
 
+				foreach ($resultSearch as $result) {
+	            
+	            $skillJoint = new ServicesInfosModel();            
+	            $resultSearch[$i]['comp'] = $skillJoint->findSkillsWithId($resultSearch[$i]['id_groom']);            
+	            $resultSearch[$i]['prix'] = $pricesTab = explode(',',$resultSearch[$i]['price']); 
+	            $resultSearch[$i]['villeAction'] = $searchVille->findVille($resultSearch[$i]['work_area']);
 
-
-                for($i=0;$i<count($resultSearch);$i++){
-
-
-            
-                foreach ($resultSearch as $result) {
-                
-                $skillJoint = new ServicesInfosModel();            
-                $resultSearch[$i]['comp'] = $skillJoint->findSkillsWithId($resultSearch[$i]['id_groom']);            
-                $resultSearch[$i]['prix'] = $pricesTab = explode(',',$resultSearch[$i]['price']); 
-                $resultSearch[$i]['villeAction'] = $searchVille->findVille($resultSearch[$i]['work_area']);                
-                 
-
-                
-                
-                        }
-
-
-
-               
-            }
-	          
-	           // $InfosGroom['comp'][] = $tabSkill;
-
-	        
+	        	}
+    		}
     	}
         
 

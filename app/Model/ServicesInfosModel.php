@@ -12,7 +12,7 @@ class ServicesInfosModel extends \W\Model\Model
 {
 
 
-	public function findSkillsWithId($id)
+	public function findSkillsWithId($id) // Fonction qui récup les compétences du groom en FIND_IN_8SET
 	{
 
 		$sql = 'SELECT skills FROM ' . $this->table . ' , groom_services  WHERE id_groom  = :id AND FIND_IN_SET(groom_services.id, id_skill) ';
@@ -24,15 +24,7 @@ class ServicesInfosModel extends \W\Model\Model
 		return $sth->fetchAll();
 	}
 
-
-		/**
-	 * Effectue une recherche
-	 * @param array $data Un tableau associatif des valeurs à rechercher
-	 * @param string $operator La direction du tri, AND ou OR
-	 * @param boolean $stripTags Active le strip_tags automatique sur toutes les valeurs
-	 * @return mixed false si erreur, le résultat de la recherche sinon
-	 */
-	public function searchByCP($search){
+	public function searchByCP($search){ // Fonction qui recherche le groom en fonction du CP rentré, jointé avec les infos de users
 
 		
 		

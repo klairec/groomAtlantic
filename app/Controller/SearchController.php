@@ -83,10 +83,39 @@ class SearchController extends Controller
 
 
 
-	public function groomDetails(){
+	public function groomDetails($id){
 
 
-		$params=[];
+		
+		$search = new ServicesInfosModel(); // on insère
+	    $GroomInfos = $search->groomById($id);	
+
+	    if (!empty($GroomInfos)){
+				/* Ici j'ajoute au tableau contenant les résultats de la recherche les infos supplémentaires croisées avec les autres tables 
+				*/
+				for($i=0;$i<count($GroomInfos);$i++){ 
+
+					foreach ($GroomInfos as $result) {
+		            
+		            $skillJoint = new ServicesInfosModel();
+		            $searchVille = new VilleModel();            
+		            $GroomInfos[$i]['comp'] = $skillJoint->findSkillsWithId($GroomInfos[$i]['id_groom']); //Va chercher les compétences du groom a partir des valeurs 1,2,3..           
+		            $GroomInfos[$i]['prix'] = $pricesTab = explode(',',$GroomInfos[$i]['price']);  //Va chercher les tarifs
+		            $GroomInfos[$i]['villeAction'] = $searchVille->findVille($GroomInfos[$i]['work_area']); // transforme le CP en nom de commune
+
+		        	}
+	    		}
+	    	}
+
+
+
+
+
+		
+	    $params=[
+	    	'GroomInfos' => $GroomInfos,
+
+	    ];
 		$this->show('searchGroom/groomDetails', $params);
 
 	}

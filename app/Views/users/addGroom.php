@@ -38,6 +38,7 @@
 
                                 ?>
 
+
                                 
                                         <form id="FormAddGroom" method="post" style="text-align:center;">   
                                             <div class="form-group">
@@ -70,7 +71,7 @@
                                     }
                                 ?>
 
-                         
+
                         </div>
                     </div>
                 </div>

@@ -38,6 +38,9 @@
                                         <input  name="password" type="text" placeholder="Votre MDP" class="form-control">
                                     </div>
                                     <div class="form-group">
+                                        <input  name="password2" type="text" placeholder="Répétez votre mot de passe" class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                         <input  name="phone" type="text" placeholder="0102030405" class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -47,7 +50,7 @@
                                         <input  name="postcode" type="text" placeholder="Code postal" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <input  name="city" type="text" placeholder="Ville" class="form-control">
+                                        <input  name="cityUser" type="text" placeholder="Ville" class="form-control">
                                     </div>
 				                    <button type="submit" class="btn btn-default">S'inscrire</button>
                                 </form>

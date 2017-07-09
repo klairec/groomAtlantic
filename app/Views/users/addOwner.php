@@ -1,7 +1,6 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Inscription/Propriétaire']) ?>
 
 <?php $this->start('header') ?>
-
             <div class="container">
                 <div class="table">
                     <div class="header-text">
@@ -46,7 +45,7 @@
 								<input name="postcode" type="text" placeholder="Code postal" class="form-control">
 							</div>
 							<div class="form-group">
-								<input name="city" type="text" placeholder="Ville" class="form-control">
+								<input name="cityUser" type="text" placeholder="Ville" class="form-control">
 							</div>
 							<button type="submit" class="btn btn-default">S'inscrire</button>
 						</form>

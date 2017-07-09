@@ -135,7 +135,7 @@
 							<div class="icon-holder">
 								<img src="<?= $this->assetUrl('img/icons/pont-ile-re.png')?>" alt="" class="icon">
 							</div>
-							<h4 class="heading">Propriétaire</h4>
+							<h4 class="white heading">Propriétaire</h4>
 							<p class="description white">Des professionnels à votre service. <br> Maximisez vos revenus locatifs saisonniers.</p>
 						</div>
 					</div>
@@ -146,7 +146,7 @@
 							<div class="icon-holder">
 								<img src="<?= $this->assetUrl('img/icons/les-tours-de-la-rochelle.png')?>" alt="" class="icon">
 							</div>
-							<h4 class="heading">Concierge</h4>
+							<h4 class="white heading">Concierge</h4>
 							<p class="description white">Pourquoi pas vous? <br>Inscrivez vous!</p>
 						</div>
 					</div>
@@ -157,7 +157,7 @@
 							<div class="icon-holder">
 								<img src="<?= $this->assetUrl('img/icons/plage-charenteMaritime.png')?>" alt="" class="icon">
 							</div>
-							<h4 class="heading">Charte de qualité</h4>
+							<h4 class="white heading">Charte de qualité</h4>
 							<p class="description white">Des concierges qui s'engagent pour vous proposer les meilleurs services.</p>
 						</div>
 					</div>
@@ -168,7 +168,7 @@
 							<div class="icon-holder">
 								<img src="<?= $this->assetUrl('img/icons/fort-boyard.png')?>" alt="" class="icon">
 							</div>
-							<h4 class="heading">Sans engagement</h4>
+							<h4 class="white heading">Sans engagement</h4>
 							<p class="description white">Pourquoi pas vous? <br>Inscrivez vous!</p>
 							<p class="description white">Nous proposons de vous mettre en relation avec des concierges de votre secteur géographique, pas d'abonnement!</p>
 						</div>

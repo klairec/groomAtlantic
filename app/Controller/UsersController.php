@@ -31,12 +31,12 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['email']) < 2){
-                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
             }
 
-            if(strlen($post['password']) < 2){
-                $errors[] = 'Le mdp doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->stringType()->length(2, 150)->validate($post['password'])){
+                $errors[] = 'Le mot de passe doit comporter au moins 2 caractères';
             }
 
             if(count($errors) === 0){
@@ -76,10 +76,10 @@ class UsersController extends Controller
             }
         }
         $params = [
-            'formValid' => $formValid,
-            'errors' => $errors,
-            'mail' => isset($post['email']),            
-            'deco' => $deco,
+        'formValid' => $formValid,
+        'errors' => $errors,
+        'mail' => isset($post['email']),            
+        'deco' => $deco,
         ];
         $this->show('default/home', $params);
     }
@@ -101,12 +101,12 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['email']) < 2){
-                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
             }
 
-            if(strlen($post['password']) < 2){
-                $errors[] = 'Le mdp doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->stringType()->length(2, 150)->validate($post['password'])){
+                $errors[] = 'Le mot de passe doit comporter au moins 2 caractères';
             }
 
             if(count($errors) === 0){
@@ -141,10 +141,10 @@ class UsersController extends Controller
         }
 
         $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
-            'mail'      => isset($post['email']),
-            'deco'      => $deco,
+        'formValid' => $formValid,
+        'errors'    => $errors,
+        'mail'      => isset($post['email']),
+        'deco'      => $deco,
         ];
         $this->show('users/login', $params);
 
@@ -159,38 +159,67 @@ class UsersController extends Controller
         $errors = [];
         $formValid = false;
 
-
         if(!empty($_POST)){
             // Permet de nettoyer les données
             foreach($_POST as $key => $value){
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['firstname']) < 2){
-                $errors[] = 'Le prénom doit comporter au moins 2 caractères';
+            // vérification si l'email existe déjà en BDD
+            $usersModel = new UsersModel();
+            $mailExist = $usersModel->emailExists($post['email']);
+            if($mailExist == true){
+                $errors[] = 'Cet email existe déjà.';
             }
 
-            if(strlen($post['lastname']) < 2){
-                $errors[] = 'Le nom doit comporter au moins 2 caractères';
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
+            }
+
+            if(!v::phone()->length(10)->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
+            }
+
+            // on comptabiliser les erreurs
             if(count($errors) === 0){
                 $authModel = new \W\Security\AuthentificationModel;
 
+                // on crée le tableau de données à insérer
                 $data = [
-                    'firstname' => $post['firstname'], 
-                    'lastname' => $post['lastname'],
-                    'email'  => $post['email'],
-                    'role' => 'groom',                      
-                    'password' => $authModel->hashPassword($post['password']),
-                    'address' => $post['address'],
-                    'postcode' => $post['postcode'],
-                    'city' => $post['city'],
-                    'date_creation' => date('d.m.y'),
+                'firstname' => $post['firstname'], 
+                'lastname' => $post['lastname'],
+                'email'  => $post['email'],
+                'role' => 'groom',                      
+                'password' => $authModel->hashPassword($post['password']),
+                'address' => $post['address'],
+                'postcode' => $post['postcode'],
+                'cityUser' => $post['cityUser'],
+                'date_creation' => date('d.m.y'),
                 ];
 
+                // on insère dans la BDD
                 $usersModel = new UsersModel();
-
                 $insert = $usersModel->insert($data);
                 //retourne false si une erreur survient ou les nouvelles donnes inseres sous forme de array
 
@@ -202,18 +231,18 @@ class UsersController extends Controller
             }
         }
         $params = [
-            'formValid' => $formValid,
-            'errors' => $errors,
+        'formValid' => $formValid,
+        'errors' => $errors,
         ];
         $this->show('users/addGroom', $params);
     }
+
 
     /**
      * Ajouter propriétaire
      */
     public function addOwner(){
 
-        // $this->show('users/add', $params);
 
         $post = [];
         $errors = [];
@@ -226,32 +255,63 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['firstname']) < 2){
-                $errors[] = 'Le prénom doit comporter au moins 2 caractères';
+            // vérification si l'email existe déjà en BDD
+            $usersModel = new UsersModel();
+            $mailExist = $usersModel->emailExists($post['email']);
+            if($mailExist == true){
+                $errors[] = 'Cet email existe déjà.';
             }
 
-            if(strlen($post['lastname']) < 2){
-                $errors[] = 'Le nom doit comporter au moins 2 caractères';
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
+            }
+
+            if(!v::phone()->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
+            }
+
+
+            // on compatabilise les erreurs
             if(count($errors) === 0){
                 $authModel = new \W\Security\AuthentificationModel;
 
+                // on crée le tableau de données à insérer
                 $data = [
-                    'firstname' => $post['firstname'], 
-                    'lastname' => $post['lastname'],
-                    'email'  => $post['email'],
-                    'role' => 'owner',
-                    'password' => $authModel->hashPassword($post['password']),
-                    'address' => $post['address'],
-                    'postcode' => $post['postcode'],
-                    'city' => $post['city'],
-                    'date_creation' => date('Y.m.d'),
-                    'phone' => $post['phone'],
+                'firstname' => $post['firstname'], 
+                'lastname' => $post['lastname'],
+                'email'  => $post['email'],
+                'role' => 'owner',
+                'password' => $authModel->hashPassword($post['password']),
+                'address' => $post['address'],
+                'postcode' => $post['postcode'],
+                'cityUser' => $post['cityUser'],
+                'date_creation' => date('Y.m.d'),
+                'phone' => $post['phone'],
                 ];
-
+                
+                // on insère dans la BDD
                 $usersModel = new UsersModel();
-
                 $insert = $usersModel->insert($data);
                 //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
 
@@ -264,19 +324,22 @@ class UsersController extends Controller
             }
         }
         $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
+        'formValid' => $formValid,
+        'errors'    => $errors,
         ];
         $this->show('users/addOwner', $params);
     }
 
 
     /**
-     * Voir profil groom
+     * Voir les éléments du profil groom
      */
     public function showGroom()
     {
-        $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
+        // limite par défaut à l'utilisateur ayant pour role "groom"
+        if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
         
@@ -291,40 +354,51 @@ class UsersController extends Controller
         
         $rentalsPpt = new RentalsController();
         $propositions = $rentalsPpt->showRentals($user_connect['id']);
-    
-        /*$image = Image::make('public/images.jpg')->resize(100, 100); */
+
         
         $params = [
-           /* 'image' => $image, */
-            'comments'  => $comments,
-            'commentsA' => $commentsA,
-            'contacts' => $contacts,
-            'propositions' => $propositions
-            ];
+        /* 'image' => $image, */
+        'comments'  => $comments,
+        'commentsA' => $commentsA,
+        'contacts' => $contacts,
+        'propositions' => $propositions
+        ];
 
         $this->show('users/groomProfile/showGroom', $params);
     }
     
+
+    /**
+     * Modifier le profil groom
+     */
     public function modifProfilegroom()
     {
+        // limite par défaut à l'utilisateur ayant pour role "groom"
+        if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
+
         $groomController = new GroomController();
         $groomModif = $groomController->modifGroom();
         
         $params = [
-            'groomModif' => $groomModif
+        'groomModif' => $groomModif
         ];
         
         $this->show('users/groomProfile/modifGroom', $params); 
     }
-        
+
+
+
+
 
     /**
-     * Voir profil proprietaire
+     * Voir les éléments du profil proprietaire
      */
     public function showOwner()
     {
         // limite par défaut à l'utilisateur ayant pour role "owner"
-        if(!$this->allowTo(['owner'])){
+        if(!$this->allowTo(['owner'],['admin'])){
             $this->redirectToRoute('default_home');
         }
 
@@ -332,7 +406,6 @@ class UsersController extends Controller
 
         $usersModel = new UsersModel();
         $showInfos = $usersModel->find($user_connect['id']);
-        
 
         $ajouterLoc = new RentalsController();
         $addRental = $ajouterLoc->addRental();
@@ -348,11 +421,11 @@ class UsersController extends Controller
 
         
         $params = [
-            'showInfos' => $showInfos,
-            'addRental' => $addRental,
-            'locations' => $locations,
-            'comments'  => $comments,
-            'commentsAd' => $commentsAd,
+        'showInfos' => $showInfos,
+        'addRental' => $addRental,
+        'locations' => $locations,
+        'comments'  => $comments,
+        'commentsAd' => $commentsAd,
         ];  
 
         $this->show('users/ownerProfile/showOwner', $params);
@@ -360,7 +433,7 @@ class UsersController extends Controller
 
 
     /**
-     * Update des infos propriétaire
+     * Modifier le profil propriétaire
      */
     public function changeProfileO()
     {
@@ -368,7 +441,7 @@ class UsersController extends Controller
         $errors = [];
         $formValid = false;
 
-        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
+        $user_connect = $this->getUser();
 
         if(!empty($_POST)){
             // Permet de nettoyer les données
@@ -376,44 +449,82 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            // vérifications des critères d'insertion de l'image
-            if(!v::image()->validate($_FILES['photo']['tmp_name'])){
-                $errors[] = 'La photo ne possède pas la bonne extension.';
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(!v::size(null, '2MB')->validate($_FILES['photo']['tmp_name'])){
-                $errors[] = 'La photo dépasse les 2 Mo.';
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
             }
+
+            if(!v::phone()->length(10)->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
+            }
+
+
+            if(!empty($_FILES)){
+
+                if(!v::image()->validate($_FILES['photo']['tmp_name'])){
+                    $errors[] = 'La photo de profil n\'est pas au bon format.';
+                }
+
+                if(!v::size('2MB')->validate($_FILES['photo']['tmp_name'])){
+                    $errors[] = 'La taille de la photo de profil ne doit pas dépasser 2 Mo.';
+                }
+            }
+
 
             if(count($errors) === 0){
 
-                // création d'un nom unique
+
+            // AJOUT PHOTO DE PROFIL
+            // création d'un nom unique
                 $nom = md5(uniqid(rand(), true));
 
+            // création de la variable $fileinfo qui récupère les infos du fichier uploadé
                 $fileInfo = pathinfo($_FILES['photo']['name']);
+
+            // création de la variable extension qui récupère l'extension du fichier uploadé
                 $extension = $fileInfo['extension'];
 
-                // création de la route à suivre pour le stockage de l'image
+            // création de la route à suivre pour le stockage de l'image, on écrit d'abord sa position puis sa destination
                 move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
 
+            // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
                 $fileName = $nom.'.'.$extension;
 
 
                 $data = [
-                    'firstname' => $post['firstname'], 
-                    'lastname' => $post['lastname'],
-                    'email'  => $post['email'],
-                    'address' => $post['address'],
-                    'postcode' => $post['postcode'],
-                    'city' => $post['city'],
-                    'phone' => $post['phone'],
-                    'photo' => $fileName,
+                'firstname' => $post['firstname'], 
+                'lastname' => $post['lastname'],
+                'email'  => $post['email'],
+                'address' => $post['address'],
+                'postcode' => $post['postcode'],
+                'cityUser' => $post['cityUser'],
+                'phone' => $post['phone'],
+                    // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
+                'photo' => $fileName,
                 ];
 
                 $usersModel = new UsersModel();
-
                 $update = $usersModel->update($data, $user_connect['id']);
-                //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
 
                 if(!empty($update)){
                     $formValid = true;
@@ -423,17 +534,18 @@ class UsersController extends Controller
                 }
             }
         }
+
         $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
+        'formValid' => $formValid,
+        'errors'    => $errors,
         ];
 
-        $this->show('users/ownerProfile/changeProfileO');
+        $this->show('users/ownerProfile/changeProfileO', $params);
     }
 
 
     /**
-     * Delete des infos propriétaires
+     * Suppression du compte propriétaire
      */
     public function deleteProfileO($id){
 
@@ -482,8 +594,8 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['email']) < 2){
-                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
             }
 
 
@@ -501,8 +613,8 @@ class UsersController extends Controller
 
                     $data = [
 
-                        'token' => $token,
-                        'id_user' => $userInfo['id'],
+                    'token' => $token,
+                    'id_user' => $userInfo['id'],
 
                     ];
 
@@ -512,51 +624,51 @@ class UsersController extends Controller
                     if(!empty($insert)){// si l'insertion s'est bien passé on envoie le mail
 
 
-                        $mail = new \PHPMailer();
+                    $mail = new \PHPMailer();
 
-                        $mail->isSMTP();
-                        $mail->Host = 'smtp.gmail.com';
-                        $mail->SMTPAuth   = true;
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth   = true;
 
-                        $mail->Username   = getApp()->getConfig('smtp_email_ident');
-                        $mail->Password   = getApp()->getConfig('smtp_email_pass');
+                    $mail->Username   = getApp()->getConfig('smtp_email_ident');
+                    $mail->Password   = getApp()->getConfig('smtp_email_pass');
 
-                        $mail->SMTPSecure = 'ssl';
-                        $mail->Port = 465;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port = 465;
 
-                        $mail->SetFrom('reset.password@email.fr', 'GroomAtlantic');
-                        $mail->addAddress($post['email']);
-                        $mail->isHTML(true);
-
-
-                        $mail->Subject = 'Sujet';
-                        $mail->Body = '<a href="'. $this->redirectToRoute('users_traitementReset') . '?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+                    $mail->SetFrom('reset.password@email.fr', 'GroomAtlantic');
+                    $mail->addAddress($post['email']);
+                    $mail->isHTML(true);
 
 
-                        if(!$mail->Send()){
-                            $this->flash('Une erreer est survenue lors de l\'envoi de l\'email', 'danger');
+                    $mail->Subject = 'Sujet';
+                    $mail->Body = '<a href="'. $this->redirectToRoute('users_traitementReset') . '?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+
+
+                    if(!$mail->Send()){
+                        $this->flash('Une erreer est survenue lors de l\'envoi de l\'email', 'danger');
                             //echo 'Erreur : ' . $mail->ErrorInfo; // uniquement pour les dev, l'utilisateur s'en cague :-)
-                        }
-                        else {
-                            $formValid = true;
-                        }                      
                     }
-
+                    else {
+                        $formValid = true;
+                    }                      
                 }
-            }   
-            else {
-                $this->flash('Email inconnu', 'danger');
+
             }
+        }   
+        else {
+            $this->flash('Email inconnu', 'danger');
         }
-
-        $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
-        ];
-
-        $this->show('users/pwdReset', $params);
-
     }
+
+    $params = [
+    'formValid' => $formValid,
+    'errors'    => $errors,
+    ];
+
+    $this->show('users/pwdReset', $params);
+
+}
 
 
     /**
@@ -564,12 +676,12 @@ class UsersController extends Controller
      */
     public function traitementReset()
     {
-        
+
         $post = [];
         $errors = [];
         $formValid = false;
         $showForm = false;
-     
+
         if(isset($_GET['idUser']) AND isset($_GET['token']) AND !empty($_GET['idUser']) AND !empty($_GET['token']) AND ctype_digit($_GET['idUser'])){
 
             $resetPwdModel = new ResetPasswordModel();
@@ -597,7 +709,7 @@ class UsersController extends Controller
                         $authModel = new \W\Security\AuthentificationModel;
 
                         $data = [
-                            'password' => $authModel->hashPassword($post['password']), 
+                        'password' => $authModel->hashPassword($post['password']), 
                         ];
 
                         $usersModel = new UsersModel();
@@ -609,15 +721,15 @@ class UsersController extends Controller
                             
                             $formValid = true;
                         }
-                }                            
+                    }                            
                 }
             }
         }
 
         $params = [
-            'showForm' => $showForm,
-            'formValid' => $formValid,
-            'errors' => $errors,
+        'showForm' => $showForm,
+        'formValid' => $formValid,
+        'errors' => $errors,
         ];
 
         $this->show('users/traitementReset', $params);
@@ -632,6 +744,6 @@ class UsersController extends Controller
         $this->show('users/infos');
     }
 
-   
+
 
 }   

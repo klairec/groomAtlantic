@@ -183,6 +183,7 @@ class RentalsController extends Controller
 					// Ajoute un message "flash" (stocké en session temporairement)
 					// Note : il faut toutefois ajouter l'affichage de ce message au layout
 					$this->flash('Votre location a été modifiée', 'success');
+					$this->redirectToRoute('users_showowner');
 
 				}
 			}

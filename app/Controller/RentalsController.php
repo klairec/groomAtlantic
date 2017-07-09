@@ -13,17 +13,18 @@ class RentalsController extends Controller
 	// fonction pour ajouter des locations au profil du propriétaire
 	public function addRental(){
 
-		// on récupère les données de l'utilisateur connecté
-		$me = $this->getUser();
+		if(!$this->allowTo(['owner'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
 
-		// on limite l'accès à la page à un utilisateur non connecté
-		if(empty($me)){
-			$this->showNotFound(); // affichera une page 404
-		}
+        // on récupère les données de l'utilisateur connecté
+		$me = $this->getUser();
 
 		// on crée les variables post et errors
 		$post = [];
 		$errors = [];
+
+
 		// on nettoie le tableau POST
 		if(!empty($_POST)){
 
@@ -46,7 +47,6 @@ class RentalsController extends Controller
 				$errors[] = 'Le nom doit comporter entre 5 et 50 caractères';
 			}
 
-
 			if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
 				$errors[] = 'Le code postal doit contenir 5 chiffres';
 			}
@@ -55,37 +55,69 @@ class RentalsController extends Controller
 				$errors[] = 'La ville doit comporter entre 3 et 30 caractères';
 			}
 
-			if(!v::notEmpty()->intVal()->length(1, 4)->validate($post['area'])){
-				$errors[] = 'Le surface doit contenir entre 1 et 4 chiffres';
+			if(!v::notEmpty()->intVal()->length(2, 4)->validate($post['area'])){
+				$errors[] = 'Le surface du bien doit contenir entre 2 et 4 chiffres';
 			}
 
 			if(!v::notEmpty()->intVal()->length(1, 15)->validate($post['rooms'])){
 				$errors[] = 'Le nombre de pièces doit être compris entre 1 et 15 pièces';
 			}
 
+			if(!empty($post['outdoor_fittings'])){
+
+			}
+
 			// si pas d'erreurs
 			if(count($errors) === 0){
-				$data = [
-					'title' 			=> ucfirst($post['title']),
-					'type'				=> $post['type'],
-					'street'   			=> strtoupper($post['street']),
-					'postcode'    		=> $post['postcode'],
-					'city'    			=> strtoupper($post['city']),
-					'area'    			=> $post['area'],
-					'rooms'    			=> $post['rooms'],
-					'outdoor_fittings'  => implode('|', $post['outdoor_fittings']),
-					'id_owner'			=> $me['id'],
-				];
+				
+				if(!empty($post['outdoor_fittings'])){
 
-				// on insère les données tappées par l'utilisateur dans la BDD
-				$addRental = new RentalsModel();
-				$insertRental = $addRental->insert($data);
-				if(!empty($insert)){
-					// Ajoute un message "flash" (stocké en session temporairement)
-					// Note : il faut toutefois ajouter l'affichage de ce message au layout
-					$this->flash('Votre location a été ajoutée', 'success');
+					$data = [
+						'title' 			=> strtoupper($post['title']),
+						'type'				=> $post['type'],
+						'street'   			=> strtolower($post['street']),
+						'postcode'    		=> $post['postcode'],
+						'city'    			=> strtoupper($post['city']),
+						'area'    			=> $post['area'],
+						'rooms'    			=> $post['rooms'],
+						'outdoor_fittings'  => implode('|', $post['outdoor_fittings']),
+						'id_owner'			=> $me['id'],
+					];
 
-					return $insertRental;
+					// on insère les données tappées par l'utilisateur dans la BDD
+					$addRental = new RentalsModel();
+					$insertRental = $addRental->insert($data);
+					if(!empty($insert)){
+						// Ajoute un message "flash" (stocké en session temporairement)
+						// Note : il faut toutefois ajouter l'affichage de ce message au layout
+						$this->flash('Votre location a été ajoutée', 'success');
+
+						return $insertRental;
+					}
+				}
+				else {
+
+					$data = [
+						'title' 			=> strtoupper($post['title']),
+						'type'				=> $post['type'],
+						'street'   			=> strtolower($post['street']),
+						'postcode'    		=> $post['postcode'],
+						'city'    			=> strtoupper($post['city']),
+						'area'    			=> $post['area'],
+						'rooms'    			=> $post['rooms'],
+						'id_owner'			=> $me['id'],
+					];
+
+					// on insère les données tappées par l'utilisateur dans la BDD
+					$addRental = new RentalsModel();
+					$insertRental = $addRental->insert($data);
+					if(!empty($insert)){
+						// Ajoute un message "flash" (stocké en session temporairement)
+						// Note : il faut toutefois ajouter l'affichage de ce message au layout
+						$this->flash('Votre location a été ajoutée', 'success');
+
+						return $insertRental;
+					}
 				}
 			}
 
@@ -164,28 +196,60 @@ class RentalsController extends Controller
 
 			// si pas d'erreurs
 			if(count($errors) === 0){
-				$data = [
-					'title' 			=> ucfirst($post['title']),
-					'type'				=> $post['type'],
-					'street'   			=> strtoupper($post['street']),
-					'postcode'    		=> $post['postcode'],
-					'city'    			=> strtoupper($post['city']),
-					'area'    			=> $post['area'],
-					'rooms'    			=> $post['rooms'],
-					'outdoor_fittings'  => implode('|', $post['outdoor_fittings']),
-					'id_owner'			=> $me['id'],
-				];
+				
+				if(!empty($post['outdoor_fittings'])){
 
-				// on insère les données tappées par l'utilisateur dans la BDD
-				$rentalsModel = new RentalsModel();
-				$changeRental = $rentalsModel->update($data, $id);
-				if(!empty($changeRental)){
-					// Ajoute un message "flash" (stocké en session temporairement)
-					// Note : il faut toutefois ajouter l'affichage de ce message au layout
-					$this->flash('Votre location a été modifiée', 'success');
-					$this->redirectToRoute('users_showowner');
+					$data = [
+						'title' 			=> strtoupper($post['title']),
+						'type'				=> $post['type'],
+						'street'   			=> strtolower($post['street']),
+						'postcode'    		=> $post['postcode'],
+						'city'    			=> strtoupper($post['city']),
+						'area'    			=> $post['area'],
+						'rooms'    			=> $post['rooms'],
+						'outdoor_fittings'  => implode('|', $post['outdoor_fittings']),
+						'id_owner'			=> $me['id'],
+					];
+
+
+					// on insère les données tappées par l'utilisateur dans la BDD
+					$rentalsModel = new RentalsModel();
+					$changeRental = $rentalsModel->update($data, $id);
+					if(!empty($changeRental)){
+						// Ajoute un message "flash" (stocké en session temporairement)
+						// Note : il faut toutefois ajouter l'affichage de ce message au layout
+						$this->flash('Votre location a été modifiée', 'success');
+						$this->redirectToRoute('users_showowner');
+
+					}
+				}
+				else {
+
+					$data = [
+						'title' 			=> strtoupper($post['title']),
+						'type'				=> $post['type'],
+						'street'   			=> strtolower($post['street']),
+						'postcode'    		=> $post['postcode'],
+						'city'    			=> strtoupper($post['city']),
+						'area'    			=> $post['area'],
+						'rooms'    			=> $post['rooms'],
+						'outdoor_fittings'  => NULL,
+						'id_owner'			=> $me['id'],
+					];
+
+					// on insère les données tappées par l'utilisateur dans la BDD
+					$rentalsModel = new RentalsModel();
+					$changeRental = $rentalsModel->update($data, $id);
+					if(!empty($changeRental)){
+						// Ajoute un message "flash" (stocké en session temporairement)
+						// Note : il faut toutefois ajouter l'affichage de ce message au layout
+						$this->flash('Votre location a été modifiée', 'success');
+						$this->redirectToRoute('users_showowner');
+
+					}
 
 				}
+
 			}
 
 			else {
@@ -195,7 +259,14 @@ class RentalsController extends Controller
 			}
 		} 
 
-		$this->show('users/ownerProfile/changeRental');
+		$voirLoc = new RentalsController();
+        $locations = $voirLoc->showRentals($me['id']);
+
+		$params = [
+        'locations' => $locations,
+        ];  
+
+		$this->show('users/ownerProfile/changeRental', $params);
 	}
 
 

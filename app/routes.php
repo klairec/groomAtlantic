@@ -33,6 +33,7 @@ $w_routes = array(
 	['GET|POST', '/users/groomProfile/modifGroom', 'Users#modifProfilegroom', 'modif_groom'],
 	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],
 	['GET|POST', '/users/groomProfile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
+	['GET|POST', '/users/groomProfile/changeSkills/[:id]/', 'Groom#changeSkills', 'skills_change'],
     
 	
 	// ROUTES PROFIL PROPRIETAIRE

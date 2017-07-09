@@ -174,11 +174,11 @@ class UsersController extends Controller
 
             // on vérifie les champs insérés
             if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
-                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
+                $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
             if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
-                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
+                $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
             if(!v::phone()->length(10)->validate($post['phone'])){
@@ -207,14 +207,15 @@ class UsersController extends Controller
 
                 // on crée le tableau de données à insérer
                 $data = [
-                'firstname' => $post['firstname'], 
-                'lastname' => $post['lastname'],
-                'email'  => $post['email'],
-                'role' => 'groom',                      
-                'password' => $authModel->hashPassword($post['password']),
-                'address' => $post['address'],
-                'postcode' => $post['postcode'],
-                'cityUser' => $post['cityUser'],
+                'firstname'  => ucfirst($post['firstname']), 
+                'lastname'   => strtoupper($post['lastname']),
+                'email'      => strtolower($post['email']),
+                'phone'      => $post['phone'],
+                'role'       => 'groom',                      
+                'password'   => $authModel->hashPassword($post['password']),
+                'address'    => strtoupper($post['address']),
+                'postcode'   => $post['postcode'],
+                'cityUser'   => strtolower($post['cityUser']),
                 'date_creation' => date('d.m.y'),
                 ];
 
@@ -264,11 +265,11 @@ class UsersController extends Controller
 
             // on vérifie les champs insérés
             if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
-                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
+                $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
             if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
-                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
+                $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
             if(!v::phone()->length(10)->validate($post['phone'])){
@@ -298,16 +299,16 @@ class UsersController extends Controller
 
                 // on crée le tableau de données à insérer
                 $data = [
-                'firstname' => $post['firstname'], 
-                'lastname' => $post['lastname'],
-                'email'  => $post['email'],
-                'role' => 'owner',
-                'password' => $authModel->hashPassword($post['password']),
-                'address' => $post['address'],
-                'postcode' => $post['postcode'],
-                'cityUser' => $post['cityUser'],
-                'date_creation' => date('Y.m.d'),
-                'phone' => $post['phone'],
+                'firstname'  => ucfirst($post['firstname']), 
+                'lastname'   => strtoupper($post['lastname']),
+                'email'      => strtolower($post['email']),
+                'phone'      => $post['phone'],
+                'role'       => 'groom',                      
+                'password'   => $authModel->hashPassword($post['password']),
+                'address'    => strtoupper($post['address']),
+                'postcode'   => $post['postcode'],
+                'cityUser'   => strtolower($post['cityUser']),
+                'date_creation' => date('d.m.y'),
                 ];
                 
                 // on insère dans la BDD
@@ -457,11 +458,11 @@ class UsersController extends Controller
 
             // on vérifie les champs insérés
             if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
-                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
+                $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
             if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
-                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
+                $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
             if(!v::phone()->length(10)->validate($post['phone'])){
@@ -518,15 +519,15 @@ class UsersController extends Controller
 
 
                 $data = [
-                'firstname' => $post['firstname'], 
-                'lastname' => $post['lastname'],
-                'email'  => $post['email'],
-                'address' => $post['address'],
-                'postcode' => $post['postcode'],
-                'cityUser' => $post['cityUser'],
-                'phone' => $post['phone'],
-                    // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
-                'photo' => $fileName,
+                'firstname'  => ucfirst($post['firstname']), 
+                'lastname'   => strtoupper($post['lastname']),
+                'email'      => strtolower($post['email']),
+                'address'    => strtoupper($post['address']),
+                'postcode'   => $post['postcode'],
+                'cityUser'   => strtolower($post['cityUser']),
+                'phone'      => $post['phone'],
+                // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
+                'photo'      => $fileName,
                 ];
 
                 $usersModel = new UsersModel();

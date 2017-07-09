@@ -35,7 +35,7 @@
                                         <input  name="email" type="text" placeholder="Votre email" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <input  name="password" type="text" placeholder="Votre MDP" class="form-control">
+                                        <input  name="password" type="password" placeholder="Votre MDP" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <input  name="phone" type="text" placeholder="0102030405" class="form-control">

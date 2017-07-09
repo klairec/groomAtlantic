@@ -104,5 +104,144 @@ class GroomController extends \W\Controller\Controller
 			}
 		}
 	}
-}
 
+
+
+	/*
+	* Ajout de services au profil du concierge
+	*/
+	public function addServices(){
+
+		if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
+
+        // on récupère les données de l'utilisateur connecté
+		$me = $this->getUser();
+
+		// on crée les variables post et errors
+		$post = [];
+		$errors = [];
+
+
+		// on nettoie le tableau post
+		if(!empty($_POST)){
+
+			foreach ($_POST as $key => $value){
+
+				if(is_array($value)){
+					$post[$key] = array_map('trim', array_map('strip_tags', $value));
+				}
+				else {
+					$post[$key] = trim(strip_tags($value));
+				}
+			}
+
+			// on vérifie les champs insérés
+			if((!v::intVal()->length(1, 5)->validate($post['price'])) && (!v::floatVal()->length(1, 5)->validate($post['price']))){
+				$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
+			}
+
+			if(count($post['price']) != count($post['id_skill'])){
+				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
+			}
+
+			if(count($errors) === 0){
+				
+				if(!empty($post['id_skill']) && !empty($post['price'])){
+
+					$data = [
+						'id_skill'  => implode(',', $post['id_skill']),
+						'price'  => implode(',', $post['price']),
+						'id_groom'			=> $me['id'],
+					];
+
+					// on insère les données tappées par l'utilisateur dans la BDD
+					$servicesInfosModel = new ServicesInfosModel();
+					$addSkills = $servicesInfosModel->insert($data);
+					if(!empty($addSkills)){
+						// Ajoute un message "flash" (stocké en session temporairement)
+						// Note : il faut toutefois ajouter l'affichage de ce message au layout
+						$this->flash('Vos services ont été ajoutés.', 'success');
+
+						return $addSkills;
+					}
+				}
+			}
+			else {
+				$errorsText = implode('<br>', $errors);
+				$this->flash($errorsText, 'danger');
+
+			}
+		}
+	}
+
+	/*
+	* Modifications des services au profil du concierge
+	*/
+
+	public function changeServices($id){
+
+		if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
+
+        // on récupère les données de l'utilisateur connecté
+		$me = $this->getUser();
+
+		// on crée les variables post et errors
+		$post = [];
+		$errors = [];
+
+		// on nettoie le tableau post
+		if(!empty($_POST)){
+
+			foreach ($_POST as $key => $value){
+
+				if(is_array($value)){
+					$post[$key] = array_map('trim', array_map('strip_tags', $value));
+				}
+				else {
+					$post[$key] = trim(strip_tags($value));
+				}
+			}
+
+			// on vérifie les champs insérés
+			if((!v::intVal()->length(1, 5)->validate($post['price'])) && (!v::floatVal()->length(1, 5)->validate($post['price']))){
+				$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
+			}
+
+			if(count($post['price']) != count($post['id_skill'])){
+				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
+			}
+
+			if(count($errors) === 0){
+				
+				if(!empty($post['id_skill']) && !empty($post['price'])){
+
+					$data = [
+						'id_skill'  => implode(',', $post['id_skill']),
+						'price'  => implode(',', $post['price']),
+						'id_groom'			=> $me['id'],
+					];
+
+					// on insère les données tappées par l'utilisateur dans la BDD
+					$servicesInfosModel = new ServicesInfosModel();
+					$changeSkills = $servicesInfosModel->update($data, $id);
+					if(!empty($changeSkills)){
+						// Ajoute un message "flash" (stocké en session temporairement)
+						// Note : il faut toutefois ajouter l'affichage de ce message au layout
+						$this->flash('Vos services ont été modifiés', 'success');
+
+						return $changeSkills;
+					}
+				}
+			}
+			else {
+				$errorsText = implode('<br>', $errors);
+				$this->flash($errorsText, 'danger');
+
+			}
+		}
+	}
+}

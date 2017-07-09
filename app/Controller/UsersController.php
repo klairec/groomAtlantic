@@ -345,10 +345,7 @@ class UsersController extends Controller
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
         
         $groomController = new GroomController();
-        $changesComps = $groomController->updateSkills();
-
-        $voirLoc = new RentalsController();
-        $locations = $voirLoc->showRentals($user_connect['id']); 
+        $addSkills = $groomController->addServices();
 
         $commentsController = new CommentsController();
         $comments = $commentsController->commentList();
@@ -364,7 +361,7 @@ class UsersController extends Controller
 
         
         $params = [
-        /* 'image' => $image, */
+        'addSkills' => $addSkills,
         'comments'  => $comments,
         'commentsA' => $commentsA,
         'contacts' => $contacts,

@@ -45,4 +45,7 @@
 	<button type="submit" class="btn btn-default">Modifier</button>
 
 </form>
+
+<a href="<?= $this->url('users_showowner')?>" class="btn btn-blue">Retour</a>
+
 <?php $this->stop('main_content') ?>

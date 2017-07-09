@@ -1,10 +1,15 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Modifier une location']) ?>
 
 <?php $this->start('main_content') ?>
-	<form method="POST">
+	
+    <?php if(count($errors) > 0): ?>
+        <p style="color:red;"><?=implode('<br>', $errors); ?></p>
+    <?php endif; ?>
+
+    <form method="POST">
 
         <label for="title">Titre</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" value="">
 
         <label for="type">Type de location</label>
         <select name="type">
@@ -55,4 +60,13 @@
             <button type="submit" class="btn btn-submit">Modifier</button>
 
     </form>
+
+    <a href="<?= $this->url('users_showowner')?>" class="btn btn-blue">Retour</a>
+
 <?php $this->stop('main_content') ?>
+
+
+
+
+
+

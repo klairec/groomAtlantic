@@ -13,7 +13,7 @@
     </figure>
     <p>Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
     <p>Email : <?=$showInfos['email']; ?></p>
-    <p>Téléphone : <?=$showInfos['phone']; ?></p>
+    <p>Téléphone : 0<?=$showInfos['phone']; ?></p>
     <p>Adresse : <?=$showInfos['address']; ?></p>
     <p>Code postal : <?=$showInfos['postcode']; ?></p>
     <p>Ville : <?=$showInfos['cityUser']; ?></p>

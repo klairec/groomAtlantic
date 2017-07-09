@@ -173,11 +173,11 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 caractères.';
             }
 
@@ -197,7 +197,7 @@ class UsersController extends Controller
                 $errors[] = 'Le code postal doit comporter 5 chiffres.';
             }
 
-            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(2, 50)->validate($post['cityUser'])){
                 $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 
@@ -263,15 +263,15 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 caractères.';
             }
 
-            if(!v::phone()->validate($post['phone'])){
+            if(!v::phone()->length(10)->validate($post['phone'])){
                 $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
             }
 
@@ -287,7 +287,7 @@ class UsersController extends Controller
                 $errors[] = 'Le code postal doit comporter 5 chiffres.';
             }
 
-            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(2, 50)->validate($post['cityUser'])){
                 $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 
@@ -343,6 +343,12 @@ class UsersController extends Controller
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
         
+        $groomController = new GroomController();
+        $changesComps = $groomController->updateSkills();
+
+        $voirLoc = new RentalsController();
+        $locations = $voirLoc->showRentals($user_connect['id']); 
+
         $commentsController = new CommentsController();
         $comments = $commentsController->commentList();
         
@@ -450,11 +456,11 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 caractères.';
             }
 
@@ -474,7 +480,7 @@ class UsersController extends Controller
                 $errors[] = 'Le code postal doit comporter 5 chiffres.';
             }
 
-            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+            if(!v::notEmpty()->stringType()->alpha()->length(2, 50)->validate($post['cityUser'])){
                 $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 

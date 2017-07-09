@@ -76,10 +76,10 @@ class UsersController extends Controller
             }
         }
         $params = [
-            'formValid' => $formValid,
-            'errors' => $errors,
-            'mail' => isset($post['email']),            
-            'deco' => $deco,
+        'formValid' => $formValid,
+        'errors' => $errors,
+        'mail' => isset($post['email']),            
+        'deco' => $deco,
         ];
         $this->show('default/home', $params);
     }
@@ -141,10 +141,10 @@ class UsersController extends Controller
         }
 
         $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
-            'mail'      => isset($post['email']),
-            'deco'      => $deco,
+        'formValid' => $formValid,
+        'errors'    => $errors,
+        'mail'      => isset($post['email']),
+        'deco'      => $deco,
         ];
         $this->show('users/login', $params);
 
@@ -159,11 +159,17 @@ class UsersController extends Controller
         $errors = [];
         $formValid = false;
 
-
         if(!empty($_POST)){
             // Permet de nettoyer les données
             foreach($_POST as $key => $value){
                 $post[$key] = trim(strip_tags($value));
+            }
+
+            // vérification si l'email existe déjà en BDD
+            $usersModel = new UsersModel();
+            $mailExist = $usersModel->emailExists($post['email']);
+            if($mailExist == true){
+                $errors[] = 'Cet email existe déjà.';
             }
 
             // on vérifie les champs insérés
@@ -195,23 +201,25 @@ class UsersController extends Controller
                 $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 
+            // on comptabiliser les erreurs
             if(count($errors) === 0){
                 $authModel = new \W\Security\AuthentificationModel;
 
+                // on crée le tableau de données à insérer
                 $data = [
-                    'firstname' => $post['firstname'], 
-                    'lastname' => $post['lastname'],
-                    'email'  => $post['email'],
-                    'role' => 'groom',                      
-                    'password' => $authModel->hashPassword($post['password']),
-                    'address' => $post['address'],
-                    'postcode' => $post['postcode'],
-                    'cityUser' => $post['cityUser'],
-                    'date_creation' => date('d.m.y'),
+                'firstname' => $post['firstname'], 
+                'lastname' => $post['lastname'],
+                'email'  => $post['email'],
+                'role' => 'groom',                      
+                'password' => $authModel->hashPassword($post['password']),
+                'address' => $post['address'],
+                'postcode' => $post['postcode'],
+                'cityUser' => $post['cityUser'],
+                'date_creation' => date('d.m.y'),
                 ];
 
+                // on insère dans la BDD
                 $usersModel = new UsersModel();
-
                 $insert = $usersModel->insert($data);
                 //retourne false si une erreur survient ou les nouvelles donnes inseres sous forme de array
 
@@ -223,18 +231,18 @@ class UsersController extends Controller
             }
         }
         $params = [
-            'formValid' => $formValid,
-            'errors' => $errors,
+        'formValid' => $formValid,
+        'errors' => $errors,
         ];
         $this->show('users/addGroom', $params);
     }
+
 
     /**
      * Ajouter propriétaire
      */
     public function addOwner(){
 
-        // $this->show('users/add', $params);
 
         $post = [];
         $errors = [];
@@ -245,6 +253,13 @@ class UsersController extends Controller
             // Permet de nettoyer les données
             foreach($_POST as $key => $value){
                 $post[$key] = trim(strip_tags($value));
+            }
+
+            // vérification si l'email existe déjà en BDD
+            $usersModel = new UsersModel();
+            $mailExist = $usersModel->emailExists($post['email']);
+            if($mailExist == true){
+                $errors[] = 'Cet email existe déjà.';
             }
 
             // on vérifie les champs insérés
@@ -277,24 +292,26 @@ class UsersController extends Controller
             }
 
 
+            // on compatabilise les erreurs
             if(count($errors) === 0){
                 $authModel = new \W\Security\AuthentificationModel;
 
+                // on crée le tableau de données à insérer
                 $data = [
-                    'firstname' => $post['firstname'], 
-                    'lastname' => $post['lastname'],
-                    'email'  => $post['email'],
-                    'role' => 'owner',
-                    'password' => $authModel->hashPassword($post['password']),
-                    'address' => $post['address'],
-                    'postcode' => $post['postcode'],
-                    'cityUser' => $post['cityUser'],
-                    'date_creation' => date('Y.m.d'),
-                    'phone' => $post['phone'],
+                'firstname' => $post['firstname'], 
+                'lastname' => $post['lastname'],
+                'email'  => $post['email'],
+                'role' => 'owner',
+                'password' => $authModel->hashPassword($post['password']),
+                'address' => $post['address'],
+                'postcode' => $post['postcode'],
+                'cityUser' => $post['cityUser'],
+                'date_creation' => date('Y.m.d'),
+                'phone' => $post['phone'],
                 ];
-
+                
+                // on insère dans la BDD
                 $usersModel = new UsersModel();
-
                 $insert = $usersModel->insert($data);
                 //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
 
@@ -307,15 +324,15 @@ class UsersController extends Controller
             }
         }
         $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
+        'formValid' => $formValid,
+        'errors'    => $errors,
         ];
         $this->show('users/addOwner', $params);
     }
 
 
     /**
-     * Voir profil groom
+     * Voir les éléments du profil groom
      */
     public function showGroom()
     {
@@ -337,20 +354,23 @@ class UsersController extends Controller
         
         $rentalsPpt = new RentalsController();
         $propositions = $rentalsPpt->showRentals($user_connect['id']);
-    
-        /*$image = Image::make('public/images.jpg')->resize(100, 100); */
+
         
         $params = [
-           /* 'image' => $image, */
-            'comments'  => $comments,
-            'commentsA' => $commentsA,
-            'contacts' => $contacts,
-            'propositions' => $propositions
-            ];
+        /* 'image' => $image, */
+        'comments'  => $comments,
+        'commentsA' => $commentsA,
+        'contacts' => $contacts,
+        'propositions' => $propositions
+        ];
 
         $this->show('users/groomProfile/showGroom', $params);
     }
     
+
+    /**
+     * Modifier le profil groom
+     */
     public function modifProfilegroom()
     {
         // limite par défaut à l'utilisateur ayant pour role "groom"
@@ -362,18 +382,18 @@ class UsersController extends Controller
         $groomModif = $groomController->modifGroom();
         
         $params = [
-            'groomModif' => $groomModif
+        'groomModif' => $groomModif
         ];
         
         $this->show('users/groomProfile/modifGroom', $params); 
     }
-        
+
 
 
 
 
     /**
-     * Voir profil proprietaire
+     * Voir les éléments du profil proprietaire
      */
     public function showOwner()
     {
@@ -401,11 +421,11 @@ class UsersController extends Controller
 
         
         $params = [
-            'showInfos' => $showInfos,
-            'addRental' => $addRental,
-            'locations' => $locations,
-            'comments'  => $comments,
-            'commentsAd' => $commentsAd,
+        'showInfos' => $showInfos,
+        'addRental' => $addRental,
+        'locations' => $locations,
+        'comments'  => $comments,
+        'commentsAd' => $commentsAd,
         ];  
 
         $this->show('users/ownerProfile/showOwner', $params);
@@ -413,7 +433,7 @@ class UsersController extends Controller
 
 
     /**
-     * Update des infos propriétaire
+     * Modifier le profil propriétaire
      */
     public function changeProfileO()
     {
@@ -421,7 +441,7 @@ class UsersController extends Controller
         $errors = [];
         $formValid = false;
 
-        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
+        $user_connect = $this->getUser();
 
         if(!empty($_POST)){
             // Permet de nettoyer les données
@@ -476,31 +496,31 @@ class UsersController extends Controller
 
             // AJOUT PHOTO DE PROFIL
             // création d'un nom unique
-            $nom = md5(uniqid(rand(), true));
+                $nom = md5(uniqid(rand(), true));
 
             // création de la variable $fileinfo qui récupère les infos du fichier uploadé
-            $fileInfo = pathinfo($_FILES['photo']['name']);
+                $fileInfo = pathinfo($_FILES['photo']['name']);
 
             // création de la variable extension qui récupère l'extension du fichier uploadé
-            $extension = $fileInfo['extension'];
+                $extension = $fileInfo['extension'];
 
             // création de la route à suivre pour le stockage de l'image, on écrit d'abord sa position puis sa destination
-            move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+                move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
 
             // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
-            $fileName = $nom.'.'.$extension;
+                $fileName = $nom.'.'.$extension;
 
 
                 $data = [
-                    'firstname' => $post['firstname'], 
-                    'lastname' => $post['lastname'],
-                    'email'  => $post['email'],
-                    'address' => $post['address'],
-                    'postcode' => $post['postcode'],
-                    'cityUser' => $post['cityUser'],
-                    'phone' => $post['phone'],
+                'firstname' => $post['firstname'], 
+                'lastname' => $post['lastname'],
+                'email'  => $post['email'],
+                'address' => $post['address'],
+                'postcode' => $post['postcode'],
+                'cityUser' => $post['cityUser'],
+                'phone' => $post['phone'],
                     // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
-                    'photo' => $fileName,
+                'photo' => $fileName,
                 ];
 
                 $usersModel = new UsersModel();
@@ -516,8 +536,8 @@ class UsersController extends Controller
         }
 
         $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
+        'formValid' => $formValid,
+        'errors'    => $errors,
         ];
 
         $this->show('users/ownerProfile/changeProfileO', $params);
@@ -525,7 +545,7 @@ class UsersController extends Controller
 
 
     /**
-     * Delete des infos propriétaires
+     * Suppression du compte propriétaire
      */
     public function deleteProfileO($id){
 
@@ -593,8 +613,8 @@ class UsersController extends Controller
 
                     $data = [
 
-                        'token' => $token,
-                        'id_user' => $userInfo['id'],
+                    'token' => $token,
+                    'id_user' => $userInfo['id'],
 
                     ];
 
@@ -604,51 +624,51 @@ class UsersController extends Controller
                     if(!empty($insert)){// si l'insertion s'est bien passé on envoie le mail
 
 
-                        $mail = new \PHPMailer();
+                    $mail = new \PHPMailer();
 
-                        $mail->isSMTP();
-                        $mail->Host = 'smtp.gmail.com';
-                        $mail->SMTPAuth   = true;
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth   = true;
 
-                        $mail->Username   = getApp()->getConfig('smtp_email_ident');
-                        $mail->Password   = getApp()->getConfig('smtp_email_pass');
+                    $mail->Username   = getApp()->getConfig('smtp_email_ident');
+                    $mail->Password   = getApp()->getConfig('smtp_email_pass');
 
-                        $mail->SMTPSecure = 'ssl';
-                        $mail->Port = 465;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->Port = 465;
 
-                        $mail->SetFrom('reset.password@email.fr', 'GroomAtlantic');
-                        $mail->addAddress($post['email']);
-                        $mail->isHTML(true);
-
-
-                        $mail->Subject = 'Sujet';
-                        $mail->Body = '<a href="'. $this->redirectToRoute('users_traitementReset') . '?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+                    $mail->SetFrom('reset.password@email.fr', 'GroomAtlantic');
+                    $mail->addAddress($post['email']);
+                    $mail->isHTML(true);
 
 
-                        if(!$mail->Send()){
-                            $this->flash('Une erreer est survenue lors de l\'envoi de l\'email', 'danger');
+                    $mail->Subject = 'Sujet';
+                    $mail->Body = '<a href="'. $this->redirectToRoute('users_traitementReset') . '?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+
+
+                    if(!$mail->Send()){
+                        $this->flash('Une erreer est survenue lors de l\'envoi de l\'email', 'danger');
                             //echo 'Erreur : ' . $mail->ErrorInfo; // uniquement pour les dev, l'utilisateur s'en cague :-)
-                        }
-                        else {
-                            $formValid = true;
-                        }                      
                     }
-
+                    else {
+                        $formValid = true;
+                    }                      
                 }
-            }   
-            else {
-                $this->flash('Email inconnu', 'danger');
+
             }
+        }   
+        else {
+            $this->flash('Email inconnu', 'danger');
         }
-
-        $params = [
-            'formValid' => $formValid,
-            'errors'    => $errors,
-        ];
-
-        $this->show('users/pwdReset', $params);
-
     }
+
+    $params = [
+    'formValid' => $formValid,
+    'errors'    => $errors,
+    ];
+
+    $this->show('users/pwdReset', $params);
+
+}
 
 
     /**
@@ -656,12 +676,12 @@ class UsersController extends Controller
      */
     public function traitementReset()
     {
-        
+
         $post = [];
         $errors = [];
         $formValid = false;
         $showForm = false;
-     
+
         if(isset($_GET['idUser']) AND isset($_GET['token']) AND !empty($_GET['idUser']) AND !empty($_GET['token']) AND ctype_digit($_GET['idUser'])){
 
             $resetPwdModel = new ResetPasswordModel();
@@ -689,7 +709,7 @@ class UsersController extends Controller
                         $authModel = new \W\Security\AuthentificationModel;
 
                         $data = [
-                            'password' => $authModel->hashPassword($post['password']), 
+                        'password' => $authModel->hashPassword($post['password']), 
                         ];
 
                         $usersModel = new UsersModel();
@@ -701,15 +721,15 @@ class UsersController extends Controller
                             
                             $formValid = true;
                         }
-                }                            
+                    }                            
                 }
             }
         }
 
         $params = [
-            'showForm' => $showForm,
-            'formValid' => $formValid,
-            'errors' => $errors,
+        'showForm' => $showForm,
+        'formValid' => $formValid,
+        'errors' => $errors,
         ];
 
         $this->show('users/traitementReset', $params);
@@ -724,6 +744,6 @@ class UsersController extends Controller
         $this->show('users/infos');
     }
 
-   
+
 
 }   

@@ -1,7 +1,6 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Inscription/Propriétaire']) ?>
 
 <?php $this->start('header') ?>
-
             <div class="container">
                 <div class="table">
                     <div class="header-text">

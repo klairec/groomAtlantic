@@ -8,14 +8,41 @@
         header {
             display: none;
         }
+        #retourAccueil {
+            color: #fff; 
+            text-align: center; 
+            display: block; 
+            font-size: 1.5em;
+            background:rgba(240, 100, 103, 0.8);
+            margin:auto 20em;
+            border-radius: 30px;
+            padding: 5px 0 5px 0px;
+
+
+        }
+           #retourAccueil:hover {
+           background:rgba(240, 100, 103, 1);
+        }
+        #details{
+            background:rgba(41, 97, 144, 0.7);      
+            font-size: 1.5em; 
+            border-radius: 30px;
+            display: block; 
+            margin: auto 4em;
+            padding: 10px;
+        }
+        #details:hover{
+            background:rgba(41, 97, 144, 1);
+        }
+
+         
 
 
     </style>
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
-
-                
+  
     <div id="DivSearch" class="container";>
         <div class="table">
             <div class="header-text">
@@ -47,6 +74,9 @@
                               
                
                     ?>
+
+
+
                                 <div class="col-md-4">
                                     <div class="team text-center">
                                         <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
@@ -95,12 +125,10 @@
                                              ?></h5>
                                         </div>
                                             
-                                        <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
-                                        <a href="<?= $this->url('users_showowner') ?>">Entrer en contact avec le Groom</a>
-                                        <?php }
-                                        else{ ?>
-                                        <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button>
-                                        <?php } ?>
+                                         <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
+                                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails') ?>">Fiche détaillée</a>
+                                       
+                                        
                                                     
                                     </div>
                                 </div>
@@ -108,7 +136,13 @@
 
                         } //fin du foreach Infosgroom
 
-                    } // fin du if resulSearch                                   
+                    } // fin du if resulSearch   
+                    else{
+
+                        ?><div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;"> Malheuresement, nous n'avons pas encore de Grooms inscrits dans les environs..</div>
+                        <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
+
+                    }                                
 
                     ?>
                 </div>

@@ -18,7 +18,9 @@ $w_routes = array(
     ['GET|POST', '/users/pwdReset', 'Users#pwdReset', 'users_pwdReset'],
     ['GET|POST', '/users/traitementReset', 'Users#traitementReset', 'users_traitementReset'],
     ['GET|POST', '/users/infos', 'Users#infos', 'users_infos'], 
-    ['GET|POST', '/searchGroom/searchResult', 'Search#searchResult', 'search_result'], 
+    ['GET|POST', '/searchGroom/searchResult', 'Search#searchResult', 'search_result'],
+    ['GET|POST', '/searchGroom/groomDetails', 'Search#groomDetails', 'Search_groomDetails'],  
+
     
 
 

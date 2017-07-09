@@ -44,7 +44,7 @@
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
 
-						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal !" >
+						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal ! (ex : 33000)" >
 						                    
 						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>

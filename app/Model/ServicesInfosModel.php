@@ -15,7 +15,11 @@ class ServicesInfosModel extends \W\Model\Model
 	public function findSkillsWithId($id) // Fonction qui récup les compétences du groom en FIND_IN_8SET
 	{
 
-		$sql = 'SELECT skills FROM ' . $this->table . ' , groom_services  WHERE id_groom  = :id AND FIND_IN_SET(groom_services.id, id_skill) ';
+		$sql = '
+		SELECT skills 
+		FROM ' . $this->table . ' , groom_services  
+		WHERE id_groom  = :id 
+		AND FIND_IN_SET(groom_services.id, id_skill) ';
 
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(':id', $id);
@@ -31,7 +35,13 @@ class ServicesInfosModel extends \W\Model\Model
 		// TENTATIVE D'INCLURE LE FIND IN SET DANS LA RECHERHE  : $sql = 'SELECT s.*, u.*, g.* FROM groom_services AS g, ' . $this->table.' AS s INNER JOIN users AS u ON s.id_groom = u.id WHERE s.city LIKE :city AND FIND_IN_SET(g.id, id_skill) ';
 
 
-        $sql = 'SELECT s.*, u.* FROM ' . $this->table.' AS s INNER JOIN users AS u ON s.id_groom = u.id WHERE s.work_area LIKE :city';               
+        $sql = '
+        SELECT s.*, u.* 
+        FROM ' . $this->table.' AS s 
+        INNER JOIN users AS u 
+        ON s.id_groom = u.id 
+        WHERE s.work_area 
+        LIKE :city';               
 		
 		$sth = $this->dbh->prepare($sql);	
 			

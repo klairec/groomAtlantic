@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('fonts/font-awesome-4.1.0/css/font-awesome.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('fonts/eleganticons/et-icons.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/cardio.css') ?>">
+    <?=$this->section('css'); ?>
 </head>
     
 <body>

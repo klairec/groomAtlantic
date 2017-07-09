@@ -14,11 +14,6 @@ class InfosController extends Controller
 
     }
 
-    public function charteQualite(){
-
-    	$this->show('infos/CharteQualite');
-    }
-
     public function mentionsLegales(){
 
    		$this->show('infos/MentionsLegales');

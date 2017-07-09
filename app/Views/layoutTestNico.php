@@ -145,7 +145,7 @@
 				<div class="col-sm-4 text-center-mobile">
 					<h5><a href="<?= $this->url('infos_quisommesnous') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
-					<h5><a href="<?= $this->url('infos_chartequalite') ?>">NOTRE CHARTE </a></h5><br>
+					<h5><a target="_blank" href="<?= $this->assetUrl('charte-qualite.pdf') ?>">CHARTE DE QUALITE</a></h5><br>
 					<h5><a href="<?= $this->url('infos_mentionslegales') ?>">MENTIONS LEGALES </a></h5><br>
 				</div>
 				<div class="col-sm-4 text-center-mobile">

@@ -4,3 +4,5 @@ app/config.php
 *.log
 composer.phar
 public/assets/img/icons/plage-charenteMaritime.jpg
+.DS_Store
+

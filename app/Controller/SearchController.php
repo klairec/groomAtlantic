@@ -13,6 +13,7 @@ use \W\Model\UsersModel;
 
 class SearchController extends Controller
 {
+
     
     public function searchResult()
 	{
@@ -47,13 +48,10 @@ class SearchController extends Controller
 					/*	$searchTown = new ServicesInfosModel(); // on insère
 				   		$resultSearch = $searchTown->search($cp,'OR', $stripTags = true); */ 
 
-
-				   		//$resultSearch[0]['numeroSerie']=$num;
-	 
-
 		if (!empty($resultSearch)){
 			
 			// $InfosGroom[] = $resultSearch;
+
 
 
                 for($i=0;$i<count($resultSearch);$i++){
@@ -88,27 +86,24 @@ class SearchController extends Controller
 				'fullCp'	=> $fullCp,
 				'InfosGroom' => $InfosGroom,
 				'tabSkill' => $tabSkill,
-				'ville' => $ville,							
-					
-				
-
+				'ville' => $ville,
 		];
 
 
 
 		$this->show('searchGroom/searchResult', $params);
 	}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

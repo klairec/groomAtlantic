@@ -1,4 +1,4 @@
-<?php $this->layout('layoutTestNico', ['title' => 'Mentions Légales?']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Mentions Légales']) ?>
 
 <?php $this->start('header') ?>
 

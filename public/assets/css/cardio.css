@@ -1098,20 +1098,28 @@ footer .social-footer li:hover a {
 }
 
 /* FOND DIV NOS SERVICES */
+
+.heading h4{
+	color: white;
+}
 .proprietaire {
-	background:#f27577;
+	background:#7cadf6;
+	opacity: 0.9;
 }
 
 .concierge {
-	background: #613ff4;
+	background: #f06467;
+	opacity: 0.9;
 }
 
 .charte_qualite {
-	background:#f27577;
+	background:#4e28f3;
+	opacity: 0.9;
 }
 
 .engagement {
-	background: #8ab5f2;
+	background: #f06467;
+	opacity: 0.9;
 }
 
 .engagement .icon-holder {

@@ -13,8 +13,6 @@
 
                     <h3 class="">Modifier</h3>
 
-                    <div><!-- affichage msg d'erreurs --></div>
-
                     <form method="POST" action="<?= $this->url('modif_groom') ?>">
 
                         <figure>
@@ -41,7 +39,7 @@
                         <input type="text" name="newPostcode" id="newPostcode" placeholder="" value="<?=$w_user['postcode']; ?>">
 
                         <label for="newCity">Ville</label>
-                        <input type="text" name="newCity" id="newCity" placeholder="" value="<?=$w_user['city']; ?>">
+                        <input type="text" name="newCity" id="newCity" placeholder="" value="<?=$w_user['cityUser']; ?>">
 
                         <button type="submit" class="btn btn-submit">Modifier</button>
                     </form>

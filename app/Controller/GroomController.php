@@ -79,7 +79,7 @@ class GroomController extends \W\Controller\Controller
 					'phone'    			=> $post['newPhone'],
 					'address'   		=> $post['newAddress'],
 					'postcode'    		=> $post['newPostcode'],
-					'city'    			=> $post['newCity']
+					'cityUser'    			=> $post['newCity']
 				];
 
 				// on insère les données renseignées par l'utilisateur dans la BDD

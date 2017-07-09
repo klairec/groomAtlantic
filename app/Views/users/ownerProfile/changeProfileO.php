@@ -1,39 +1,45 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Modifier mon profil']) ?>
 
+
+
 <?php $this->start('main_content') ?>
+	<?php if(count($errors) > 0): ?>
+		<p style="color:red;"><?=implode('<br>', $errors); ?></p>
+	<?php endif; ?>
+
 <form method="POST" enctype="multipart/form-data">
-	
+
 	<div class="form-group">
 		<label for="photo">Ajouter une photo de profil</label>
-		<input type="file" name="photo">
+		<input type="file" name="photo" >
 	</div>
 	<div class="form-group">
 		<label for="firstname">Prénom</label>
-		<input name="firstname" type="text" class="form-control" value="">
+		<input name="firstname" type="text" class="form-control" value="<?=$w_user['firstname']; ?>">
 	</div>
 	<div class="form-group">
 		<label for="lastname">Nom</label>
-		<input name="lastname" type="text" class="form-control" value="">
+		<input name="lastname" type="text" class="form-control" value="<?=$w_user['lastname']; ?>">
 	</div>
 	<div class="form-group">
 		<label for="email">Email</label>
-		<input name="email" type="text" class="form-control" value="">
+		<input name="email" type="text" class="form-control" value="<?=$w_user['email']; ?>">
 	</div>
 	<div class="form-group">
 		<label for="phone">Téléphone</label>
-		<input name="phone" type="text" class="form-control" value="">
+		<input name="phone" type="text" class="form-control" value="<?=$w_user['phone']; ?>">
 	</div>
 	<div class="form-group">
 		<label for="address">Adresse</label>
-		<input name="address" type="text" class="form-control" value="">
+		<input name="address" type="text" class="form-control" value="<?=$w_user['address']; ?>">
 	</div>
 	<div class="form-group">
 		<label for="postcode">Code postal</label>
-		<input name="postcode" type="text" class="form-control" value="">
+		<input name="postcode" type="text" class="form-control" value="<?=$w_user['postcode']; ?>">
 	</div>
 	<div class="form-group">
-		<label for="city">Ville</label>
-		<input name="city" type="text" class="form-control" value="">
+		<label for="cityUser">Ville</label>
+		<input name="cityUser" type="text" class="form-control" value="<?=$w_user['cityUser']; ?>">
 	</div>
 
 	<button type="submit" class="btn btn-default">Modifier</button>

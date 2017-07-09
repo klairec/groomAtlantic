@@ -16,7 +16,7 @@
     <p>Téléphone : <?=$showInfos['phone']; ?></p>
     <p>Adresse : <?=$showInfos['address']; ?></p>
     <p>Code postal : <?=$showInfos['postcode']; ?></p>
-    <p>Ville : <?=$showInfos['city']; ?></p>
+    <p>Ville : <?=$showInfos['cityUser']; ?></p>
     <p>Date d'inscription : <?=$showInfos['date_creation']; ?></p>
 
     <a href="<?= $this->url('change_profileO');?>" class="btn btn-blue">Modifier mon profil</a><br>

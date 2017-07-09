@@ -31,12 +31,12 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['email']) < 2){
-                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
             }
 
-            if(strlen($post['password']) < 2){
-                $errors[] = 'Le mdp doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->stringType()->length(2, 150)->validate($post['password'])){
+                $errors[] = 'Le mot de passe doit comporter au moins 2 caractères';
             }
 
             if(count($errors) === 0){
@@ -101,12 +101,12 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['email']) < 2){
-                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
             }
 
-            if(strlen($post['password']) < 2){
-                $errors[] = 'Le mdp doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->stringType()->length(2, 150)->validate($post['password'])){
+                $errors[] = 'Le mot de passe doit comporter au moins 2 caractères';
             }
 
             if(count($errors) === 0){
@@ -166,12 +166,33 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['firstname']) < 2){
-                $errors[] = 'Le prénom doit comporter au moins 2 caractères';
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(strlen($post['lastname']) < 2){
-                $errors[] = 'Le nom doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
+            }
+
+            if(!v::phone()->length(10)->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 
             if(count($errors) === 0){
@@ -185,7 +206,7 @@ class UsersController extends Controller
                     'password' => $authModel->hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
-                    'city' => $post['city'],
+                    'cityUser' => $post['cityUser'],
                     'date_creation' => date('d.m.y'),
                 ];
 
@@ -226,13 +247,35 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['firstname']) < 2){
-                $errors[] = 'Le prénom doit comporter au moins 2 caractères';
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(strlen($post['lastname']) < 2){
-                $errors[] = 'Le nom doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
             }
+
+            if(!v::phone()->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
+            }
+
 
             if(count($errors) === 0){
                 $authModel = new \W\Security\AuthentificationModel;
@@ -245,7 +288,7 @@ class UsersController extends Controller
                     'password' => $authModel->hashPassword($post['password']),
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
-                    'city' => $post['city'],
+                    'cityUser' => $post['cityUser'],
                     'date_creation' => date('Y.m.d'),
                     'phone' => $post['phone'],
                 ];
@@ -276,7 +319,10 @@ class UsersController extends Controller
      */
     public function showGroom()
     {
-        $this->allowTo(['groom']); // limite par défaut à l'utilisateur ayant pour role "groom"
+        // limite par défaut à l'utilisateur ayant pour role "groom"
+        if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
 
         $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
         
@@ -307,6 +353,11 @@ class UsersController extends Controller
     
     public function modifProfilegroom()
     {
+        // limite par défaut à l'utilisateur ayant pour role "groom"
+        if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
+
         $groomController = new GroomController();
         $groomModif = $groomController->modifGroom();
         
@@ -318,13 +369,16 @@ class UsersController extends Controller
     }
         
 
+
+
+
     /**
      * Voir profil proprietaire
      */
     public function showOwner()
     {
         // limite par défaut à l'utilisateur ayant pour role "owner"
-        if(!$this->allowTo(['owner'])){
+        if(!$this->allowTo(['owner'],['admin'])){
             $this->redirectToRoute('default_home');
         }
 
@@ -332,7 +386,6 @@ class UsersController extends Controller
 
         $usersModel = new UsersModel();
         $showInfos = $usersModel->find($user_connect['id']);
-        
 
         $ajouterLoc = new RentalsController();
         $addRental = $ajouterLoc->addRental();
@@ -376,27 +429,66 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            // vérifications des critères d'insertion de l'image
-            if(!v::image()->validate($_FILES['photo']['tmp_name'])){
-                $errors[] = 'La photo ne possède pas la bonne extension.';
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 caractères.';
             }
 
-            if(!v::size(null, '2MB')->validate($_FILES['photo']['tmp_name'])){
-                $errors[] = 'La photo dépasse les 2 Mo.';
+            if(!v::notEmpty()->stringType()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 caractères.';
             }
+
+            if(!v::phone()->length(10)->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
+            }
+
+
+            if(!empty($_FILES)){
+
+                if(!v::image()->validate($_FILES['photo']['tmp_name'])){
+                    $errors[] = 'La photo de profil n\'est pas au bon format.';
+                }
+
+                if(!v::size('2MB')->validate($_FILES['photo']['tmp_name'])){
+                    $errors[] = 'La taille de la photo de profil ne doit pas dépasser 2 Mo.';
+                }
+            }
+
 
             if(count($errors) === 0){
 
-                // création d'un nom unique
-                $nom = md5(uniqid(rand(), true));
 
-                $fileInfo = pathinfo($_FILES['photo']['name']);
-                $extension = $fileInfo['extension'];
+            // AJOUT PHOTO DE PROFIL
+            // création d'un nom unique
+            $nom = md5(uniqid(rand(), true));
 
-                // création de la route à suivre pour le stockage de l'image
-                move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+            // création de la variable $fileinfo qui récupère les infos du fichier uploadé
+            $fileInfo = pathinfo($_FILES['photo']['name']);
 
-                $fileName = $nom.'.'.$extension;
+            // création de la variable extension qui récupère l'extension du fichier uploadé
+            $extension = $fileInfo['extension'];
+
+            // création de la route à suivre pour le stockage de l'image, on écrit d'abord sa position puis sa destination
+            move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+
+            // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
+            $fileName = $nom.'.'.$extension;
 
 
                 $data = [
@@ -405,15 +497,14 @@ class UsersController extends Controller
                     'email'  => $post['email'],
                     'address' => $post['address'],
                     'postcode' => $post['postcode'],
-                    'city' => $post['city'],
+                    'cityUser' => $post['cityUser'],
                     'phone' => $post['phone'],
+                    // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
                     'photo' => $fileName,
                 ];
 
                 $usersModel = new UsersModel();
-
                 $update = $usersModel->update($data, $user_connect['id']);
-                //retourne false si une erreur survient ou les nouvelles données inseres sous forme de array
 
                 if(!empty($update)){
                     $formValid = true;
@@ -423,12 +514,13 @@ class UsersController extends Controller
                 }
             }
         }
+
         $params = [
             'formValid' => $formValid,
             'errors'    => $errors,
         ];
 
-        $this->show('users/ownerProfile/changeProfileO');
+        $this->show('users/ownerProfile/changeProfileO', $params);
     }
 
 
@@ -482,8 +574,8 @@ class UsersController extends Controller
                 $post[$key] = trim(strip_tags($value));
             }
 
-            if(strlen($post['email']) < 2){
-                $errors[] = 'Le mail doit comporter au moins 2 caractères';
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
             }
 
 

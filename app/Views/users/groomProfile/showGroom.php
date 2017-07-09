@@ -21,7 +21,7 @@
                             <p>Téléphone : <?= $w_user['phone'] ?></p>
                             <p>Adresse : <?= $w_user['address'] ?></p>
                             <p>Code postal : <?= $w_user['postcode'] ?></p>
-                            <p>Ville : <?= $w_user['city'] ?></p>
+                            <p>Ville : <?= $w_user['cityUser'] ?></p>
                             <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
                             <a href="<?= $this->url('modif_groom'); ?>">Modifier mon profil</a><br>
                             <a href="">Désinscription</a><br>

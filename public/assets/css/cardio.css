@@ -6,7 +6,7 @@ body {
 	color: #2a3237;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: url('../img/header.jpg');
+	
 
 }
 
@@ -117,7 +117,7 @@ header {
 	width: 100%;
 	color: white;
 	background: rgba(28, 36, 65, 0.93);
-	
+	background: url('../img/header.jpg');
 	background-size: cover;
 }
 

@@ -1,6 +1,6 @@
 
 
-<?php $this->layout('layoutNoHead', ['title' => 'Résultats de la recherche']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Résultats de la recherche']) ?>
 
 
 

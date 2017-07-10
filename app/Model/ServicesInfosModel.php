@@ -31,7 +31,7 @@ class ServicesInfosModel extends \W\Model\Model
 	public function findPricesWithId($id) 
 	{
 
-		$sql = 'SELECT price FROM ' . $this->table . ' WHERE id_groom  = :id';
+		$sql = 'SELECT * FROM ' . $this->table . ' WHERE id_groom  = :id';
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(':id', $id);
 		$sth->execute();
@@ -88,20 +88,6 @@ class ServicesInfosModel extends \W\Model\Model
 		}
         return $sth->fetchAll();
 	}
-
-
-
-	
-	
-
-
-
-
-
-
-		
-
-
 }
 
 

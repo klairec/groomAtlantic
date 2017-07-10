@@ -166,7 +166,7 @@
                                                         $tabSkill = $skillJoint->findSkillsWithId($datas['id_groom']);
                                                         $pricesTab = explode(',', $datas['price']);  
                                                         */
-
+<<<<<<< HEAD
                                                     ?>
                                                     <table id="TabComp">
                                                         <tr>
@@ -220,7 +220,45 @@
                         <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
 
                     }                                
+=======
+                                ?>
+                                <table id="TabComp">
+                                    <tr>
+                                        <?php                                                            
+                    foreach ($datas['comp'] as $skill) {
+                        echo ' <th>' .$skill['skills']. '</th>';
+                    }
+                                        ?>
 
+                                    </tr>
+                                    <tr>
+                                        <?php 
+
+                        foreach ($datas['prix'] as $prix) {
+
+                            echo '<td>'.$prix.' €</td>';
+                        }
+                                        ?>
+                                    </tr>                                                    
+
+                                </table>
+                            </div>
+                        </div>
+                        <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">
+                        <div class="title">
+                            <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
+                            <h5 class="muted regular">Groom sur 
+                                <?php
+                                            foreach ($datas['villeAction'] as $city) {
+                                                echo ucfirst(strtolower($city));
+                                            } 
+
+                                ?></h5>
+                        </div>
+
+
+                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
+>>>>>>> 3f3825adee2f737fea3427a298796577084c52f0
 
                     </div>
                 </div>

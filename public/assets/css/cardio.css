@@ -1249,7 +1249,11 @@ footer .social-footer li:hover a {
 
 /* FORMS INSCRIPTION */
 
+<<<<<<< HEAD
 #DivFormG, #DivFormO, #DivSearch h2{
+=======
+#DivFormG, #DivFormO, #DivSearch, #DivFormShow{
+>>>>>>> d9cfce1aa75dad70c6e0c7feb3f5eeea234d2d3c
     margin-top: 16em;
     text-align: center;
 }
@@ -1304,6 +1308,17 @@ padding: 0 5px
 
 #flashMsg{
 	margin:20em 0 0 0;
+}
+
+/* BTN TOP PAGE*/
+
+#bt-retour-haut {
+	background: rgba (0, 0, 0, 0.5);
+	position: fixed;
+}
+
+#bt-retour-haut a {
+	color: white;
 }
 
 /* Media Queries */

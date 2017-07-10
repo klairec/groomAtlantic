@@ -13,6 +13,7 @@
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
+
             <div class="container">
                 <div class="table">
                     <div class="header-text">

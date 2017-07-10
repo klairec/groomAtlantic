@@ -7,17 +7,15 @@
 	<title><?= $this->e($title) ?></title>
     <meta name="description" content="Groom Atlantic, première plateforme de mise en relation entre propriétaire de biens saisonners et de concierges" />
 	<meta name="keywords" content="location, saisonniere, concierge, femme de menage, contact" />
-	
-     <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
-      <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-60x60.png') ?>">
-     <link rel="icon" sizes="32x32" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-32x32.png') ?>">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-57x57.png') ?>">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= $this->assetUrl('img/favicons/apple-touch-icon-60x60.png') ?>">
+    <link rel="icon" sizes="32x32" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-32x32.png') ?>">
     <link rel="icon" sizes="16x16" type="image/png" href="<?= $this->assetUrl('img/favicons/favicon-16x16.png') ?>">
-     <link rel="manifest" href="<?= $this->assetUrl('img/favicons/manifest.json') ?>">
-     <link rel="shortcut icon" href="<?= $this->assetUrl('img/favicons/favicon.ico') ?>">
+    <link rel="manifest" href="<?= $this->assetUrl('img/favicons/manifest.json') ?>">
+    <link rel="shortcut icon" href="<?= $this->assetUrl('img/favicons/favicon.ico') ?>">
     <meta name="msapplication-TileColor" content="#00a8ff">
 	<meta name="msapplication-config" content="<?= $this->assetUrl('img/favicons/browserconfig.xml') ?>">
 	<meta name="theme-color" content="#ffffff">
-    
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/normalize.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/owl.css') ?>">
@@ -27,7 +25,6 @@
     <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/cardio.css') ?>">
     <?=$this->section('css'); ?>
 </head>
-    
 <body>
     <div class="preloader">
 		<img src="<?= $this->assetUrl('img/loader.gif') ?>" alt="Preloader image">
@@ -49,7 +46,7 @@
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="#services">Nos Grooms</a></li>
-					<li><a href="<?= $this->url('infos_infospratiques') ?>">Infos pratiques</a></li>
+					<li><a href=" #revenus">Vos Avantages</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
@@ -91,8 +88,6 @@
 			<?php endif; ?>
 		<?= $this->section('main_content') ?>
     </section>
-
-    
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
@@ -126,7 +121,8 @@
 						</div>
 					</div>
                         -->
-					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
+
+					<button id="subscribe" type="submit" class="btn btn-submit">Valider</button>
 				</form>
 				<a  href="<?= $this->url('users_pickRole') ?>" class="blue">
                 <button id="subscribe" class="btn btn-submit">
@@ -139,45 +135,36 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-
 				<div class="col-sm-3 text-center-mobile">
 					<h3 class="white">GROOM ATLANTIC</h3>
-
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
-
 				</div>
-
 				<div class="col-sm-3 text-center-mobile">
-
 					<h5><a href="<?= $this->url('infos_quisommesnous') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
 					<h5><a target="_blank" href="<?= $this->assetUrl('charte-qualite.pdf') ?>">CHARTE DE QUALITE</a></h5><br>
 					<h5><a href="<?= $this->url('infos_mentionslegales') ?>">MENTIONS LEGALES </a></h5><br>
 				</div>
-
 				<div class="col-sm-3 text-center-mobile">
-
 				<h5 class="white">NOUS SUIVRE</h5>
 						<a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a><br>
 						<a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a><br>
 						<a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a><br>
-
 				</div>
-
-				<div class="col-md-3 text-center-mobile">
-				<h5 class="white">NOUS CONTACTER</h5>
-				<p class="white">Tél: 06 06 06 88 59</p>
-					<p class="white"><a href="mailto:&#99;%6f%6eta%63t&#64;&#97;t%6can&#116;%69%63gro%6f&#109;%2e&#99;%6fm">Nous envoyer un E-mail</a></p>
-					</div>
-
-				<div class="col-sm-3 text-center-mobile">
+				<div class="col-md-2 text-center-mobile">
+					<h5 class="white">NOUS CONTACTER</h5>
+					<p class="white">Tél: 06.06.06.88.59</p>
+					<p class="white">
+						<a href="mailto:&#99;%6f%6eta%63t&#64;&#97;t%6can&#116;%69%63gro%6f&#109;%2e&#99;%6fm"><button class="btn btn-default" id="send_btn">Nous envoyer un E-mail</button></a>
+					</p>
+				</div>
+				<div class="col-sm-1 text-center-mobile">
 					<div id="bt-retour-haut">
-						<a class="page-scroll" href="#services">
+						<a class="page-scroll" href="#">
 							<i class="fa fa-arrow-up"></i>
 						</a>
 					</div>
 				</div>
-
 			</div>
 		</div>       
 	</footer>

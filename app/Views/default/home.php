@@ -258,7 +258,7 @@
 					<div class="pricing">
 						<div class="box-main active" data-img="img/pricing1.jpg">
 							<h4 class="white">Vos Avantages</h4>
-							<a href="<?= $this->url('users_pickRole') ?>" data-toggle="modal" class="btn btn-white-fill">S'inscrire</a>
+							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">S'inscrire</a>
 							<i class="info-icon icon_question"></i>
 						</div>
 						<div class="box-second active">

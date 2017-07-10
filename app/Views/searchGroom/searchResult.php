@@ -17,12 +17,12 @@
             margin:auto 20em;
             border-radius: 30px;
             padding: 5px 0 5px 0px;
-        }
 
+
+        }
            #retourAccueil:hover {
            background:rgba(240, 100, 103, 1);
         }
-
         #details{
             background:rgba(41, 97, 144, 0.7);      
             font-size: 1.5em; 
@@ -31,14 +31,12 @@
             margin: auto 4em;
             padding: 10px;
         }
-
         #details:hover{
             background:rgba(41, 97, 144, 1);
         }
 
-        body{
-            background: #89b5f7;
-        }
+         
+
 
     </style>
 <?php $this->stop('css') ?>
@@ -60,9 +58,11 @@
                            
                             ?>
                                     
+
                         <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
                     </div>
-                </div>                  
+                </div>        
+                                    
                 <div class="row">
 
                   <?php
@@ -74,6 +74,8 @@
                               
                
                     ?>
+
+
 
                                 <div class="col-md-4">
                                     <div class="team text-center">

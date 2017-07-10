@@ -42,14 +42,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="Logo de l'entreprise"></a>
+				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="Logo de l'entreprise" id="top"></a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="#intro">Accueil</a></li>
+					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="#services">Nos Grooms</a></li>
-					<li><a href="<?= $this->url('infos_infospratiques') ?>">Infos pratiques</a></li>
+					<li><a href="#revenus">Vos Revenus</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
@@ -72,7 +72,6 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
     <section>
 
 	    <?=$this->section('errors'); ?>
@@ -126,9 +125,9 @@
 						</div>
 					</div>
                         -->
-					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
+					<button id="subscribe" type="submit" class="btn btn-submit">Valider</button>
 				</form>
-				<a  href="<?= $this->url('users_pickRole') ?>" class="blue">
+				<a  href="<?= $this->url('users_pickRole') ?>" class="">
                 <button id="subscribe" class="btn btn-submit">
                 	Pas encore inscrit ?
                 </button>
@@ -139,22 +138,32 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4 text-center-mobile">
+				<div class="col-sm-3 text-center-mobile">
 					<h3 class="white">GROOM ATLANTIC</h3>
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
 				</div>
-				<div class="col-sm-4 text-center-mobile">
+				<div class="col-md-3 text-center-mobile">
 					<h5><a href="<?= $this->url('infos_quisommesnous') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
 					<h5><a target="_blank" href="<?= $this->assetUrl('charte-qualite.pdf') ?>">CHARTE DE QUALITE</a></h5><br>
 					<h5><a href="<?= $this->url('infos_mentionslegales') ?>">MENTIONS LEGALES </a></h5><br>
 				</div>
-				<div class="col-sm-4 text-center-mobile">
+				<div class="col-sm-3 text-center-mobile">
 				<h5 class="white">NOUS SUIVRE</h5>
 						<a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a><br>
 						<a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a><br>
 						<a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a><br>
 				</div>
+				<div class="col-md-3 text-center-mobile">
+				<h5 class="white">NOUS CONTACTER</h5>
+				<p class="white">Tél: 06 06 06 88 59</p>
+					<p class="white"><a href="mailto:&#99;%6f%6eta%63t&#64;&#97;t%6can&#116;%69%63gro%6f&#109;%2e&#99;%6fm">Nous envoyer un E-mail</a></p>
+					</div>
+					<div id="bt-retour-haut">
+						<a class="page-scroll" href="#top">
+							<i class="fa fa-arrow-up"></i>
+						</a>
+					</div>
 			</div>
 		</div>       
 	</footer>

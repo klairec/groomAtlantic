@@ -80,7 +80,7 @@ class SearchController extends Controller
 public function groomDetails($id){
 
 
-
+		$contact = false;
 		$search = new ServicesInfosModel(); // on insère
 		$GroomInfos = $search->groomById($id);	
 
@@ -110,6 +110,7 @@ public function groomDetails($id){
 
 		$params=[
 		'GroomInfos' => $GroomInfos,
+		'contact'	 => $contact,
 
 		];
 

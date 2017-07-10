@@ -14,12 +14,28 @@
 
 
         }
+        #contact1 {
+            color: #fff; 
+            text-align: center; 
+            display: block; 
+            font-size: 1.5em;
+            background:rgba(240, 100, 103, 0.8);
+            margin:auto 20em;
+            border-radius: 30px;
+            padding: 1em 0 1em 0px;
+
+
+        }
+       #contact1:hover {
+           background:rgba(240, 100, 103, 1);
+        }
+
          
 
 
     </style>
        
-        }
+        
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
@@ -31,6 +47,9 @@
                     <div class="col-md-12 text-center">
 
                     <?php 
+                    
+                    if ($contact = '1') {
+
                         foreach ($GroomInfos as $datas) { ?>
                             <h2 style="color:#f06467" class="light white">Fiche de <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h2>
                             <h3> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
@@ -104,11 +123,10 @@
                                                 }     
                                                 ?>
 
-                                                <h3><a href="#" data-toggle="modal" data-target="#modal5">Je souhaite rentrer en contact avec <?= ucfirst($datas['firstname'])?></a></h2>
-                                                 
-
-
-
+                                                <a id="contact1" href="#" data-toggle="modal" data-target="#modal5">Contacter <?= ucfirst($datas['firstname'])?></a>
+                        <?php
+                        }
+                        ?>
                                              </div>
                                         </div>
 
@@ -134,6 +152,7 @@
                                     
 
                         <h3 class="light white" style="color:#f06467"></h3>
+
                     </div>
                 </div>        
                                     
@@ -150,7 +169,7 @@
                 
                 
 
-                <a  href="<?= $this->url('Search_groomDetails') ?>" class="blue">
+                <a  href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>?contact= 1" class="blue">
                 <button id="subscribe" class="btn btn-submit">
                     Oui
                 </button>

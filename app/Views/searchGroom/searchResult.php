@@ -126,7 +126,7 @@
                                         </div>
                                             
                                         
-                                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
+                                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails')?>">Fiche détaillée</a>
                                        
                                         
                                                     

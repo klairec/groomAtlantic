@@ -35,6 +35,7 @@
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
+        <?php print_r($addRental) ?>
 
         <?php foreach ($locations as $location): ?>
 

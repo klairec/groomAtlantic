@@ -1,6 +1,18 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
-<?php $this->start('header') ?>
+<?php $this->start('css') ?>
+<style>
+         header {
+            display: none;
+        }
+
+        body{
+            background: #89b5f7;
+        }
+    </style>
+<?php $this->stop('css') ?>
+
+<?php $this->start('main_content') ?>
 
 <div class="container">
     <div class="table">
@@ -10,11 +22,9 @@
                     <p>Bonjour, <?= $w_user['firstname'] ?></p>
                     <section>
                         <h3>Mon profil</h3>
-
                         <figure>
                             <img src="<?= $w_user['photo'] ?>">
                         </figure>
-
                         <p>Nom : <?= $w_user['lastname'] ?></p>
                         <p>Prénom : <?= $w_user['firstname'] ?></p>
                         <p>Email : <?= $w_user['email'] ?></p>
@@ -32,14 +42,10 @@
     </div>
 </div>
 
-<?php $this->stop('header') ?>
-
-<?php $this->start('main_content') ?>
-
 <!-- AFFICHAGE INFOS SERVICES -->
 <section class="skills">
     <h3>MES SERVICES</h3>
-    <?= var_dump($addSkills) ?>
+    <?= var_dump($_POST) ?>
     <!-- AFFICHAGE DES SERVICES/PRIX -->
     <?php if(!empty($compets)):?>
         <table>
@@ -48,22 +54,30 @@
                 <td><strong>Compétences</strong></td>
                 <?php foreach ($compets as $compet): ?>
                     <td><?php $compet = explode(',', $compet['id_skills']); ?></td>
+                <?php endforeach; ?>
                 </tr>
                 <tr>
                     <td><strong>Prix</strong></td>
-                    <td><?php $compet = explode(',', $prix['price']); ?>
-                    <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a></td>
-                <?php endforeach; ?>
-            </tr> 
-        </tbody>
-    </table>
+                    <?php foreach ($compets as $compet): ?>
+                        <td><?php $compet = explode(',', $prix['price']); ?>
+                        <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>    
+            </tbody>
+        </table>
+        <strong>Code postaux</strong>
+            <?php foreach ($compets as $compet): ?>
+                    <span><?php $compet = explode(',', $prix['work_area']); ?>
+                    </span>
+            <?php endforeach; ?>
     <br>
 
-<?php else: ?>
-    <div class="alert alert-danger">
-        Aucune service renseigné.
-    </div>
-<?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
+    <?php else: ?>
+        <div class="alert alert-danger">
+            Aucune service renseigné.
+        </div>
+    <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
 
 <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
 <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
@@ -73,7 +87,6 @@
         <div class="modal-content modal-popup">
             <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
             <h3 class="white">Ajouter des services</h3>
-            
             <form method="POST" action="<?= $this->url('users_showgroom') ?>">
             <table>
                 <tr>
@@ -84,7 +97,6 @@
                 </label>
                 </tr>
                 <br>
-
                 <tr>
                 <label for="checkOut">
                     <td>Check-out</td>
@@ -93,7 +105,6 @@
                 </label>
                 </tr>
                 <br>
-
                 <tr>
                 <label for="cleaning">
                     <td>Ménage</td>
@@ -102,7 +113,6 @@
                 </label>
                 <br>
                 </tr>
-
                 <tr>
                 <label for="gardenMaintenance">
                     <td>Entretien espaces verts</td>
@@ -111,7 +121,6 @@
                 </label>
                 <br>
                 </tr>
-
                 <tr>
                 <label for="spMaintenance">
                     <td>Entretien piscine</td>
@@ -120,7 +129,6 @@
                 </label>
                 <br>
                 </tr>
-
                 <tr>
                 <label for="fixing">`
                     <td>Petit bricolage / Réparations</td>
@@ -129,15 +137,12 @@
                 </label>
                 <br>
                 </tr>
-
             </table>
                 <button type="submit" class="btn btn-submit">Ajouter</button>
-
             </form>
         </div>
     </div>
 </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
-
 
 <!-- AFFICHAGE DES NOTIFICATIONS -->
 <div class="container">
@@ -240,17 +245,18 @@
                             <p><?=$comment['date']; ?></p>
                         </article>
                         <hr>
-
                     <?php endforeach; ?>
+
                 <?php else: ?>
                     <div class="alert alert-danger">
                         <p>Pas de commentaire pour le moment.</p>
                     </div>
                 <?php endif; ?>
-            </section>
+
+                </section>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <?php $this->stop('main_content') ?>

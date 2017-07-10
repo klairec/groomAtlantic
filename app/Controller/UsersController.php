@@ -239,7 +239,8 @@ class UsersController extends Controller
         }
         $params = [
         'formValid' => $formValid,
-        'errors' => $errors,
+        'errors'    => $errors,
+        'post'      => $post,
         ];
         $this->show('users/addGroom', $params);
     }
@@ -309,7 +310,7 @@ class UsersController extends Controller
                 'lastname'   => strtoupper($post['lastname']),
                 'email'      => strtolower($post['email']),
                 'phone'      => $post['phone'],
-                'role'       => 'groom',                      
+                'role'       => 'owner',                      
                 'password'   => $authModel->hashPassword($post['password']),
                 'address'    => strtoupper($post['address']),
                 'postcode'   => $post['postcode'],
@@ -333,6 +334,7 @@ class UsersController extends Controller
         $params = [
         'formValid' => $formValid,
         'errors'    => $errors,
+        'post'      => $post,
         ];
         $this->show('users/addOwner', $params);
     }

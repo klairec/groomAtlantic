@@ -43,12 +43,8 @@
 					            <div id="imaginary_container"> 
 					                <div class="input-group stylish-input-group">
 					                	<form action="<?= $this->url('search_result') ?>">
-
 						                    <input name="postCode" type="text" class="form-control"  placeholder="Entrez votre code postal ! (ex : 33000)" >
-						                    
-						                    
 						                     <button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Trouver mon Groom</button>
-
 						                </form>
 					                </div>
 					            </div>
@@ -57,7 +53,6 @@
 	                </div>				
 	            </div>
 	        </div>
-	  
         
 <?php $this->stop('header') ?>
 
@@ -252,7 +247,7 @@
 	</section> 
 	-->
 	
-	<section id="pricing" class="section">
+	<section id="revenus" class="section">
 		<div class="container">
 			<div class="row title text-center">
 				<h2 class="margin-top white">Optimisation des revenus</h2>

@@ -87,19 +87,19 @@
 
                                                     if ($note['AVG(note)'] >= 4 AND $note['AVG(note)']<5 ){
 
-                                                        echo '<span class="fullstar">★★★★☆</span><p>'.substr($note['AVG(note)'], 0, 1).' </p>';
+                                                        echo '<span class="fullstar">★★★★☆</span>';
                                                     } 
                                                     if ($note['AVG(note)'] >= 3 AND $note['AVG(note)']<4 ){
 
-                                                        echo '<span class="fullstar">★★★☆☆</span><p>'.substr($note['AVG(note)'], 0, 1).' </p>';
+                                                        echo '<span class="fullstar">★★★☆☆</span>';
                                                     } 
                                                     if ($note['AVG(note)'] >= 2 AND $note['AVG(note)']<3 ){
 
-                                                        echo '<span class="fullstar">★★☆☆☆</span><p>'.substr($note['AVG(note)'], 0, 1).' </p>';
+                                                        echo '<span class="fullstar">★★☆☆☆</span>';
                                                     } 
                                                     if ($note['AVG(note)'] >= 1 AND $note['AVG(note)']<2 ){
 
-                                                        echo '<span class="fullstar">★☆☆☆☆</span><p>'.substr($note['AVG(note)'], 0, 1).' </p>';
+                                                        echo '<span class="fullstar">★☆☆☆☆</span>';
                                                     } 
                                                 }     
                                                 ?>

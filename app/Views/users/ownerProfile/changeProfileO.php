@@ -1,6 +1,16 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Modifier mon profil']) ?>
 
+<?php $this->start('css') ?>
+    <style>
+        header {
+            display: none;
+        }
 
+        body{
+            background: #89b5f7;
+        }
+    </style>
+<?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
 	<?php if(count($errors) > 0): ?>
@@ -8,7 +18,6 @@
 	<?php endif; ?>
 
 <form method="POST" enctype="multipart/form-data">
-
 	<div class="form-group">
 		<label for="photo">Ajouter une photo de profil</label>
 		<input type="file" name="photo" >
@@ -41,9 +50,7 @@
 		<label for="cityUser">Ville</label>
 		<input name="cityUser" type="text" class="form-control" value="<?=$w_user['cityUser']; ?>">
 	</div>
-
 	<button type="submit" class="btn btn-default">Modifier</button>
-
 </form>
 
 <a href="<?= $this->url('users_showowner')?>" class="btn btn-blue">Retour</a>

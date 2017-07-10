@@ -45,7 +45,7 @@
 <!-- AFFICHAGE INFOS SERVICES -->
 <section class="skills">
     <h3>MES SERVICES</h3>
-    <?= var_dump($addSkills) ?>
+    <?= print_r($_POST) ?>
     <!-- AFFICHAGE DES SERVICES/PRIX -->
     <?php if(!empty($compets)):?>
         <table>
@@ -54,22 +54,30 @@
                 <td><strong>Compétences</strong></td>
                 <?php foreach ($compets as $compet): ?>
                     <td><?php $compet = explode(',', $compet['id_skills']); ?></td>
+                <?php endforeach; ?>
                 </tr>
                 <tr>
                     <td><strong>Prix</strong></td>
-                    <td><?php $compet = explode(',', $prix['price']); ?>
-                    <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a></td>
-                <?php endforeach; ?>
-            </tr> 
-        </tbody>
-    </table>
+                    <?php foreach ($compets as $compet): ?>
+                        <td><?php $compet = explode(',', $prix['price']); ?>
+                        <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>    
+            </tbody>
+        </table>
+        <strong>Code postaux</strong>
+            <?php foreach ($compets as $compet): ?>
+                    <span><?php $compet = explode(',', $prix['work_area']); ?>
+                    </span>
+            <?php endforeach; ?>
     <br>
 
-<?php else: ?>
-    <div class="alert alert-danger">
-        Aucune service renseigné.
-    </div>
-<?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
+    <?php else: ?>
+        <div class="alert alert-danger">
+            Aucune service renseigné.
+        </div>
+    <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
 
 <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
 <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
@@ -84,7 +92,7 @@
                 <tr>
                 <label for="checkIn">
                     <td>Check-in</td>
-                    <td><input type="checkbox" name="id_skill[]" value="checkIn"></td>
+                    <td><input type="checkbox" name="id_skill[]" value="1"></td>
                     <td><input type="text" name="price[]" value=""></td>
                 </label>
                 </tr>
@@ -92,40 +100,40 @@
                 <tr>
                 <label for="checkOut">
                     <td>Check-out</td>
-                    <td><input type="checkbox" name="id_skill[]" value="checkOut"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="2"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 </tr>
                 <br>
                 <tr>
                 <label for="cleaning">
                     <td>Ménage</td>
-                    <td><input type="checkbox" name="id_skill[]" value="cleaning"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="3"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>
                 <tr>
                 <label for="gardenMaintenance">
                     <td>Entretien espaces verts</td>
-                    <td><input type="checkbox" name="id_skill[]" value="gardenMaintenance"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="4"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>
                 <tr>
                 <label for="spMaintenance">
                     <td>Entretien piscine</td>
-                    <td><input type="checkbox" name="id_skill[]" value="spMaintenance"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="5"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>
                 <tr>
                 <label for="fixing">`
                     <td>Petit bricolage / Réparations</td>
-                    <td><input type="checkbox" name="id_skill[]" value="fixing"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="6"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>

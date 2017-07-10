@@ -239,7 +239,8 @@ class UsersController extends Controller
         }
         $params = [
         'formValid' => $formValid,
-        'errors' => $errors,
+        'errors'    => $errors,
+        'post'      => $post,
         ];
         $this->show('users/addGroom', $params);
     }
@@ -333,6 +334,7 @@ class UsersController extends Controller
         $params = [
         'formValid' => $formValid,
         'errors'    => $errors,
+        'post'      => $post,
         ];
         $this->show('users/addOwner', $params);
     }

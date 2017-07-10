@@ -59,61 +59,61 @@
 <?php $this->start('main_content') ?>
     
     <section>
-    <div class="cut cut-top"></div>
-		<div class="container">
-			<div class="row intro-tables">
-				<div class="col-md-3">
-					<div class="intro-table intro-table-first">
-						<h4 class="white heading">Ben Adamson</h4>
-						<div class="row">
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
+	    <div class="cut cut-top"></div>
+			<div class="container">
+				<div class="row intro-tables">
+					<div class="col-md-3">
+						<div class="intro-table intro-table-first">
+							<h4 class="white heading">Ben Adamson</h4>
+							<div class="row">
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+							</div>
+							<h5 class="white heading small-pt">Ronce les Bains</h5>
+							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 						</div>
-						<h5 class="white heading small-pt">Ronce les Bains</h5>
-						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="intro-table intro-table-second">
-						<h4 class="white heading">Ben Adamson</h4>
-						<div class="row">
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>	
+					<div class="col-md-3">
+						<div class="intro-table intro-table-second">
+							<h4 class="white heading">Ben Adamson</h4>
+							<div class="row">
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>	
+							</div>
+							<h5 class="white heading small-pt">Ronce les Bains</h5>
+							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 						</div>
-						<h5 class="white heading small-pt">Ronce les Bains</h5>
-						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="intro-table intro-table-third">
-						<h4 class="white heading">Ben Adamson</h4>
-						<div class="row">
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
+					<div class="col-md-3">
+						<div class="intro-table intro-table-third">
+							<h4 class="white heading">Ben Adamson</h4>
+							<div class="row">
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+							</div>
+							<h5 class="white heading small-pt">Ronce les Bains</h5>
+							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
 						</div>
-						<h5 class="white heading small-pt">Ronce les Bains</h5>
-						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
-					</div>
-					</div>
-				<div class="col-md-3">
-					<div class="intro-table intro-table-four">
-						<h4 class="white heading">Ben Adamson</h4>
-						<div class="row">
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
-							<i class="fa fa-star-o" aria-hidden="true"></i>
 						</div>
-						<h5 class="white heading small-pt">Ronce les Bains</h5>
-						<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
+					<div class="col-md-3">
+						<div class="intro-table intro-table-four">
+							<h4 class="white heading">Ben Adamson</h4>
+							<div class="row">
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+								<i class="fa fa-star-o" aria-hidden="true"></i>
+							</div>
+							<h5 class="white heading small-pt">Ronce les Bains</h5>
+							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
+						</div>
 					</div>
-				</div>
 				</div>
 			</div>
 		</div>
@@ -183,7 +183,6 @@
 				<div class="col-md-4">
 					<div class="team text-center">
 						<div class="cover" style="background:url('img/team/team-cover1.jpg'); background-size:cover;">
-
 							<div class="overlay text-center">
 								<h3 class="white">$69.00</h3>
 								<h5 class="light light-white">1 - 5 sessions / month</h5>
@@ -247,8 +246,8 @@
 	</section> 
 	-->
 	
-	<section id="revenus" class="section">
-		<div class="container">
+	<section id="pricing" class="section">
+		<div id="revenus" class="container">
 			<div class="row title text-center">
 				<h2 class="margin-top white">Optimisation des revenus</h2>
 				<h4 class="light white">Pour toutes vos locations saisonnières !!</h4>
@@ -256,9 +255,9 @@
 			<div class="row no-margin">
 				<div class="col-md-7 no-padding col-md-offset-5 pricings text-center">
 					<div class="pricing">
-						<div class="box-main active" data-img="img/pricing1.jpg">
+						<div class="box-main active">
 							<h4 class="white">Vos Avantages</h4>
-							<a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">S'inscrire</a>
+							<a href="<?= $this->url('users_pickRole') ?>" data-toggle="modal" class="btn btn-white-fill">S'inscrire</a>
 							<i class="info-icon icon_question"></i>
 						</div>
 						<div class="box-second active">
@@ -272,6 +271,7 @@
 						</div>
 					</div>
 					<div class="pricing">
+
 						<!--<div class="box-main" data-img="img/pricing2.jpg">
 							<h4 class="white">Cardio Training</h4>
 							<h4 class="white regular light">$100.00 <span class="small-font">/ year</span></h4>
@@ -287,6 +287,7 @@
 								<li>Free before / after shower</li>
 							</ul>
 						</div>-->
+
 					</div>
 				</div>
 			</div>

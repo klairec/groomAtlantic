@@ -6,8 +6,6 @@ body {
 	color: #2a3237;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	
-
 }
 
 .parallax {
@@ -583,7 +581,6 @@ section {
 .team .title {
 	margin: 10px 0;
 	color: blue;
-
 }
 
 /* Pricing */
@@ -1205,6 +1202,17 @@ footer .social-footer li:hover a {
 	border-radius: 2px;
 }
 
+/*BOUTON ENVOI DE MAIL*/
+#send_btn {
+	background: #296190;
+}
+
+#send_btn:hover {
+	background: #00a8ff;
+	border: 2px solid transparent;
+	border-radius: 2px;
+}
+
 /* BOUTON 'PAS ENCORE INSCRIT ?' */
 #subscribe{    
     font-size: 1em;
@@ -1249,8 +1257,9 @@ footer .social-footer li:hover a {
 
 /* FORMS INSCRIPTION */
 
-#DivFormG, #DivFormO, #DivSearch{
+#DivFormG, #DivFormO, #DivSearch {
     margin-top: 16em;
+    text-align: center;
 }
 
 #FormAddGroom .form-group, #FormAddOwner .form-group{
@@ -1276,14 +1285,14 @@ text-align: center;
 padding: 0 5px
 }
 
-/* page charte de qualite */
+/* PAGE CHARTE DE QUALITE */
 
 .charte{
 	font-size: 10px;
 	color: #3b3a3a;
 }
 
-/* page infos pratiques */
+/* PAGE INFOS PRATIQUES */
 
 .panel-body p{
 	font-size: 12px;
@@ -1297,10 +1306,25 @@ padding: 0 5px
 	transition: all 0.3s ease;
 }
 
-/*flash erreurs */
+/* FLASH ERREURS */
 
 #flashMsg{
 	margin:20em 0 0 0;
+}
+
+/* BTN TOP PAGE*/
+
+#bt-retour-haut {
+	background: rgba (0, 0, 0, 0.5);
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+#bt-retour-haut a {
+	color: white;
 }
 
 /* Media Queries */

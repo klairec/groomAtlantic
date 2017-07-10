@@ -3,7 +3,8 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use W\Model\UsersModel;
+use \W\Model\UsersModel;
+use \Model\ServicesInfosModel;
 use \Respect\Validation\Validator as v;
 
 class GroomController extends \W\Controller\Controller
@@ -136,24 +137,40 @@ class GroomController extends \W\Controller\Controller
 					$post[$key] = trim(strip_tags($value));
 				}
 			}
-
-			// on vérifie les champs insérés
-			if((!v::intVal()->length(1, 5)->validate($post['price'])) && (!v::floatVal()->length(1, 5)->validate($post['price']))){
-				$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
+			
+			
+			// on retire les valeurs d'input inférieures à 0
+			foreach ($post['price'] as $price) {
+				if($price > 0){
+					$allPrices = implode(',', $price);
+				}
 			}
 
+			// on vérifie les champs insérés
+			if(!empty($post['price'])){
+				foreach ($post['price'] as $price){
+					if((!v::intVal()->length(1, 5)->validate($price))&& 
+						(!v::floatVal()->length(1, 5)->validate($price)) && $price > 0){
+						
+						$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
+					}
+				}
+			}
+			
+			/*
 			if(count($post['price']) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
-
+			*/
 			if(count($errors) === 0){
 				
 				if(!empty($post['id_skill']) && !empty($post['price'])){
 
 					$data = [
 						'id_skill'  => implode(',', $post['id_skill']),
-						'price'  => implode(',', $post['price']),
-						'id_groom'			=> $me['id'],
+						'price'  	=> $allPrices,
+						/*'work_area' => implode(',', $post['work_area']),*/
+						'id_groom'	=> $me['id'],
 					];
 
 					// on insère les données tappées par l'utilisateur dans la BDD
@@ -166,6 +183,9 @@ class GroomController extends \W\Controller\Controller
 
 						return $addSkills;
 					}
+				}
+				else {
+
 				}
 			}
 			else {

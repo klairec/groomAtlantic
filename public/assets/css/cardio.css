@@ -6,8 +6,6 @@ body {
 	color: #2a3237;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	
-
 }
 
 .parallax {
@@ -1249,12 +1247,10 @@ footer .social-footer li:hover a {
 
 /* FORMS INSCRIPTION */
 
-#DivFormG, #DivFormO, #DivSearch h2{
+#DivFormG, #DivFormO, #DivSearch {
     margin-top: 16em;
     text-align: center;
 }
-
-
 
 #FormAddGroom .form-group, #FormAddOwner .form-group{
     width: 50%;
@@ -1306,7 +1302,6 @@ padding: 0 5px
 	margin:20em 0 0 0;
 }
 
-<<<<<<< HEAD
 /* BTN TOP PAGE*/
 
 #bt-retour-haut {
@@ -1322,8 +1317,6 @@ padding: 0 5px
 	color: white;
 }
 
-=======
->>>>>>> 4456f5ba9aaeac600dcd9ed47e47fd733a446f5e
 /* Media Queries */
 
 @media(max-width:991px) {

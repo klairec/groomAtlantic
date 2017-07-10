@@ -88,20 +88,6 @@ class ServicesInfosModel extends \W\Model\Model
 		}
         return $sth->fetchAll();
 	}
-
-
-
-	
-	
-
-
-
-
-
-
-		
-
-
 }
 
 

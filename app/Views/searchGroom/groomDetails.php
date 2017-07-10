@@ -48,7 +48,7 @@
 
                     <?php 
                     
-                    if ($contact = '1') {
+                    if ($contact != '1') {
 
                         foreach ($GroomInfos as $datas) { ?>
                             <h2 style="color:#f06467" class="light white">Fiche de <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h2>

@@ -83,15 +83,11 @@ class SearchController extends Controller
     public function groomDetails($id){
 
 
-<<<<<<< HEAD
+
 		$contact = false;
 		$search = new ServicesInfosModel(); // on insère
 		$GroomInfos = $search->groomById($id);	
-=======
 
-        $search = new ServicesInfosModel(); // on insère
-        $GroomInfos = $search->groomById($id);	
->>>>>>> 3f3825adee2f737fea3427a298796577084c52f0
 
         if (!empty($GroomInfos)){
             /* Ici j'ajoute au tableau contenant les résultats de la recherche les infos supplémentaires croisées avec les autres tables 
@@ -117,14 +113,11 @@ class SearchController extends Controller
             }
         }
 
-<<<<<<< HEAD
+
 		$params=[
 		'GroomInfos' => $GroomInfos,
 		'contact'	 => $contact,
-=======
-        $params=[
-            'GroomInfos' => $GroomInfos,
->>>>>>> 3f3825adee2f737fea3427a298796577084c52f0
+
 
         ];
 

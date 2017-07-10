@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use \Model\ServicesInfosModel;
 use \Model\VilleModel;
 use \W\Model\UsersModel;
+use \Model\CommentsModel;
 
 
 class SearchController extends Controller
@@ -90,8 +91,15 @@ public function groomDetails($id){
 
 					foreach ($GroomInfos as $result) {
 
-						$skillJoint = new ServicesInfosModel();
-						$searchVille = new VilleModel();            
+
+		            $noteComm = new CommentsModel();
+		            $skillJoint = new ServicesInfosModel();
+		            $searchVille = new VilleModel(); 
+
+
+		            $GroomInfos[$i]['comments'] = $noteComm->ShowComm($GroomInfos[$i]['id_groom']);
+		            $GroomInfos[$i]['NoteMoyenne'] = $noteComm->NoteMoyGroom($GroomInfos[$i]['id_groom']);
+
 		            $GroomInfos[$i]['comp'] = $skillJoint->findSkillsWithId($GroomInfos[$i]['id_groom']); //Va chercher les compétences du groom a partir des valeurs 1,2,3..           
 		            $GroomInfos[$i]['prix'] = $pricesTab = explode(',',$GroomInfos[$i]['price']);  //Va chercher les tarifs
 		            $GroomInfos[$i]['villeAction'] = $searchVille->findVille($GroomInfos[$i]['work_area']); // transforme le CP en nom de commune

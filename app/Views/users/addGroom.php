@@ -12,9 +12,7 @@
     </style>
 <?php $this->stop('css') ?>
 
-
 <?php $this->start('main_content') ?>
-
 
             <div class="container">
                 <div class="table">
@@ -42,8 +40,6 @@
 
                                 ?>
 
-
-                                
                                         <form id="FormAddGroom" method="post" style="text-align:center;">   
                                             <div class="form-group">
                                                 <input  name="firstname" type="text" placeholder="Votre prénom" class="form-control">
@@ -80,6 +76,5 @@
                     </div>
                 </div>
             </div>
-
 
 <?php $this->stop('main_content') ?>

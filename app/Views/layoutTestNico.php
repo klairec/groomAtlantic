@@ -138,52 +138,32 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-<<<<<<< HEAD
-				<div class="col-md-3 text-center-mobile">
-					<h4 class="white">GROOM ATLANTIC</h4>
-=======
 				<div class="col-sm-3 text-center-mobile">
 					<h3 class="white">GROOM ATLANTIC</h3>
->>>>>>> f77369a447ef48d22149a242ddcb8c47e3fb8441
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
-
 				</div>
-<<<<<<< HEAD
 				<div class="col-md-3 text-center-mobile">
-=======
-				<div class="col-sm-3 text-center-mobile">
->>>>>>> f77369a447ef48d22149a242ddcb8c47e3fb8441
 					<h5><a href="<?= $this->url('infos_quisommesnous') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
 					<h5><a target="_blank" href="<?= $this->assetUrl('charte-qualite.pdf') ?>">CHARTE DE QUALITE</a></h5><br>
 					<h5><a href="<?= $this->url('infos_mentionslegales') ?>">MENTIONS LEGALES </a></h5><br>
 				</div>
-<<<<<<< HEAD
-				<div class="col-md-3 text-center-mobile">
-=======
 				<div class="col-sm-3 text-center-mobile">
->>>>>>> f77369a447ef48d22149a242ddcb8c47e3fb8441
 				<h5 class="white">NOUS SUIVRE</h5>
 						<a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a><br>
 						<a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a><br>
 						<a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a><br>
-
 				</div>
-<<<<<<< HEAD
 				<div class="col-md-3 text-center-mobile">
 				<h5 class="white">NOUS CONTACTER</h5>
 				<p class="white">Tél: 06 06 06 88 59</p>
 					<p class="white"><a href="mailto:&#99;%6f%6eta%63t&#64;&#97;t%6can&#116;%69%63gro%6f&#109;%2e&#99;%6fm">Nous envoyer un E-mail</a></p>
 					</div>
-=======
-				<div class="col-sm-3 text-center-mobile">
 					<div id="bt-retour-haut">
 						<a class="page-scroll" href="#top">
 							<i class="fa fa-arrow-up"></i>
 						</a>
 					</div>
-				</div>
->>>>>>> f77369a447ef48d22149a242ddcb8c47e3fb8441
 			</div>
 		</div>       
 	</footer>

@@ -192,6 +192,10 @@ class GroomController extends \W\Controller\Controller
 			if(count($tab) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
+
+			if(!v::stringType()->length(20,300)->validate($post['description'])){
+				$errors[] = 'La description doit comprendre entre 20 et 300 caractères.';
+			}
 			
 
 			if(count($errors) === 0){
@@ -202,6 +206,7 @@ class GroomController extends \W\Controller\Controller
 						'id_skill'  => implode(',', $post['id_skill']),
 						'price'  	=> implode(',', $tab),
 						/*'work_area' => implode(',', $post['work_area']),*/
+						'description' => $post['description'],
 						'id_groom'	=> $me['id'],
 					];
 

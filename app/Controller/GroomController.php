@@ -140,35 +140,39 @@ class GroomController extends \W\Controller\Controller
 			
 			
 			// on retire les valeurs d'input inférieures à 0
+			$tab= array();
 			foreach ($post['price'] as $price) {
-				if($price > 0){
-					$allPrices = implode(',', $price);
+				if($price){
+					// $allPrices = implode(',', $price);
+					$tab[]=$price;
 				}
 			}
 
 			// on vérifie les champs insérés
-			if(!empty($post['price'])){
-				foreach ($post['price'] as $price){
-					if((!v::intVal()->length(1, 5)->validate($price))&& 
-						(!v::floatVal()->length(1, 5)->validate($price)) && $price > 0){
+			if(!empty($tab)){
+				foreach ($tab as $price){
+					if((!v::intVal()->length(1, 5)->validate($price)) && 
+						(!v::floatVal()->length(1, 5)->validate($price)) && 
+						$price > 0){
 						
 						$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
 					}
 				}
 			}
 			
-			/*
-			if(count($post['price']) != count($post['id_skill'])){
+			
+			if(count($tab) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
-			*/
+			
+
 			if(count($errors) === 0){
 				
 				if(!empty($post['id_skill']) && !empty($post['price'])){
 
 					$data = [
 						'id_skill'  => implode(',', $post['id_skill']),
-						'price'  	=> $allPrices,
+						'price'  	=> implode(',', $tab),
 						/*'work_area' => implode(',', $post['work_area']),*/
 						'id_groom'	=> $me['id'],
 					];
@@ -197,9 +201,37 @@ class GroomController extends \W\Controller\Controller
 	}
 
 	/*
+	* Affichage des services du concierge
+	*/
+	public function showServices($id_user){
+		if(!is_numeric($id_user) || empty($id_user)){
+			return false;
+		}
+
+		$servicesInfosModel = new ServicesInfosModel();
+		$listServices = $servicesInfosModel->findSkillsWithId($id_user);
+
+		return $listServices;
+	}
+
+	/*
+	* Affichage des prix du concierge
+	*/
+	public function showPrices($id_user){
+		if(!is_numeric($id_user) || empty($id_user)){
+			return false;
+		}
+
+		$servicesInfosModel = new ServicesInfosModel();
+		$listPrices = $servicesInfosModel->findPricesWithId($id_user);
+
+		return $listPrices;
+	}
+
+
+	/*
 	* Modifications des services au profil du concierge
 	*/
-
 	public function changeServices($id){
 
 		if(!$this->allowTo(['groom'],['admin'])){

@@ -11,7 +11,6 @@ namespace Model;
 class ServicesInfosModel extends \W\Model\Model
 {
 
-
 	public function findSkillsWithId($id) // Fonction qui récup les compétences du groom en FIND_IN_8SET
 	{
 
@@ -21,6 +20,18 @@ class ServicesInfosModel extends \W\Model\Model
 		WHERE id_groom  = :id 
 		AND FIND_IN_SET(groom_services.id, id_skill) ';
 
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(':id', $id);
+		$sth->execute();
+
+		return $sth->fetchAll();
+	}
+
+	// Fonction qui récup les prix renseignés par le groom
+	public function findPricesWithId($id) 
+	{
+
+		$sql = 'SELECT price FROM ' . $this->table . ' WHERE id_groom  = :id';
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(':id', $id);
 		$sth->execute();

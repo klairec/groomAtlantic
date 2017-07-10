@@ -355,6 +355,12 @@ class UsersController extends Controller
         $groomController = new GroomController();
         $addSkills = $groomController->addServices();
 
+        $voirSer = new GroomController();
+        $services = $voirSer->showServices($user_connect['id']);
+
+        $voirPx = new GroomController();
+        $prices = $voirPx->showPrices($user_connect['id']);
+
         $commentsController = new CommentsController();
         $comments = $commentsController->commentList();
         
@@ -369,6 +375,8 @@ class UsersController extends Controller
 
         
         $params = [
+        'services' => $services,
+        'prices' => $prices,
         'addSkills' => $addSkills,
         'comments'  => $comments,
         'commentsA' => $commentsA,

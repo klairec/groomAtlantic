@@ -16,26 +16,40 @@
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 <section class="profile">
-    <h3>MON PROFIL</h3>
+  <div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+    <h3 class="light white text-center">MON PROFIL</h3>
     <figure>
         <img src="/assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
     </figure>
-    <p>Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
-    <p>Email : <?=$showInfos['email']; ?></p>
-    <p>Téléphone : 0<?=$showInfos['phone']; ?></p>
-    <p>Adresse : <?=$showInfos['address']; ?></p>
-    <p>Code postal : <?=$showInfos['postcode']; ?></p>
-    <p>Ville : <?=$showInfos['cityUser']; ?></p>
-    <p>Date d'inscription : <?=$showInfos['date_creation']; ?></p>
-    <a href="<?= $this->url('change_profileO');?>" class="btn btn-blue">Modifier mon profil</a><br>
+    <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
+    <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
+    <p class="light white text-center">Téléphone : 0<?=$showInfos['phone']; ?></p>
+    <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
+    <p class="light white text-center">Code postal : <?=$showInfos['postcode']; ?></p>
+    <p class="light white text-center">Ville : <?=$showInfos['cityUser']; ?></p>
+    <p class="light white text-center">Date d'inscription : <?=$showInfos['date_creation']; ?></p>
+    <a href="<?= $this->url('change_profileO');?>" class="btn btn-blue">Modifier mon profil</a>
+<br>
+    <br>
     <a href="<?= $this->url('delete_profileO');?>" class="btn btn-blue"
     onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
     Me désinscrire</a><br>
+            </div>
+                        </div>
+                    </div>
+                </div>
 </section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
 <!-- AFFICHAGE INFOS LOCATIONS -->
 <section class="rentals">
-    <h3><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h3>
+<div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+    <h3 class="light white text-center"><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h3>
 
     <!-- AFFICHAGE DES LOCATIONS -->
     <?php if(!empty($locations)):?>
@@ -117,19 +131,36 @@
                     </form>
                 </div>
             </div>
-        </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
+        </div>
+          </div>
+            </div>
+        </div>
+        </div>
+        </section><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
         <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
         <section class="groom_research">
-            <h3>ACCUEIL</h3>
+        <div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+            <h3 class="light white text-center">ACCUEIL</h3>
             <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
+            </div>
+            </div>
+        </div>
+        </div>
         </section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
         <!-- AFFICHAGE NOTIFICATIONS -->
 
         <section class="notifications">
-            <h3>NOTIFICATIONS</h3>
+        <div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+            <h3 class="light white text-center">NOTIFICATIONS</h3>
 
             <!-- AFFICHAGE DES COORDONNES RECUES -->
             <div></div>
@@ -141,7 +172,11 @@
 
             <!-- AFFICHAGE AVIS LAISSES -->
             <section class="marks_history">
-                <h3>MES AVIS LAISSES</h3>
+            <div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+                <h3 class="light white text-center">MES AVIS LAISSES</h3>
                 <?php if(!empty($comments)):?>
 
                     <?php foreach ($comments as $comment): ?>
@@ -161,6 +196,10 @@
                             <p>Aucun avis laissé.</p>
                         </div>
                     <?php endif; ?>
+                      </div>
+            </div>
+        </div>
+        </div>
             </section><!-- AFFICHAGE AVIS LAISSES -->
 
 <?php $this->stop('main_content') ?>

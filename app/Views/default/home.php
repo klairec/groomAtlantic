@@ -272,6 +272,7 @@
 						</div>
 					</div>
 					<div class="pricing">
+
 						<!--<div class="box-main" data-img="img/pricing2.jpg">
 							<h4 class="white">Cardio Training</h4>
 							<h4 class="white regular light">$100.00 <span class="small-font">/ year</span></h4>
@@ -287,6 +288,7 @@
 								<li>Free before / after shower</li>
 							</ul>
 						</div>-->
+						
 					</div>
 				</div>
 			</div>

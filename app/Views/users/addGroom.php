@@ -18,7 +18,8 @@
                 <div class="table">
                     <div class="header-text">
                         <div id="DivFormG" class="row">
-                            <h2 class="light white text-center">S'inscrire en tant que Groom</h2>
+                            <div class="col-md-12 text-center">
+                                <h2 class="light white text-center">S'inscrire en tant que Groom</h2>
                             
                                 <?php 
 
@@ -68,6 +69,7 @@
                                 <?php
                                     }
                                 ?>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -119,48 +119,48 @@
             </div>
         </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
-                            <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
-                            <section class="groom_research">
-                                <h3>ACCUEIL</h3>
-                                <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
-                            </section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+        <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
-                            <!-- AFFICHAGE NOTIFICATIONS -->
-                            <section class="notifications">
-                                <h3>NOTIFICATIONS</h3>
+        <section class="groom_research">
+            <h3>ACCUEIL</h3>
+            <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
+        </section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
-                                <!-- AFFICHAGE DES COORDONNES RECUES -->
-                                <div></div>
-                                <!-- AFFICHAGE CONFIRMATION  -->
-                                <div></div>
-                                <!-- AFFICHAGE NOTATION -->
-                                <div></div>
+        <!-- AFFICHAGE NOTIFICATIONS -->
 
-                            </section><!-- AFFICHAGE NOTIFICATIONS -->
+        <section class="notifications">
+            <h3>NOTIFICATIONS</h3>
 
-                            <!-- AFFICHAGE AVIS LAISSES -->
-                            <section class="marks_history">
-                                <h3>MES AVIS LAISSES</h3>
-                                <?php if(!empty($comments)):?>
+            <!-- AFFICHAGE DES COORDONNES RECUES -->
+            <div></div>
+            <!-- AFFICHAGE CONFIRMATION  -->
+            <div></div>
+            <!-- AFFICHAGE NOTATION -->
+            <div></div>
+            </section><!-- AFFICHAGE NOTIFICATIONS -->
 
-                                    <?php foreach ($comments as $comment): ?>
-                                        <article>
-                                            <?php foreach ($commentsAd as $commentAd): ?>
-                                                <h3><?=$commentAd['firstname']; ?></h3>
-                                            <?php endforeach; ?>
-                                            <div class="content">
-                                                <?=nl2br($comment['content']); ?>
-                                            </div>
-                                            <p><?=$comment['date']; ?></p>
-                                        </article>
-                                        <hr>
+            <!-- AFFICHAGE AVIS LAISSES -->
+            <section class="marks_history">
+                <h3>MES AVIS LAISSES</h3>
+                <?php if(!empty($comments)):?>
 
-                                    <?php endforeach; ?>
-                                <?php else: ?>
-                                    <div class="alert alert-danger">
-                                        <p>Aucun avis laissé.</p>
-                                    </div>
-                                <?php endif; ?>
-                            </section><!-- AFFICHAGE AVIS LAISSES -->
+                    <?php foreach ($comments as $comment): ?>
+                        <article>
+                            <?php foreach ($commentsAd as $commentAd): ?>
+                                <h3><?=$commentAd['firstname']; ?></h3>
+                            <?php endforeach; ?>
+                            <div class="content">
+                                <?=nl2br($comment['content']); ?>
+                            </div>
+                            <p><?=$comment['date']; ?></p>
+                        </article>
+                    <hr>
+                    <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="alert alert-danger">
+                            <p>Aucun avis laissé.</p>
+                        </div>
+                    <?php endif; ?>
+            </section><!-- AFFICHAGE AVIS LAISSES -->
 
 <?php $this->stop('main_content') ?>

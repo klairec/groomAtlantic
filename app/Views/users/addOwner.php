@@ -17,6 +17,7 @@
                 <div class="table">
                     <div class="header-text">
                         <div id="DivFormO" class="row">
+                        	<div class="col-md-12 text-center">
                             <h2 class="light white text-center">S'inscrire en tant que Propriétaire</h2>
                                 <?php 
 

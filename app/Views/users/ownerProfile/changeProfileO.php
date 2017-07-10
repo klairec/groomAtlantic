@@ -18,7 +18,6 @@
 	<?php endif; ?>
 
 <form method="POST" enctype="multipart/form-data">
-
 	<div class="form-group">
 		<label for="photo">Ajouter une photo de profil</label>
 		<input type="file" name="photo" >
@@ -51,9 +50,7 @@
 		<label for="cityUser">Ville</label>
 		<input name="cityUser" type="text" class="form-control" value="<?=$w_user['cityUser']; ?>">
 	</div>
-
 	<button type="submit" class="btn btn-default">Modifier</button>
-
 </form>
 
 <a href="<?= $this->url('users_showowner')?>" class="btn btn-blue">Retour</a>

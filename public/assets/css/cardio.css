@@ -1308,6 +1308,10 @@ padding: 0 5px
 #bt-retour-haut {
 	background: rgba (0, 0, 0, 0.5);
 	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	padding: 1em;
+	border-radius: 10px;
 }
 
 #bt-retour-haut a {

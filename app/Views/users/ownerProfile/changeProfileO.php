@@ -1,6 +1,16 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Modifier mon profil']) ?>
 
+<?php $this->start('css') ?>
+    <style>
+        header {
+            display: none;
+        }
 
+        body{
+            background: #89b5f7;
+        }
+    </style>
+<?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
 	<?php if(count($errors) > 0): ?>

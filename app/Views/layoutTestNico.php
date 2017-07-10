@@ -49,7 +49,7 @@
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="#services">Nos Grooms</a></li>
-					<li><a href="<?= $this->url('infos_infospratiques') ?>">Infos pratiques</a></li>
+					<li><a href=" #revenus">Vos Avantages</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->

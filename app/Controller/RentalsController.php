@@ -144,10 +144,14 @@ class RentalsController extends Controller
 
 	public function changeRental($id){
 
-		// on récupère les données de l'utilisateur connecté
+		if(!$this->allowTo(['owner'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
+
+        // on récupère les données de l'utilisateur connecté
 		$me = $this->getUser();
 
-		// on limite l'accès à la page à un utilisateur non connecté
+		// on limite l'accès à la page à un utilisateur connecté
 		if(empty($me)){
 			$this->showNotFound(); // affichera une page 404
 		}
@@ -155,6 +159,8 @@ class RentalsController extends Controller
 		// on crée les variables post et errors
 		$post = [];
 		$errors = [];
+
+		
 		// on nettoie le tableau POST
 		if(!empty($_POST)){
 

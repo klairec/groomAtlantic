@@ -71,13 +71,11 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
     <section>
 
 	    <?=$this->section('errors'); ?>
 
     </section>
-
 	<section>
 		<?php if(!empty($w_flash_message->message)): ?>
 				<div class="alert alert-<?=$w_flash_message->level;?>">
@@ -86,8 +84,6 @@
 			<?php endif; ?>
 		<?= $this->section('main_content') ?>
     </section>
-
-    
     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">

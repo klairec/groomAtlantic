@@ -8,9 +8,7 @@
     </style>
 <?php $this->stop('css') ?>
 
-
 <?php $this->start('main_content') ?>
-
 
             <div class="container">
                 <div class="table">
@@ -29,7 +27,6 @@
                                 if($formValid == true){
 
                                     ?><p style="color : black; text-align: center; font-size:20px;"> Vous êtes inscrit</p>
-                                        
 
                                 <?php
                                 }
@@ -37,8 +34,6 @@
                                 else {
 
                                 ?>
-
-
                                 
                                         <form id="FormAddGroom" method="post" style="text-align:center;">   
                                             <div class="form-group">
@@ -71,11 +66,9 @@
                                     }
                                 ?>
 
-
                         </div>
                     </div>
                 </div>
             </div>
-
 
 <?php $this->stop('main_content') ?>

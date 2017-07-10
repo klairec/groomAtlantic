@@ -47,7 +47,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="#intro">Accueil</a></li>
+					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="#services">Nos Grooms</a></li>
 					<li><a href="<?= $this->url('infos_infospratiques') ?>">Infos pratiques</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
@@ -139,21 +139,28 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4 text-center-mobile">
+				<div class="col-sm-3 text-center-mobile">
 					<h3 class="white">GROOM ATLANTIC</h3>
 					<p class="white">Groom Atlantic est la première plateforme de mise en relation entre propriétaires et concierges disponibles pour vous aider à gérer vos locations courte durée partout en Charente Maritime</p>
 				</div>
-				<div class="col-sm-4 text-center-mobile">
+				<div class="col-sm-3 text-center-mobile">
 					<h5><a href="<?= $this->url('infos_quisommesnous') ?>">QUI SOMMES NOUS</a></h5><br>
 					<h5><a href="<?= $this->url('infos_infospratiques') ?>">INFOS PRATIQUES</a></h5><br>
 					<h5><a target="_blank" href="<?= $this->assetUrl('charte-qualite.pdf') ?>">CHARTE DE QUALITE</a></h5><br>
 					<h5><a href="<?= $this->url('infos_mentionslegales') ?>">MENTIONS LEGALES </a></h5><br>
 				</div>
-				<div class="col-sm-4 text-center-mobile">
+				<div class="col-sm-3 text-center-mobile">
 				<h5 class="white">NOUS SUIVRE</h5>
 						<a href="http://www.facebook.com/pages/Codrops/159107397912"><i class="fa fa-facebook"></i></a><br>
 						<a href="http://www.twitter.com/codrops"><i class="fa fa-twitter"></i></a><br>
 						<a href="https://plus.google.com/101095823814290637419"><i class="fa fa-google-plus"></i></a><br>
+				</div>
+				<div class="col-sm-3 text-center-mobile">
+					<div id="bt-retour-haut">
+						<a class="page-scroll" href="#services">
+							<i class="fa fa-arrow-up"></i>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>       

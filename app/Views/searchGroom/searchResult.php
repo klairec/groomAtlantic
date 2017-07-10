@@ -86,7 +86,7 @@
                                     foreach($markers as $markert)
                                     {
                                 ?>
-                                ['<?php echo $markert['firstname'] ?>', <?php echo $markert['lat'] ?>, <?php echo $markert['lng'] ?>, 0, 'http://localhost/GIT/groomAtlantic/Public/searchGroom/searchResult<?php echo $markert['id'] ?>'],
+                                ['<?php echo $markert['firstname'] ?>', <?php echo $markert['lat'] ?>, <?php echo $markert['lng'] ?>, 0, '<?= $this->url('Search_groomDetails', ['id' => $markert['id']])?>'],
                                 <?php
                                     }
                                 }

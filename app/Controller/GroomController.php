@@ -241,9 +241,15 @@ class GroomController extends \W\Controller\Controller
         // on récupère les données de l'utilisateur connecté
 		$me = $this->getUser();
 
+		// on limite l'accès à la page à un utilisateur connecté
+		if(empty($me)){
+			$this->showNotFound(); // affichera une page 404
+		}
+
 		// on crée les variables post et errors
 		$post = [];
 		$errors = [];
+
 
 		// on nettoie le tableau post
 		if(!empty($_POST)){
@@ -257,15 +263,34 @@ class GroomController extends \W\Controller\Controller
 					$post[$key] = trim(strip_tags($value));
 				}
 			}
+			
+			
+			// on retire les valeurs d'input inférieures à 0
+			$tab= array();
+			foreach ($post['price'] as $price) {
+				if($price){
+					// $allPrices = implode(',', $price);
+					$tab[]=$price;
+				}
+			}
 
 			// on vérifie les champs insérés
-			if((!v::intVal()->length(1, 5)->validate($post['price'])) && (!v::floatVal()->length(1, 5)->validate($post['price']))){
-				$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
+			if(!empty($tab)){
+				foreach ($tab as $price){
+					if((!v::intVal()->length(1, 5)->validate($price)) && 
+						(!v::floatVal()->length(1, 5)->validate($price)) && 
+						$price > 0){
+						
+						$errors[] = 'Le prix peut être soit un entier soit contenir des décimales après un point.';
+					}
+				}
 			}
-
-			if(count($post['price']) != count($post['id_skill'])){
+			
+			
+			if(count($tab) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
+			
 
 			if(count($errors) === 0){
 				
@@ -273,8 +298,9 @@ class GroomController extends \W\Controller\Controller
 
 					$data = [
 						'id_skill'  => implode(',', $post['id_skill']),
-						'price'  => implode(',', $post['price']),
-						'id_groom'			=> $me['id'],
+						'price'  	=> implode(',', $tab),
+						/*'work_area' => implode(',', $post['work_area']),*/
+						'id_groom'	=> $me['id'],
 					];
 
 					// on insère les données tappées par l'utilisateur dans la BDD
@@ -283,10 +309,13 @@ class GroomController extends \W\Controller\Controller
 					if(!empty($changeSkills)){
 						// Ajoute un message "flash" (stocké en session temporairement)
 						// Note : il faut toutefois ajouter l'affichage de ce message au layout
-						$this->flash('Vos services ont été modifiés', 'success');
+						$this->flash('Vos services ont été ajoutés.', 'success');
 
 						return $changeSkills;
 					}
+				}
+				else {
+
 				}
 			}
 			else {

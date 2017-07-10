@@ -42,14 +42,14 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="Logo de l'entreprise"></a>
+				<a class="navbar-brand" href="<?= $this->url('default_home') ?>"><img src="<?= $this->assetUrl('img/logoDef.png') ?>" data-active-url="<?= $this->assetUrl('img/logoDef.png') ?>" alt="Logo de l'entreprise" id="top"></a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
 					<li><a href="#services">Nos Grooms</a></li>
-					<li><a href="<?= $this->url('infos_infospratiques') ?>">Infos pratiques</a></li>
+					<li><a href="#revenus">Vos Revenus</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
@@ -72,7 +72,6 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
     <section>
 
 	    <?=$this->section('errors'); ?>
@@ -126,9 +125,9 @@
 						</div>
 					</div>
                         -->
-					<button id="subscribe" type="submit" class="btn btn-submit">Submit</button>
+					<button id="subscribe" type="submit" class="btn btn-submit">Valider</button>
 				</form>
-				<a  href="<?= $this->url('users_pickRole') ?>" class="blue">
+				<a  href="<?= $this->url('users_pickRole') ?>" class="">
                 <button id="subscribe" class="btn btn-submit">
                 	Pas encore inscrit ?
                 </button>
@@ -157,7 +156,7 @@
 				</div>
 				<div class="col-sm-3 text-center-mobile">
 					<div id="bt-retour-haut">
-						<a class="page-scroll" href="#services">
+						<a class="page-scroll" href="#top">
 							<i class="fa fa-arrow-up"></i>
 						</a>
 					</div>

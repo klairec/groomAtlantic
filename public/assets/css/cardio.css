@@ -826,7 +826,7 @@ footer .social-footer li:hover a {
 	position: relative;
 	padding: 45px 30px;
 	text-align: center;
-	background-image: url('../img/pop_up.jpg');
+	background: #89b5f7;
 	box-shadow: none;
 	border-radius: 2px;
 }
@@ -1196,7 +1196,7 @@ footer .social-footer li:hover a {
 
 /* BOUTONS FORMULAIRES */
 .btn-default {
-	background: #7cadf0;
+	background: #296190;
 }
 
 .btn-default:hover {
@@ -1209,12 +1209,15 @@ footer .social-footer li:hover a {
 #subscribe{    
     font-size: 1em;
     background:transparent;
-    width: 90%; 
+    width: 90%;
+    background:white;
+    border: 2px solid transparent;
+	border-radius: 2px;
 }
 #subscribe:hover {   
     text-decoration: none;
     color: #00a8ff;
-    background:white;    
+    background: #296190;
 }
 #subscribe:hover a {   
     text-decoration: none;
@@ -1237,7 +1240,6 @@ footer .social-footer li:hover a {
     font-size: 2em;
     background:rgba(240, 100, 103, 0.8);
     width: 40%;
-
 }
 
 .btn-link:hover{
@@ -1247,12 +1249,11 @@ footer .social-footer li:hover a {
 
 /* FORMS INSCRIPTION */
 
-#DivFormG, #DivFormO, #DivSearch {
+#DivFormG, #DivFormO, #DivSearch{
     margin-top: 16em;
 }
 
 #FormAddGroom .form-group, #FormAddOwner .form-group{
-   
     width: 50%;
     margin: 10px auto;
 }
@@ -1262,17 +1263,17 @@ footer .social-footer li:hover a {
 { 
    padding: 0.6em;
 }
-/* MINI FICHE GOOM */
+
+/* MINI FICHE GROOM */
 
 #TabComp {
-
 	margin:auto;
 }
+
 #TabComp td, #TabComp th {
 width: 10px;
 text-align: center;
 padding: 0 5px
-
 }
 
 /* page charte de qualite */
@@ -1296,12 +1297,11 @@ padding: 0 5px
 	transition: all 0.3s ease;
 }
 
-#flashMsg{ /*flash erreurs */
+/*flash erreurs */
 
+#flashMsg{
 	margin:20em 0 0 0;
-
 }
-
 
 /* Media Queries */
 

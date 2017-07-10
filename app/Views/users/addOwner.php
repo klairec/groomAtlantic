@@ -1,6 +1,18 @@
 <?php $this->layout('layoutTestNico', ['title' => 'Inscription/Propriétaire']) ?>
 
-<?php $this->start('header') ?>
+<?php $this->start('css') ?>
+    <style>
+        header {
+            display: none;
+        }
+
+        body{
+            background: #89b5f7;
+        }
+    </style>
+<?php $this->stop('css') ?>
+
+<?php $this->start('main_content') ?>
             <div class="container">
                 <div class="table">
                     <div class="header-text">
@@ -53,9 +65,5 @@
                 </div>
             </div>
         </div>
-
-<?php $this->stop('header') ?>
-
-<?php $this->start('main_content') ?>
 
 <?php $this->stop('main_content') ?>

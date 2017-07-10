@@ -5,6 +5,10 @@
         header {
             display: none;
         }
+
+        body{
+            background: #89b5f7;
+        }
     </style>
 <?php $this->stop('css') ?>
 

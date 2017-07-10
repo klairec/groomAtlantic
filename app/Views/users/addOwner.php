@@ -17,7 +17,7 @@
                 <div class="table">
                     <div class="header-text">
                         <div id="DivFormO" class="row">
-                            <h2 class="light white">S'inscrire en tant que Propriétaire</h2>
+                            <h2 class="light white text-center">S'inscrire en tant que Propriétaire</h2>
                                 <?php 
 
                                     if(!empty($errors)){
@@ -31,9 +31,7 @@
                                         echo'<p> Vous êtes inscrit</p>';
 
                                     }
-
                                 ?>
-
 						<form id="FormAddOwner" method="post" style="text-align:center;">
 							<div class="form-group">
 								<input name="firstname" type="text" placeholder="Votre prénom" class="form-control">

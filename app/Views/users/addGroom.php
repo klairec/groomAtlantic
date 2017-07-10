@@ -18,7 +18,7 @@
                 <div class="table">
                     <div class="header-text">
                         <div id="DivFormG" class="row">
-                            <h2 class="light white">S'inscrire en tant que Groom</h2>
+                            <h2 class="light white text-center">S'inscrire en tant que Groom</h2>
                             
                                 <?php 
 
@@ -32,14 +32,12 @@
 
                                     ?><p style="color : black; text-align: center; font-size:20px;"> Vous êtes inscrit</p>
                                         
-
                                 <?php
                                 }
                                 
                                 else {
 
                                 ?>
-
                                         <form id="FormAddGroom" method="post" style="text-align:center;">   
                                             <div class="form-group">
                                                 <input  name="firstname" type="text" placeholder="Votre prénom" class="form-control">
@@ -70,8 +68,6 @@
                                 <?php
                                     }
                                 ?>
-
-
                         </div>
                     </div>
                 </div>

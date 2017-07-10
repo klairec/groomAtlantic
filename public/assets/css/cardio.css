@@ -1249,7 +1249,7 @@ footer .social-footer li:hover a {
 
 /* FORMS INSCRIPTION */
 
-#DivFormG, #DivFormO, #DivSearch{
+#DivFormG, #DivFormO, #DivSearch, #DivFormShow{
     margin-top: 16em;
 }
 
@@ -1301,6 +1301,17 @@ padding: 0 5px
 
 #flashMsg{
 	margin:20em 0 0 0;
+}
+
+/* BTN TOP PAGE*/
+
+#bt-retour-haut {
+	background: rgba (0, 0, 0, 0.5);
+	position: fixed;
+}
+
+#bt-retour-haut a {
+	color: white;
 }
 
 /* Media Queries */

@@ -45,32 +45,32 @@
 <!-- AFFICHAGE INFOS SERVICES -->
 <section class="skills">
     <h3>MES SERVICES</h3>
-    <?= print_r($_POST) ?>
     <!-- AFFICHAGE DES SERVICES/PRIX -->
-    <?php if(!empty($compets)):?>
+    <?php if(!empty($services)):?>
         <table>
             <tbody>
-               <tr>
+                <tr>
                 <td><strong>Compétences</strong></td>
-                <?php foreach ($compets as $compet): ?>
-                    <td><?php $compet = explode(',', $compet['id_skills']); ?></td>
+                <?php foreach ($services as $service): ?>
+                    <td><?= $service['skills']; ?></td>
                 <?php endforeach; ?>
                 </tr>
                 <tr>
                     <td><strong>Prix</strong></td>
-                    <?php foreach ($compets as $compet): ?>
-                        <td><?php $compet = explode(',', $prix['price']); ?>
-                        <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
-                        </td>
-                    <?php endforeach; ?>
-                </tr>    
+                        <?php $prices = explode(',', $prices[0]['price']); ?>
+                        <?php foreach ($prices as $price): ?>
+                        <td><?= $price ?></td>
+                        <?php endforeach; ?>
+                </tr>
+                <tr>
+                <td></td>
+                <?php foreach ($services as $service): ?>
+                    <td><a href="<?= $this->url('services_change', ['id' => $service['id']]) ?>" class="btn btn-blue" value="change">Modifier</a></td>
+                <?php endforeach; ?>
+                </tr>
             </tbody>
         </table>
-        <strong>Code postaux</strong>
-            <?php foreach ($compets as $compet): ?>
-                    <span><?php $compet = explode(',', $prix['work_area']); ?>
-                    </span>
-            <?php endforeach; ?>
+        <strong>Mon périmètre</strong>
     <br>
 
     <?php else: ?>

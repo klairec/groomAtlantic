@@ -26,7 +26,7 @@
                 </figure>
                 <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                 <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
-                <p class="light white text-center">Téléphone : 0<?=$showInfos['phone']; ?></p>
+                <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
                 <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
                 <p class="light white text-center">Code postal : <?=$showInfos['postcode']; ?></p>
                 <p class="light white text-center">Ville : <?=$showInfos['cityUser']; ?></p>

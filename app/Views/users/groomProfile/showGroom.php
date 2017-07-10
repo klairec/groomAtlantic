@@ -1,4 +1,4 @@
-<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
+ <?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
 <?php $this->start('css') ?>
 <style>
@@ -14,49 +14,43 @@ body{
 
 <?php $this->start('main_content') ?>
 
-<div class="container">
-    <div class="table">
-        <div class="header-text">
-            <div id="DivFormG" class="row">
-                <div class="col-md-12 text-center">
-                    <p class="light white text-center">Bonjour, <?= $w_user['firstname'] ?></p>
-                    <section>
-                        <h3 class="light white text-center">Mon profil</h3>
-                        <figure>
-                            <img src="<?= $w_user['photo'] ?>">
-                        </figure>
-                        <p class="light white text-center">Nom : <?= $w_user['lastname'] ?></p>
-                        <p class="light white text-center">Prénom : <?= $w_user['firstname'] ?></p>
-                        <p class="light white text-center">Email : <?= $w_user['email'] ?></p>
-                        <p class="light white text-center">Téléphone : <?= $w_user['phone'] ?></p>
-                        <p class="light white text-center">Adresse : <?= $w_user['address'] ?></p>
-                        <p class="light white text-center">Code postal : <?= $w_user['postcode'] ?></p>
-                        <p class="light white text-center">Ville : <?= $w_user['cityUser'] ?></p>
-                        <p class="light white text-center">Date d'inscription : <?= $w_user['date_creation'] ?></p>
-                        <a href="<?= $this->url('modif_groom'); ?>" class="btn btn-blue">Modifier mon profil</a><br>
-                        <br>
-                        <a href="<?= $this->url('delete_profileO');?>" class="btn btn-blue"
-                            onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
-                            Me désinscrire</a><br>
-                        </div>
-                    </div>
+<section class="profile">
+  <div class="table">
+    <div class="header-text">
+        <div id="DivFormG" class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="light white text-center">MON PROFIL</h3>
+                <figure>
+                    <img src="/assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
+                </figure>
+                <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
+                <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
+                <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
+                <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
+                <p class="light white text-center">Code postal : <?=$showInfos['postcode']; ?></p>
+                <p class="light white text-center">Ville : <?=$showInfos['cityUser']; ?></p>
+                <p class="light white text-center">Date d'inscription : <?=$showInfos['date_creation']; ?></p>
+                <a href="<?= $this->url('change_profile');?>" class="btn btn-blue">Modifier mon profil</a>
+                <br>
+                <br>
+                <a href="<?= $this->url('delete_profile');?>" class="btn btn-blue"
+                    onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
+                    Me désinscrire</a><br>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-</div>
-</div>
-</div>
-</div>
+</section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
-<!-- AFFICHAGE INFOS SERVICES -->
+
+
+<!-- AFFICHAGE DES SERVICES/PRIX -->
 <section class="skills">
     <div class="table">
         <div class="header-text">
             <div id="DivFormG" class="row">
                 <div class="col-md-12 text-center">
                     <h3 class="light white text-center">MES SERVICES</h3>
-                    <!-- AFFICHAGE DES SERVICES/PRIX -->
                     <?php if(!empty($services)):?>
                     <?php 
                     echo '<pre>';
@@ -97,7 +91,7 @@ body{
                         </div>
                     <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
 
-                    <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
+                    <!-- AJOUT DE SERVICES / FENETRE MODALE -->
                     <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
 
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -160,7 +154,7 @@ body{
                                 </form>
                             </div>
                         </div>
-                    </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
+                    </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
 
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
                     <div class="table">
@@ -245,7 +239,7 @@ body{
     </div>
 </div>
 
-<!-- DIFFERENTS AVIS OBTENUS -->
+<!-- AFFICHAGE AVIS OBTENUS -->
 
 <div class="container">
     <div class="table">

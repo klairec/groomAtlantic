@@ -61,13 +61,13 @@ class UsersController extends Controller
 
                 }
                 else {
-                $this->redirectToRoute($post['current_url']);
-                $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
-            }
+                    $this->redirectToRoute($post['current_url']);
+                    $this->flash('Le couple identifiant / mot de passe est invalide', 'danger');
+                }
             }  
             else {
 
-               
+             
             } 
 
 
@@ -156,7 +156,7 @@ class UsersController extends Controller
 
     }
 
-
+    /* ESPACE CONCIERGE */
     /**
      * Ajout d'un concierge
      */
@@ -243,6 +243,194 @@ class UsersController extends Controller
         'post'      => $post,
         ];
         $this->show('users/addGroom', $params);
+    }
+
+
+    /**
+     * Voir les éléments du profil groom
+     */
+    public function showGroom()
+    {
+        // limite par défaut à l'utilisateur ayant pour role "groom"
+        if(!$this->allowTo(['groom'],['admin'])){
+            $this->redirectToRoute('default_home');
+        }
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
+
+        $usersModel = new UsersModel();
+        $showInfos = $usersModel->find($user_connect['id']);
+
+        $groomController = new GroomController();
+        $addSkills = $groomController->addServices();
+
+        $voirSer = new GroomController();
+        $services = $voirSer->showServices($user_connect['id']);
+
+        $voirPx = new GroomController();
+        $prices = $voirPx->showPrices($user_connect['id']);
+
+        $commentsController = new CommentsController();
+        $comments = $commentsController->commentList();
+        
+        $commentsAut = new CommentsController();
+        $commentsA = $commentsAut->commentsAuthor();
+        
+        $contactReq = new Contact_requestsController();
+        $contacts = $contactReq->ContactAuthor();
+        
+        $rentalsPpt = new RentalsController();
+        $propositions = $rentalsPpt->showRentals($user_connect['id']);
+
+        
+        $params = [
+        'showInfos' => $showInfos,
+        'services' => $services,
+        'prices' => $prices,
+        'addSkills' => $addSkills,
+        'comments'  => $comments,
+        'commentsA' => $commentsA,
+        'contacts' => $contacts,
+        'propositions' => $propositions
+        ];
+
+        $this->show('users/groomProfile/showGroom', $params);
+    }
+    
+
+    /**
+     * Modifier le profil groom
+     */
+    public function changeProfile()
+    {
+        $post = [];
+        $errors = [];
+        $formValid = false;
+
+        $user_connect = $this->getUser();
+
+        if(!empty($_POST)){
+            // Permet de nettoyer les données
+            foreach($_POST as $key => $value){
+                $post[$key] = trim(strip_tags($value));
+            }
+
+            // on vérifie les champs insérés
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
+                $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
+            }
+
+            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
+                $errors[] = 'Le nom doit comporter au moins 3 lettres.';
+            }
+
+            if(!v::phone()->length(10)->validate($post['phone'])){
+                $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
+            }
+
+            if(!v::notEmpty()->email()->validate($post['email'])){
+                $errors[] = 'Cet email n\'est pas valide.';
+            }
+
+            if(!v::notEmpty()->stringType()->length(5, 100)->validate($post['address'])){
+                $errors[] = 'L\'adresse doit comporter au moins 5 caractères.';
+            }
+
+            if(!v::notEmpty()->intVal()->length(5)->validate($post['postcode'])){
+                $errors[] = 'Le code postal doit comporter 5 chiffres.';
+            }
+
+            if(!v::notEmpty()->stringType()->alpha()->length(2, 50)->validate($post['cityUser'])){
+                $errors[] = 'La ville doit comporter au moins 2 caractères.';
+            }
+
+
+            if(!empty($_FILES)){
+
+                if(!v::image()->validate($_FILES['photo']['tmp_name'])){
+                    $errors[] = 'La photo de profil n\'est pas au bon format.';
+                }
+
+                if(!v::size('2MB')->validate($_FILES['photo']['tmp_name'])){
+                    $errors[] = 'La taille de la photo de profil ne doit pas dépasser 2 Mo.';
+                }
+            }
+
+
+            if(count($errors) === 0){
+
+
+            // AJOUT PHOTO DE PROFIL
+            // création d'un nom unique
+                $nom = md5(uniqid(rand(), true));
+
+            // création de la variable $fileinfo qui récupère les infos du fichier uploadé
+                $fileInfo = pathinfo($_FILES['photo']['name']);
+
+            // création de la variable extension qui récupère l'extension du fichier uploadé
+                $extension = $fileInfo['extension'];
+
+            // création de la route à suivre pour le stockage de l'image, on écrit d'abord sa position puis sa destination
+                move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+
+            // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
+                $fileName = $nom.'.'.$extension;
+
+
+                $data = [
+                'firstname'  => ucfirst($post['firstname']), 
+                'lastname'   => strtoupper($post['lastname']),
+                'email'      => strtolower($post['email']),
+                'address'    => strtoupper($post['address']),
+                'postcode'   => $post['postcode'],
+                'cityUser'   => strtolower($post['cityUser']),
+                'phone'      => $post['phone'],
+                // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
+                'photo'      => $fileName,
+                ];
+
+                $usersModel = new UsersModel();
+                $update = $usersModel->update($data, $user_connect['id']);
+
+                if(!empty($update)){
+                    $formValid = true;
+
+                    $this->flash('Vos informations ont été modifiées', 'success');
+                    $this->redirectToRoute('users_showgroom');
+                }
+            }
+        }
+
+        $params = [
+        'formValid' => $formValid,
+        'errors'    => $errors,
+        ];
+
+        $this->show('/users/groomProfile/changeProfile', $params);
+    }
+
+
+    /**
+     * Suppression du compte groom
+     */
+    public function deleteProfile($id){
+
+        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue
+
+        // on limite l'accès à la page à un utilisateur non connecté
+        if(empty($user_connect)){
+            $this->showNotFound(); // affichera une page 404
+        }
+
+        $usersModel = new UsersModel();
+        $deleteUser = $usersModel->delete($user_connect['id']);
+        if(!empty($deleteUser)){
+            $authentificationModel = new AuthentificationModel();
+            $logoutUser = $authentificationModel->logUserOut();
+        }
+
+        $this->redirectToRoute('default_home');
+
     }
 
 
@@ -339,78 +527,7 @@ class UsersController extends Controller
         $this->show('users/addOwner', $params);
     }
 
-
-    /**
-     * Voir les éléments du profil groom
-     */
-    public function showGroom()
-    {
-        // limite par défaut à l'utilisateur ayant pour role "groom"
-        if(!$this->allowTo(['groom'],['admin'])){
-            $this->redirectToRoute('default_home');
-        }
-
-        $user_connect = $this->getUser(); // Récupère l'utilisateur connecté, correspond à $w_user dans la vue        
-        
-        $groomController = new GroomController();
-        $addSkills = $groomController->addServices();
-
-        $voirSer = new GroomController();
-        $services = $voirSer->showServices($user_connect['id']);
-
-        $voirPx = new GroomController();
-        $prices = $voirPx->showPrices($user_connect['id']);
-
-        $commentsController = new CommentsController();
-        $comments = $commentsController->commentList();
-        
-        $commentsAut = new CommentsController();
-        $commentsA = $commentsAut->commentsAuthor();
-        
-        $contactReq = new Contact_requestsController();
-        $contacts = $contactReq->ContactAuthor();
-        
-        $rentalsPpt = new RentalsController();
-        $propositions = $rentalsPpt->showRentals($user_connect['id']);
-
-        
-        $params = [
-        'services' => $services,
-        'prices' => $prices,
-        'addSkills' => $addSkills,
-        'comments'  => $comments,
-        'commentsA' => $commentsA,
-        'contacts' => $contacts,
-        'propositions' => $propositions
-        ];
-
-        $this->show('users/groomProfile/showGroom', $params);
-    }
     
-
-    /**
-     * Modifier le profil groom
-     */
-    public function modifProfilegroom()
-    {
-        // limite par défaut à l'utilisateur ayant pour role "groom"
-        if(!$this->allowTo(['groom'],['admin'])){
-            $this->redirectToRoute('default_home');
-        }
-
-        $groomController = new GroomController();
-        $groomModif = $groomController->modifGroom();
-        
-        $params = [
-        'groomModif' => $groomModif
-        ];
-        
-        $this->show('users/groomProfile/modifGroom', $params); 
-    }
-
-
-
-
 
     /**
      * Voir les éléments du profil proprietaire

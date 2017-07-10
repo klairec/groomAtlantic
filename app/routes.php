@@ -31,8 +31,8 @@ $w_routes = array(
 	// ROUTES PROFIL CONCIERGE
 	['GET|POST', '/users/groomProfile/showGroom', 'Users#showGroom', 'users_showgroom'],
 	['GET|POST', '/users/groomProfile/modifGroom', 'Users#modifProfilegroom', 'modif_groom'],
-	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],
-	['GET|POST', '/users/groomProfile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],
+	['GET|POST', '/users/groomProfile/changeProfile/[:id]/', 'Users#changeProfile', 'change_profile'],
+	['GET|POST', '/users/groomProfile/deleteProfile/[:id]/', 'Users#deleteProfile', 'delete_profile'],
 	['GET|POST', '/users/groomProfile/changeServices/[:id]/', 'Groom#changeServices', 'services_change'],
     
 	

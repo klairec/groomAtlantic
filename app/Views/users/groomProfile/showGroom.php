@@ -58,6 +58,11 @@ body{
                     <h3 class="light white text-center">MES SERVICES</h3>
                     <!-- AFFICHAGE DES SERVICES/PRIX -->
                     <?php if(!empty($services)):?>
+                    <?php 
+                    echo '<pre>';
+                    print_r($prices);
+                    echo '</pre>';
+                     ?>
                         <table>
                             <tbody>
                                 <tr>
@@ -70,17 +75,16 @@ body{
                                     <td><strong>Prix</strong></td>
                                     <?php $prices = explode(',', $prices[0]['price']); ?>
                                     <?php foreach ($prices as $price): ?>
-                                        <td><?= $price ?></td>
+                                        <td><?= $price ?>€</td>
                                     <?php endforeach; ?>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <?php foreach ($services as $service): ?>
-                                        <td><a href="<?= $this->url('services_change', ['id' => $service['id']]) ?>" class="btn btn-blue" value="change">Modifier</a></td>
+                                    <?php foreach ($prices as $price): ?>
+                                    <td>
+                                    <a href="<?= $this->url('services_change', ['id' => $prices[0]['id_groom']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                                    </td>
                                     <?php endforeach; ?>
-                                </tr>
-                                <tr>
-                                <td><strong>Mon périmètre</strong></td>
                                 </tr>
                             </tbody>
                         </table>

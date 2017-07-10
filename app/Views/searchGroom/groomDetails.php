@@ -103,6 +103,8 @@
                                                     } 
                                                 }     
                                                 ?>
+
+                                                <h3><a href="#" data-toggle="modal" data-target="#modal5">Je souhaite rentrer en contact avec <?= ucfirst($datas['firstname'])?></a></h2>
                                                  
 
 
@@ -137,6 +139,24 @@
                                     
                 <div class="row">
                 </div>
+            </div>
+        </div>
+    </div>
+      <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-popup">
+                <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+                <h3 class="white">Entrer en contact avec Claire ?</h3>
+                
+                
+
+                <a  href="<?= $this->url('Search_groomDetails') ?>" class="blue">
+                <button id="subscribe" class="btn btn-submit">
+                    Oui
+                </button>
+                </a>
+                
+                
             </div>
         </div>
     </div>

@@ -45,7 +45,7 @@
 <!-- AFFICHAGE INFOS SERVICES -->
 <section class="skills">
     <h3>MES SERVICES</h3>
-    <?= var_dump($_POST) ?>
+    <?= print_r($_POST) ?>
     <!-- AFFICHAGE DES SERVICES/PRIX -->
     <?php if(!empty($compets)):?>
         <table>
@@ -92,7 +92,7 @@
                 <tr>
                 <label for="checkIn">
                     <td>Check-in</td>
-                    <td><input type="checkbox" name="id_skill[]" value="checkIn"></td>
+                    <td><input type="checkbox" name="id_skill[]" value="1"></td>
                     <td><input type="text" name="price[]" value=""></td>
                 </label>
                 </tr>
@@ -100,40 +100,40 @@
                 <tr>
                 <label for="checkOut">
                     <td>Check-out</td>
-                    <td><input type="checkbox" name="id_skill[]" value="checkOut"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="2"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 </tr>
                 <br>
                 <tr>
                 <label for="cleaning">
                     <td>Ménage</td>
-                    <td><input type="checkbox" name="id_skill[]" value="cleaning"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="3"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>
                 <tr>
                 <label for="gardenMaintenance">
                     <td>Entretien espaces verts</td>
-                    <td><input type="checkbox" name="id_skill[]" value="gardenMaintenance"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="4"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>
                 <tr>
                 <label for="spMaintenance">
                     <td>Entretien piscine</td>
-                    <td><input type="checkbox" name="id_skill[]" value="spMaintenance"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="5"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>
                 <tr>
                 <label for="fixing">`
                     <td>Petit bricolage / Réparations</td>
-                    <td><input type="checkbox" name="id_skill[]" value="fixing"></td>
-                    <td><input type="text" name="price[]" value=""></td>
+                    <td><input type="checkbox" name="id_skill[]" value="6"></td>
+                    <td><input type="text" name="price[]"></td>
                 </label>
                 <br>
                 </tr>

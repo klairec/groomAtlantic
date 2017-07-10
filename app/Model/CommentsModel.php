@@ -51,5 +51,49 @@ class CommentsModel extends \W\Model\Model
         }
         return false;
     }
+
+
+    public function NoteMoyGroom($idgroom){
+
+        $sql = '
+        SELECT AVG(note) 
+        FROM ' . $this->table.' 
+        WHERE id_groom = :id_groom';
+
+        $sth = $this->dbh->prepare($sql);           
+        $sth->bindValue(':id_groom', $idgroom);
+
+        if(!$sth->execute()){
+            return false;
+        }
+        return $sth->fetchAll();
+      
+
+
+
+
+    }
+
+        public function ShowComm($idgroom){
+
+        $sql = '
+        SELECT c.* 
+        FROM ' . $this->table.' AS c
+        WHERE id_groom = :id_groom';
+
+        $sth = $this->dbh->prepare($sql);           
+        $sth->bindValue(':id_groom', $idgroom);
+
+        if(!$sth->execute()){
+            return false;
+        }
+        return $sth->fetchAll();
+      
+
+
+
+
+    }
+
 }
 

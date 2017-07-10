@@ -17,24 +17,31 @@
 <div class="container">
     <div class="table">
         <div class="header-text">
-            <div class="row">
+            <div id="DivFormG" class="row">
                 <div class="col-md-12 text-center">
-                    <p>Bonjour, <?= $w_user['firstname'] ?></p>
+                    <p class="light white text-center">Bonjour, <?= $w_user['firstname'] ?></p>
                     <section>
-                        <h3>Mon profil</h3>
+                        <h3 class="light white text-center">Mon profil</h3>
                         <figure>
                             <img src="<?= $w_user['photo'] ?>">
                         </figure>
-                        <p>Nom : <?= $w_user['lastname'] ?></p>
-                        <p>Prénom : <?= $w_user['firstname'] ?></p>
-                        <p>Email : <?= $w_user['email'] ?></p>
-                        <p>Téléphone : <?= $w_user['phone'] ?></p>
-                        <p>Adresse : <?= $w_user['address'] ?></p>
-                        <p>Code postal : <?= $w_user['postcode'] ?></p>
-                        <p>Ville : <?= $w_user['cityUser'] ?></p>
-                        <p>Date d'inscription : <?= $w_user['date_creation'] ?></p>
-                        <a href="<?= $this->url('modif_groom'); ?>">Modifier mon profil</a><br>
-                        <a href="">Désinscription</a><br>
+                        <p class="light white text-center">Nom : <?= $w_user['lastname'] ?></p>
+                        <p class="light white text-center">Prénom : <?= $w_user['firstname'] ?></p>
+                        <p class="light white text-center">Email : <?= $w_user['email'] ?></p>
+                        <p class="light white text-center">Téléphone : <?= $w_user['phone'] ?></p>
+                        <p class="light white text-center">Adresse : <?= $w_user['address'] ?></p>
+                        <p class="light white text-center">Code postal : <?= $w_user['postcode'] ?></p>
+                        <p class="light white text-center">Ville : <?= $w_user['cityUser'] ?></p>
+                        <p class="light white text-center">Date d'inscription : <?= $w_user['date_creation'] ?></p>
+                        <a href="<?= $this->url('modif_groom'); ?>" class="btn btn-blue">Modifier mon profil</a><br>
+                        <br>
+    <a href="<?= $this->url('delete_profileO');?>" class="btn btn-blue"
+    onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
+    Me désinscrire</a><br>
+            </div>
+                        </div>
+                    </div>
+                </div>
                     </section>
                 </div>
             </div>
@@ -44,8 +51,12 @@
 
 <!-- AFFICHAGE INFOS SERVICES -->
 <section class="skills">
-    <h3>MES SERVICES</h3>
-    <?= print_r($_POST) ?>
+<div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+    <h3 class="light white text-center">MES SERVICES</h3>
+    
     <!-- AFFICHAGE DES SERVICES/PRIX -->
     <?php if(!empty($compets)):?>
         <table>
@@ -145,11 +156,11 @@
 </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
 <!-- AFFICHAGE DES NOTIFICATIONS -->
-<div class="container">
-    <div class="table">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <section class="notifications">
+<div class="table">
+                    <div class="header-text">
+                        <div id="DivFormG" class="row">
+                            <div class="col-md-12 text-center">
+                
                     <h3>Notifications</h3>
 
                     <!-- CONTACT ENGAGE -->
@@ -218,7 +229,10 @@
                     </div>
                 <?php endif; ?>
 
-            </section>
+            </div>
+        </div>
+          </div>
+            </div>
         </div>
     </div>
 </div>

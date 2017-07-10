@@ -72,6 +72,20 @@
                             </tbody>
                         </table>
                     <strong>Code postaux</strong>
+    <h3>MES SERVICES</h3>
+    <?= print_r($_POST) ?>
+    <!-- AFFICHAGE DES SERVICES/PRIX -->
+    <?php if(!empty($compets)):?>
+        <table>
+            <tbody>
+               <tr>
+                <td><strong>Compétences</strong></td>
+                <?php foreach ($compets as $compet): ?>
+                    <td><?php $compet = explode(',', $compet['id_skills']); ?></td>
+                <?php endforeach; ?>
+                </tr>
+                <tr>
+                    <td><strong>Prix</strong></td>
                     <?php foreach ($compets as $compet): ?>
                     <span>
                         <?php $compet = explode(',', $prix['work_area']); ?>
@@ -150,6 +164,64 @@
                     </div><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
                 </div>
             </div>
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-popup">
+            <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+            <h3 class="white">Ajouter des services</h3>
+            <form method="POST" action="<?= $this->url('users_showgroom') ?>">
+            <table>
+                <tr>
+                <label for="checkIn">
+                    <td>Check-in</td>
+                    <td><input type="checkbox" name="id_skill[]" value="1"></td>
+                    <td><input type="text" name="price[]" value=""></td>
+                </label>
+                </tr>
+                <br>
+                <tr>
+                <label for="checkOut">
+                    <td>Check-out</td>
+                    <td><input type="checkbox" name="id_skill[]" value="2"></td>
+                    <td><input type="text" name="price[]"></td>
+                </label>
+                </tr>
+                <br>
+                <tr>
+                <label for="cleaning">
+                    <td>Ménage</td>
+                    <td><input type="checkbox" name="id_skill[]" value="3"></td>
+                    <td><input type="text" name="price[]"></td>
+                </label>
+                <br>
+                </tr>
+                <tr>
+                <label for="gardenMaintenance">
+                    <td>Entretien espaces verts</td>
+                    <td><input type="checkbox" name="id_skill[]" value="4"></td>
+                    <td><input type="text" name="price[]"></td>
+                </label>
+                <br>
+                </tr>
+                <tr>
+                <label for="spMaintenance">
+                    <td>Entretien piscine</td>
+                    <td><input type="checkbox" name="id_skill[]" value="5"></td>
+                    <td><input type="text" name="price[]"></td>
+                </label>
+                <br>
+                </tr>
+                <tr>
+                <label for="fixing">`
+                    <td>Petit bricolage / Réparations</td>
+                    <td><input type="checkbox" name="id_skill[]" value="6"></td>
+                    <td><input type="text" name="price[]"></td>
+                </label>
+                <br>
+                </tr>
+            </table>
+                <button type="submit" class="btn btn-submit">Ajouter</button>
+            </form>
         </div>
     </div>
 </section>

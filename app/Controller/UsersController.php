@@ -662,7 +662,7 @@ class UsersController extends Controller
 
 
                     $mail->Subject = 'Sujet';
-                    $mail->Body = '<a href="'. $this->redirectToRoute('users_traitementReset') . '?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+                    $mail->Body = '<a href="http://localhost/Back/testgithub/groomatlantic/public/users/traitementReset?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
 
 
                     if(!$mail->Send()){

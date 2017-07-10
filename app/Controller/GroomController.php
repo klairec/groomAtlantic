@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use W\Model\UsersModel;
+use W\Model\ServicesInfosModel;
 use \Respect\Validation\Validator as v;
 
 class GroomController extends \W\Controller\Controller
@@ -152,8 +153,9 @@ class GroomController extends \W\Controller\Controller
 
 					$data = [
 						'id_skill'  => implode(',', $post['id_skill']),
-						'price'  => implode(',', $post['price']),
-						'id_groom'			=> $me['id'],
+						'price'  	=> implode(',', $post['price']),
+						'work_area' => implode(',', $post['work_area']),
+						'id_groom'	=> $me['id'],
 					];
 
 					// on insère les données tappées par l'utilisateur dans la BDD
@@ -166,6 +168,9 @@ class GroomController extends \W\Controller\Controller
 
 						return $addSkills;
 					}
+				}
+				else {
+
 				}
 			}
 			else {

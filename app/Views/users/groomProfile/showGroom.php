@@ -39,7 +39,7 @@
 <!-- AFFICHAGE INFOS SERVICES -->
 <section class="skills">
     <h3>MES SERVICES</h3>
-    <?= var_dump($addSkills) ?>
+    <?= var_dump($_POST) ?>
     <!-- AFFICHAGE DES SERVICES/PRIX -->
     <?php if(!empty($compets)):?>
         <table>
@@ -48,22 +48,30 @@
                 <td><strong>Compétences</strong></td>
                 <?php foreach ($compets as $compet): ?>
                     <td><?php $compet = explode(',', $compet['id_skills']); ?></td>
+                <?php endforeach; ?>
                 </tr>
                 <tr>
                     <td><strong>Prix</strong></td>
-                    <td><?php $compet = explode(',', $prix['price']); ?>
-                    <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a></td>
-                <?php endforeach; ?>
-            </tr> 
-        </tbody>
-    </table>
+                    <?php foreach ($compets as $compet): ?>
+                        <td><?php $compet = explode(',', $prix['price']); ?>
+                        <a href="<?= $this->url('services_change', ['id' => $compet['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>    
+            </tbody>
+        </table>
+        <strong>Code postaux</strong>
+            <?php foreach ($compets as $compet): ?>
+                    <span><?php $compet = explode(',', $prix['work_area']); ?>
+                    </span>
+            <?php endforeach; ?>
     <br>
 
-<?php else: ?>
-    <div class="alert alert-danger">
-        Aucune service renseigné.
-    </div>
-<?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
+    <?php else: ?>
+        <div class="alert alert-danger">
+            Aucune service renseigné.
+        </div>
+    <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
 
 <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
 <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>

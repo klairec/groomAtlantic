@@ -29,7 +29,7 @@ $w_routes = array(
 	/*Laisser Vide ci-dessus */
 
 	// ROUTES PROFIL CONCIERGE
-	['GET', '/users/groomProfile/showGroom', 'Users#showGroom', 'users_showgroom'],
+	['GET|POST', '/users/groomProfile/showGroom', 'Users#showGroom', 'users_showgroom'],
 	['GET|POST', '/users/groomProfile/modifGroom', 'Users#modifProfilegroom', 'modif_groom'],
 	['GET|POST', '/users/groomProfile/changeProfile', 'Users#changeProfile', 'change_profile'],
 	['GET|POST', '/users/groomProfile/deleteProfile', 'Users#deleteProfile', 'delete_profile'],

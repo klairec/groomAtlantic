@@ -42,7 +42,7 @@
 							</div>
 							<div class="form-group">
 								<label for="phone"><h4>Téléphone</h4></label>
-								<input name="phone" type="text" class="form-control" value="<?=$w_user['phone']; ?>">
+								<input name="phone" type="text" maxlength="10" class="form-control" value="<?=$w_user['phone']; ?>">
 							</div>
 							<div class="form-group">
 								<label for="address"><h4>Adresse</h4></label>

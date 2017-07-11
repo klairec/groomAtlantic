@@ -65,7 +65,7 @@
                                 }?>">
                                             </div>
                                             <div class="form-group">
-                                                <input  name="phone" type="text" placeholder="0102030405" class="form-control" value="<?php if(!empty($post['phone'])){
+                                                <input  name="phone" type="text" maxlength="10"placeholder="0102030405" class="form-control" value="<?php if(!empty($post['phone'])){
                                     echo $post['phone'];
 
                                 }?>">

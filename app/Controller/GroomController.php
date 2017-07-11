@@ -240,7 +240,6 @@ class GroomController extends \W\Controller\Controller
         $services = $voirSer->showServices($me['id']);
 
 		$params = [
-		'changeSkills' => $changeSkills,
         'services' => $services,
         'errors' => $errors,
         ];  

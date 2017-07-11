@@ -54,7 +54,7 @@
     <div class="table">
         <div class="header-text">
             <div id="DivFormO" class="row">
-                <div class="col-md-12 text-center">
+                
                     <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
                     <?php 
 
@@ -67,7 +67,7 @@
                     ?>
 
                     <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
-                </div>
+              
             </div>        
             <div class="row">
                 <div id="map"></div>

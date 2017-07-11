@@ -102,14 +102,11 @@
                         var marker, i;
 
                         for (i = 0; i < locations.length; i++) {
-                            var image{
-                                url: <?= $this->assetUrl('img/puce.png') ?>
-                            };
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                                 map: map,
                                 url: locations[i][4],
-                                icon: image
+                                icon: '<?= $this->assetUrl('img/puce.png') ?>'
                             });
 
                             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {

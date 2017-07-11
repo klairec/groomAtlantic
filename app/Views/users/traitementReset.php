@@ -25,8 +25,6 @@
                                 }
                             ?>
 
-
-
                             <?php if ($showForm = true){?>
 
                                 <form method="POST">
@@ -39,15 +37,12 @@
                                         <button type="submit">Réinitialiser le mdp</button>
                                     </div>
                                 </form>                      
-
                             <?php } ?>
-
-                          
-
                         </div>
                     </div>
                 </div>
             </div>
+            
 <?php $this->stop('header') ?>
 
 <?php $this->start('main_content') ?>

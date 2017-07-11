@@ -22,12 +22,12 @@
     <div id="DivFormG" class="row">
         <div class="col-md-12 text-center">
             <section class="profile">
-                <h3 class="light white text-center">MON PROFIL</h3>
+                <h3 class="strong white text-center">MON PROFIL</h3>
                 <figure>
                     <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
                 </figure>
-                <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
-                <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
+                <p class="strong white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
+                <p class="strong white text-center">Email : <?=$showInfos['email']; ?></p>
                 <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
                 <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
                 <p class="light white text-center">Code postal : <?=$showInfos['postcode']; ?></p>

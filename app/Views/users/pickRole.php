@@ -7,7 +7,7 @@
                     <div class="header-text">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <p>Inscription en tant que :</p>
+                                <h2 class="light white">Etes-vous:</h2>
                                 <a href="<?=  $this->url('users_addGroom') ?>"><button type="button" class="btn btn-link">Groom</button></a>
                                 <a href="<?=  $this->url('users_addOwner') ?>"><button type="button" class="btn btn-link">Propriétaire</button></a>
                             </div>

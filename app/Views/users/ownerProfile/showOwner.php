@@ -16,11 +16,12 @@
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
-<section class="profile">
-  <div class="table">
-    <div class="header-text">
-        <div id="DivFormG" class="row">
-            <div class="col-md-12 text-center">
+
+<div class="table">
+<div class="header-text">
+    <div id="DivFormG" class="row">
+        <div class="col-md-12 text-center">
+            <section class="profile">
                 <h3 class="light white text-center">MON PROFIL</h3>
                 <figure>
                     <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
@@ -38,54 +39,44 @@
                 <a href="<?= $this->url('delete_profileO');?>" class="btn btn-blue"
                     onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
                     Me désinscrire</a><br>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
 <!-- AFFICHAGE INFOS LOCATIONS -->
 
-<section class="rentals">
-    <div class="table">
-        <div class="header-text">
-            <div id="DivFormG" class="row">
-                <div class="col-md-12 text-center">
-                    <h3 class="light white text-center"><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h3>
+            <section class="rentals">
+ 
+                <h3 class="light white text-center"><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h3>
 
-                    <!-- AFFICHAGE DES LOCATIONS -->
+                <!-- AFFICHAGE DES LOCATIONS -->
 
-                    <?php if(!empty($locations)):?>
+                <?php if(!empty($locations)):?>
 
-                        <?php foreach ($locations as $location): ?>
+                    <?php foreach ($locations as $location): ?>
 
-                            <?php $locs = explode('|', $location['outdoor_fittings']); ?>
+                        <?php $locs = explode('|', $location['outdoor_fittings']); ?>
 
-                            <article>
-                                <h3><?=$location['title']; ?></h3>
-                                <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;
-                                    <?php foreach ($locs as $loc): ?>
-                                        <span><?= $loc; ?></span>
-                                    <?php endforeach; ?>
-                                </p>
-                                <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
-                                </p>
-                                <a href="<?= $this->url('rentals_change', ['id' => $location['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                        <article>
+                            <h3><?=$location['title']; ?></h3>
+                            <p><span><?=$location['rooms']; ?>&nbsp;pièces</span>&nbsp;<span><?=$location['area']; ?>&nbsp;m²</span>&nbsp;
+                                <?php foreach ($locs as $loc): ?>
+                                    <span><?= $loc; ?></span>
+                                <?php endforeach; ?>
+                            </p>
+                            <p><span><?=$location['street']; ?></span>&nbsp;<span><?=$location['city']; ?></span>&nbsp;
+                            </p>
+                            <a href="<?= $this->url('rentals_change', ['id' => $location['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                            <a href="<?= $this->url('rentals_delete', ['id' => $location['id']]) ?>" class="btn btn-blue" value="delete" onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</a>
+                            </article>
+                        <br>
+                        <?php endforeach; ?>
 
-                                <a href="<?= $this->url('rentals_delete', ['id' => $location['id']]) ?>" class="btn btn-blue" value="delete" 
-                                    onClick="if(confirm('Confirmez vous la suppression de cette location ?')){return true;}else{return false;}">Supprimer</a>
-                                </article>
-                                <br>
-
-                            <?php endforeach; ?>
-
-                        <?php else: ?>
-                            <div class="alert alert-danger">
-                                Aucune location renseignée.
-                            </div>
-                        <?php endif; ?><!-- AFFICHAGE DES LOCATIONS -->
+                    <?php else: ?>
+                        <div class="alert alert-danger">
+                            Aucune location renseignée.
+                        </div>
+                    <?php endif; ?><!-- AFFICHAGE DES LOCATIONS -->
 
                     <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
@@ -158,10 +149,6 @@
 <!-- AFFICHAGE NOTIFICATIONS -->
 
 <section class="notifications">
-    <div class="table">
-        <div class="header-text">
-            <div id="DivFormG" class="row">
-                <div class="col-md-12 text-center">
                     <h3 class="light white text-center">NOTIFICATIONS</h3>
 
                     <!-- AFFICHAGE DES COORDONNES RECUES -->
@@ -175,10 +162,6 @@
                     <!-- AFFICHAGE NOTATION -->
 
                     <div></div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section><!-- AFFICHAGE NOTIFICATIONS -->
 
 <!-- AFFICHAGE AVIS LAISSES -->

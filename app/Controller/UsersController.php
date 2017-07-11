@@ -367,42 +367,76 @@ class UsersController extends Controller
 
 
                 // AJOUT PHOTO DE PROFIL
-                // création d'un nom unique
-                $nom = md5(uniqid(rand(), true));
+                $maxfilesize = 1048576; 
+                if($_FILES['photo']['error'] === 0 AND $_FILES['photo']['size'] < $maxfilesize){
+                    
+                    // création de la variable $fileinfo qui récupère les infos du fichier uploadé
+                    $fileInfo = pathinfo($_FILES['photo']['name']);
 
-                // création de la variable $fileinfo qui récupère les infos du fichier uploadé
-                $fileInfo = pathinfo($_FILES['photo']['name']);
+                    // création de la variable extension qui récupère l'extension du fichier uploadé
+                    $extension = $fileInfo['extension'];
 
-                // création de la variable extension qui récupère l'extension du fichier uploadé
-                $extension = $fileInfo['extension'];
+                    // création de la miniature
+                    if($extension == 'jpg' OR $extension == 'jpeg'){
+                        $newImage = imagecreatefromjpeg($_FILES['photo']['tmp_name']);	
+                    }
+                    elseif($extension == 'png'){
+                        $newImage = imagecreatefrompng($_FILES['photo']['tmp_name']);
+                    }
+                    else{
+                        $newImage = imagecreatefromgif($_FILES['photo']['tmp_name']);
+                    }
 
-                // création de la route à suivre pour le stockage de l'image, on écrit d'abord sa position puis sa destination
-                move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+                    //Calcul des nouvelles dimensions
+                    $imageWidth = imagesx($newImage);
+                    $imageHeight = imagesy($newImage);
+                    $newWidth = 200;
+                    $newHeight = ($imageHeight * $newWidth) / $imageWidth;
 
-                // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
-                $fileName = $nom.'.'.$extension;
+                    // On crée la nouvelle image
+                    $miniature = imagecreatetruecolor($newWidth, $newHeight);
 
+                    imagecopyresampled($miniature, $newImage, 0, 0, 0, 0, $newWidth, $newHeight, $imageWidth, $imageHeight);
 
-                $data = [
-                    'firstname'  => ucfirst($post['firstname']), 
-                    'lastname'   => strtoupper($post['lastname']),
-                    'email'      => strtolower($post['email']),
-                    'address'    => strtolower($post['address']),
-                    'postcode'   => $post['postcode'],
-                    'cityUser'   => strtoupper($post['cityUser']),
-                    'phone'      => $post['phone'],
-                    // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
-                    'photo'      => $fileName,
-                ];
+                    // création d'un nom unique
+                    $nom = md5(uniqid(rand(), true));
 
-                $usersModel = new UsersModel();
-                $update = $usersModel->update($data, $user_connect['id']);
+                    if($extension == 'jpg' OR $extension == 'jpeg'){
+                        imagejpeg($miniature, 'assets/img/profilePict/' . $nom . '.' . $extension);
+                    }
+                    elseif($extension == 'png'){
+                        imagepng($miniature, 'assets/img/profilePict/' . $nom . '.' . $extension);
+                    }
+                    else{
+                        imagegif($miniature, 'assets/img/profilePict/' . $nom . '.' . $extension);
+                    }
 
-                if(!empty($update)){
-                    $formValid = true;
+                    // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
+                    $fileName = $nom.'.'.$extension;
 
-                    $this->flash('Vos informations ont été modifiées', 'success');
-                    $this->redirectToRoute('users_showgroom');
+                    $data = [
+                        'firstname'  => ucfirst($post['firstname']), 
+                        'lastname'   => strtoupper($post['lastname']),
+                        'email'      => strtolower($post['email']),
+                        'address'    => strtolower($post['address']),
+                        'postcode'   => $post['postcode'],
+                        'cityUser'   => strtoupper($post['cityUser']),
+                        'phone'      => $post['phone'],
+                        // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
+                        'photo'      => $fileName,
+                        'size'       => $_FILES['photo']['size'],
+                    ];
+
+                    $usersModel = new UsersModel();
+                    $update = $usersModel->update($data, $user_connect['id']);
+
+                    if(!empty($update)){
+                        $formValid = true;
+
+                        $this->flash('Vos informations ont été modifiées', 'success');
+                        $this->redirectToRoute('users_showgroom');
+                    }
+
                 }
             }
         }
@@ -414,7 +448,6 @@ class UsersController extends Controller
 
         $this->show('/users/groomProfile/changeProfile', $params);
     }
-
 
     /**
      * Suppression du compte groom
@@ -645,34 +678,65 @@ class UsersController extends Controller
 
 
                 // AJOUT PHOTO DE PROFIL
-                // création d'un nom unique
-                $nom = md5(uniqid(rand(), true));
+                $maxfilesize = 1048576; 
+                if($_FILES['photo']['error'] === 0 AND $_FILES['photo']['size'] < $maxfilesize){
+                    
+                    // création de la variable $fileinfo qui récupère les infos du fichier uploadé
+                    $fileInfo = pathinfo($_FILES['photo']['name']);
 
-                // création de la variable $fileinfo qui récupère les infos du fichier uploadé
-                $fileInfo = pathinfo($_FILES['photo']['name']);
+                    // création de la variable extension qui récupère l'extension du fichier uploadé
+                    $extension = $fileInfo['extension'];
 
-                // création de la variable extension qui récupère l'extension du fichier uploadé
-                $extension = $fileInfo['extension'];
+                    // création de la miniature
+                    if($extension == 'jpg' OR $extension == 'jpeg'){
+                        $newImage = imagecreatefromjpeg($_FILES['photo']['tmp_name']);	
+                    }
+                    elseif($extension == 'png'){
+                        $newImage = imagecreatefrompng($_FILES['photo']['tmp_name']);
+                    }
+                    else{
+                        $newImage = imagecreatefromgif($_FILES['photo']['tmp_name']);
+                    }
 
-                // création de la route à suivre pour le stockage de l'image, on écrit d'abord sa position puis sa destination
-                move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/profilePict/'.$nom.'.'.$extension);
+                    //Calcul des nouvelles dimensions
+                    $imageWidth = imagesx($newImage);
+                    $imageHeight = imagesy($newImage);
+                    $newWidth = 200;
+                    $newHeight = ($imageHeight * $newWidth) / $imageWidth;
 
-                // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
-                $fileName = $nom.'.'.$extension;
+                    // On crée la nouvelle image
+                    $miniature = imagecreatetruecolor($newWidth, $newHeight);
 
+                    imagecopyresampled($miniature, $newImage, 0, 0, 0, 0, $newWidth, $newHeight, $imageWidth, $imageHeight);
 
-                $data = [
-                    'firstname'  => ucfirst($post['firstname']), 
-                    'lastname'   => strtoupper($post['lastname']),
-                    'email'      => strtolower($post['email']),
-                    'address'    => strtolower($post['address']),
-                    'postcode'   => $post['postcode'],
-                    'cityUser'   => strtoupper($post['cityUser']),
-                    'phone'      => $post['phone'],
-                    // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
-                    'photo'      => $fileName,
-                ];
+                    // création d'un nom unique
+                    $nom = md5(uniqid(rand(), true));
 
+                    if($extension == 'jpg' OR $extension == 'jpeg'){
+                        imagejpeg($miniature, 'assets/img/profilePict/' . $nom . '.' . $extension);
+                    }
+                    elseif($extension == 'png'){
+                        imagepng($miniature, 'assets/img/profilePict/' . $nom . '.' . $extension);
+                    }
+                    else{
+                        imagegif($miniature, 'assets/img/profilePict/' . $nom . '.' . $extension);
+                    }
+
+                    // création du nom du fichier une fois uploadé (à rentrer dans la BDD)
+                    $fileName = $nom.'.'.$extension;
+
+                    $data = [
+                        'firstname'  => ucfirst($post['firstname']), 
+                        'lastname'   => strtoupper($post['lastname']),
+                        'email'      => strtolower($post['email']),
+                        'address'    => strtolower($post['address']),
+                        'postcode'   => $post['postcode'],
+                        'cityUser'   => strtoupper($post['cityUser']),
+                        'phone'      => $post['phone'],
+                        // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
+                        'photo'      => $fileName,
+                        'size'       => $_FILES['photo']['size'],
+                    ];
                 $usersModel = new UsersModel();
                 $update = $usersModel->update($data, $user_connect['id']);
 

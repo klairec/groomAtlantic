@@ -8,8 +8,8 @@
     }
 
     body{
-            background: #89b5f7;
-        }
+        background: #89b5f7;
+    }
 
     #retourAccueil {
         color: #fff; 
@@ -54,9 +54,9 @@
     <div class="table">
         <div class="header-text">
             <div id="DivFormO" class="row">
-                
-                    <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
-                    <?php 
+
+                <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
+                <?php 
 
     if(!empty($errors)){
 
@@ -64,10 +64,10 @@
 
     }
 
-                    ?>
+                ?>
 
-                    <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
-              
+                <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
+
             </div>        
             <div class="row">
                 <div id="map"></div>
@@ -77,7 +77,7 @@
                         var locations = 
                             [
                                 <?php
-                                
+
                                 if(isset($markers) and !empty($markers))
                                 {
 
@@ -102,10 +102,14 @@
                         var marker, i;
 
                         for (i = 0; i < locations.length; i++) {
+                            var image{
+                                url: <?= $this->assetUrl('img/puce.png') ?>
+                            };
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                                 map: map,
-                                url: locations[i][4]
+                                url: locations[i][4],
+                                icon: image
                             });
 
                             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
@@ -132,62 +136,62 @@
                 </script>
                 <div id="map canvas"></div>
                 <?php  
-                    if(!empty($resultSearch)){               
+                if(!empty($resultSearch)){               
 
-                        foreach ($resultSearch as $datas) {   
+                    foreach ($resultSearch as $datas) {   
                 ?>
-                            <div class="col-md-4">
-                                <div class="team text-center">
-                                    <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
-                                        <div style="text-align: center" class="overlay text-center">
-                                            <h5 class="white">Mes compétences & tarifs : </h5>
-                                            <h5 class="light light-white"></h5>
-                                          
-                                            <table id="TabComp">
-                                                <tr>
-                                                    <?php                                                        
-                                                        foreach ($datas['comp'] as $skill) {
-                                                            echo ' <th>' .$skill['skills']. '</th>';
-                                                        }
-                                                    ?>
+                <div class="col-md-4">
+                    <div class="team text-center">
+                        <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
+                            <div style="text-align: center" class="overlay text-center">
+                                <h5 class="white">Mes compétences & tarifs : </h5>
+                                <h5 class="light light-white"></h5>
 
-                                                </tr>
-                                                <tr>
-                                                    <?php 
-                                                        foreach ($datas['prix'] as $prix) {
+                                <table id="TabComp">
+                                    <tr>
+                                        <?php                                                        
+                    foreach ($datas['comp'] as $skill) {
+                        echo ' <th>' .$skill['skills']. '</th>';
+                    }
+                                        ?>
 
-                                                            echo '<td>'.$prix.' €</td>';
-                                                        }
-                                                    ?>
-                                                </tr> 
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">
-                                    <div class="title">
-                                        <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
-                                        <h5 class="muted regular">Groom sur 
-                                            <?php
-                                                foreach ($datas['villeAction'] as $city) {
-                                                    echo ucfirst(strtolower($city));
-                                                } 
+                                    </tr>
+                                    <tr>
+                                        <?php 
+                        foreach ($datas['prix'] as $prix) {
 
-                                            ?>
-                                        </h5>
-                                    </div>
-                                    <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
-                                </div>
+                            echo '<td>'.$prix.' €</td>';
+                        }
+                                        ?>
+                                    </tr> 
+                                </table>
                             </div>
-                    <?php
+                        </div>
+                        <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">
+                        <div class="title">
+                            <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
+                            <h5 class="muted regular">Groom sur 
+                                <?php
+                                            foreach ($datas['villeAction'] as $city) {
+                                                echo ucfirst(strtolower($city));
+                                            } 
 
-                        } //fin du foreach Infosgroom
+                                ?>
+                            </h5>
+                        </div>
+                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
+                    </div>
+                </div>
+                <?php
 
-                    } // fin du if resulSearch   
-                    else{
+                    } //fin du foreach Infosgroom
 
-                        ?><div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;"> Malheuresement, nous n'avons pas encore de Grooms inscrits dans les environs..</div>
-                        <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
-                    }                                
+                } // fin du if resulSearch   
+                else{
+
+                ?><div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;"> Malheuresement, nous n'avons pas encore de Grooms inscrits dans les environs..</div>
+                <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
+                }                                
 
                 ?>
             </div>

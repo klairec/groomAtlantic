@@ -3,7 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\Model\UsersModel;
+use \Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
@@ -212,7 +212,8 @@ class UsersController extends Controller
                 $authModel = new \W\Security\AuthentificationModel;
 
                 $localisation = new UsersModel;
-                $local = $localisation->getXmlCoordsFromAdress($post['address']);
+                $full_address = $post['address'].', '.$post['postcode'].' '.$post['cityUser'];
+                $local = $localisation->getXmlCoordsFromAdress($full_address);
 
                 // on crée le tableau de données à insérer
                 $data = [
@@ -634,7 +635,7 @@ class UsersController extends Controller
                     $errors[] = 'La photo de profil n\'est pas au bon format.';
                 }
 
-                if(!v::size('2MB')->validate($_FILES['photo']['tmp_name'])){
+                if(!v::size(null, '2MB')->validate($_FILES['photo']['tmp_name'])){
                     $errors[] = 'La taille de la photo de profil ne doit pas dépasser 2 Mo.';
                 }
             }

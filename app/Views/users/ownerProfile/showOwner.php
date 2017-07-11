@@ -15,6 +15,7 @@
 <?php $this->start('main_content') ?>
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
+
 <section class="profile">
   <div class="table">
     <div class="header-text">
@@ -22,7 +23,7 @@
             <div class="col-md-12 text-center">
                 <h3 class="light white text-center">MON PROFIL</h3>
                 <figure>
-                    <img src="/assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
+                    <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
                 </figure>
                 <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                 <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
@@ -41,9 +42,12 @@
             </div>
         </div>
     </div>
-</section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->
+</section>
+
+<!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
 <!-- AFFICHAGE INFOS LOCATIONS -->
+
 <section class="rentals">
     <div class="table">
         <div class="header-text">
@@ -52,6 +56,7 @@
                     <h3 class="light white text-center"><?=(count($locations) <= 1) ? 'MA LOCATION' : 'MES LOCATIONS'; ?></h3>
 
                     <!-- AFFICHAGE DES LOCATIONS -->
+
                     <?php if(!empty($locations)):?>
 
                         <?php foreach ($locations as $location): ?>
@@ -82,123 +87,129 @@
                             </div>
                         <?php endif; ?><!-- AFFICHAGE DES LOCATIONS -->
 
-                        <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
-                        <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter une location</a>
+                    <!-- AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
-                        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content modal-popup">
-                                    <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-                                    <h3 class="white">Ajouter une location</h3>
-
-                                    <div><!-- affichage msg d'erreurs --></div>
-
-                                    <form method="POST" action="<?= $this->url('users_showowner') ?>">
-                                        <label for="title">Titre</label>
-                                        <input type="text" name="title" id="title">
-                                        <label for="type">Type de location</label>
-                                        <select name="type">
-                                            <option value="" selected disabled>--Sélectionnez--</option>
-                                            <option value="flat">Appartement</option>
-                                            <option value="house">Maison</option>
-                                            <option value="loft">Loft</option>
-                                            <option value="mobilhome">Mobilhome</option>
-                                        </select>
-                                        <label for="area">Surface</label>
-                                        <input type="text" name="area" id="area" placeholder="..m²">
-                                        <label for="rooms">Nombre de pièces</label>
-                                        <input type="text" name="rooms" id="rooms">
-                                        <label for="outdoor_fittings">Equipements extérieurs</label>
-                                        <label for="jardin">
-                                            <input type="checkbox" name="outdoor_fittings[]" value="jardin">Jardin</label>
-                                            <label for="terrasse">
-                                                <input type="checkbox" name="outdoor_fittings[]" value="terrasse">Terrasse</label>
-                                                <label for="balcon">
-                                                    <input type="checkbox" name="outdoor_fittings[]" value="balcon">Balcon</label>
-                                                    <label for="piscine">
-                                                        <input type="checkbox" name="outdoor_fittings[]" value="piscine">Piscine</label>
-                                                        <label for="jacuzzi">
-                                                            <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi">Jacuzzi</label>
-                                                            <h3>Adresse</h3>
-                                                            <label for="street">Voie</label>
-                                                            <input type="text" name="street" id="street" placeholder="">
-                                                            <label for="postcode">Code postal</label>
-                                                            <input type="text" name="postcode" id="postcode" placeholder="">
-                                                            <label for="city">Ville</label>
-                                                            <input type="text" name="city" id="city" placeholder="">
-                                                            <button type="submit" class="btn btn-submit">Ajouter une location</button>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter une location</a>
+                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content modal-popup">
+                                <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+                                <h3 class="white">Ajouter une location</h3>
+                                <div><!-- affichage msg d'erreurs --></div>
+                                <form method="POST" action="<?= $this->url('users_showowner') ?>">
+                                    <label for="title">Titre</label>
+                                    <input type="text" name="title" id="title">
+                                    <label for="type">Type de location</label>
+                                    <select name="type">
+                                        <option value="" selected disabled>--Sélectionnez--</option>
+                                        <option value="flat">Appartement</option>
+                                        <option value="house">Maison</option>
+                                        <option value="loft">Loft</option>
+                                        <option value="mobilhome">Mobilhome</option>
+                                    </select>
+                                    <label for="area">Surface</label>
+                                    <input type="text" name="area" id="area" placeholder="..m²">
+                                    <label for="rooms">Nombre de pièces</label>
+                                    <input type="text" name="rooms" id="rooms">
+                                    <label for="outdoor_fittings">Equipements extérieurs</label>
+                                    <label for="jardin">
+                                    <input type="checkbox" name="outdoor_fittings[]" value="jardin">Jardin</label>
+                                    <label for="terrasse">
+                                    <input type="checkbox" name="outdoor_fittings[]" value="terrasse">Terrasse</label>
+                                    <label for="balcon">
+                                    <input type="checkbox" name="outdoor_fittings[]" value="balcon">Balcon</label>
+                                    <label for="piscine">
+                                    <input type="checkbox" name="outdoor_fittings[]" value="piscine">Piscine</label>
+                                    <label for="jacuzzi">
+                                    <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi">Jacuzzi</label>
+                                    <h3>Adresse</h3>
+                                    <label for="street">Voie</label>
+                                    <input type="text" name="street" id="street" placeholder="">
+                                    <label for="postcode">Code postal</label>
+                                    <input type="text" name="postcode" id="postcode" placeholder="">
+                                    <label for="city">Ville</label>
+                                    <input type="text" name="city" id="city" placeholder="">
+                                    <button type="submit" class="btn btn-submit">Ajouter une location</button>
+                                </form>
                             </div>
-                        </section><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
 
-                        <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+<!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
-                        <section class="groom_research">
-                            <div class="table">
-                                <div class="header-text">
-                                    <div id="DivFormG" class="row">
-                                        <div class="col-md-12 text-center">
-                                            <h3 class="light white text-center">ACCUEIL</h3>
-                                            <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
-                                        </div>
-                                    </div>
+<section class="groom_research">
+    <div class="table">
+        <div class="header-text">
+            <div id="DivFormG" class="row">
+                <div class="col-md-12 text-center">
+                    <h3 class="light white text-center">ACCUEIL</h3>
+                    <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+
+<!-- AFFICHAGE NOTIFICATIONS -->
+
+<section class="notifications">
+    <div class="table">
+        <div class="header-text">
+            <div id="DivFormG" class="row">
+                <div class="col-md-12 text-center">
+                    <h3 class="light white text-center">NOTIFICATIONS</h3>
+
+                    <!-- AFFICHAGE DES COORDONNES RECUES -->
+
+                    <div></div>
+
+                    <!-- AFFICHAGE CONFIRMATION  -->
+
+                    <div></div>
+
+                    <!-- AFFICHAGE NOTATION -->
+
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- AFFICHAGE NOTIFICATIONS -->
+
+<!-- AFFICHAGE AVIS LAISSES -->
+
+<section class="marks_history">
+    <div class="table">
+        <div class="header-text">
+            <div id="DivFormG" class="row">
+                <div class="col-md-12 text-center">
+                    <h3 class="light white text-center">MES AVIS LAISSES</h3>
+                    <?php if(!empty($comments)):?>
+                        <?php foreach ($comments as $comment): ?>
+                            <article>
+                                <?php foreach ($commentsAd as $commentAd): ?>
+                                    <h3><?=$commentAd['firstname']; ?></h3>
+                                <?php endforeach; ?>
+                                <div class="content">
+                                    <?=nl2br($comment['content']); ?>
                                 </div>
-                            </div>
-                        </section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+                                <p><?=$comment['date']; ?></p>
+                            </article>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="alert alert-danger">
+                            <p>Aucun avis laissé.</p>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- AFFICHAGE AVIS LAISSES -->
 
-                        <!-- AFFICHAGE NOTIFICATIONS -->
-
-                        <section class="notifications">
-                            <div class="table">
-                                <div class="header-text">
-                                    <div id="DivFormG" class="row">
-                                        <div class="col-md-12 text-center">
-                                            <h3 class="light white text-center">NOTIFICATIONS</h3>
-
-                                            <!-- AFFICHAGE DES COORDONNES RECUES -->
-                                            <div></div>
-                                            <!-- AFFICHAGE CONFIRMATION  -->
-                                            <div></div>
-                                            <!-- AFFICHAGE NOTATION -->
-                                            <div></div>
-                                        </section><!-- AFFICHAGE NOTIFICATIONS -->
-
-                                        <!-- AFFICHAGE AVIS LAISSES -->
-                                        <section class="marks_history">
-                                            <div class="table">
-                                                <div class="header-text">
-                                                    <div id="DivFormG" class="row">
-                                                        <div class="col-md-12 text-center">
-                                                            <h3 class="light white text-center">MES AVIS LAISSES</h3>
-                                                            <?php if(!empty($comments)):?>
-
-                                                                <?php foreach ($comments as $comment): ?>
-                                                                    <article>
-                                                                        <?php foreach ($commentsAd as $commentAd): ?>
-                                                                            <h3><?=$commentAd['firstname']; ?></h3>
-                                                                        <?php endforeach; ?>
-                                                                        <div class="content">
-                                                                            <?=nl2br($comment['content']); ?>
-                                                                        </div>
-                                                                        <p><?=$comment['date']; ?></p>
-                                                                    </article>
-                                                                    <hr>
-                                                                <?php endforeach; ?>
-                                                            <?php else: ?>
-                                                                <div class="alert alert-danger">
-                                                                    <p>Aucun avis laissé.</p>
-                                                                </div>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </section><!-- AFFICHAGE AVIS LAISSES -->
-
-                                        <?php $this->stop('main_content') ?>
+<?php $this->stop('main_content') ?>

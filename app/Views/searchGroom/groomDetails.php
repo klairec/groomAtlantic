@@ -15,7 +15,7 @@
             background: #89b5f7;
         }
 
-        .contact1, #connect2 {
+        /*.contact1, #connect2 {
             color: #fff; 
             text-align: center; 
             display: block; 
@@ -24,11 +24,11 @@
             margin:auto 20em;
             border-radius: 30px;
             padding: 1em 0 1em 0px;
-        }
+        }*/
 
-       .contact1:hover, #connect2:hover {
+       /*.contact1:hover, #connect2:hover {
            background:rgba(240, 100, 103, 1);
-        }
+        }*/
 
         #retourAccueil {
         color: #fff; 
@@ -54,7 +54,7 @@
     <div class="container";>
         <div class="table">
             <div class="header-text">
-                <div class="row">
+                <div id="DivFormO" class="row">
                     <div class="col-md-12 text-center">
 
                     <?php 
@@ -127,13 +127,13 @@
                                     <?php
                                         if($w_user['role'] == 'owner'){ //Si on est inscrit en tant que groomon a accès au bouton de contact                                        
                                     ?>
-                                            <a class="contact1" href="#" data-toggle="modal" data-target="#modal2">Contacter <?= ucfirst($datas['firstname'])?></a>
+                                            <a class="contact1" href="#" data-toggle="modal" data-target="#modal2"><button class="btn btn-default">Contacter <?= ucfirst($datas['firstname'])?></button></a>
                                     <?php       
                                     }
                                     
                                         else{ // Sinon bouton de connexion
                                     ?>      
-                                    <a id="connect2" href="#" data-toggle="modal" data-target="#modal1" >Propriétaire ?<br> Me connecter pour contacter <?= ucfirst($datas['firstname'])?></a>
+                                    <a id="connect2" href="#" data-toggle="modal" data-target="#modal1"><button class="btn btn-default">Propriétaire ?<br> Me connecter pour contacter <?= ucfirst($datas['firstname'])?></button></a>
                                     <?php
                                         }
                                    

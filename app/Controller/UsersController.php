@@ -322,11 +322,11 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
@@ -600,11 +600,11 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 

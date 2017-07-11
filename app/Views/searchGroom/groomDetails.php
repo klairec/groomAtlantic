@@ -127,13 +127,13 @@
                                     <?php
                                         if($w_user['role'] == 'owner'){ //Si on est inscrit en tant que groomon a accès au bouton de contact                                        
                                     ?>
-                                            <a class="contact1" href="#" data-target="#modal2"><button class="btn btn-default">Contacter <?= ucfirst($datas['firstname'])?></button></a>
+                                            <a class="contact1" href="#" data-toggle="modal" data-target="#modal2"><button class="btn btn-default">Contacter <?= ucfirst($datas['firstname'])?></button></a>
                                     <?php       
                                     }
                                     
                                         else{ // Sinon bouton de connexion
                                     ?>      
-                                    <a id="connect2" href="#" data-target="#modal1"><button class="btn btn-default">Propriétaire ?<br> Me connecter pour contacter <?= ucfirst($datas['firstname'])?></button></a>
+                                    <a id="connect2" href="#" data-toggle="modal" data-target="#modal1"><button class="btn btn-default">Propriétaire ?<br> Me connecter pour contacter <?= ucfirst($datas['firstname'])?></button></a>
                                     <?php
                                         }
                                    

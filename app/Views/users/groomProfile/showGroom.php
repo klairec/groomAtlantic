@@ -14,11 +14,11 @@ body{
 
 <?php $this->start('main_content') ?>
 
-<section class="profile">
   <div class="table">
     <div class="header-text">
         <div id="DivFormG" class="row">
             <div class="col-md-12 text-center">
+            <section class="profile">
                 <h3 class="light white text-center">MON PROFIL</h3>
                 <figure id="profile_picture">
                     <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>">
@@ -36,22 +36,13 @@ body{
                 <a href="<?= $this->url('delete_profile');?>" class="btn btn-blue"
                     onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
                     Me désinscrire</a><br>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->
+            </section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
+            <!-- AFFICHAGE DES SERVICES/PRIX -->
 
-
-<!-- AFFICHAGE DES SERVICES/PRIX -->
-<section class="skills">
-    <div class="table">
-        <div class="header-text">
-            <div id="DivFormG" class="row">
-                <div class="col-md-12 text-center">
-                    <h3 class="light white text-center">MES SERVICES</h3>
-                    <?php if(!empty($services)):?>
+            <section class="skills">
+                <h3 class="light white text-center">MES SERVICES</h3>
+                <?php if(!empty($services)):?>
                     <?php
                     /*
                     echo '<pre>';
@@ -88,8 +79,7 @@ body{
                                     <?php endforeach; ?>
                                 </tr>
                             </tbody>
-                        </table>
-
+                        </table
                         <br>
 
                     <?php else: ?>
@@ -99,6 +89,7 @@ body{
                     <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
 
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
+
                     <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
 
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -169,11 +160,7 @@ body{
                     </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
 
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
-                    <div class="table">
-                        <div class="header-text">
-                            <div id="DivFormG" class="row">
-                                <div class="col-md-12 text-center">
-
+                    
                                     <h3>Notifications</h3>
 
                                     <!-- CONTACT ENGAGE -->
@@ -204,6 +191,7 @@ body{
                                     <?php endif; ?>
 
                                     <!-- CONFIRMATION DE CONTACT -->
+
                                     <?php if(!empty($contacts)):?>
 
                                         <?php foreach ($contacts as $contact): ?>
@@ -241,7 +229,6 @@ body{
                                         <p>Pas de dernier commentaire pour le moment.</p>
                                     </div>
                                 <?php endif; ?>
-
                             </div>
                         </div>
                     </div>
@@ -271,7 +258,6 @@ body{
                             </div>
                             <p><?=$comment['date']; ?></p>
                         </article>
-                        <hr>
                     <?php endforeach; ?>
 
                 <?php else: ?>

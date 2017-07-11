@@ -21,7 +21,7 @@
                 <section class="profile">
                     <h3 class="strong white text-center">MON PROFIL</h3>
                     <figure id="profile_picture">
-                        <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>" class="img-circle">
+                        <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle">
                     </figure>
                     <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                     <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
@@ -43,7 +43,7 @@
                 <section class="skills">
                     <h3 class="light white text-center">MES SERVICES</h3>
                     <?php if(!empty($services)):?>
-                    <?php
+                    <?php 
                     /*
                     echo '<pre>';
                     print_r($prices);
@@ -54,7 +54,7 @@
                         <h4 class="light white text-center">Ma description</h4>
                         <textarea rows="10" cols="50"id="comment">
                             <?php foreach ($prices as $price): ?>
-                            <?= nl2br($price['description']); ?>
+                            <?= nl2br($showInfos['description']); ?>
                             <?php endforeach; ?>
                         </textarea>
                         <section class="tableau1">                 

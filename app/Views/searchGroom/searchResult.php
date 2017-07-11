@@ -10,6 +10,11 @@
     body{
         background: #89b5f7;
     }
+    #imgAvatar{
+    
+    width: 100px;
+    height: 100px;
+    }
 
     /*#retourAccueil {
         color: #fff; 
@@ -160,8 +165,8 @@
                                     </tr> 
                                 </table>
                             </div>
-                        </div>
-                        <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">
+                        </div> 
+                        <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/'), $datas['photo'] ?>" alt="Team Image" class="avatar">
                         <div class="title">
                             <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
                             <h5 class="muted regular">Groom sur 

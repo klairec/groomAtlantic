@@ -24,7 +24,7 @@
             <section class="profile">
                 <h3 class="strong white text-center">MON PROFIL</h3>
                 <figure>
-                    <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
+                    <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" alt="photo_de_profil">
                 </figure>
                 <p class="strong white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                 <p class="strong white text-center">Email : <?=$showInfos['email']; ?></p>

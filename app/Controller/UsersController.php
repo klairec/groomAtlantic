@@ -83,9 +83,9 @@ class UsersController extends Controller
         }
         $params = [
             'formValid' => $formValid,
-            'errors' => $errors,
-            'mail' => isset($post['email']),            
-            'deco' => $deco,
+            'errors'    => $errors,
+            'mail'      => isset($post['email']),            
+            'deco'      => $deco,
         ];
         $this->show('default/home', $params);
     }
@@ -217,18 +217,18 @@ class UsersController extends Controller
 
                 // on crée le tableau de données à insérer
                 $data = [
-                    'firstname'  => ucfirst($post['firstname']), 
-                    'lastname'   => strtoupper($post['lastname']),
-                    'email'      => strtolower($post['email']),
-                    'phone'      => $post['phone'],
-                    'role'       => 'groom',                      
-                    'password'   => $authModel->hashPassword($post['password']),
-                    'address'    => strtoupper($post['address']),
-                    'postcode'   => $post['postcode'],
-                    'cityUser'   => strtolower($post['cityUser']),
+                    'firstname'     => ucfirst($post['firstname']), 
+                    'lastname'      => strtoupper($post['lastname']),
+                    'email'         => strtolower($post['email']),
+                    'phone'         => $post['phone'],
+                    'role'          => 'groom',                      
+                    'password'      => $authModel->hashPassword($post['password']),
+                    'address'       => strtoupper($post['address']),
+                    'postcode'      => $post['postcode'],
+                    'cityUser'      => strtolower($post['cityUser']),
                     'date_creation' => date('d.m.y'),
-                    'lng'        => $local['lon'],
-                    'lat'        => $local['lat'],
+                    'lng'           => $local['lon'],
+                    'lat'           => $local['lat'],
                 ];
 
                 // on insère dans la BDD
@@ -290,14 +290,14 @@ class UsersController extends Controller
 
 
         $params = [
-            'showInfos' => $showInfos,
-            'services' => $services,
-            'prices' => $prices,
-            'addSkills' => $addSkills,
-            'comments'  => $comments,
-            'commentsA' => $commentsA,
-            'contacts' => $contacts,
-            'propositions' => $propositions
+            'showInfos'     => $showInfos,
+            'services'      => $services,
+            'prices'        => $prices,
+            'addSkills'     => $addSkills,
+            'comments'      => $comments,
+            'commentsA'     => $commentsA,
+            'contacts'      => $contacts,
+            'propositions'  => $propositions
         ];
 
         $this->show('users/groomProfile/showGroom', $params);
@@ -505,18 +505,18 @@ class UsersController extends Controller
 
                 // on crée le tableau de données à insérer
                 $data = [
-                    'firstname'  => ucfirst($post['firstname']), 
-                    'lastname'   => strtoupper($post['lastname']),
-                    'email'      => strtolower($post['email']),
-                    'phone'      => $post['phone'],
-                    'role'       => 'owner',                      
-                    'password'   => $authModel->hashPassword($post['password']),
-                    'address'    => strtolower($post['address']),
-                    'postcode'   => $post['postcode'],
-                    'cityUser'   => strtoupper($post['cityUser']),
+                    'firstname'     => ucfirst($post['firstname']), 
+                    'lastname'      => strtoupper($post['lastname']),
+                    'email'         => strtolower($post['email']),
+                    'phone'         => $post['phone'],
+                    'role'          => 'owner',                      
+                    'password'      => $authModel->hashPassword($post['password']),
+                    'address'       => strtolower($post['address']),
+                    'postcode'      => $post['postcode'],
+                    'cityUser'      => strtoupper($post['cityUser']),
                     'date_creation' => date('d.m.y'),
-                    'lng'        => $local['lon'],
-                    'lat'        => $local['lat'],
+                    'lng'           => $local['lon'],
+                    'lat'           => $local['lat'],
                 ];
 
                 // on insère dans la BDD
@@ -571,11 +571,11 @@ class UsersController extends Controller
 
 
         $params = [
-            'showInfos' => $showInfos,
-            'addRental' => $addRental,
-            'locations' => $locations,
-            'comments'  => $comments,
-            'commentsAd' => $commentsAd,
+            'showInfos'     => $showInfos,
+            'addRental'     => $addRental,
+            'locations'     => $locations,
+            'comments'      => $comments,
+            'commentsAd'    => $commentsAd,
         ];  
 
         $this->show('users/ownerProfile/showOwner', $params);
@@ -763,8 +763,8 @@ class UsersController extends Controller
 
                     $data = [
 
-                        'token' => $token,
-                        'id_user' => $userInfo['id'],
+                        'token'     => $token,
+                        'id_user'   => $userInfo['id'],
 
                     ];
 
@@ -877,9 +877,9 @@ class UsersController extends Controller
         }
 
         $params = [
-            'showForm' => $showForm,
+            'showForm'  => $showForm,
             'formValid' => $formValid,
-            'errors' => $errors,
+            'errors'    => $errors,
         ];
 
         $this->show('users/traitementReset', $params);

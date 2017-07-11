@@ -19,9 +19,9 @@ body{
         <div id="DivFormG" class="row">
             <div class="col-md-12 text-center">
             <section class="profile">
-                <h3 class="light white text-center">MON PROFIL</h3>
+                <h3 class="strong white text-center">MON PROFIL</h3>
                 <figure id="profile_picture">
-                    <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>">
+                    <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>" class="img-circle">
                 </figure>
                 <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                 <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
@@ -39,7 +39,7 @@ body{
             </section><!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
             <!-- AFFICHAGE DES SERVICES/PRIX -->
-
+<hr>
             <section class="skills">
                 <h3 class="light white text-center">MES SERVICES</h3>
                 <?php if(!empty($services)):?>
@@ -50,13 +50,17 @@ body{
                     echo '</pre>';
                     */
                      ?> 
-                        <div class="description">
+                        <div class="form-group">
+                        <h4 class="light white text-center">Ma description</h4>
+                         <textarea class="form-control text-center" rows="3" id="comment">
                             <?php foreach ($prices as $price): ?>
                                 <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
+                            </textarea>
                         </div>
-                        <table>
-                            <tbody>
+                     
+                        <table class="table table-bordered">
+                     <tbody>
                                 <tr>
                                     <td><strong>Compétences</strong></td>
                                     <?php foreach ($services as $service): ?>
@@ -74,6 +78,7 @@ body{
                         </table>
                         <?php foreach ($prices as $test): ?>  
                         <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                        <br>
                         <?php endforeach; ?>
                             
                         <br>
@@ -154,10 +159,10 @@ body{
                             </div>
                         </div>
                     </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
-
+<hr>
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
                     
-                                    <h3>Notifications</h3>
+                                    <h3 class="light white text-center">Notifications</h3>
 
                                     <!-- CONTACT ENGAGE -->
 

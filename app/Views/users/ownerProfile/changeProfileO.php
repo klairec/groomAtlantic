@@ -26,7 +26,7 @@
 
 						<form method="POST" enctype="multipart/form-data">
 							<div class="form-group">
-								<label for="photo">Ajouter une photo de profil</label>
+								<label for="photo"><h2>Ajouter une photo de profil</h2></label>
 								<input type="file" name="photo" >
 							</div>
 							<div class="form-group">
@@ -59,8 +59,7 @@
 							</div>
 							<button type="submit" class="btn btn-default">Modifier</button>
 						</form>
-<br>
-<br>
+						<br>
 					<a href="<?= $this->url('users_showowner')?>" class="btn btn-default">Retour</a>
 					</div>
 				</div>

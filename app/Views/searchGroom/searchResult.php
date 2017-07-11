@@ -80,7 +80,6 @@
 
                                 if(isset($markers) and !empty($markers))
                                 {
-
                                     foreach($markers as $markert)
                                     {
                                 ?>
@@ -90,7 +89,7 @@
                                 }
                                 ?>
                             ];
-
+                        
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 8,
                             center: new google.maps.LatLng(45.744175, -0.633389),

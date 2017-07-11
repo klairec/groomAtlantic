@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  Dim 09 juil. 2017 à 17:42
+-- Généré le :  mar. 11 juil. 2017 à 14:32
 -- Version du serveur :  10.1.22-MariaDB
 -- Version de PHP :  7.1.4
 
@@ -55,7 +55,9 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `content`, `note`, `date`, `id_groom`, `id_owner`) VALUES
-(1, 'super taff', 4, '0000-00-00 00:00:00', 5, 2);
+(1, 'super taff', 4, '0000-00-00 00:00:00', 5, 2),
+(2, 'Génial', 5, '2017-07-10 00:00:00', 5, 4),
+(3, 'Bof', 3, '2017-07-09 00:00:00', 5, 3);
 
 -- --------------------------------------------------------
 
@@ -70,8 +72,16 @@ CREATE TABLE `contact_requests` (
   `groom_confirm` tinyint(1) NOT NULL,
   `date` datetime NOT NULL,
   `id_groom` int(11) NOT NULL,
-  `id_owner` int(11) NOT NULL
+  `id_owner` int(11) NOT NULL,
+  `rent_id` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Déchargement des données de la table `contact_requests`
+--
+
+INSERT INTO `contact_requests` (`id`, `groom_accept`, `owner_confirm`, `groom_confirm`, `date`, `id_groom`, `id_owner`, `rent_id`) VALUES
+(24, 0, 0, 0, '2011-07-17 00:00:00', 5, 2, '13');
 
 -- --------------------------------------------------------
 
@@ -104,18 +114,26 @@ INSERT INTO `groom_services` (`id`, `skills`) VALUES
 
 CREATE TABLE `rentals` (
   `id` int(100) NOT NULL,
-  `id_type` int(11) NOT NULL,
-  `in_area` int(11) NOT NULL,
-  `in_area_cb` tinyint(1) NOT NULL,
-  `out_area` int(11) NOT NULL,
-  `out_area_cb` tinyint(1) NOT NULL,
-  `pool` tinyint(1) NOT NULL,
-  `city` varchar(100) NOT NULL,
-  `street` varchar(100) NOT NULL,
-  `postcode` varchar(100) NOT NULL,
-  `id_owner` int(11) NOT NULL,
-  `title` varchar(150) NOT NULL
+  `title` varchar(150) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `street` varchar(150) NOT NULL,
+  `postcode` int(5) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `area` tinyint(3) NOT NULL,
+  `rooms` tinyint(2) NOT NULL,
+  `outdoor_fittings` varchar(150) NOT NULL,
+  `id_owner` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `rentals`
+--
+
+INSERT INTO `rentals` (`id`, `title`, `type`, `street`, `postcode`, `city`, `area`, `rooms`, `outdoor_fittings`, `id_owner`) VALUES
+(13, 'La Marinière', 'house', 'RUE DES AIRES', 17390, 'RONCE LES BAINS', 95, 5, 'jardin|balcon', 2),
+(15, 'Mamamia', 'house', 'RUE DES KILOI', 17658, 'HRZEIHJ', 84, 3, 'jardin|balcon', 2),
+(17, 'Gezreddfs', 'house', 'STHSRTHRH', 45845, 'SFHYRJ', 85, 3, 'terrasse|piscine', 2),
+(18, 'HTRHRT', 'flat', 'rue des apotrse', 35000, 'RENNES', 65, 2, 'jardin|terrasse', 2);
 
 -- --------------------------------------------------------
 
@@ -134,40 +152,12 @@ CREATE TABLE `reset_password` (
 --
 
 INSERT INTO `reset_password` (`id`, `token`, `id_user`) VALUES
-(1, '58886444f8c082dee0d098c9f0c212c8', 2),
-(2, '696a0ddac12ffd286667f374e11f4675', 2),
-(3, 'f1f8b14408bac7db3a0550064d5fadc8', 2),
-(4, '5a6252dc9c5d160f5a4a552a5879137b', 2),
-(5, '953073d4a7e6e51ee80b6a72646960d4', 2),
-(6, 'fdbbd38f4c91debd703fb3cca3ba919d', 2),
-(7, '26163aae0c58530e5a6ef63d2bc72a6f', 2),
-(8, 'edd106d3d5186e5308078b32f25fdd97', 2),
-(9, '64f3dac0fd135ea46b5cd4dcab0b3177', 2),
-(10, '8595cf1b6c1adc907e57df288811fe54', 2),
-(11, '301f85eb490bbdecaef6edc367f5f30a', 2),
-(12, '93a2f8179ab5a0361a65f74f4906a112', 2),
-(13, 'cfc4b4d7c7d16c87b5ddeca4273e5cd3', 2),
-(14, 'fd148cc9876d0f503331433a52d4b41f', 2),
-(15, 'bcd0e23e15e9952d9ef8503ad86096d2', 2),
-(16, '74eaebe14914f59b2a9156a64d50c6d3', 2),
-(17, 'db49da818113506f0290f5126b4f2591', 2),
-(18, 'e5c0aa00754d38b4ea7f201a8aa8cedf', 2),
-(19, 'e1258ce36b50517df7f77c1b7a1de264', 2),
-(20, '8e9e479a3f6e1270c775c9fa80bc01d5', 2),
-(21, 'ab3c707ce36326d1696968f5460fa469', 2),
-(22, '829e80499077c4fea860692ffb0b5158', 2),
-(23, 'd915d5911454dace88677cb8a8bedf84', 2),
-(24, 'a3cfc283ff172e9e25bbed773b8643a0', 2),
-(25, '219a2920ba028e8da2e80b441cc8867d', 2),
-(26, 'b8a20f1d1382a916cdfda2058b59ac40', 2),
-(27, 'ba37458a98cc2b01d30a0740f75a854e', 2),
-(28, '13e898b6eb4621168bd626eba4767520', 2),
-(29, '50704a8d8e4bdcbf1ab6b893ec827f6e', 2),
-(30, '107969db4b6310382078b06b87591c81', 2),
-(31, 'c2cdc52577227e465b9d94041fd7b9f3', 2),
-(32, '6440814c38defcc9c2f29211612dd80d', 2),
-(33, '4867bc6df8f37f2887c2d4c1f7cd9fbc', 2),
-(34, '2a82a2be20f46687ce185286028fcf5d', 2);
+(36, 'a1fbffa8e9d9fcac58961c1e21d6cfc4', 2),
+(37, 'c8cf304803714a4154d9d64e48011900', 2),
+(38, 'c515a05be3ab121fcdc9c718be1aa25a', 2),
+(39, '6113adc6b360b6a2ba0d1e9d034ffd6d', 2),
+(40, '8fe796d0a626075812374f202e8875a5', 2),
+(41, '3ff06be05bdd5e8626a1c770d3dffb63', 2);
 
 -- --------------------------------------------------------
 
@@ -246,7 +236,23 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`
 (6, 'Guillaume', 'Rougé', 'gr@gmail.com', '$2y$10$S7Crt7pG7I7fCXDSC7wieuWdv86Ka0DTQP56JcylAzo4C8Mr/IRmK', '', '9 cr portal', '33000', 'bordeaux', '', '2006-07-17', 'groom'),
 (7, 'Florence', 'Babin', 'fb@gmail.com', '$2y$10$ULqcUtK1ulcr5xSyzFQaruZbGtFQJnbEzFZuoKPndKB3NjG8AXYpC', '', '9 jesaispas', '33000', 'Bordeaux', '', '2006-07-17', 'groom'),
 (8, 'Raphael', 'Boussière', 'rb@gmail.com', '$2y$10$r52jI0XoyCpedbTBDK5wYugYRlcUM7ZWwLPzUIjsVpKAPW/YbjkB6', '', '3 rue jesaispas', '33000', 'bordeaux', '', '2006-07-17', 'groom'),
-(9, 'nicolas', 'ulmann', 'nicolas_ulmann@gmail.com', '$2y$10$TVRoPtXEceRd042f.BJ44uBPNZY4CnwIzvOPYyiI49s1c7sdFH/cO', '', '9 cours portal', 'Bordeaux', '33000', '', '2006-07-17', 'groom');
+(9, 'nicolas', 'ulmann', 'nicolas_ulmann@gmail.com', '$2y$10$TVRoPtXEceRd042f.BJ44uBPNZY4CnwIzvOPYyiI49s1c7sdFH/cO', '', '9 cours portal', 'Bordeaux', '33000', '', '2006-07-17', 'groom'),
+(10, 'florence', 'babin', 'flobrobab@gmail.com', '$2y$10$hk198kMcQUvaxpqH1//Xe.77KCdr7YvaZn47WrR3c4emGn9Y3h0t6', '', '42bis chemin d\'avignon', '33650', 'LA BREDE', '', '2009-07-17', 'groom'),
+(11, 'nathan', 'babin', 'natbab@gmail.com', '$2y$10$0a3sJzSfx.Cu59LerBJg.uq9O941189FnA82HT439IPJptDAtRrb6', '', '45 rue de paris', '17000', 'LA ROCHELLE', '', '2009-07-17', 'groom'),
+(12, 'Eric', 'babin', 'ericbab@gmail.com', '$2y$10$bNf8JsG.yg2Q2/909JYYh.FjX/arkJDEhJxReO4brjkCyHjy8gGWO', '0606060606', '65 rue du puit', '17340', 'chatelaillon', '', '2017-07-09', 'owner'),
+(13, 'dany', 'barabier', 'danbar@gmail.com', '$2y$10$nhO.tNn.s93whKmQMLgI2eAcLWro3UfnWq.k3Tlx4NT4bWdk7/nai', '0707070707', '15 rue de la plage', '17340', 'chatelaillon', '', '2017-07-09', 'owner'),
+(14, 'Marcel', 'Brodau', 'marbro@orange.fr', '$2y$10$SccEV93grXGuVM3r.Glmh.8kgPQW5nW7BVHpHEgiualKxLcc1zW5q', '0808080808', 'La barre - Genouillé', '17430', 'Genouillé', '', '2017-07-09', 'owner'),
+(15, 'Mathieu', 'Barbier', 'matbar@free.fr', '$2y$10$XNTNOQIhZ6cIr/ZlFs6yIuMxCgFQLK1W3hGS310PZgJSwP7o.Jg9e', '0909090909', '85 RUE DU PONT', '17400', 'SAINT JEAN D ANGELY', '', '2017-07-09', 'owner'),
+(16, 'Pierre', 'LeGrand', 'pirleg@free.fr', '$2y$10$z9mlSs59J7rgYqdm/nN1nuZr.3ayu6PpjJIprFyi2qhEZSS0CyW/S', '0505050506', '74 rue du meilleur', '17250', 'Beurley', '', '2017-07-09', 'owner'),
+(17, 'Catherine', 'Deneuve', 'catdev@free.fr', '$2y$10$Zpcbx/sLvUY.srX6h5VrkOhuritiGsTJvh4L3rc16OxwtCeC3aBpi', '', '15 rue de la Paix', '17590', 'ARS EN RE', '', '2009-07-17', 'groom'),
+(18, 'eMMANUEL', 'MACRON', 'manu@free.fr', '$2y$10$wa3.qUNplcCdvrCUB4O5B.ghydB9aGSLF0L9KMSn8JMTYguluIr9G', '', '15 cours de l\'Elysée', '17580', 'LE BOIS PLAGE EN RE', '', '2009-07-17', 'groom'),
+(19, 'fRAN9OIS', 'hOLLANDE', 'flambypremier@orange.fr', '$2y$10$5FirKVWYdJFiez1toaEhi.HRd.4wsc2HMH4ZibRMtfQl2Fix98W5S', '', '15 rue de nulle part', '17230', 'MARANS', '', '2009-07-17', 'groom'),
+(20, 'Alain', 'Juppé', 'alain@free.fr', '$2y$10$Iq6OeKeiKhsyNu1aSi.ByeOZ4CuZzIDSdi1U0ue4Ecy8udDccRvaG', '0809060302', '5 rue de la palourde', '17230', 'CHARON', '', '2017-07-09', 'owner'),
+(21, 'Diego', 'Lopez', 'lopez@gmail.com', '$2y$10$kyEN7KRZMDZSgaWbpQXKYu6QQn82ezeeDxqVYasuDJCDrY7MEuDTC', '', '19 rue de la vole', '17230', 'ANDILLY', '', '2009-07-17', 'groom'),
+(22, 'Jean', 'MANOUCHE', 'nicazazo@nico.com', '$2y$10$Qge4D9eItJw4ARJP9RRDIu9PrI3twcxdLahCUxbrP4fv5jEhPf4wG', '0102030405', '9EME CARAVANE A DROITE', '75000', 'paris', '', '2010-07-17', 'groom'),
+(23, 'Jean', 'MANOUCHE', 'vbxcv@vcvcv.com', '$2y$10$ixeR3Sd.U4cMEFgMB87lweBPjIYFLcfBu3/U9yP4TyX62k3Pn91km', '0102030405', '4 RET NZZ', '33000', 'bordeaux', '', '2010-07-17', 'groom'),
+(24, 'Jean', 'MANOUCHE', 'az@az.com', '$2y$10$E.bf87KB/jhGabFroC6sAeKqb09B/AskPO/VC/4mqHm2IGDnz6Xoi', '0102030405', '9 CR PORTAL', '33000', 'bordeaux', '', '2010-07-17', 'groom'),
+(25, 'Jean', 'MANOUCHE', 'nicolojk$jo@nico.com', '$2y$10$AaqFhNhInftuGYUQEdh.K../wc.OMDoGBAO3gVulYR0gd2el68mkG', '1020304050', '9EME CARAVANE A DROITE', '75000', 'paris', '', '2010-07-17', 'groom');
 
 -- --------------------------------------------------------
 
@@ -36744,12 +36750,12 @@ ALTER TABLE `blacklist`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `contact_requests`
 --
 ALTER TABLE `contact_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `groom_services`
 --
@@ -36759,12 +36765,12 @@ ALTER TABLE `groom_services`
 -- AUTO_INCREMENT pour la table `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `reset_password`
 --
 ALTER TABLE `reset_password`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT pour la table `services_infos`
 --
@@ -36779,7 +36785,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

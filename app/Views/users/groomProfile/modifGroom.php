@@ -24,7 +24,7 @@
                             <h3 class="">Modifier</h3>
                             <form method="POST" action="<?= $this->url('modif_groom') ?>">
                                 <figure>
-                                    <img src="<?= $user['photo'] ?>">
+                                    <img src="<?= $user['photo']; ?>">
                                 </figure>
                                 <label for="newLastname">Nom</label>
                                 <input type="text" name="newLastname" id="newLastname" value="<?=$w_user['lastname']; ?>">

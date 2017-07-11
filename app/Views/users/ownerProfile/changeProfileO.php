@@ -18,49 +18,47 @@
         <div class="table">
             <div class="header-text">
                 <div id="DivFormG" class="row">
-                    <div class="col-md-12 text-center">
-
+                    <div class="col-md-12 text-left">
 						<?php if(count($errors) > 0): ?>
 							<p style="color:red;"><?=implode('<br>', $errors); ?></p>
 						<?php endif; ?>
 
 						<form method="POST" enctype="multipart/form-data">
 							<div class="form-group">
-								<label for="photo">Ajouter une photo de profil</label>
+								<label for="photo"><h4>Ajouter une photo de profil</h4></label>
 								<input type="file" name="photo" >
 							</div>
 							<div class="form-group">
-								<label for="firstname">Prénom</label>
+								<label for="firstname"><h4>Prénom</h4></label>
 								<input name="firstname" type="text" class="form-control" value="<?=$w_user['firstname']; ?>">
 							</div>
 							<div class="form-group">
-								<label for="lastname">Nom</label>
+								<label for="lastname"><h4>Nom</h4></label>
 								<input name="lastname" type="text" class="form-control" value="<?=$w_user['lastname']; ?>">
 							</div>
 							<div class="form-group">
-								<label for="email">Email</label>
+								<label for="email"><h4>Email</h4></label>
 								<input name="email" type="text" class="form-control" value="<?=$w_user['email']; ?>">
 							</div>
 							<div class="form-group">
-								<label for="phone">Téléphone</label>
+								<label for="phone"><h4>Téléphone</h4></label>
 								<input name="phone" type="text" class="form-control" value="<?=$w_user['phone']; ?>">
 							</div>
 							<div class="form-group">
-								<label for="address">Adresse</label>
+								<label for="address"><h4>Adresse</h4></label>
 								<input name="address" type="text" class="form-control" value="<?=$w_user['address']; ?>">
 							</div>
 							<div class="form-group">
-								<label for="postcode">Code postal</label>
+								<label for="postcode"><h4>Code postal</h4></label>
 								<input name="postcode" type="text" class="form-control" value="<?=$w_user['postcode']; ?>">
 							</div>
 							<div class="form-group">
-								<label for="cityUser">Ville</label>
+								<label for="cityUser"><h4>Ville</h4></label>
 								<input name="cityUser" type="text" class="form-control" value="<?=$w_user['cityUser']; ?>">
 							</div>
 							<button type="submit" class="btn btn-default">Modifier</button>
 						</form>
-<br>
-<br>
+						<br>
 					<a href="<?= $this->url('users_showowner')?>" class="btn btn-default">Retour</a>
 					</div>
 				</div>

@@ -66,6 +66,10 @@ class GroomController extends \W\Controller\Controller
 			if(count($tab) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
+
+			if(!v::stringType()->length(20,300)->validate($post['description'])){
+				$errors[] = 'La description doit comprendre entre 20 et 300 caractères.';
+			}
 			
 
 			if(count($errors) === 0){
@@ -76,6 +80,7 @@ class GroomController extends \W\Controller\Controller
 						'id_skill'  => implode(',', $post['id_skill']),
 						'price'  	=> implode(',', $tab),
 						/*'work_area' => implode(',', $post['work_area']),*/
+						'description' => $post['description'],
 						'id_groom'	=> $me['id'],
 					];
 
@@ -132,7 +137,7 @@ class GroomController extends \W\Controller\Controller
 
 
 	/*
-	* Modifications des services au profil du concierge
+	* Modifications des services du profil concierge
 	*/
 	public function changeServices($id){
 
@@ -207,7 +212,6 @@ class GroomController extends \W\Controller\Controller
 						'price'  	=> implode(',', $tab),
 						/*'work_area' => implode(',', $post['work_area']),*/
 						'description' => $post['description'],
-						'id_groom'	=> $me['id'],
 					];
 
 					// on insère les données tappées par l'utilisateur dans la BDD
@@ -216,10 +220,10 @@ class GroomController extends \W\Controller\Controller
 					if(!empty($changeSkills)){
 						// Ajoute un message "flash" (stocké en session temporairement)
 						// Note : il faut toutefois ajouter l'affichage de ce message au layout
-						$this->flash('Vos services ont été ajoutés.', 'success');
 
-						return $changeSkills;
-					}
+						$this->flash('Vos services ont été modifiés', 'success');
+						$this->redirectToRoute('users_showgroom');
+					}				
 				}
 				else {
 
@@ -231,5 +235,15 @@ class GroomController extends \W\Controller\Controller
 
 			}
 		}
+
+		$voirSer = new GroomController();
+        $services = $voirSer->showServices($me['id']);
+
+		$params = [
+        'services' => $services,
+        'errors' => $errors,
+        ];  
+
+		$this->show('users/groomProfile/changeServices', $params);
 	}
 }

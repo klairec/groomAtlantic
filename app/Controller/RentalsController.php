@@ -270,7 +270,8 @@ class RentalsController extends Controller
 
 		$params = [
         'locations' => $locations,
-        ];  
+        'errors' => $errors,
+        ];    
 
 		$this->show('users/ownerProfile/changeRental', $params);
 	}

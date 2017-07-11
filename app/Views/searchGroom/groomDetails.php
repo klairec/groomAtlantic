@@ -58,8 +58,9 @@
                     <div class="col-md-12 text-center">
 
                     <?php 
+                 
                     
-                    if (!isset($_GET['contact'])) {
+                    if ($formContact == false AND $erreurDoublon == false) {
 
                         foreach ($GroomInfos as $datas) { ?>
                             <h2 style="color:#f06467" class="light white">Fiche de <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h2>
@@ -102,7 +103,7 @@
                                 <h4>Note moyenne : </h4>
                                 <?php foreach ($datas['NoteMoyenne'] as $note) {
 
-                                        if ($note['AVG(note)'] = 5 ){
+                                        if ($note['AVG(note)'] == 5 ){
 
                                             echo '<span class="fullstar">★★★★★</span>';
                                         } 
@@ -143,7 +144,7 @@
                     </div>
                     <?php
                     } 
-                    elseif (isset($_GET['contact']) && $erreurDoublon = true) { // Si get['contact'] existe (i.e qu'une demande de contact été faite) MAIS qu'il y 'en a déja une en cours
+                    elseif ($erreurDoublon == true) { // Si get['contact'] existe (i.e qu'une demande de contact été faite) MAIS qu'il y 'en a déja une en cours
                         
                         foreach ($GroomInfos as $datas) {
                         ?> 
@@ -180,18 +181,46 @@
             <div class="row">
             </div>
         </div>
-    </div>
+    </div>      
 </div>
+
 <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content modal-popup">
-            <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-            <h3 class="white">Entrer en contact avec Claire ?</h3>
-            <a  href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>?contact=1" class="blue">
-            <button id="subscribe" class="btn btn-submit">Oui</button>
-            </a>
+        <div class="modal-dialog">
+            <div class="modal-content modal-popup">
+                <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+                <h3 class="white">Entrer en contact avec Claire ?</h3>
+                
+                
+
+              
+            <form method="POST" action="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">
+                 <select name="RentTitle">
+                    <?php 
+
+                    print_r($locations);
+                    if(isset($locations)){
+
+
+                        foreach ($locations as $locs) {
+                            ?><option value="<?= $locs['id']; ?>"> <?= $locs['title']; ?></option>
+                        <?php
+                        }
+                    }?>
+                </select>
+                <input type="text" name="title" id="title" value="">
+
+                <button  style="margin-top: 12em;" id="subscribe" class="btn btn-submit">
+                    Oui
+                </button>
+                
+                
+            </form>
+                
+                
+                
+            </div>
+
         </div>
     </div>
-</div>
 
 <?php $this->stop('main_content') ?>

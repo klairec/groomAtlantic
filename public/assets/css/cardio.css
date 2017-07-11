@@ -1258,7 +1258,7 @@ footer .social-footer li:hover a {
 /* FORMS INSCRIPTION */
 
 #DivFormG, #DivFormO {
-    margin-top: 16em;
+    margin-top: 14em;
     text-align: center;
 }
 
@@ -1292,26 +1292,7 @@ text-align: center;
 padding: 0 5px
 }
 
-/* PAGE CHARTE DE QUALITE */
 
-.charte{
-	font-size: 10px;
-	color: #3b3a3a;
-}
-
-/* PAGE INFOS PRATIQUES */
-
-.panel-body p{
-	font-size: 12px;
-	text-align: left;
-}
-
-.panel-body a {
-	text-decoration: none;
-	color: black;
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
 
 /* FLASH ERREURS */
 
@@ -1333,7 +1314,22 @@ padding: 0 5px
 #bt-retour-haut a {
 	color: white;
 }
+/* showGroom */
 
+.profile img{
+	width: 100px;
+	height: 100px;
+
+}
+
+table{
+
+	margin-left: 450px;
+}
+
+.profile textarea{
+	text-align: center;
+}
 /* Media Queries */
 
 @media(max-width:991px) {

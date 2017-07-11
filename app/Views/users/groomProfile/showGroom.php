@@ -20,7 +20,7 @@ body{
         <div id="DivFormG" class="row">
             <div class="col-md-12 text-center">
                 <h3 class="light white text-center">MON PROFIL</h3>
-                <figure>
+                <figure id="profile_picture">
                     <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>">
                 </figure>
                 <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>

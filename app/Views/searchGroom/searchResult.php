@@ -50,10 +50,10 @@
 
 <?php $this->start('main_content') ?>
 
-<div id="DivSearch" class="container";>
+<div class="container";>
     <div class="table">
         <div class="header-text">
-            <div class="row">
+            <div id="DivFormO" class="row">
                 <div class="col-md-12 text-center">
                     <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
                     <?php 

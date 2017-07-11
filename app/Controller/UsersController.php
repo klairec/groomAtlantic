@@ -386,9 +386,9 @@ class UsersController extends Controller
                     'firstname'  => ucfirst($post['firstname']), 
                     'lastname'   => strtoupper($post['lastname']),
                     'email'      => strtolower($post['email']),
-                    'address'    => strtoupper($post['address']),
+                    'address'    => strtolower($post['address']),
                     'postcode'   => $post['postcode'],
-                    'cityUser'   => strtolower($post['cityUser']),
+                    'cityUser'   => strtoupper($post['cityUser']),
                     'phone'      => $post['phone'],
                     // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
                     'photo'      => $fileName,
@@ -510,9 +510,9 @@ class UsersController extends Controller
                     'phone'      => $post['phone'],
                     'role'       => 'owner',                      
                     'password'   => $authModel->hashPassword($post['password']),
-                    'address'    => strtoupper($post['address']),
+                    'address'    => strtolower($post['address']),
                     'postcode'   => $post['postcode'],
-                    'cityUser'   => strtolower($post['cityUser']),
+                    'cityUser'   => strtoupper($post['cityUser']),
                     'date_creation' => date('d.m.y'),
                     'lng'        => $local['lon'],
                     'lat'        => $local['lat'],
@@ -664,14 +664,14 @@ class UsersController extends Controller
                     'firstname'  => ucfirst($post['firstname']), 
                     'lastname'   => strtoupper($post['lastname']),
                     'email'      => strtolower($post['email']),
-                    'address'    => strtoupper($post['address']),
+                    'address'    => strtolower($post['address']),
                     'postcode'   => $post['postcode'],
-                    'cityUser'   => strtolower($post['cityUser']),
+                    'cityUser'   => strtoupper($post['cityUser']),
                     'phone'      => $post['phone'],
                     // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
                     'photo'      => $fileName,
                 ];
-
+            
                 $usersModel = new UsersModel();
                 $update = $usersModel->update($data, $user_connect['id']);
 

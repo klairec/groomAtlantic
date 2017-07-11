@@ -51,7 +51,7 @@ class SearchController extends Controller
                         $skillJoint = new ServicesInfosModel();            
                         $resultSearch[$i]['comp'] = $skillJoint->findSkillsWithId($resultSearch[$i]['id_groom']); //Va chercher les compétences du groom a partir des valeurs 1,2,3..           
                         $resultSearch[$i]['prix'] = $pricesTab = explode(',',$resultSearch[$i]['price']);  //Va chercher les tarifs
-                        $resultSearch[$i]['villeAction'] = $searchVille->findVille($resultSearch[$i]['work_area']); // transforme le CP en nom de commune
+                        $resultSearch[$i]['villeAction'] = $searchVille->findVille($resultSearch[$i]['postcode']); // transforme le CP en nom de commune
 
                     }
                 }
@@ -111,7 +111,7 @@ class SearchController extends Controller
 
                     $GroomInfos[$i]['comp'] = $skillJoint->findSkillsWithId($GroomInfos[$i]['id_groom']); //Va chercher les compétences du groom a partir des valeurs 1,2,3..           
                     $GroomInfos[$i]['prix'] = $pricesTab = explode(',',$GroomInfos[$i]['price']);  //Va chercher les tarifs
-                    $GroomInfos[$i]['villeAction'] = $searchVille->findVille($GroomInfos[$i]['work_area']); // transforme le CP en nom de commune
+                    $GroomInfos[$i]['villeAction'] = $searchVille->findVille($GroomInfos[$i]['postcode']); // transforme le CP en nom de commune
 
                 }
             }

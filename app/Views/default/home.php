@@ -73,7 +73,7 @@
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
 							<br>
-							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt">Voir Profil</h6</a>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 
 						</div>
 					</div>
@@ -88,7 +88,7 @@
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
 							<br>
-							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt">Voir Profil</h6</a>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
 					</div>
 					<div class="col-md-3">
@@ -102,7 +102,7 @@
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
 							<br>
-							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt">Voir Profil</h6</a>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
 						</div>
 					<div class="col-md-3">
@@ -116,7 +116,7 @@
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
 							<br>
-							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt">Voir Profil</h6</a>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
 					</div>
 				</div>

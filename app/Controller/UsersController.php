@@ -179,6 +179,10 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
+            if( $post['password'] != $post['password2']){
+                $errors[] = 'Le mot de passe et sa confirmation ne correspondent pas.';
+            }
+
             if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
@@ -499,6 +503,10 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
+            if( $post['password'] != $post['password2']){
+                $errors[] = 'Le mot de passe et sa confirmation ne correspondent pas.';
+            }
+
             if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
@@ -958,6 +966,16 @@ class UsersController extends Controller
         $this->show('users/infos');
     }
 
+    public function backAdmin() {
+        
+        if(!$this->allowTo(['admin'])){
+
+            $this->redirectToRoute('default_home');
+
+        }
+
+            $this->show('users/backAdmin');
+    }
 
 
 }   

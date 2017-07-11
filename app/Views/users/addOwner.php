@@ -54,11 +54,17 @@
 								}?>">
 							</div>
 							<div class="form-group">
-								<input name="password" type="password" placeholder="Votre MDP" class="form-control" value="<?php if(!empty($post['password'])){
+								<input name="password" type="password" placeholder="Votre Mot de passe" class="form-control" value="<?php if(!empty($post['password'])){
 									echo $post['password'];
 
 								}?>">
 							</div>
+							<div class="form-group">
+                                                <input  type="password" name="password2"  placeholder="Répétez votre mot de passe" class="form-control" value="<?php if(!empty($post['password2'])){
+                                    echo $post['password'];
+
+                                }?>">
+                                            </div>
 							<div class="form-group">
 								<input name="phone" type="text" maxlength="10"placeholder="Votre téléphone" class="form-control" value="<?php if(!empty($post['phone'])){
 									echo $post['phone'];

@@ -166,7 +166,17 @@
                                 </table>
                             </div>
                         </div> 
-                        <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/'), $datas['photo'] ?>" alt="Team Image" class="avatar">
+                        <?php 
+                        if (!empty($datas['photo'])){ ?>
+                            <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/'), $datas['photo'] ?>" alt="Team Image" class="avatar">
+                        <?php
+                        }
+                        else {?>
+                        
+                        <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/concierge120.png') ?>" alt="Team Image" class="avatar">
+                        <?php
+                        }
+                        ?>
                         <div class="title">
                             <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
                             <h5 class="muted regular">Groom sur 

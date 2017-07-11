@@ -14,6 +14,13 @@
         body{
             background: #89b5f7;
         }
+        #imgAvatar{
+    
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        }
+      
 
         /*.contact1, #connect2 {
             color: #fff; 
@@ -57,13 +64,30 @@
                 <div id="DivFormO" class="row">
                     <div class="col-md-12 text-center">
 
+                   
                     <?php 
                  
                     
+
+
                     if ($formContact == false AND $erreurDoublon == false) {
+
 
                         foreach ($GroomInfos as $datas) { ?>
                             <h2 style="color:#f06467" class="light white">Fiche de <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h2>
+                            
+                             <?php 
+                        if (!empty($datas['photo'])){ ?>
+                            <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/'), $datas['photo'] ?>" alt="Team Image" class="avatar">
+                        <?php
+                        }
+                        else {?>
+                        
+                        <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/concierge120.png') ?>" alt="Team Image" class="avatar">
+                        <?php
+                        }
+                        ?>
+
                             <h3> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
                             <table id="TabComp">
                                 <thead>Mes compétences et tarifs : </thead>
@@ -93,6 +117,15 @@
 
                                 ?>  
                                 </h5>
+
+                                <div id="description">
+                                    <h4>A propos : </h4>
+                                        <p>
+                                        <?php                                    
+                                            echo $datas['description'];                                    
+                                        ?> 
+                                        </p>
+                                </div>
                                 <div>
                                     <h4>Commentaires laissés à <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
                                     <?php foreach ($datas['comments'] as $com) {

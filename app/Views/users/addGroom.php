@@ -59,7 +59,13 @@
                                 }?>">
                                             </div>
                                             <div class="form-group">
-                                                <input  name="password" type="text" placeholder="Votre MDP" class="form-control" value="<?php if(!empty($post['password'])){
+                                                <input  type="password" name="password"  placeholder="Votre mot de passe" class="form-control" value="<?php if(!empty($post['password'])){
+                                    echo $post['password'];
+
+                                }?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <input  type="password" name="password2"  placeholder="Répétez votre mot de passe" class="form-control" value="<?php if(!empty($post['password2'])){
                                     echo $post['password'];
 
                                 }?>">

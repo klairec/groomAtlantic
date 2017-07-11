@@ -5,8 +5,6 @@
 <?php if(count($errors) > 0): ?>
     <p style="color:red;"><?=implode('<br>', $errors); ?></p>
 <?php endif; ?>
-<?php var_dump($changeSkills) ?>
-<?php var_dump($services) ?>
 
 <form method="POST">
 

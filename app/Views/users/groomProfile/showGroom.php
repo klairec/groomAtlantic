@@ -65,16 +65,17 @@ body{
                                 </tr>
                                 <tr>
                                     <td><strong>Prix</strong></td>
-                                    <?php $prices = explode(',', $prices[0]['price']); ?>
-                                    <?php foreach ($prices as $price): ?>
+                                    <?php $pricesTab = explode(',', $prices[0]['price']); ?>
+                                    <?php foreach ($pricesTab as $price): ?>
                                         <td><?= $price ?>€</td>
                                     <?php endforeach; ?>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <?php foreach ($prices as $price): ?>
+                                    <?php foreach ($prices as $test): ?>
                                     <td>
-                                    <a href="<?= $this->url('services_change', ['id' => $prices[0]['id_groom']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier
+                                    </a>
                                     </td>
                                     <?php endforeach; ?>
                                 </tr>

@@ -72,7 +72,9 @@
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
-							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
+							<br>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
+
 						</div>
 					</div>
 					<div class="col-md-3">
@@ -85,7 +87,8 @@
 								<i class="fa fa-star-o" aria-hidden="true"></i>	
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
-							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
+							<br>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
 					</div>
 					<div class="col-md-3">
@@ -98,7 +101,8 @@
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
-							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
+							<br>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
 						</div>
 					<div class="col-md-3">
@@ -111,7 +115,8 @@
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 							</div>
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
-							<button data-toggle="modal" data-target="#modal1" class="btn btn-primary">Voir Profil</button>
+							<br>
+							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
 					</div>
 				</div>

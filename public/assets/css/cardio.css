@@ -1273,6 +1273,13 @@ footer .social-footer li:hover a {
    padding: 0.6em;
 }
 
+/* CADRE PP */
+
+#profile_picture {
+	max-width: 400px;
+	margin:auto;
+}
+
 /* MINI FICHE GROOM */
 
 #TabComp {

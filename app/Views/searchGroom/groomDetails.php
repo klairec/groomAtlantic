@@ -181,9 +181,10 @@
             <div class="row">
             </div>
         </div>
-    </div>
+    </div>      
+</div>
 
-      <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content modal-popup">
                 <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
@@ -221,6 +222,5 @@
 
         </div>
     </div>
-</div>
 
 <?php $this->stop('main_content') ?>

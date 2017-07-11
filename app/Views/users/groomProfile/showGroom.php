@@ -56,7 +56,12 @@ body{
                     echo '<pre>';
                     print_r($prices);
                     echo '</pre>';
-                     ?>
+                     ?> 
+                        <div class="description">
+                            <?php foreach ($prices as $price): ?>
+                                <?= nl2br($price['description']); ?>
+                            <?php endforeach; ?>
+                        </div>
                         <table>
                             <tbody>
                                 <tr>
@@ -100,6 +105,11 @@ body{
                                 <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
                                 <h3 class="white">Ajouter des services</h3>
                                 <form method="POST" action="<?= $this->url('users_showgroom') ?>">
+                                    
+                                    <div class="form-group">
+                                        <label for="description">Ajouter une description</label>
+                                        <textarea name="description"></textarea>
+                                    </div>
                                     <table>
                                         <tr>
                                             <label for="checkIn">
@@ -121,7 +131,7 @@ body{
                                             <label for="cleaning">
                                                 <td>Ménage</td>
                                                 <td><input type="checkbox" name="id_skill[]" value="3"></td>
-                                                <td><input type="text" name="price[]"></td>
+                                                <td><input type="text" name="price[]" placeholder="prix au m2"></td>
                                             </label>
                                             <br>
                                         </tr>
@@ -129,7 +139,7 @@ body{
                                             <label for="gardenMaintenance">
                                                 <td>Entretien espaces verts</td>
                                                 <td><input type="checkbox" name="id_skill[]" value="4"></td>
-                                                <td><input type="text" name="price[]"></td>
+                                                <td><input type="text" name="price[]" placeholder="prix au m2"></td>
                                             </label>
                                             <br>
                                         </tr>
@@ -137,7 +147,7 @@ body{
                                             <label for="spMaintenance">
                                                 <td>Entretien piscine</td>
                                                 <td><input type="checkbox" name="id_skill[]" value="5"></td>
-                                                <td><input type="text" name="price[]"></td>
+                                                <td><input type="text" name="price[]" placeholder="prix au m2"></td>
                                             </label>
                                             <br>
                                         </tr>

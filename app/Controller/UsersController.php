@@ -67,7 +67,7 @@ class UsersController extends Controller
             }  
             else {
 
-             
+
             } 
 
 
@@ -324,7 +324,7 @@ class UsersController extends Controller
                 $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
-            if(!v::phone()->length(10)->validate($post['phone'])){
+            if(!v::notEmpty()->phone()->length(10)->validate($post['phone'])){
                 $errors[] = 'Le numéro de téléphone doit être composé de 10 chiffres.';
             }
 
@@ -351,7 +351,7 @@ class UsersController extends Controller
                     $errors[] = 'La photo de profil n\'est pas au bon format.';
                 }
 
-                if(!v::size('2MB')->validate($_FILES['photo']['tmp_name'])){
+                if(!v::size(null, '2MB')->validate($_FILES['photo']['tmp_name'])){
                     $errors[] = 'La taille de la photo de profil ne doit pas dépasser 2 Mo.';
                 }
             }
@@ -434,6 +434,8 @@ class UsersController extends Controller
     }
 
 
+
+    /* ESPACE PROPRIETAIRE */
     /**
      * Ajouter propriétaire
      */
@@ -527,7 +529,7 @@ class UsersController extends Controller
         $this->show('users/addOwner', $params);
     }
 
-    
+
 
     /**
      * Voir les éléments du profil proprietaire

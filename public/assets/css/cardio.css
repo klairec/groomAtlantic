@@ -1321,11 +1321,11 @@ padding: 0 5px
 	height: 100px;
 
 }
-
-table{
-
-	margin-left: 450px;
+.tableau1 table, th, td {
+	 border: 2px solid white;
+	 color: white;
 }
+
 
 .profile textarea{
 	text-align: center;

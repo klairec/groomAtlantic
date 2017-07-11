@@ -11,7 +11,7 @@
         background: #89b5f7;
     }
 
-    #retourAccueil {
+    /*#retourAccueil {
         color: #fff; 
         text-align: center; 
         display: block; 
@@ -24,7 +24,7 @@
 
     #retourAccueil:hover {
         background:rgba(240, 100, 103, 1);
-    }
+    }*/
 
     #details{
         background:rgba(41, 97, 144, 0.7);      
@@ -54,7 +54,6 @@
     <div class="table">
         <div class="header-text">
             <div id="DivFormO" class="row">
-
                 <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
                 <?php 
 
@@ -67,7 +66,6 @@
                 ?>
 
                 <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
-
             </div>        
             <div class="row">
                 <div id="map"></div>
@@ -185,14 +183,19 @@
                 } // fin du if resulSearch   
                 else{
 
-                ?><div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;"> Malheuresement, nous n'avons pas encore de Grooms inscrits dans les environs..</div>
-                <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
-                }                                
-
                 ?>
+                    <div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;">
+                            Malheureusement, nous n'avons pas encore de Grooms inscrits dans les environs..
+                    </div>
+                    <div class="text-center">
+                        <a id="retourAccueil" href="<?= $this->url('default_home') ?>"><button id="" class="btn btn-default">Retourner à l'accueil</button></a><?php
+                        }                                
+
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <?php $this->stop('main_content') ?>

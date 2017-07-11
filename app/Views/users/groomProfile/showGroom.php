@@ -57,19 +57,19 @@
                                 <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
                         </textarea>
-                    </div>
+ <section class="tableau1">                   </div>
 <div class="row">
-            <div class="col-sm-6">
-                    <table class="table table-bordered">
+            
+                    <center><table width=60%>
 
                        <tbody>
-                        <tr>
+                        <tr align="center">
                             <td><strong>Compétences</strong></td>
                             <?php foreach ($services as $service): ?>
                                 <td><?= $service['skills']; ?></td>
                             <?php endforeach; ?>
                         </tr>
-                        <tr>
+                        <tr align="center">
                             <td><strong>Prix</strong></td>
                             <?php $pricesTab = explode(',', $prices[0]['price']); ?>
                             <?php foreach ($pricesTab as $price): ?>
@@ -78,8 +78,10 @@
                         </tr>
                     </tbody>
                 </table>
+                </center>
+<br>
 </div>
-</div>
+</section>
                 <?php foreach ($prices as $test): ?>  
                     <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
                     <br>

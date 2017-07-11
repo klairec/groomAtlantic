@@ -52,10 +52,12 @@ body{
                 <div class="col-md-12 text-center">
                     <h3 class="light white text-center">MES SERVICES</h3>
                     <?php if(!empty($services)):?>
-                    <?php 
+                    <?php
+                    /*
                     echo '<pre>';
                     print_r($prices);
                     echo '</pre>';
+                    */
                      ?> 
                         <div class="description">
                             <?php foreach ($prices as $price): ?>

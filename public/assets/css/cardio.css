@@ -1322,6 +1322,11 @@ padding: 0 5px
 
 }
 
+table{
+
+	margin-left: 450px;
+}
+
 .profile textarea{
 	text-align: center;
 }

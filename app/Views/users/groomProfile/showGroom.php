@@ -58,8 +58,10 @@
                             <?php endforeach; ?>
                         </textarea>
                     </div>
-                    
+<div class="row">
+            <div class="col-sm-6">
                     <table class="table table-bordered">
+
                        <tbody>
                         <tr>
                             <td><strong>Compétences</strong></td>
@@ -76,11 +78,13 @@
                         </tr>
                     </tbody>
                 </table>
+</div>
+</div>
                 <?php foreach ($prices as $test): ?>  
                     <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
                     <br>
                 <?php endforeach; ?>
-                
+
                 <br>
 
             <?php else: ?>
@@ -99,7 +103,7 @@
                         <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
                         <h3 class="white">Ajouter des services</h3>
                         <form method="POST" action="<?= $this->url('users_showgroom') ?>">
-                            
+
                             <div class="form-group">
                                 <label for="description">Ajouter une description</label>
                                 <textarea name="description"></textarea>
@@ -161,7 +165,7 @@
             </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
             <hr>
             <!-- AFFICHAGE DES NOTIFICATIONS -->
-            
+
             <h3 class="light white text-center">Notifications</h3>
 
             <!-- CONTACT ENGAGE -->

@@ -21,7 +21,7 @@ body{
             <div class="col-md-12 text-center">
                 <h3 class="light white text-center">MON PROFIL</h3>
                 <figure>
-                    <img src="/assets/img/profilePict/<?=$showInfos['photo']; ?>" alt="photo_de_profil">
+                    <img src="../../assets/img/profilePict/<?=$showInfos['photo']; ?>">
                 </figure>
                 <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                 <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>

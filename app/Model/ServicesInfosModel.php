@@ -11,7 +11,7 @@ namespace Model;
 class ServicesInfosModel extends \W\Model\Model
 {
 
-	public function findSkillsWithId($id) // Fonction qui récup les compétences du groom en FIND_IN_8SET
+	public function findSkillsWithId($id) // Fonction qui récup les compétences du groom en FIND_IN_SET
 	{
 
 		$sql = '

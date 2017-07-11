@@ -40,7 +40,7 @@
     }
 
     #map, #map_canvas{
-        height: 400px;
+        height: 500px;
         width: 100%;            
         overflow : visible;
     }
@@ -92,8 +92,8 @@
                             ];
 
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 7,
-                            center: new google.maps.LatLng(44.837789, -0.57918),
+                            zoom: 8,
+                            center: new google.maps.LatLng(45.744175, -0.633389),
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         });
 
@@ -106,7 +106,7 @@
                                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                                 map: map,
                                 url: locations[i][4],
-                                icon: '<?= $this->assetUrl('img/puce.png') ?>'
+                                icon: '<?= $this->assetUrl('img/hat3.png') ?>'
                             });
 
                             google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {

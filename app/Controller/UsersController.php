@@ -7,7 +7,7 @@ use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
-use \Controller\Contact_requestsController;
+use \Controller\ContactRequestsController;
 use \Controller\RentalsController;
 use Intervention\Image\ImageManagerStatic as Image;
 use \Respect\Validation\Validator as v;
@@ -779,7 +779,7 @@ class UsersController extends Controller
 
 
                     $mail->Subject = 'Sujet';
-                    $mail->Body = '<a href="http://localhost/Back/testgithub/groomatlantic/public/users/traitementReset?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
+                    $mail->Body = '<a href="http://localhost/Back/groomatlantic/public/users/traitementReset?idUser=' . $userInfo['id'] . '&token=' . $token . '">Changer le mot de passe</a>';
 
 
                     if(!$mail->Send()){

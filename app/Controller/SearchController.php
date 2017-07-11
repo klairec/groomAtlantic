@@ -7,6 +7,7 @@ use \Model\ServicesInfosModel;
 use \Model\VilleModel;
 use \Model\UsersModel;
 use \Model\CommentsModel;
+use \Model\ContactRequestsModel;
 
 
 class SearchController extends Controller
@@ -84,9 +85,10 @@ class SearchController extends Controller
 
 
 
-		$contact = false;
+		$contact = 0;
 		$search = new ServicesInfosModel(); // on insère
 		$GroomInfos = $search->groomById($id);	
+        $erreurDoublon = false;
 
 
         if (!empty($GroomInfos)){
@@ -113,12 +115,40 @@ class SearchController extends Controller
             }
         }
 
+        if (isset($_GET['contact']) AND $_GET['contact'] == 1) { //Si on clique sur demande de contact, alors on crée une requete dans la base request où on rentre l'id du groom et de l'owner.
+            $me = $this->getUser();
+            $contact = new ContactRequestsModel();
+            $doublon = $contact->requestDoublon($result['id_groom'], $me['id']);
+
+                if(count($doublon) != 0){ //Si une requête est déja en cours on affiche une erreur.
+
+                    $erreurDoublon = true;
+                }
+
+                else{ // Sinon on crée la requête
+
+                   
+
+                    $BoolReqCoord = [
+
+                    'id_groom'      => $result['id_groom'],
+                    'date'          =>  date('d.m.y'),
+                    'id_owner'      => $me['id'],
+                    'erreurDoublon' => $erreurDoublon,
+
+                    ];
+
+                    $CoordRequest = new ContactRequestsModel();
+                    $CoordRequest->insert($BoolReqCoord);
+
+                }
+
+
+        }
 
 		$params=[
-		'GroomInfos' => $GroomInfos,
-		'contact'	 => $contact,
-
-
+    		'GroomInfos' => $GroomInfos,
+    		'contact'	 => $contact,
         ];
 
         $this->show('searchGroom/groomDetails', $params);

@@ -3,14 +3,14 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \Model\Contact_requestsModel;
+use \Model\ContactRequestsModel;
 
 
 class Contact_requestsController extends Controller
 {
 
     public function ContactAuthor(){
-        $ContactAuthor = new Contact_requestsModel();
+        $ContactAuthor = new ContactRequestsModel();
         $contactAut = $ContactAuthor->contactAuthorName();
         
         return $contactAut;

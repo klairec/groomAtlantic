@@ -80,9 +80,10 @@
                         var locations = 
                             [
                                 <?php
-  
+                                
                                 if(isset($markers) and !empty($markers))
                                 {
+
                                     foreach($markers as $markert)
                                     {
                                 ?>
@@ -136,93 +137,66 @@
                 <div id="map canvas"></div>
 
 
-                <?php
-              
+                <?php  
+                    if(!empty($resultSearch)){               
 
-
-                if(!empty($resultSearch)){
-
+                        foreach ($resultSearch as $datas) {   
                 ?>
+                            <div class="col-md-4">
+                                <div class="team text-center">
+                                    <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
+                                        <div style="text-align: center" class="overlay text-center">
+                                            <h5 class="white">Mes compétences & tarifs : </h5>
+                                            <h5 class="light light-white"></h5>
 
+                                            <table id="TabComp">
+                                                <tr>
+                                                    <?php                                                            
+                                                        foreach ($datas['comp'] as $skill) {
+                                                            echo ' <th>' .$skill['skills']. '</th>';
+                                                        }
+                                                    ?>
 
-                <?php
+                                                </tr>
+                                                <tr>
+                                                    <?php 
 
-                    foreach ($resultSearch as $datas) {   
-                ?>
+                                                        foreach ($datas['prix'] as $prix) {
 
+                                                            echo '<td>'.$prix.' €</td>';
+                                                        }
+                                                    ?>
+                                                </tr> 
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">
+                                    <div class="title">
+                                        <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
+                                        <h5 class="muted regular">Groom sur 
+                                            <?php
+                                                foreach ($datas['villeAction'] as $city) {
+                                                    echo ucfirst(strtolower($city));
+                                                } 
 
-
-                <div class="col-md-4">
-                    <div class="team text-center">
-                        <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
-                            <div style="text-align: center" class="overlay text-center">
-                                <h5 class="white">Mes compétences & tarifs : </h5>
-                                <h5 class="light light-white"></h5>
-                                <?php 
-                    //TEST //
-                    /*
-                                                        $skillJoint = new
-                                                        ServicesInfosModel(); 
-                                                        $tabSkill = $skillJoint->findSkillsWithId($datas['id_groom']);
-                                                        $pricesTab = explode(',', $datas['price']);  
-                                                        */
-
-                                       
-                                        
-                              
-
-                                ?>
-                                <table id="TabComp">
-                                    <tr>
-                                        <?php                                                            
-                    foreach ($datas['comp'] as $skill) {
-                        echo ' <th>' .$skill['skills']. '</th>';
-                    }
-                                        ?>
-
-                                    </tr>
-                                    <tr>
-                                        <?php 
-
-                        foreach ($datas['prix'] as $prix) {
-
-                            echo '<td>'.$prix.' €</td>';
-                        }
-                                        ?>
-                                    </tr>                                                    
-
-                                </table>
+                                            ?>
+                                                
+                                        </h5>
+                                    </div>
+                                    <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
+                                </div>
                             </div>
-                        </div>
-                        <img src="<?= $this->assetUrl('img/team/concierge120.png') ?>" alt="Team Image" class="avatar">
-                        <div class="title">
-                            <h4><?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
-                            <h5 class="muted regular">Groom sur 
-                                <?php
-                                            foreach ($datas['villeAction'] as $city) {
-                                                echo ucfirst(strtolower($city));
-                                            } 
+                    <?php
 
-                                ?></h5>
-                        </div>
+                        } //fin du foreach Infosgroom
 
+                    } // fin du if resulSearch   
+                    else{
 
-                        <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
+                        ?><div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;"> Malheuresement, nous n'avons pas encore de Grooms inscrits dans les environs..</div>
+                        <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
 
-
-                    </div>
-                </div>
-                <?php
-
-                    } //fin du foreach Infosgroom
-
-                } // fin du if resulSearch   
-                else{
-
-                ?><div style="text-align: center; font-size:2em; padding: 1em 0 1em 0;"> Malheuresement, nous n'avons pas encore de Grooms inscrits dans les environs..</div>
-                <a id="retourAccueil" href="<?= $this->url('default_home') ?>">Retourner à l'accueil</a><?php
-
-                }                                
+                    }                                
 
                 ?>
             </div>

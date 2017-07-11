@@ -69,7 +69,6 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-
     <section>
 
 	    <?=$this->section('errors'); ?>

@@ -3,7 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\Model\UsersModel;
+use \Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
 use \Controller\CommentsController;
@@ -83,9 +83,9 @@ class UsersController extends Controller
         }
         $params = [
             'formValid' => $formValid,
-            'errors' => $errors,
-            'mail' => isset($post['email']),            
-            'deco' => $deco,
+            'errors'    => $errors,
+            'mail'      => isset($post['email']),            
+            'deco'      => $deco,
         ];
         $this->show('default/home', $params);
     }
@@ -179,11 +179,11 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
@@ -212,22 +212,23 @@ class UsersController extends Controller
                 $authModel = new \W\Security\AuthentificationModel;
 
                 $localisation = new UsersModel;
-                $local = $localisation->getXmlCoordsFromAdress($post['address']);
+                $full_address = $post['address'].', '.$post['postcode'].' '.$post['cityUser'];
+                $local = $localisation->getXmlCoordsFromAdress($full_address);
 
                 // on crée le tableau de données à insérer
                 $data = [
-                    'firstname'  => ucfirst($post['firstname']), 
-                    'lastname'   => strtoupper($post['lastname']),
-                    'email'      => strtolower($post['email']),
-                    'phone'      => $post['phone'],
-                    'role'       => 'groom',                      
-                    'password'   => $authModel->hashPassword($post['password']),
-                    'address'    => strtoupper($post['address']),
-                    'postcode'   => $post['postcode'],
-                    'cityUser'   => strtolower($post['cityUser']),
+                    'firstname'     => ucfirst($post['firstname']), 
+                    'lastname'      => strtoupper($post['lastname']),
+                    'email'         => strtolower($post['email']),
+                    'phone'         => $post['phone'],
+                    'role'          => 'groom',                      
+                    'password'      => $authModel->hashPassword($post['password']),
+                    'address'       => strtoupper($post['address']),
+                    'postcode'      => $post['postcode'],
+                    'cityUser'      => strtolower($post['cityUser']),
                     'date_creation' => date('d.m.y'),
-                    'lng'        => $local['lon'],
-                    'lat'        => $local['lat'],
+                    'lng'           => $local['lon'],
+                    'lat'           => $local['lat'],
                 ];
 
                 // on insère dans la BDD
@@ -289,14 +290,14 @@ class UsersController extends Controller
 
 
         $params = [
-            'showInfos' => $showInfos,
-            'services' => $services,
-            'prices' => $prices,
-            'addSkills' => $addSkills,
-            'comments'  => $comments,
-            'commentsA' => $commentsA,
-            'contacts' => $contacts,
-            'propositions' => $propositions
+            'showInfos'     => $showInfos,
+            'services'      => $services,
+            'prices'        => $prices,
+            'addSkills'     => $addSkills,
+            'comments'      => $comments,
+            'commentsA'     => $commentsA,
+            'contacts'      => $contacts,
+            'propositions'  => $propositions
         ];
 
         $this->show('users/groomProfile/showGroom', $params);
@@ -466,11 +467,11 @@ class UsersController extends Controller
             }
 
             // on vérifie les champs insérés
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['firstname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['firstname'])){
                 $errors[] = 'Le prénom doit comporter au moins 3 lettres.';
             }
 
-            if(!v::notEmpty()->stringType()->alpha()->length(3, 50)->validate($post['lastname'])){
+            if(!v::notEmpty()->stringType()->alpha('àâäçéèêîïôûùæœÀÄÂÇÉÈÊÎÏÔÛÙÆŒ-')->length(3, 50)->validate($post['lastname'])){
                 $errors[] = 'Le nom doit comporter au moins 3 lettres.';
             }
 
@@ -504,18 +505,18 @@ class UsersController extends Controller
 
                 // on crée le tableau de données à insérer
                 $data = [
-                    'firstname'  => ucfirst($post['firstname']), 
-                    'lastname'   => strtoupper($post['lastname']),
-                    'email'      => strtolower($post['email']),
-                    'phone'      => $post['phone'],
-                    'role'       => 'owner',                      
-                    'password'   => $authModel->hashPassword($post['password']),
-                    'address'    => strtolower($post['address']),
-                    'postcode'   => $post['postcode'],
-                    'cityUser'   => strtoupper($post['cityUser']),
+                    'firstname'     => ucfirst($post['firstname']), 
+                    'lastname'      => strtoupper($post['lastname']),
+                    'email'         => strtolower($post['email']),
+                    'phone'         => $post['phone'],
+                    'role'          => 'owner',                      
+                    'password'      => $authModel->hashPassword($post['password']),
+                    'address'       => strtolower($post['address']),
+                    'postcode'      => $post['postcode'],
+                    'cityUser'      => strtoupper($post['cityUser']),
                     'date_creation' => date('d.m.y'),
-                    'lng'        => $local['lon'],
-                    'lat'        => $local['lat'],
+                    'lng'           => $local['lon'],
+                    'lat'           => $local['lat'],
                 ];
 
                 // on insère dans la BDD
@@ -570,11 +571,11 @@ class UsersController extends Controller
 
 
         $params = [
-            'showInfos' => $showInfos,
-            'addRental' => $addRental,
-            'locations' => $locations,
-            'comments'  => $comments,
-            'commentsAd' => $commentsAd,
+            'showInfos'     => $showInfos,
+            'addRental'     => $addRental,
+            'locations'     => $locations,
+            'comments'      => $comments,
+            'commentsAd'    => $commentsAd,
         ];  
 
         $this->show('users/ownerProfile/showOwner', $params);
@@ -671,7 +672,7 @@ class UsersController extends Controller
                     // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
                     'photo'      => $fileName,
                 ];
-            
+
                 $usersModel = new UsersModel();
                 $update = $usersModel->update($data, $user_connect['id']);
 
@@ -762,8 +763,8 @@ class UsersController extends Controller
 
                     $data = [
 
-                        'token' => $token,
-                        'id_user' => $userInfo['id'],
+                        'token'     => $token,
+                        'id_user'   => $userInfo['id'],
 
                     ];
 
@@ -876,9 +877,9 @@ class UsersController extends Controller
         }
 
         $params = [
-            'showForm' => $showForm,
+            'showForm'  => $showForm,
             'formValid' => $formValid,
-            'errors' => $errors,
+            'errors'    => $errors,
         ];
 
         $this->show('users/traitementReset', $params);

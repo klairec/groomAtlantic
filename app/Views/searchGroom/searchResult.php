@@ -142,9 +142,10 @@
                                         <div style="text-align: center" class="overlay text-center">
                                             <h5 class="white">Mes compétences & tarifs : </h5>
                                             <h5 class="light light-white"></h5>
+                                          
                                             <table id="TabComp">
                                                 <tr>
-                                                    <?php                                                            
+                                                    <?php                                                        
                                                         foreach ($datas['comp'] as $skill) {
                                                             echo ' <th>' .$skill['skills']. '</th>';
                                                         }

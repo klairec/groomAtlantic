@@ -50,11 +50,11 @@
 
 <?php $this->start('main_content') ?>
 
-<div id="DivSearch" class="container";>
+<div class="container";>
     <div class="table">
         <div class="header-text">
-            <div class="row">
-                <div class="col-md-12 text-center">
+            <div id="DivFormO" class="row">
+                
                     <h2 style="color:#f06467" class="light white">Résultats de vote recherche</h2>
                     <?php 
 
@@ -67,7 +67,7 @@
                     ?>
 
                     <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
-                </div>
+              
             </div>        
             <div class="row">
                 <div id="map"></div>
@@ -142,9 +142,10 @@
                                         <div style="text-align: center" class="overlay text-center">
                                             <h5 class="white">Mes compétences & tarifs : </h5>
                                             <h5 class="light light-white"></h5>
+                                          
                                             <table id="TabComp">
                                                 <tr>
-                                                    <?php                                                            
+                                                    <?php                                                        
                                                         foreach ($datas['comp'] as $skill) {
                                                             echo ' <th>' .$skill['skills']. '</th>';
                                                         }

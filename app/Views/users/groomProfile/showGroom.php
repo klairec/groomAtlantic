@@ -70,17 +70,12 @@ body{
                                         <td><?= $price ?>€</td>
                                     <?php endforeach; ?>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <?php foreach ($prices as $test): ?>
-                                    <td>
-                                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier
-                                    </a>
-                                    </td>
-                                    <?php endforeach; ?>
-                                </tr>
                             </tbody>
-                        </table
+                        </table>
+                        <?php foreach ($prices as $test): ?>  
+                        <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                        <?php endforeach; ?>
+                            
                         <br>
 
                     <?php else: ?>

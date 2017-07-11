@@ -369,7 +369,7 @@ class UsersController extends Controller
                 // AJOUT PHOTO DE PROFIL
                 $maxfilesize = 1048576; 
                 if($_FILES['photo']['error'] === 0 AND $_FILES['photo']['size'] < $maxfilesize){
-                    
+
                     // création de la variable $fileinfo qui récupère les infos du fichier uploadé
                     $fileInfo = pathinfo($_FILES['photo']['name']);
 
@@ -436,7 +436,6 @@ class UsersController extends Controller
                         $this->flash('Vos informations ont été modifiées', 'success');
                         $this->redirectToRoute('users_showgroom');
                     }
-
                 }
             }
         }
@@ -680,7 +679,7 @@ class UsersController extends Controller
                 // AJOUT PHOTO DE PROFIL
                 $maxfilesize = 1048576; 
                 if($_FILES['photo']['error'] === 0 AND $_FILES['photo']['size'] < $maxfilesize){
-                    
+
                     // création de la variable $fileinfo qui récupère les infos du fichier uploadé
                     $fileInfo = pathinfo($_FILES['photo']['name']);
 
@@ -737,14 +736,15 @@ class UsersController extends Controller
                         'photo'      => $fileName,
                         'size'       => $_FILES['photo']['size'],
                     ];
-                $usersModel = new UsersModel();
-                $update = $usersModel->update($data, $user_connect['id']);
+                    $usersModel = new UsersModel();
+                    $update = $usersModel->update($data, $user_connect['id']);
 
-                if(!empty($update)){
-                    $formValid = true;
+                    if(!empty($update)){
+                        $formValid = true;
 
-                    $this->flash('Vos informations ont été modifiées', 'success');
-                    $this->redirectToRoute('users_showowner');
+                        $this->flash('Vos informations ont été modifiées', 'success');
+                        $this->redirectToRoute('users_showowner');
+                    }
                 }
             }
         }

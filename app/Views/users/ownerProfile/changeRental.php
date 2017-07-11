@@ -47,31 +47,31 @@
                         </div>
                         <div class="form-group">
                             <label for="outdoor_fittings"><h4>Equipements extérieurs</h4></label>
-                            <div class="checkbox">
-                                <label for="jardin">
-                                    <input type="checkbox" name="outdoor_fittings[]" value="jardin"><h5>Jardin</h5>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="terrasse">
-                                    <input type="checkbox" name="outdoor_fittings[]" value="terrasse"><h5>Terrasse</h5>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="balcon">
-                                    <input type="checkbox" name="outdoor_fittings[]" value="balcon"><h5>Balcon</h5>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="piscine">
-                                    <input type="checkbox" name="outdoor_fittings[]" value="piscine"><h5>Piscine</h5>
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label for="jacuzzi">
-                                    <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi"><h5>Jacuzzi</h5>
-                                </label>
-                            </div>
+                            <br><br>
+                            <label for="jardin">
+                                <h5>Jardin</h5>
+                                <input type="checkbox" name="outdoor_fittings[]" value="jardin">
+                            </label>
+                            
+                            <label for="terrasse">
+                                <h5>Terrasse</h5>
+                                <input type="checkbox" name="outdoor_fittings[]" value="terrasse">
+                            </label>
+                            
+                            <label for="balcon">
+                                <h5>Balcon</h5>
+                                <input type="checkbox" name="outdoor_fittings[]" value="balcon">
+                            </label>
+                            
+                            <label for="piscine">
+                                <h5>Piscine</h5>
+                                <input type="checkbox" name="outdoor_fittings[]" value="piscine">
+                            </label>
+                            
+                            <label for="jacuzzi">
+                                <h5>Jacuzzi</h5>
+                                <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi">
+                            </label>
                         </div>
                         <div class="form-group">
                             <h3>Adresse</h3>

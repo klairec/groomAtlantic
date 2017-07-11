@@ -634,7 +634,7 @@ class UsersController extends Controller
                     $errors[] = 'La photo de profil n\'est pas au bon format.';
                 }
 
-                if(!v::size('2MB')->validate($_FILES['photo']['tmp_name'])){
+                if(!v::size(null, '2MB')->validate($_FILES['photo']['tmp_name'])){
                     $errors[] = 'La taille de la photo de profil ne doit pas dépasser 2 Mo.';
                 }
             }

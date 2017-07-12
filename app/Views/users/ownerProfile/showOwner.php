@@ -42,6 +42,8 @@
             </section>
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
+            
+            <hr>
 
 <!-- AFFICHAGE INFOS LOCATIONS -->
 
@@ -90,7 +92,7 @@
                                 <form method="POST" action="<?= $this->url('users_showowner') ?>">
                                     <div class="form-group text-center">
                                         <label for="title">Titre</label>
-                                        <input type="text" name="title" id="title">
+                                        <input type="text" name="title" id="title" placeholder="Le nom de votre maison...">
                                     </div>
                                     <div class="form-group text-center">
                                         <label for="type">Type de location</label>
@@ -142,18 +144,20 @@
                         </div>
                     </div>
                 </section><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
-
+                <hr>
                 <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
                 <section class="groom_research">
                     <h3 class="light white text-center">ACCUEIL</h3>
                     <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
-                </div>
+                </section>
             </div>
         </div>
     </div>
-</section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+</div>
 
+<!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+<hr>
 <!-- AFFICHAGE NOTIFICATIONS -->
 
 <section class="notifications">
@@ -170,7 +174,8 @@
     <!-- AFFICHAGE NOTATION -->
 
     <div></div>
-</section><!-- AFFICHAGE NOTIFICATIONS -->
+</section>
+<!-- AFFICHAGE NOTIFICATIONS -->
 
 <!-- AFFICHAGE AVIS LAISSES -->
 
@@ -179,6 +184,7 @@
         <div class="header-text">
             <div id="DivFormG" class="row">
                 <div class="text-center">
+                    <hr>
                     <h3 class="light white text-center">MES AVIS LAISSES</h3>
                     <?php if(!empty($comments)):?>
                         <?php foreach ($comments as $comment): ?>

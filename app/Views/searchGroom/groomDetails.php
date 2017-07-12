@@ -219,8 +219,7 @@
     <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content modal-popup">
-                <!--<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>-->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span id="btn_modal" aria-hidden="true">&times;</span></button>
                 <h3 class="white">Entrer en contact avec Claire ?</h3>
                 <form method="POST" action="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">
                     <div>
@@ -242,7 +241,7 @@
                 </div>
                 <div>
                     <label>
-                        <h5>Ecrivez lui quelque chose...</h5>
+                        <h5 class="white">Ecrivez lui quelque chose...</h5>
                         <textarea type="text" name="title" id="title" value="" class="form-control" rows="3"></textarea>
                     </label>
                 </div>

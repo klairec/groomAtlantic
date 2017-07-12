@@ -1296,6 +1296,11 @@ padding: 0 5px
 	margin:20em 0 0 0;
 }
 
+/* MODALE GD*/
+#btn_modal {
+	padding: 25px;
+}
+
 /* BTN TOP PAGE*/
 #bt-retour-haut {
 	background: rgba (0, 0, 0, 0.5);

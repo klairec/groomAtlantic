@@ -169,7 +169,7 @@
                     <hr>
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
 
-                    <h3 class="light white text-center">Notifications</h3>
+                    <h3 class="light white text-center">NOTIFICATIONS</h3>
 
                     <!-- CONTACT ENGAGE -->
 

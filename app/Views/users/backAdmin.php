@@ -20,8 +20,6 @@
             <div id="DivFormG" class="row">
                 <div class="col-md-12 text-center">
                     <h2 class="light white text-center">Espace Administrateur</h2>
-
-
                     <table>
                         <tr>
                             <th>ID</th>
@@ -36,29 +34,28 @@
                             <th>Role</th>
                             <th>Exclusion</th>
                         </tr>
-
                         <?php
                         foreach($usersList as $user){
                             ?>
                             <tr>
-                            <td><?= $user['id']; ?></td>
-                            <td><?= $user['firstname']; ?></td>
-                            <td><?= $user['lastname']; ?></td>
-                            <td><?= $user['email']; ?></td>
-                            <td><?= $user['phone']; ?></td>
-                            <td><?= $user['address']; ?></td>
-                            <td><?= $user['postcode']; ?></td>
-                            <td><?= $user['cityUser']; ?></td>
-                            <td><?= $user['date_creation']; ?></td>
-                            <td><?= $user['role']; ?></td>
-                            <td>Bannir <input type="checkbox" name="cbxBan" value="<?= $user['banned']; ?>"></td>
+                                <td><?= $user['id']; ?></td>
+                                <td><?= $user['firstname']; ?></td>
+                                <td><?= $user['lastname']; ?></td>
+                                <td><?= $user['email']; ?></td>
+                                <td><?= $user['phone']; ?></td>
+                                <td><?= $user['address']; ?></td>
+                                <td><?= $user['postcode']; ?></td>
+                                <td><?= $user['cityUser']; ?></td>
+                                <td><?= $user['date_creation']; ?></td>
+                                <td><?= $user['role']; ?></td>
+                                <td>Bannir <input type="checkbox" name="cbxBan" value="<?= $user['banned']; ?>"></td>
                             </tr>
                         <?php
                         }
                         ?>
-
                     </table>
-
+                <br><br>
+                <button type="submit" class="btn btn-default">Valider</button>
                 </div>
             </div>
         </div>

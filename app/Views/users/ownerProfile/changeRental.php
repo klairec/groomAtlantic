@@ -13,7 +13,7 @@
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
-
+<?php print_r( explode('|', $updtLoc['outdoor_fittings']) ) ?>
 <div class="container">
     <div class="table">
         <div class="header-text">
@@ -31,10 +31,10 @@
                             <label for="type"><h4>Type de location</h4></label>
                             <select name="type" class="form-control">
                                 <option value="" selected disabled>--Sélectionnez--</option>
-                                <option value="flat">Appartement</option>
-                                <option value="house">Maison</option>
-                                <option value="loft">Loft</option>
-                                <option value="mobilhome">Mobilhome</option>
+                                <option value="flat" <?php if($updtLoc['type'] == 'flat') { echo 'selected';} ?>>Appartement</option>
+                                <option value="house" <?php if($updtLoc['type'] == 'house') { echo 'selected';} ?>>Maison</option>
+                                <option value="loft" <?php if($updtLoc['type'] == 'loft') { echo 'selected';} ?>>Loft</option>
+                                <option value="mobilhome" <?php if($updtLoc['type'] == 'mobilhome') { echo 'selected';} ?>>Mobilhome</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -48,26 +48,26 @@
                         <div class="form-group">
                             <label for="outdoor_fittings"><h4>Equipements extérieurs</h4></label>
                             <br><br>
+                            <?php $TabOutdoor = ( explode('|', $updtLoc['outdoor_fittings'])); ?>
                             <label for="jardin">
                                 <h5>Jardin</h5>
-                                <input type="checkbox" name="outdoor_fittings[]" value="jardin"                                
-                                >
+                                <input type="checkbox" name="outdoor_fittings[]" value="jardin"  <?php if(in_array('jardin', $TabOutdoor)) { echo 'checked';} ?>>
                             </label>
                             <label for="terrasse">
                                 <h5>Terrasse</h5>
-                                <input type="checkbox" name="outdoor_fittings[]" value="terrasse">
+                                <input type="checkbox" name="outdoor_fittings[]" value="terrasse" <?php if(in_array('terrasse', $TabOutdoor)) { echo 'checked';} ?>>
                             </label>
                             <label for="balcon">
                                 <h5>Balcon</h5>
-                                <input type="checkbox" name="outdoor_fittings[]" value="balcon">
+                                <input type="checkbox" name="outdoor_fittings[]" value="balcon" <?php if(in_array('balcon', $TabOutdoor)) { echo 'checked';} ?>>
                             </label>
                             <label for="piscine">
                                 <h5>Piscine</h5>
-                                <input type="checkbox" name="outdoor_fittings[]" value="piscine">
+                                <input type="checkbox" name="outdoor_fittings[]" value="piscine" <?php if(in_array('piscine', $TabOutdoor)) { echo 'checked';} ?>>
                             </label>
                             <label for="jacuzzi">
                                 <h5>Jacuzzi</h5>
-                                <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi">
+                                <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi" <?php if(in_array('jacuzzi', $TabOutdoor)) { echo 'checked';} ?>>
                             </label>
                         </div>
                         <div class="form-group">

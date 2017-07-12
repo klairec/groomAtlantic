@@ -229,7 +229,7 @@ class UsersController extends Controller
                     'password'      => $authModel->hashPassword($post['password']),
                     'address'       => $post['address'],
                     'postcode'      => $post['postcode'],
-                    'cityUser'      => strtolower($post['cityUser']),
+                    'cityUser'      => ucfirst($post['cityUser']),
                     'date_creation' => date('Y.m.d'),
                     'lng'           => $local['lon'],
                     'lat'           => $local['lat'],

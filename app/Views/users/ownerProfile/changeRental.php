@@ -19,8 +19,6 @@
         <div class="header-text">
             <div id="DivFormG" class="row">
                 <div class="col-md-12 text-left">	
-
-                    
                     <?php if(count($errors) > 0): ?>
                         <p style="color:red;"><?=implode('<br>', $errors); ?></p>
                     <?php endif; ?>
@@ -41,7 +39,6 @@
                         </div>
                         <div class="form-group">
                             <label for="area"><h4>Surface</h4></label>
-
                             <input type="text" maxlength="4" name="area" id="area" placeholder="..m²" class="form-control" value="<?= $updtLoc['area'] ?> m²">
                         </div>
                         <div class="form-group">
@@ -83,7 +80,6 @@
 
                             <input type="text" maxlength="5" name="postcode" id="postcode" placeholder="" class="form-control"
                             value="<?= $updtLoc['postcode'] ?>">
-
                         </div>
                         <div class="form-group">
                             <label for="city"><h4>Ville</h4></label>

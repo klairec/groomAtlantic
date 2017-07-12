@@ -126,31 +126,25 @@
 
                 <div id="map canvas"></div>
                 <div>
-       
-                
-
-                
-                <form method="POST">
-                
-                <label for="notedesc">Trier par note</label>
-                <input id="notedesc" type="checkbox" value="true" name="order">
-                <label for="comp1">Accueil voyageurs</label>
-                <input id="comp1" type="checkbox" value="1" name="comp[]">
-                <label for="comp2">Départ voyageurs</label>
-                <input id="comp2" type="checkbox" value="2" name="comp[]">
-                <label for="comp3">Ménage</label>
-                <input id="comp3" type="checkbox" value="3" name="comp[]">
-                <label for="comp4">Entretien espaces verts</label>
-                <input id="comp4" type="checkbox" value="4" name="comp[]">
-                <label for="comp5">Entretien piscine</label>
-                <input id="comp5" type="checkbox" value="5" name="comp[]">
-                <label for="comp6">Bricolage / Réparations</label>
-                <input id="comp6" type="checkbox" value="6" name="comp[]">
-                
-                <button type="submit">Trier</button>
-
-
-                </form>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="notedesc"><h4>Trier par note</h4></label>
+                            <input id="notedesc" type="checkbox" value="true" name="order">
+                            <label for="comp1"><h4>Accueil voyageurs</h4></label>
+                            <input id="comp1" type="checkbox" value="1" name="comp[]">
+                            <label for="comp2"><h4>Départ voyageurs</h4></label>
+                            <input id="comp2" type="checkbox" value="2" name="comp[]">
+                            <label for="comp3"><h4>Ménage</h4></label>
+                            <input id="comp3" type="checkbox" value="3" name="comp[]">
+                            <label for="comp4"><h4>Entretien espaces verts</h4></label>
+                            <input id="comp4" type="checkbox" value="4" name="comp[]">
+                            <label for="comp5"><h4>Entretien piscine</h4></label>
+                            <input id="comp5" type="checkbox" value="5" name="comp[]">
+                            <label for="comp6"><h4>Bricolage / Réparations</h4></label>
+                            <input id="comp6" type="checkbox" value="6" name="comp[]">
+                            <button class="btn btn-default" type="submit">Trier</button>
+                        </div>
+                    </form>
                 </div>
                 <?php  
                 if(!empty($resultSearch)){               
@@ -163,7 +157,6 @@
                             <div style="text-align: center" class="overlay text-center">
                                 <h5 class="white">Mes compétences & tarifs : </h5>
                                 <h5 class="light light-white"></h5>
-                                
                                         <?php                                                   
                     foreach ($datas['comp'] as $skill) {
                         
@@ -188,10 +181,6 @@
                         }
                     }
                                         ?>
-
-
-                         
-            
                             </div>
                         </div> 
                         <?php 
@@ -215,7 +204,7 @@
 
                                 ?>
                             </h5>
-                                                    <?php 
+                        <?php 
 
                                         if ($datas['moyenne'] == 5 ){
 
@@ -241,7 +230,7 @@
                                             echo '<p class="stars" class="fullstar">Nouveau !</p>';
                                         }
                                        
-                                    ?>
+                            ?>
                         </div>
                         <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
                     </div>

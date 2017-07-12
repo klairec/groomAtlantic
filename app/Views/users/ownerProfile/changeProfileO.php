@@ -22,7 +22,6 @@
 						<?php if(count($errors) > 0): ?>
 							<p style="color:red;"><?=implode('<br>', $errors); ?></p>
 						<?php endif; ?>
-
 						<form method="POST" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="photo"><h4>Ajouter une photo de profil</h4></label>

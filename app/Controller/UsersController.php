@@ -290,7 +290,11 @@ class UsersController extends Controller
         $propositions = $rentalsPpt->showRentals($user_connect['id']);
 
         $contactRequestsModel = new \Model\ContactRequestsModel();
-        $notifications = $contactRequestsModel->showRequestForGroomId($user_connect['id']);
+        $total_notif = 0;
+        $notifications1 = $contactRequestsModel->showRequestForGroomId($user_connect['id'], 'tec');
+        $total_notif += $contactRequestsModel->totalNotifications;
+        $notifications2 = $contactRequestsModel->showRequestForGroomId($user_connect['id'], 'tuc');
+        $total_notif += $contactRequestsModel->totalNotifications;
 
 
         $params = [
@@ -300,8 +304,9 @@ class UsersController extends Controller
             'addSkills'     => $addSkills,
             'comments'      => $comments,
             'commentsA'     => $commentsA,
-            'notifications' => $notifications,
-            'total_notif'   => $contactRequestsModel->totalNotifications,
+            'notifications1' => $notifications1,
+            'notifications2' => $notifications2,
+            'total_notif'   => $total_notif,
         ];
 
         $this->show('users/groomProfile/showGroom', $params);
@@ -609,9 +614,12 @@ class UsersController extends Controller
         $commentsAddr = new CommentsController();
         $commentsAd = $commentsAddr->commentsAddressee();
 
-
         $contactRequestsModel = new \Model\ContactRequestsModel;
-        $notifications = $contactRequestsModel->showRequestForOwnerId($user_connect['id']);
+        $total_notif = 0;
+        $notifications1 = $contactRequestsModel->showRequestForOwnerId($user_connect['id'], 'tic');
+        $total_notif += $contactRequestsModel->totalNotifications;
+        $notifications2 = $contactRequestsModel->showRequestForOwnerId($user_connect['id'], 'tac');
+        $total_notif += $contactRequestsModel->totalNotifications;
 
         $params = [
             'showInfos'     => $showInfos,
@@ -619,8 +627,9 @@ class UsersController extends Controller
             'locations'     => $locations,
             'comments'      => $comments,
             'commentsAd'    => $commentsAd,
-            'notifications' => $notifications,
-            'total_notif'   => $contactRequestsModel->totalNotifications
+            'notifications1' => $notifications1,
+            'notifications2' => $notifications2,
+            'total_notif'   => $total_notif,
         ];  
 
         $this->show('users/ownerProfile/showOwner', $params);

@@ -113,6 +113,101 @@ class AjaxController extends \W\Controller\Controller
 
 	public function confirmJobByGroom()
 	{
+		if(!empty($_POST)){
 
+			$post = array_map('trim', array_map('strip_tags', $_POST));
+
+			$errors = [
+				(!v::intVal()->validate((int) $post['id_contact_request'])) ? 'L\'id contact est invalide' : null,
+			];
+
+			$errors = array_filter($errors);
+
+
+			if(count($errors) === 0){
+				$data = [
+					'groom_confirm' => 1,
+				];
+				$contactRequestModel = new \Model\ContactRequestsModel();
+				$update = $contactRequestModel->update($data, (int) $post['id_contact_request']);
+
+				if($update){
+					$json = [
+						'code' 		=> true,
+						'message' 	=> '<div class="text-success">Merci pour votre confirmation</div>',
+						'nbNotifs'	=> $contactRequestModel->totalNotifications,
+					];
+				}
+				else {
+					// En théorie on arrive pas ici..
+				}
+			}
+			else {
+				// S'il y a des erreurs
+				$json = [
+					'code' 		=> false,
+					'message' 	=> '<div class="text-danger">'.implode(', ', $errors).'</div>',
+					'nbNotifs'	=> $contactRequestModel->totalNotifications,
+				];
+
+			}
+
+
+			$this->showJson($json);
+		}
+	}
+
+	public function commentByOwner()
+	{
+		if(!empty($_POST)){
+
+			
+			$post = trim(strip_tags($value));
+			
+
+			$errors = [
+				(!v::intVal()->length(1)->validate((int) $post['note'])) ? 'La note est invalide.' : null,
+				(!v::stringType()->length(20,300)->validate($post['description'])) ? 'Le commentaire ne doit pas dépasser les 300 caractères.' : null,
+			];
+
+			$errors = array_filter($errors);
+
+
+			if(count($errors) === 0){
+				$data = [
+					'description' => $post['description'],
+					'note' 		  => $post['note'],
+					'date' 		  => date('c'),
+					'id_groom' 	  => $post['note'],
+					'id_owner' 	  => $post['note'],
+				];
+
+				$commentsModel = new \Model\CommentsModel();
+				$insert = $commentsModel->insert($data);
+
+				if($insert){
+					$json = [
+						'code' 		=> true,
+						'message' 	=> '<div class="text-success">Votre avis a été posté. A bientôt !</div>',
+						'nbNotifs'	=> $contactRequestModel->totalNotifications,
+					];
+				}
+				else {
+					// En théorie on arrive pas ici..
+				}
+			}
+			else {
+				// S'il y a des erreurs
+				$json = [
+					'code' 		=> false,
+					'message' 	=> '<div class="text-danger">'.implode(', ', $errors).'</div>',
+					'nbNotifs'	=> $contactRequestModel->totalNotifications,
+				];
+
+			}
+
+
+			$this->showJson($json);
+		}
 	}
 }

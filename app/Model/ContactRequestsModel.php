@@ -55,17 +55,32 @@ class ContactRequestsModel extends \W\Model\Model
      * Récupère les demandes de contact en attente pour un groom
      * @param $id_groom L'id du groom
      */
-    public function showRequestForGroomId($id_groom)
+    public function showRequestForGroomId($id_groom, $options)
     {
 
-        $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
+        $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id, c.message, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
 
             FROM '.$this->table.' AS c 
-            JOIN users AS groom ON c.id_groom = groom.id 
+            JOIN users AS groom ON c.id_groom = groom.id
             JOIN users AS owner ON c.id_owner = owner.id 
             JOIN rentals AS r ON c.rent_id = r.id';
 
-        $sql.= ' WHERE c.id_groom = :id_groom AND c.groom_accept = 0';
+
+        
+        if($options == 'tec')
+        {
+            // affichage notification si le groom n'a pas encore accepté 
+            $sql.= ' WHERE c.id_groom = :id_groom AND c.groom_accept = 0';
+        }
+        elseif($options == 'tuc')
+        {
+            // affichage notification si le groom a accepté de transmettre ses coordonnées, que le propriétaire à confirmer avoir travailler avec le groom et que le groom a confirmé avoir, lui aussi, travaillé avec le propriétaire
+            $sql.= ' WHERE c.id_groom = :id_groom AND c.groom_accept = 2 AND c.owner_confirm = 1 AND c.groom_confirm = 0';
+
+        }
+
+        
+
 
         $sth = $this->dbh->prepare($sql);
         $sth->bindValue(':id_groom', $id_groom, \PDO::PARAM_INT);
@@ -76,12 +91,14 @@ class ContactRequestsModel extends \W\Model\Model
         return $sth->fetchAll();
     }
 
+
     /**
      * Récupère les demandes de contact accepté pour un proprio
      * @param $id_owner L'id du proprio
      */
-    public function showRequestForOwnerId($id_owner)
+    public function showRequestForOwnerId($id_owner, $options)
     {
+
 
         $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, groom.phone AS groom_phone, groom.email AS groom_mail, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
 
@@ -90,7 +107,22 @@ class ContactRequestsModel extends \W\Model\Model
             JOIN users AS owner ON c.id_owner = owner.id 
             JOIN rentals AS r ON c.rent_id = r.id';
 
-        $sql.= ' WHERE c.id_owner = :id_owner AND c.groom_accept = 2 AND c.owner_confirm = 0';
+
+        if($options == 'tic')
+        {
+
+            // affichage notification si le groom a accepté de transmettre ses coordonnées et que le propriétaire n'a pas encore confirmé s'il avait travaillé ou non avec le groom
+            $sql.= ' WHERE c.id_owner = :id_owner AND c.groom_accept = 2 AND c.owner_confirm = 0';
+
+        
+        }
+        elseif($options == 'tac')
+        {
+            /// affichage notification si le groom a accepté de transmettre ses coordonnées et que le propriétaire a confirmé avoir travaillé avec le groom et que le groom a confirmé avoir, lui aussi, travaillé avec le propriétaire 
+            $sql.= ' WHERE c.id_owner = :id_owner AND c.groom_accept = 2 AND c.owner_confirm = 1 AND c.groom_confirm = 1';
+
+        }
+        
 
         $sth = $this->dbh->prepare($sql);
         $sth->bindValue(':id_owner', $id_owner, \PDO::PARAM_INT);
@@ -100,9 +132,6 @@ class ContactRequestsModel extends \W\Model\Model
 
         return $sth->fetchAll();
     }
-
-
-
 
 
     /**

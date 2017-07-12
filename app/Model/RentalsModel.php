@@ -12,9 +12,10 @@ class RentalsModel extends \W\Model\Model
 	 */
 	public function findRentalsWithId($id_user){
 		// Selectionne tous les champs de la table Rentals et l'ID du connecté
-		$sql = 'SELECT r.* FROM '.$this->table.' AS r INNER JOIN users AS u ON r.id_owner = u.id ORDER BY r.title ASC';
+		$sql = 'SELECT r.* FROM '.$this->table.' AS r WHERE r.id_owner = :owner_id ORDER BY r.title ASC';
 
 		$select = $this->dbh->prepare($sql);
+		$select->bindValue(':owner_id', $id_user);
 		if($select->execute()){
 			return $select->fetchAll(); // Renvoi les résultats
 		}
@@ -23,7 +24,7 @@ class RentalsModel extends \W\Model\Model
 	}
 
 	public function findUpdtRental($id_rental){
-		// Selectionne tous les champs de la table Rentals et l'ID du connecté
+		
 		$sql = 'SELECT r.* FROM '.$this->table.' AS r WHERE r.id = :rid';
 		
 		$sth = $this->dbh->prepare($sql);		

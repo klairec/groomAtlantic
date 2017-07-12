@@ -193,7 +193,7 @@ class SearchController extends Controller
                     'date'          =>  date('d.m.y'),
                     'id_owner'      => $me['id'],
                     'rent_id'       => $post['RentTitle'],
-                    'message'       => $post['message']
+                    'message'       => $post['message'],
                     
 
                     
@@ -210,7 +210,7 @@ class SearchController extends Controller
         }
 
 		$params=[
-    		'GroomInfos' => $GroomInfos,    		
+    		'GroomInfos'    => $GroomInfos,    		
     		'erreurDoublon' => $erreurDoublon,
     		'locations'		=> $locations,
     		'formContact'	=> $formContact,

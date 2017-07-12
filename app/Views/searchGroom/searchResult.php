@@ -69,6 +69,7 @@
                 <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
             </div>        
             <div class="row">
+
                 <div id="map"></div>            
                 <script>
 
@@ -134,6 +135,7 @@
                 <div id="map canvas"></div>
                 <div class="form-inline">
                     <form method="POST" class="form-group text-center">
+                    
                         <div class="form-group">
                             <label for="notedesc"><h4>Trier par note</h4></label>
                             <input id="notedesc" type="checkbox" value="true" name="order">

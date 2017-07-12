@@ -40,6 +40,13 @@
 
     }
 
+    .form-group .form-group{
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px;
+    }
+
 </style>
 <?php $this->stop('css') ?>
 
@@ -125,23 +132,37 @@
                 </script>
 
                 <div id="map canvas"></div>
-                <div>
-                    <form method="POST">
+                <div class="form-inline">
+                    <form method="POST" class="form-group text-center">
                         <div class="form-group">
                             <label for="notedesc"><h4>Trier par note</h4></label>
                             <input id="notedesc" type="checkbox" value="true" name="order">
+                        </div>
+                        <div class="form-group">
                             <label for="comp1"><h4>Accueil voyageurs</h4></label>
                             <input id="comp1" type="checkbox" value="1" name="comp[]">
+                        </div>
+                        <div class="form-group">
                             <label for="comp2"><h4>Départ voyageurs</h4></label>
                             <input id="comp2" type="checkbox" value="2" name="comp[]">
+                        </div>
+                        <div class="form-group">
                             <label for="comp3"><h4>Ménage</h4></label>
                             <input id="comp3" type="checkbox" value="3" name="comp[]">
+                        </div>
+                        <div class="form-group">
                             <label for="comp4"><h4>Entretien espaces verts</h4></label>
                             <input id="comp4" type="checkbox" value="4" name="comp[]">
+                        </div>
+                        <div class="form-group">
                             <label for="comp5"><h4>Entretien piscine</h4></label>
                             <input id="comp5" type="checkbox" value="5" name="comp[]">
+                        </div>
+                        <div class="form-group">
                             <label for="comp6"><h4>Bricolage / Réparations</h4></label>
                             <input id="comp6" type="checkbox" value="6" name="comp[]">
+                        </div>
+                        <div class="form-inline">
                             <button class="btn btn-default" type="submit">Trier</button>
                         </div>
                     </form>

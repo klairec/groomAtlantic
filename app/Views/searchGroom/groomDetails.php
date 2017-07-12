@@ -61,6 +61,12 @@
                     <?php 
                  
                     
+                    if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
+
+                         echo'<div  id="error" class="alert alert-danger alert-dismissable fade in ">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
+
+                    }
 
 
                     if ($formContact == false AND $erreurDoublon == false) {
@@ -227,7 +233,7 @@
                 <form method="POST" action="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">
                     <div>
                         <select name="RentTitle" class="form-control">
-                        <option>-- Selectionnez la maison --</option>
+                        <option selected="true" disabled="disabled">-- Selectionnez la maison --</option>
                     <?php 
 
                     print_r($locations);

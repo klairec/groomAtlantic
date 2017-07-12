@@ -176,11 +176,9 @@
                     <div class="team text-center">
                         <div class="cover" style="background:url('<?= $this->assetUrl('img/team/cover1.jpg') ?>'); background-size:cover;">
                             <div style="text-align: center" class="overlay text-center">
-                                <h5 class="white">Mes compétences & tarifs : </h5>
                                 <h5 class="light light-white"></h5>
                                         <?php                                                   
                     foreach ($datas['comp'] as $skill) {
-                        
                         
                        if ($skill['skills'] == "Ménage"){
                             ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/cleaner.png') ?>" alt="Preloader image"><?php
@@ -259,7 +257,6 @@
                 <?php
 
                     } //fin du foreach Infosgroom
-
                 } // fin du if resulSearch   
                 else{
 
@@ -270,7 +267,6 @@
                     <div class="text-center">
                         <a id="retourAccueil" href="<?= $this->url('default_home') ?>"><button id="" class="btn btn-default">Retourner à l'accueil</button></a><?php
                         }                                
-
                         ?>
                     </div>
                 </div>

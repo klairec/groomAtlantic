@@ -52,22 +52,18 @@
                                 <h5>Jardin</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="jardin">
                             </label>
-                            
                             <label for="terrasse">
                                 <h5>Terrasse</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="terrasse">
                             </label>
-                            
                             <label for="balcon">
                                 <h5>Balcon</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="balcon">
                             </label>
-                            
                             <label for="piscine">
                                 <h5>Piscine</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="piscine">
                             </label>
-                            
                             <label for="jacuzzi">
                                 <h5>Jacuzzi</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi">

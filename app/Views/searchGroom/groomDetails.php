@@ -116,12 +116,12 @@
                                 </h5>
 
                                 <div id="description">
-                                    <h4 class="white">A propos : </h4>
-                                        <p>
-                                        <?php                                    
+                                    <h4 class="white">A propos : </h4>                             
+                                    <p>
+                                    <?php
                                             echo $datas['description'];                                    
-                                        ?> 
-                                        </p>
+                                    ?> 
+                                    </p>
                                 </div>
                                 <div>
                                     <h4 class="white">Commentaires laissés à <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>

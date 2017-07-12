@@ -4,12 +4,10 @@
 
 <div class="container">
 	<div class="table">
-
 		<div class="header-text">
 			<div id="DivFormG" class="row">
 				<h3 class="light white">MENTIONS LEGALES</h3>
 				<br>
-				
 				<section>
 					<div class="container">
 						<div class="row">
@@ -18,8 +16,6 @@
 									<div class="panel-heading">
 										<h2 class="panel-title"></h2>
 									</div>
-									
-									
 									<div class="panel-body" align="left">
 
 										<h5>Identification de l’éditeur</h5>
@@ -59,21 +55,14 @@
 										</div>
 									</div>
 								</div>
-
 							</section>
 						</div>
 					</div>
-
-
 				</div>
-
-
-
-
-
 
 				<?php $this->stop('header') ?>
 
 				<?php $this->start('main_content') ?>
 
 				<?php $this->stop('main_content') ?>
+				

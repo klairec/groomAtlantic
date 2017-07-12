@@ -185,11 +185,11 @@ nav.navbar-fixed-top {
 }
 
 nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
-	color: #bbb;
+	color: #f06467;
 }
 
 .icon-bar {
-	background: #bbb;
+	background: #f06467;
 }
 
 /* Buttons */

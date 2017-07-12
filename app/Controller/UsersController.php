@@ -971,17 +971,25 @@ class UsersController extends Controller
         if(!$this->allowTo(['admin'])){
             $this->redirectToRoute('default_home');
         }
-        
+
         $usersAdminList = new UsersModel();
+        
+        
+        if(isset($_POST['banned'])) { 
+           
+            $usersModel = new UsersModel();
+            $newData = [
+                'banned' => (int) $_POST['banned']
+            ];
+            $usersModel->update($newData, (int) $_POST['id']);
+        }
+        
         $usersList = $usersAdminList->findAll();
+
         
         $params = [
             'usersList' => $usersList,
-        ];
-        
-
-            $this->show('users/backAdmin', $params);
+        ];        
+        $this->show('users/backAdmin', $params);
     }
-
-
 }   

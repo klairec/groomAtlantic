@@ -72,12 +72,12 @@
                             [
                                 <?php
 
-                                if(isset($markers) and !empty($markers))
+                                if(!empty($resultSearch))
                                 {
-                                    foreach($markers as $markert)
+                                    foreach($resultSearch as $datas)
                                     {
                                 ?>
-                                ['<?php echo $markert['firstname'] ?>', <?php echo $markert['lat'] ?>, <?php echo $markert['lng'] ?>, 0, '<?= $this->url('Search_groomDetails', ['id' => $markert['id']])?>'],
+                                ['<?php echo $datas['firstname'] ?>', <?php echo $datas['lat'] ?>, <?php echo $datas['lng'] ?>, 0, '<?= $this->url('Search_groomDetails', ['id' => $datas['id']])?>'],
                                 <?php
                                     }
                                 }

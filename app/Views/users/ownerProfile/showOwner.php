@@ -22,11 +22,11 @@
         <div class="col-md-12 text-center">
             <section class="profile">
                 <h3 class="strong white text-center">MON PROFIL</h3>
-                <figure>
-                    <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" alt="photo_de_profil">
+                <figure id="profile_picture">
+                    <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle" alt="photo_de_profil">
                 </figure>
                 <p class="strong white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
-                <p class="strong white text-center">Email : <?=$showInfos['email']; ?></p>
+                <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
                 <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
                 <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
                 <p class="light white text-center">Code postal : <?=$showInfos['postcode']; ?></p>

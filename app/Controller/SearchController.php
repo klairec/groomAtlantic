@@ -192,7 +192,8 @@ class SearchController extends Controller
                     'id_groom'      => $id,
                     'date'          =>  date('d.m.y'),
                     'id_owner'      => $me['id'],
-                    'rent_id'    => $post['RentTitle'],
+                    'rent_id'       => $post['RentTitle'],
+                    'message'       => $post['message']
                     
 
                     

@@ -245,7 +245,7 @@
                 <div>
                     <label>
                         <h5 class="white">Ecrivez lui quelque chose...</h5>
-                        <textarea type="text" name="title" id="title" value="" class="form-control" rows="3"></textarea>
+                        <textarea type="text" name="message" id="title" value="" class="form-control" rows="3"></textarea>
                     </label>
                 </div>
                 <button  style="margin-top: 12em;" id="subscribe" class="btn btn-submit">Oui

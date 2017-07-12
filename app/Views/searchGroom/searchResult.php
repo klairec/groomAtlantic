@@ -146,24 +146,35 @@
                                 <h5 class="white">Mes compétences & tarifs : </h5>
                                 <h5 class="light light-white"></h5>
 
-                                <table id="TabComp">
-                                    <tr>
+                                
                                         <?php                                                        
                     foreach ($datas['comp'] as $skill) {
-                        echo ' <th>' .$skill['skills']. '</th>';
-                    }
-                                        ?>
-
-                                    </tr>
-                                    <tr>
-                                        <?php 
-                        foreach ($datas['prix'] as $prix) {
-
-                            echo '<td>'.$prix.' €</td>';
+                        
+                        
+                       if ($skill['skills'] == "Ménage"){
+                            ?><img src="<?= $this->assetUrl('img/icons/cleaner.png') ?>" alt="Preloader image"><?php
                         }
+                        if ($skill['skills'] == "Accueil voyageurs"){
+                            ?><img src="<?= $this->assetUrl('img/icons/check-in-marker.png') ?>" alt="Preloader image"><?php
+                        }
+                        if ($skill['skills'] == "Départ voyageurs"){
+                            ?><img src="<?= $this->assetUrl('img/icons/checkout.png') ?>" alt="Preloader image"><?php
+                        }
+                        if ($skill['skills'] == "Entretien jardin"){
+                            ?><img src="<?= $this->assetUrl('img/icons/garden.png') ?>" alt="Preloader image"><?php
+                        }
+                        if ($skill['skills'] == "Entretien piscine"){
+                            ?><img src="<?= $this->assetUrl('img/icons/pool.png') ?>" alt="Preloader image"><?php
+                        }
+                        if ($skill['skills'] == "Bricolage / Réparation"){
+                            ?><img src="<?= $this->assetUrl('img/icons/wrenchNB.png') ?>" alt="Preloader image"><?php
+                        }
+
+
+
+                    }
+
                                         ?>
-                                    </tr> 
-                                </table>
                             </div>
                         </div> 
                         <?php 

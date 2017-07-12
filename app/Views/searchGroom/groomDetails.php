@@ -20,6 +20,16 @@
         height: 100px;
         border-radius: 50%;
         }
+
+        .cMonTableauCollapse2 {
+          width:600px;
+          border-collapse: collapse;
+          border: 15px solid #758de5;
+        }
+
+        .cMonTableauCollapse2 th, .cMonTableauCollapse2 td {
+          border: 15px solid #a5b6f1;
+        }
       
 
         /*.contact1, #connect2 {
@@ -89,7 +99,7 @@
                         ?>
 
                             <h3> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
-                            <table id="TabComp">
+                            <table id="TabComp" class="cMonTableauCollapse2">
                                 <thead>Mes compétences et tarifs : </thead>
                                 <tr>
                                     <?php                                                            
@@ -103,7 +113,12 @@
 
                                         foreach ($datas['prix'] as $prix) {
 
-                                            echo '<td>'.$prix.' €</td>';
+                                            echo '<td>'.$prix.' €'; ?>
+                                        <?php 
+                                            if($prix == "Ménage"){ 
+                                                    echo ' / m²';
+                                            } ?></td>
+                                    <?php
                                         }
                                     ?>
                                 </tr>

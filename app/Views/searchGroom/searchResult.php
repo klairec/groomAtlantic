@@ -77,7 +77,7 @@
                                     foreach($resultSearch as $datas)
                                     {
                                 ?>
-                                ['<?php echo $datas['firstname'] ?>', <?php echo $datas['lat'] ?>, <?php echo $datas['lng'] ?>, 0, '<?= $this->url('Search_groomDetails', ['id' => $datas['id']])?>'],
+                                ['<?php echo $datas['firstname'] ?>', <?php echo $datas['lat'] ?>, <?php echo $datas['lng'] ?>, 0, '<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>'],
                                 <?php
                                     }
                                 }

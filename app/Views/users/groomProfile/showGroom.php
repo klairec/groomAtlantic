@@ -85,7 +85,7 @@
                         </div>
                         </section>
                     <?php foreach ($prices as $test): ?>  
-                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
+                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="modifServ btn btn-blue" value="change">Modifier mes services</a>
                     <br>
                     <?php endforeach; ?>
 
@@ -99,7 +99,7 @@
 
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
 
-                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
+                    <a href="#" href="#" data-toggle="modal" data-target="#modal1" class="ajoutServ btn btn-blue" id="ajout">Ajouter des services</button>
 
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -287,3 +287,8 @@
 </div>
 
 <?php $this->stop('main_content') ?>
+<?php $this->start('js') ?>
+<script>
+
+</script>
+<?php $this->stop('js') ?>

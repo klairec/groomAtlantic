@@ -34,6 +34,11 @@
         width: 100%;            
         overflow : visible;
     }
+    .stars {
+        font-size: 3em; 
+       color:rgba(41, 97, 144, 1);
+
+    }
 
 </style>
 <?php $this->stop('css') ?>
@@ -124,7 +129,7 @@
        
                 
 
-                 ?>
+                
                 <form method="POST">
                 
                 <label for="notedesc">Trier par note</label>
@@ -142,7 +147,7 @@
                 <label for="comp6">Bricolage / Réparations</label>
                 <input id="comp6" type="checkbox" value="6" name="comp[]">
                 
-                <button type="submit">Trier                </button>
+                <button type="submit">Trier</button>
 
 
                 </form>
@@ -186,30 +191,7 @@
 
 
                          
-                                    <?php 
-
-                                        if ($datas['moyenne'] == 5 ){
-
-                                            echo '<span class="fullstar">★★★★★</span>';
-                                        } 
-                                        if ($datas['moyenne'] >= 4 AND $datas['moyenne']<5 ){
-
-                                            echo '<span class="fullstar">★★★★☆</span>';
-                                        } 
-                                        if ($datas['moyenne'] >= 3 AND $datas['moyenne']<4 ){
-
-                                            echo '<span class="fullstar">★★★☆☆</span>';
-                                        } 
-                                        if ($datas['moyenne'] >= 2 AND $datas['moyenne']<3 ){
-
-                                            echo '<span class="fullstar">★★☆☆☆</span>';
-                                        } 
-                                        if ($datas['moyenne'] >= 1 AND $datas['moyenne']<2 ){
-
-                                            echo '<span class="fullstar">★☆☆☆☆</span>';
-                                        } 
-                                       
-                                    ?>
+            
                             </div>
                         </div> 
                         <?php 
@@ -233,6 +215,33 @@
 
                                 ?>
                             </h5>
+                                                    <?php 
+
+                                        if ($datas['moyenne'] == 5 ){
+
+                                            echo '<p class="stars" class="fullstar">★★★★★</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 4 AND $datas['moyenne']<5 ){
+
+                                            echo '<p class="stars" class="fullstar">★★★★☆</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 3 AND $datas['moyenne']<4 ){
+
+                                            echo '<p class="stars" class="fullstar">★★★☆☆</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 2 AND $datas['moyenne']<3 ){
+
+                                            echo '<p class="stars" class="fullstar">★★☆☆☆</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 1 AND $datas['moyenne']<2 ){
+
+                                            echo '<p class="stars" class="fullstar">★☆☆☆☆</p>';
+                                        }
+                                        elseif(empty($datas['moyenne'])) {
+                                            echo '<p class="stars" class="fullstar">Nouveau !</p>';
+                                        }
+                                       
+                                    ?>
                         </div>
                         <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
                     </div>

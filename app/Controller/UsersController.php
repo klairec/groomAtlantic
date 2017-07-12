@@ -222,15 +222,15 @@ class UsersController extends Controller
                 // on crée le tableau de données à insérer
                 $data = [
                     'firstname'     => ucfirst($post['firstname']), 
-                    'lastname'      => strtoupper($post['lastname']),
+                    'lastname'      => ucfirst($post['lastname']),
                     'email'         => strtolower($post['email']),
                     'phone'         => $post['phone'],
                     'role'          => 'groom',                      
                     'password'      => $authModel->hashPassword($post['password']),
-                    'address'       => strtoupper($post['address']),
+                    'address'       => $post['address'],
                     'postcode'      => $post['postcode'],
                     'cityUser'      => strtolower($post['cityUser']),
-                    'date_creation' => date('d.m.y'),
+                    'date_creation' => date('Y.m.d'),
                     'lng'           => $local['lon'],
                     'lat'           => $local['lat'],
                 ];
@@ -420,11 +420,11 @@ class UsersController extends Controller
 
                     $data = [
                         'firstname'  => ucfirst($post['firstname']), 
-                        'lastname'   => strtoupper($post['lastname']),
+                        'lastname'   => ucfirst($post['lastname']),
                         'email'      => strtolower($post['email']),
-                        'address'    => strtolower($post['address']),
+                        'address'    => $post['address'],
                         'postcode'   => $post['postcode'],
-                        'cityUser'   => strtoupper($post['cityUser']),
+                        'cityUser'   => ucfirst($post['cityUser']),
                         'phone'      => $post['phone'],
                         // on insère le nom de la photo dans la BDD pour pouvoir la récupérer ultérieurement
                         'photo'      => $fileName,
@@ -554,7 +554,7 @@ class UsersController extends Controller
                     'address'       => strtolower($post['address']),
                     'postcode'      => $post['postcode'],
                     'cityUser'      => strtoupper($post['cityUser']),
-                    'date_creation' => date('d.m.y'),
+                    'date_creation' => date('Y.m.d'),
                     'lng'           => $local['lon'],
                     'lat'           => $local['lat'],
                 ];
@@ -969,12 +969,18 @@ class UsersController extends Controller
     public function backAdmin() {
         
         if(!$this->allowTo(['admin'])){
-
             $this->redirectToRoute('default_home');
-
         }
+        
+        $usersAdminList = new UsersModel();
+        $usersList = $usersAdminList->findAll();
+        
+        $params = [
+            'usersList' => $usersList,
+        ];
+        
 
-            $this->show('users/backAdmin');
+            $this->show('users/backAdmin', $params);
     }
 
 

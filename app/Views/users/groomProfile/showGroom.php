@@ -81,9 +81,9 @@
                             <br>
                         </div>
                         </section>
-                    <?php if(!empty($prices[0]['id_groom'])): ?>  
+                    <!--<?php if(!empty($prices[0]['id_groom'])): ?>-->  
                     <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="modifServ btn btn-blue" value="change">Modifier mes services</a>
-                    <?php endif; ?>
+                    <!--<?php endif; ?>-->
                     <br>
                     <?php else: ?>
                     <div class="alert alert-danger">

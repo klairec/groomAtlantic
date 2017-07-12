@@ -185,7 +185,7 @@
                     <?php if(!empty($contacts)):?>
 
                     <?php foreach ($contacts as $contact): ?>
-
+<div class="container">
                     <div>
                         <p><?= 'Vous avez été contacté par '.$contact['firstname'] .' '. $contact['lastname'].', pour la location suivante :'; ?></p>
                         <?php foreach ($propositions as $proposition): ?>

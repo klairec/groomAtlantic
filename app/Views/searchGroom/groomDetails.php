@@ -24,11 +24,11 @@
         .cMonTableauCollapse2 {
           width:600px;
           border-collapse: collapse;
-          border: 15px solid #758de5;
+          border: 5px solid #ffffff;
         }
 
         .cMonTableauCollapse2 th, .cMonTableauCollapse2 td {
-          border: 15px solid #a5b6f1;
+          border: 10px solid #ffffff;
         }
 
         #retourAccueil {
@@ -80,9 +80,9 @@
                         <?php
                         }
                         ?>
-                            <h3> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
+                            <h3 class="white"> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
                             <table id="TabComp" class="cMonTableauCollapse2">
-                                <thead>Mes compétences et tarifs : </thead>
+                                <h4 class="white">Mes services et tarifs : </h4>
                                 <tr>
                                     <?php                                                            
                                         foreach ($datas['comp'] as $skill) {
@@ -106,7 +106,7 @@
                                 </tr>
                             </table>
                             <div class="title">
-                                <h5>Groom sur
+                                <h5 class="white">Groom sur
                                 <?php
                                     foreach ($datas['villeAction'] as $city) {
                                          echo ucfirst(strtolower($city));
@@ -116,7 +116,7 @@
                                 </h5>
 
                                 <div id="description">
-                                    <h4>A propos : </h4>
+                                    <h4 class="white">A propos : </h4>
                                         <p>
                                         <?php                                    
                                             echo $datas['description'];                                    
@@ -124,13 +124,13 @@
                                         </p>
                                 </div>
                                 <div>
-                                    <h4>Commentaires laissés à <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
+                                    <h4 class="white">Commentaires laissés à <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
                                     <?php foreach ($datas['comments'] as $com) {
                                        echo '<p>"'.$com['content'].'" laissé le : ' .$com['date'].' </p>';
                                     } ?>
                                 </div>
                                 <div>
-                                    <h4>Note moyenne : </h4>
+                                    <h4 class="white">Note moyenne : </h4>
                                     <?php foreach ($datas['NoteMoyenne'] as $note) {
 
                                         if ($note['AVG(note)'] == 5 ){

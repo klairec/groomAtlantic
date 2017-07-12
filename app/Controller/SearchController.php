@@ -134,6 +134,7 @@ class SearchController extends Controller
 		$GroomInfos = $search->groomById($id);	
         $erreurDoublon = false;
         $formContact = false;
+        $errors = [];
 
 
         if (!empty($GroomInfos)){
@@ -183,7 +184,7 @@ class SearchController extends Controller
                 }
 
 
-                else{ // Sinon on crée la requête
+                elseif(!empty($post['RentTitle'])){ // Sinon on crée la requête
 
                    
                 	$formContact = true;
@@ -194,6 +195,7 @@ class SearchController extends Controller
                     'id_owner'      => $me['id'],
                     'rent_id'       => $post['RentTitle'],
                     'message'       => $post['message'],
+
                     
 
                     
@@ -205,6 +207,9 @@ class SearchController extends Controller
                     $CoordRequest->insert($BoolReqCoord);
 
                 }
+                else {
+                    $errors[] = 'Veuillez sélectioner une location';
+                }
 
 
         }
@@ -214,6 +219,7 @@ class SearchController extends Controller
     		'erreurDoublon' => $erreurDoublon,
     		'locations'		=> $locations,
     		'formContact'	=> $formContact,
+            'errors'        => $errors,
     		
 
 

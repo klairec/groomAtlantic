@@ -61,6 +61,12 @@
                     <?php 
                  
                     
+                    if(!empty($errors)){// AFFICHE MESSAGES ERREURS/ SUCCES
+
+                         echo'<div  id="error" class="alert alert-danger alert-dismissable fade in ">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'.implode('<br>', $errors).'</div>';
+
+                    }
 
 
                     if ($formContact == false AND $erreurDoublon == false) {

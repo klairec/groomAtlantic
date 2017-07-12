@@ -4,6 +4,26 @@
 	'title3' => 'Ami manouche bienvenue',
 ]); ?>
 
+<?php $this->start('css') ?>
+    <style>
+        
+        .fullstar {
+            font-size: 2em; 
+            color: #ffd700;
+        }
+
+        #imgAvatar{
+    
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        }
+
+    </style>
+       
+<?php $this->stop('css') ?>
+
+
 <?php $this->start('header') ?>
      
             <div class="container">               
@@ -62,7 +82,40 @@
 	    <div class="cut cut-top"></div>
 			<div class="container">
 				<div class="row intro-tables">
-					<div class="col-md-3">
+
+				<?php foreach ($ExmplGroom as $key) {?>
+
+					 <div class="col-md-3">
+	                    <div class="team text-center">
+	                        <div style="height:2em;" class="" ; background-size:cover;">
+	                            <div style="text-align: center" class="overlay text-center">
+	                                <h5 class="light light-white"></h5>
+              
+	                            </div>
+	                        </div> 
+		                        <?php 
+		                        if (!empty($key['photo'])){ ?>
+		                            <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/'), $key['photo'] ?>" alt="Team Image" class="avatar">
+		                        <?php
+		                        }
+		                        else {?>
+		                        
+		                        <img id="imgAvatar" src="<?= $this->assetUrl('img/profilePict/concierge120.png') ?>" alt="Team Image" class="avatar">
+		                        <?php
+		                        }
+		                        ?>
+	                        <div class="title" style="height: 3em;">
+	                            <h4><?= ucfirst($key['firstname']).' '.ucfirst(substr($key['lastname'], 0, 1)).'.' ?></h4>
+	                          
+
+	                        <span class="fullstar">★★★★★</span>
+	                        </div>
+                        
+                    	</div>
+                	</div>
+			<?php } ?>
+
+			<!--		<div class="col-md-3">
 						<div class="intro-table intro-table-first">
 							<h4 class="white heading">Ben Adamson</h4>
 							<div class="row">
@@ -74,9 +127,8 @@
 							<h5 class="white heading small-pt">Ronce les Bains</h5>
 							<br>
 							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
-
 						</div>
-					</div>
+					</div>	
 					<div class="col-md-3">
 						<div class="intro-table intro-table-second">
 							<h4 class="white heading">Ben Adamson</h4>
@@ -104,7 +156,7 @@
 							<br>
 							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
-						</div>
+					</div>
 					<div class="col-md-3">
 						<div class="intro-table intro-table-four">
 							<h4 class="white heading">Ben Adamson</h4>
@@ -118,7 +170,7 @@
 							<br>
 							<a href="#" data-toggle="modal" data-target="#modal1"><h6 class="white heading small-pt" style="text-decoration:underline;">Voir Profil</h6</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

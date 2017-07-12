@@ -25,6 +25,10 @@ class UsersController extends Controller
         $deco = false;
         $Userlog = [];
 
+        $usersModel = new UsersModel();
+        $ExmplGroom = $usersModel->getExGroom();
+
+
         if(!empty($_POST)){
             // Permet de nettoyer les données
             foreach($_POST as $key => $value){
@@ -86,6 +90,7 @@ class UsersController extends Controller
             'errors'    => $errors,
             'mail'      => isset($post['email']),            
             'deco'      => $deco,
+            'ExmplGroom' => $ExmplGroom,
         ];
         $this->show('default/home', $params);
     }

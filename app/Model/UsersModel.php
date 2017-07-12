@@ -47,5 +47,20 @@ class UsersModel extends \W\Model\UsersModel
     }
 
     //$coords=getXmlCoordsFromAdress();
+
+    public function getExGroom()
+    {
+        $sql = 'SELECT * FROM users WHERE role = "groom" AND id IN (15,18,16,25) LIMIT 4'; 
+        $result = $this->dbh->prepare($sql);
+        if($result->execute())
+        {
+            $donnee = $result->fetchAll();
+            return $donnee;
+        }
+
+
+    }
+
+
   
 }

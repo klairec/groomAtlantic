@@ -269,7 +269,7 @@ class RentalsController extends Controller
         $locations = $voirLoc->showRentals($me['id']);
         	//affiche LA location qu'il veut update :
         $showUpdtLoc = new RentalsModel(); 
-        $updtLoc = $showUpdtLoc->findUpdtRental(17);
+        $updtLoc = $showUpdtLoc->findUpdtRental($id);
 
 
 		$params = [

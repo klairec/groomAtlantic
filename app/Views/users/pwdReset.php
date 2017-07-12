@@ -14,7 +14,6 @@
                                 </div>
                             <button type="submit" class="btn btn-link">Envoyer le lien</button>
                             </form>
-
                             <?php 
                                         if(!empty($errors)){
 
@@ -27,9 +26,7 @@
                                               echo '<p style="color: white; text-align: center; font-size:20px;">Veuillez consulter votre boite email pour modifier votre mot de passe.</p>';
                                             
                                         }
-
                                     ?>
-
                         </div>
                     </div>
                 </div>

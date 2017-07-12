@@ -36,6 +36,35 @@
                         </tr>
                         <?php
                         foreach($usersList as $user){
+                        ?>
+                        <tr>
+                            <td><?= $user['id']; ?></td>
+                            <td><?= $user['firstname']; ?></td>
+                            <td><?= $user['lastname']; ?></td>
+                            <td><?= $user['email']; ?></td>
+                            <td><?= $user['phone']; ?></td>
+                            <td><?= $user['address']; ?></td>
+                            <td><?= $user['postcode']; ?></td>
+                            <td><?= $user['cityUser']; ?></td>
+                            <td><?= $user['date_creation']; ?></td>
+                            <td><?= $user['role']; ?></td>                           
+                            <td>    
+                                <form method="POST">
+                                    <input type="hidden" name="banned" value="<?php if($user['banned'] == '0'){ echo '1'; } else { echo '0'; } ?>" >
+                                    <input type="hidden" name="id" value="<?=$user['id'];?>" >
+                                    <button type="submit" name="je_le_banni"><?php if($user['banned'] == '0'){ echo 'bannir'; } else { echo 'Dé-bannir'; } ?></button>
+                                </form>
+                            </td>
+                </tr>
+
+
+
+            <?php
+    }
+            ?>
+
+            </table>
+
                             ?>
                             <tr>
                                 <td><?= $user['id']; ?></td>
@@ -60,6 +89,9 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
 </div>
 
 <?php $this->stop('main_content') ?>

@@ -207,7 +207,7 @@ class UsersController extends Controller
                 $errors[] = 'Le code postal doit comporter 5 chiffres.';
             }
 
-            if(!v::notEmpty()->stringType()->alpha()->length(2, 50)->validate($post['cityUser'])){
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
                 $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 
@@ -350,7 +350,7 @@ class UsersController extends Controller
                 $errors[] = 'Le code postal doit comporter 5 chiffres.';
             }
 
-            if(!v::notEmpty()->stringType()->alpha()->length(2, 50)->validate($post['cityUser'])){
+            if(!v::notEmpty()->stringType()->length(2, 50)->validate($post['cityUser'])){
                 $errors[] = 'La ville doit comporter au moins 2 caractères.';
             }
 

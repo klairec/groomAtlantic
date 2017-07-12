@@ -2,13 +2,31 @@
 
 <?php $this->start('css') ?>
 <style>
-    header {
-        display: none;
-    }
+header {
+    display: none;
+}
 
-    body{
-        background: #89b5f7;
-    }
+body{
+    background: #89b5f7;
+}
+.well-notif {
+    border:0;
+    border-left:5px solid #9e9e9e;
+    border-radius:0;
+}
+.nb-notif {
+    font-size: 13px;
+    font-weight: 700;
+    display:  inline-block;
+    background: grey;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+}
+.nb-notif.active {
+    background: #296190;
+}
 </style>
 <?php $this->stop('css') ?>
 
@@ -176,59 +194,47 @@
                         </div>
                     </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
                     <hr>
+
+
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
+                    <h3 class="light white text-center">
+                        NOTIFICATIONS <span id="countNotif" class="nb-notif <?=($total_notif) ? 'active' : '';?>"><?=$total_notif; ?></span>
+                    </h3>
 
-                    <h3 class="light white text-center">NOTIFICATIONS</h3>
+                    <div class="container text-left">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <?php if(!empty($notifications)): ?>
+                                    <?php foreach($notifications as $notif): ?>
 
-                    <!-- CONTACT ENGAGE -->
+                                        <div class="well well-sm well-notif" style="">
+                                            <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i> 
+                                            Le <?=\DateTime::createFromFormat('Y-m-d H:i:s', $notif['contact_date'])->format('d/m/Y \à H:i'); ?> vous avez été contacté par <?=$notif['owner_firstname'].' '.$notif['owner_lastname'];?> pour la location <?=$notif['rent_title']; ?>
+                                            <address><?=ucwords(mb_strtolower($notif['city'], 'UTF-8')).' - département: '.substr($notif['postcode'], 0,2); ?></address>
 
-                    <?php if(!empty($contacts)):?>
-
-                    <?php foreach ($contacts as $contact): ?>
-<div class="container">
-                    <div>
-                        <p><?= 'Vous avez été contacté par '.$contact['firstname'] .' '. $contact['lastname'].', pour la location suivante :'; ?></p>
-                        <?php foreach ($propositions as $proposition): ?>
-                        <p><?= $proposition['id'] . $proposition['id_type'].', '.$proposition['city'].'<br>'.'Souhaitez-vous lui communiquer vos coordonnées ?'; ?></p>
-                        <?php endforeach; ?>
-                        <form method="POST" action="">
-                            <label>
-                                <input type="checkbox" id="cbox1" value="checkbox1">Oui
-                            </label>
-                            <label>
-                                <input type="checkbox" id="cbox2" value="checkbox2">Non
-                            </label>
-                        </form>
+                                            <form id="notif_form_<?=$notif['contact_id'];?>" method="POST" class="request_contact">
+                                                <div class="text-center">
+                                                    <label>
+                                                        <input type="radio" name="accept_contact" id="cbox_yes_<?=$notif['contact_id'];?>" data-id="<?=$notif['contact_id'];?>" value="yes">&nbsp; Oui
+                                                    </label>   
+                                                    <label>
+                                                        <input type="radio" name="accept_contact" id="cbox_yes_<?=$notif['contact_id'];?>" data-id="<?=$notif['contact_id'];?>" value="no">&nbsp; Non
+                                                    </label>
+                                                </div>
+                                                    
+                                                <div id="notif_conf_<?=$notif['contact_id'];?>"></div>
+                                            </form>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div class="alert alert-danger">Aucune notification actuellement</div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                     </div>
-                    <?php endforeach; ?>
-                    <?php else: ?>
-                    <div class="alert alert-danger">
-                        <p>Pas de contact pour le moment</p>
-                    </div>
-                    <?php endif; ?>
 
-                    <!-- CONFIRMATION DE CONTACT -->
 
-                    <?php if(!empty($contacts)):?>
-
-                    <?php foreach ($contacts as $contact): ?>
-                    <div>
-                        <p><?= $contact['firstname'] .' '. $contact['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
-                        <form method="POST" action="">
-                            <label>
-                                <input type="checkbox" id="cbox3" value="checkbox1">Oui
-                            </label>   
-                            <label>
-                                <input type="checkbox" id="cbox4" value="checkbox2">Non
-                            </label>
-                        </form>
-                    </div>
-                    <?php endforeach; ?>
-                    <?php else: ?>
-                    <div class="alert alert-danger">
-                        <p>Pas de confirmation pour le moment</p>
-                    </div>
-                    <?php endif; ?>
+                    <hr>
 
                     <!-- NOUVEAU COMMENTAIRE DISPONIBLE -->
 
@@ -292,6 +298,31 @@
 <?php $this->stop('main_content') ?>
 <?php $this->start('js') ?>
 <script>
+$(document).ready(function(e){
 
+    $('input[name="accept_contact"]').on('click', function(e){
+
+        if($(this).is(':checked')){
+            var $currentRadio = $(this).val();
+            var $currentId = $(this).data('id');
+
+            $.ajax({
+                url: '<?=$this->url('ajax_validate_contact_request');?>',
+                type: 'post',
+                data: {id_contact: $currentId, choice: $currentRadio},
+                success: function(resPHP){
+                    if(resPHP.code === true){
+                        $('#notif_form_'+$currentId +' label').fadeOut();
+                    }
+                    $('#notif_conf_'+$currentId).html(resPHP.message);
+                    $('#countNotif').text(resPHP.nbNotifs);
+                    if(resPHP.nbNotifs == '0'){
+                        $('#countNotif').removeClass('active');
+                    }
+                }
+            });
+        }
+    });
+});
 </script>
 <?php $this->stop('js') ?>

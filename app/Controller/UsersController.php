@@ -286,11 +286,11 @@ class UsersController extends Controller
         $commentsAut = new CommentsController();
         $commentsA = $commentsAut->commentsAuthor();
 
-        $contactReq = new Contact_requestsController();
-        $contacts = $contactReq->ContactAuthor();
-
         $rentalsPpt = new RentalsController();
         $propositions = $rentalsPpt->showRentals($user_connect['id']);
+
+        $contactRequestsModel = new \Model\ContactRequestsModel();
+        $notifications = $contactRequestsModel->showRequestForGroomId($user_connect['id']);
 
 
         $params = [
@@ -300,8 +300,8 @@ class UsersController extends Controller
             'addSkills'     => $addSkills,
             'comments'      => $comments,
             'commentsA'     => $commentsA,
-            'contacts'      => $contacts,
-            'propositions'  => $propositions
+            'notifications' => $notifications,
+            'total_notif'   => $contactRequestsModel->totalNotifications,
         ];
 
         $this->show('users/groomProfile/showGroom', $params);

@@ -42,4 +42,7 @@ $w_routes = array(
 	['GET|POST', '/infos/infosPratiques', 'Infos#infosPratiques', 'infos_infospratiques'],
 	['GET|POST', '/infos/mentionsLegales', 'Infos#MentionsLegales', 'infos_mentionslegales'],
 	['GET|POST', '/infos/quiSommesNous', 'Infos#QuiSommesNous', 'infos_quisommesnous'],
+
+	// Ajax
+	['GET|POST', '/ajax/validateContactRequest', 'Ajax#validateContactRequest', 'ajax_validate_contact_request'],
 );

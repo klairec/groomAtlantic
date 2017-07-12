@@ -27,15 +27,10 @@ body{
             <?php if(count($errors) > 0): ?>
                 <p style="color:red;"><?=implode('<br>', $errors); ?></p>
             <?php endif; ?>
-
             <form method="POST">
-
-                
-                    <h4 class="light white text-center">Ajouter Ma description</h4>
+                <h4 class="light white text-center">Ajouter Ma description</h4>
                     <textarea name="description" rows="10" cols="50"></textarea>
-              
-                <div class="container">
-                   
+                    <div class="container">
                         <table id="TabComp" class="cMonTableauCollapse2">
                             <tr>
                                 <label for="checkIn">
@@ -46,7 +41,6 @@ body{
                             </tr>
                             <br>
                             <br>
-
                             <tr>
                                 <label for="checkOut">
                                     <td>Check-out</td>
@@ -55,7 +49,6 @@ body{
                                 </label>
                             </tr>
                             <br>
-
                             <tr>
                                 <label for="cleaning">
                                     <td>Ménage</td>
@@ -80,7 +73,6 @@ body{
                                 </label>
                                 <br>
                             </tr>
-
                             <tr>
                             <label for="fixing">
                                     <td>Petit bricolage / Réparations</td>
@@ -89,19 +81,15 @@ body{
                                 </label>
                                 <br>
                             </tr>
-
                         </table>
-                
                     <br>
                   <button type="submit" class="btn btn-blue">Modifier mes services</button>  
                 </div>
-
-<br>
+            <br>
             </form>
             <a href="<?= $this->url('users_showgroom')?>" class="btn btn-blue">Retour</a>
         </div>
     </div>
 </div>
-
 
 <?php $this->stop('main_content') ?>

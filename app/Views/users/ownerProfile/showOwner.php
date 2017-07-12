@@ -16,7 +16,6 @@
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
-
 <div class="table">
 <div class="header-text">
     <div id="DivFormG" class="row">

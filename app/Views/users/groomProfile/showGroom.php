@@ -39,7 +39,9 @@
 
                 <!-- AFFICHAGE DES SERVICES/PRIX -->
                 <hr>
-                <section class="skills">
+
+               
+
                     <h3 class="light white text-center">MES SERVICES</h3>
                     <?php if(!empty($services)):?>
                     <?php 
@@ -49,13 +51,18 @@
                     echo '</pre>';
                     */
                     ?> 
-                    <div class="form-group">
-                        <h4 class="light white text-center">Ma description</h4>
-                        <textarea rows="10" cols="50" id="comment">
+                   <div class="container">
+                    <div class="panel panel-default">
+                   <h5 class="text-center">Ma Description</h5>
+                       <div class="panel-body">
                             <?php foreach ($prices as $price): ?>
                             <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
-                        </textarea>
+                        </div>
+                        </div>
+</div>
+                      
+
                         <section class="tableau1">                 
                     </div>
                         <div class="row">
@@ -80,7 +87,7 @@
                             </center>
                             <br>
                         </div>
-                        </section>
+                        
                     <!--<?php //if(!empty($prices[0]['id_groom'])): ?>-->
                     <?php foreach ($prices as $test): ?>
                     <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="modifServ btn btn-blue" value="change">Modifier mes services</a>
@@ -92,7 +99,7 @@
                         Aucune service renseigné.
                     </div>
                     <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
-
+</section>
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
                     <?php if(empty($prices[0]['id_groom'])): ?>
                         <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>

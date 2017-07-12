@@ -22,6 +22,10 @@ class SearchController extends Controller
         $InfosGroom = [];
         $tabSkill = [];
         $params=[];
+        $errors = [];
+        $post = [];
+        $order = false;
+        $searchCompetences = NULL;
 
 
 
@@ -38,12 +42,41 @@ class SearchController extends Controller
 
             //Code Dpt utilisé pour la recherche des grooms (Afin d'élargir la recherche au département)
             $shortCp = substr($_GET['postCode'], 0, 2);	
+
+
+            if(!empty($_POST)){
+
+                foreach ($_POST as $key => $value){
+
+                    if(is_array($value)){
+                        $post[$key] = array_map('trim', array_map('strip_tags', $value));
+                    }
+                    else {
+                        $post[$key] = trim(strip_tags($value));
+                    }
+                }
+                if (!empty($post['order']) ){
+                $order = $post['order'];
+
+                }
+                if (!empty($post['comp']) ){
+                $searchCompetences = $post['comp'];
+            }
+
+            }
+                    
+         
+          
+
+
+
             $search = new ServicesInfosModel(); // on insère
-            $resultSearch = $search->searchByCP($shortCp);			
+            $resultSearch = $search->searchByCP($shortCp, $order, $searchCompetences);	
+
 
             if (!empty($resultSearch)){
-                /* Ici j'ajoute au tableau contenant les résultats de la recherche les infos supplémentaires croisées avec les autres tables 
-				*/
+                // Ici j'ajoute au tableau contenant les résultats de la recherche les infos supplémentaires croisées avec les autres tables 
+				
                 for($i=0;$i<count($resultSearch);$i++){ 
 
                     foreach ($resultSearch as $result) {
@@ -56,6 +89,9 @@ class SearchController extends Controller
                     }
                 }
             }
+
+
+
             $affMarkers = new UsersModel();
             $markers = $affMarkers->mapMarkers();
 
@@ -66,13 +102,20 @@ class SearchController extends Controller
                 'tabSkill' => $tabSkill,
                 'ville' => $ville,
                 'markers' => $markers,
+                'searchCompetences' => $searchCompetences,
+                'order' => $order,
+
             ];
 
 
         }
         else{
 
-            $this->flash('Le code postal est trop court', 'danger');
+            
+            
+
+            $this->redirectToRoute('default_home');
+
 
         }
 

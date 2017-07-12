@@ -19,13 +19,15 @@
         <div class="header-text">
             <div id="DivFormG" class="row">
                 <div class="col-md-12 text-left">	
+
+                    
                     <?php if(count($errors) > 0): ?>
                         <p style="color:red;"><?=implode('<br>', $errors); ?></p>
                     <?php endif; ?>
                     <form method="POST">
                         <div class="form-group">
                             <label for="title"><h4>Titre</h4></label>
-                            <input type="text" name="title" id="title" value="" class="form-control">
+                            <input type="text" name="title" id="title" value="<?= $updtLoc['title'] ?>" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="type"><h4>Type de location</h4></label>
@@ -39,18 +41,19 @@
                         </div>
                         <div class="form-group">
                             <label for="area"><h4>Surface</h4></label>
-                            <input type="text" name="area" id="area" placeholder="..m²" class="form-control">
+                            <input type="text" name="area" id="area" placeholder="..m²" class="form-control" value="<?= $updtLoc['area'] ?> m²">
                         </div>
                         <div class="form-group">
                             <label for="rooms"><h4>Nombre de pièces</h4></label>
-                            <input type="text" name="rooms" id="rooms" class="form-control">
+                            <input type="text" name="rooms" id="rooms" class="form-control" value="<?= $updtLoc['rooms'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="outdoor_fittings"><h4>Equipements extérieurs</h4></label>
                             <br><br>
                             <label for="jardin">
                                 <h5>Jardin</h5>
-                                <input type="checkbox" name="outdoor_fittings[]" value="jardin">
+                                <input type="checkbox" name="outdoor_fittings[]" value="jardin"                                
+                                >
                             </label>
                             
                             <label for="terrasse">
@@ -76,15 +79,16 @@
                         <div class="form-group">
                             <h3>Adresse</h3>
                             <label for="street"><h4>Voie</h4></label>
-                            <input type="text" name="street" id="street" placeholder="" class="form-control">
+                            <input type="text" name="street" id="street" placeholder="" class="form-control" value="<?= $updtLoc['street'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="postcode"><h4>Code postal</h4></label>
-                            <input type="text" name="postcode" id="postcode" placeholder="" class="form-control">
+                            <input type="text" name="postcode" id="postcode" placeholder="" class="form-control"
+                            value="<?= $updtLoc['postcode'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="city"><h4>Ville</h4></label>
-                            <input type="text" name="city" id="city" placeholder="" class="form-control">
+                            <input type="text" name="city" id="city" placeholder="" class="form-control" value="<?= $updtLoc['city'] ?>">
                         </div>
                             <button type="submit" class="btn btn-default">Modifier</button>
                             <br><br>

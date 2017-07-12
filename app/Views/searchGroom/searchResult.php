@@ -73,8 +73,10 @@
                 <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
             </div>        
             <div class="row">
-                <div id="map"></div>
+                <div id="map"></div>            
                 <script>
+
+
                     function initMap() 
                     {
                         var locations = 
@@ -130,10 +132,39 @@
                     }
 
                 </script>
+
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0xJoi5c9MwYIYQlwIEfLqLh95hLtcaYA&callback=initMap">
                 </script>
+
                 <div id="map canvas"></div>
+                <div>
+       
+                
+
+                 ?>
+                <form method="POST">
+                
+                <label for="notedesc">Trier par note</label>
+                <input id="notedesc" type="checkbox" value="true" name="order">
+                <label for="comp1">Accueil voyageurs</label>
+                <input id="comp1" type="checkbox" value="1" name="comp[]">
+                <label for="comp2">Départ voyageurs</label>
+                <input id="comp2" type="checkbox" value="2" name="comp[]">
+                <label for="comp3">Ménage</label>
+                <input id="comp3" type="checkbox" value="3" name="comp[]">
+                <label for="comp4">Entretien espaces verts</label>
+                <input id="comp4" type="checkbox" value="4" name="comp[]">
+                <label for="comp5">Entretien piscine</label>
+                <input id="comp5" type="checkbox" value="5" name="comp[]">
+                <label for="comp6">Bricolage / Réparations</label>
+                <input id="comp6" type="checkbox" value="6" name="comp[]">
+                
+                <button type="submit">Trier                </button>
+
+
+                </form>
+                </div>
                 <?php  
                 if(!empty($resultSearch)){               
 
@@ -147,7 +178,7 @@
                                 <h5 class="light light-white"></h5>
 
                                 
-                                        <?php                                                        
+                                        <?php                                                   
                     foreach ($datas['comp'] as $skill) {
                         
                         
@@ -175,6 +206,33 @@
                     }
 
                                         ?>
+
+
+                         
+                                    <?php 
+
+                                        if ($datas['moyenne'] == 5 ){
+
+                                            echo '<span class="fullstar">★★★★★</span>';
+                                        } 
+                                        if ($datas['moyenne'] >= 4 AND $datas['moyenne']<5 ){
+
+                                            echo '<span class="fullstar">★★★★☆</span>';
+                                        } 
+                                        if ($datas['moyenne'] >= 3 AND $datas['moyenne']<4 ){
+
+                                            echo '<span class="fullstar">★★★☆☆</span>';
+                                        } 
+                                        if ($datas['moyenne'] >= 2 AND $datas['moyenne']<3 ){
+
+                                            echo '<span class="fullstar">★★☆☆☆</span>';
+                                        } 
+                                        if ($datas['moyenne'] >= 1 AND $datas['moyenne']<2 ){
+
+                                            echo '<span class="fullstar">★☆☆☆☆</span>';
+                                        } 
+                                       
+                                    ?>
                             </div>
                         </div> 
                         <?php 

@@ -16,21 +16,6 @@
     height: 100px;
     }
 
-    /*#retourAccueil {
-        color: #fff; 
-        text-align: center; 
-        display: block; 
-        font-size: 1.5em;
-        background:rgba(240, 100, 103, 0.8);
-        margin:auto 20em;
-        border-radius: 30px;
-        padding: 5px 0 5px 0px;
-    }
-
-    #retourAccueil:hover {
-        background:rgba(240, 100, 103, 1);
-    }*/
-
     #details{
         background:rgba(41, 97, 144, 0.7);      
         font-size: 1.5em; 
@@ -69,7 +54,6 @@
     }
 
                 ?>
-
                 <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
             </div>        
             <div class="row">

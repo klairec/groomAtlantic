@@ -45,8 +45,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="<?= $this->url('default_home') ?>" style="color:#f06467;">Accueil</a></li>
-					<li><a href="#services" style="color:#f06467;">Nos Grooms</a></li>
-					<li><a href=" #revenus"  style="color:#f06467;">Vos Avantages</a></li>
+					<li><a href="<?= $this->url('default_home') ?>"  style="color:#f06467;">Nos Grooms</a></li>
+					<li><a href="<?= $this->url('default_home') ?>"  style="color:#f06467;">Vos Avantages</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->

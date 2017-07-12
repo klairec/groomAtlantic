@@ -227,7 +227,7 @@
                 <form method="POST" action="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">
                     <div>
                         <select name="RentTitle" class="form-control">
-                        <option>-- Selectionnez la maison --</option>
+                        <option selected="true" disabled="disabled">-- Selectionnez la maison --</option>
                     <?php 
 
                     print_r($locations);

@@ -55,10 +55,13 @@
 								<label for="cityUser"><h4>Ville</h4></label>
 								<input name="cityUser" type="text" class="form-control" value="<?=$w_user['cityUser']; ?>">
 							</div>
-							<button type="submit" class="btn btn-default">Modifier</button>
+							<div class="form-group text-center">
+								<button type="submit" class="btn btn-default">Modifier</button>
+							</div>
 						</form>
-						<br>
-					<a href="<?= $this->url('users_showowner')?>" class="btn btn-default">Retour</a>
+					<div class="form-group text-center">
+						<a href="<?= $this->url('users_showowner')?>" class="btn btn-default">Retour</a>
+					</div>
 					</div>
 				</div>
 			</div>

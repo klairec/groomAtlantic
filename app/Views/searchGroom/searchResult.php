@@ -16,21 +16,6 @@
     height: 100px;
     }
 
-    /*#retourAccueil {
-        color: #fff; 
-        text-align: center; 
-        display: block; 
-        font-size: 1.5em;
-        background:rgba(240, 100, 103, 0.8);
-        margin:auto 20em;
-        border-radius: 30px;
-        padding: 5px 0 5px 0px;
-    }
-
-    #retourAccueil:hover {
-        background:rgba(240, 100, 103, 1);
-    }*/
-
     #details{
         background:rgba(41, 97, 144, 0.7);      
         font-size: 1.5em; 
@@ -48,6 +33,11 @@
         height: 500px;
         width: 100%;            
         overflow : visible;
+    }
+    .stars {
+        font-size: 3em; 
+       color:rgba(41, 97, 144, 1);
+
     }
 
 </style>
@@ -69,12 +59,13 @@
     }
 
                 ?>
-
                 <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
             </div>        
             <div class="row">
-                <div id="map"></div>
+                <div id="map"></div>            
                 <script>
+
+
                     function initMap() 
                     {
                         var locations = 
@@ -128,10 +119,39 @@
                     }
 
                 </script>
+
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0xJoi5c9MwYIYQlwIEfLqLh95hLtcaYA&callback=initMap">
                 </script>
+
                 <div id="map canvas"></div>
+                <div>
+       
+                
+
+                
+                <form method="POST">
+                
+                <label for="notedesc">Trier par note</label>
+                <input id="notedesc" type="checkbox" value="true" name="order">
+                <label for="comp1">Accueil voyageurs</label>
+                <input id="comp1" type="checkbox" value="1" name="comp[]">
+                <label for="comp2">Départ voyageurs</label>
+                <input id="comp2" type="checkbox" value="2" name="comp[]">
+                <label for="comp3">Ménage</label>
+                <input id="comp3" type="checkbox" value="3" name="comp[]">
+                <label for="comp4">Entretien espaces verts</label>
+                <input id="comp4" type="checkbox" value="4" name="comp[]">
+                <label for="comp5">Entretien piscine</label>
+                <input id="comp5" type="checkbox" value="5" name="comp[]">
+                <label for="comp6">Bricolage / Réparations</label>
+                <input id="comp6" type="checkbox" value="6" name="comp[]">
+                
+                <button type="submit">Trier</button>
+
+
+                </form>
+                </div>
                 <?php  
                 if(!empty($resultSearch)){               
 
@@ -144,7 +164,7 @@
                                 <h5 class="white">Mes compétences & tarifs : </h5>
                                 <h5 class="light light-white"></h5>
                                 
-                                        <?php                                                        
+                                        <?php                                                   
                     foreach ($datas['comp'] as $skill) {
                         
                         
@@ -168,6 +188,10 @@
                         }
                     }
                                         ?>
+
+
+                         
+            
                             </div>
                         </div> 
                         <?php 
@@ -191,6 +215,33 @@
 
                                 ?>
                             </h5>
+                                                    <?php 
+
+                                        if ($datas['moyenne'] == 5 ){
+
+                                            echo '<p class="stars" class="fullstar">★★★★★</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 4 AND $datas['moyenne']<5 ){
+
+                                            echo '<p class="stars" class="fullstar">★★★★☆</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 3 AND $datas['moyenne']<4 ){
+
+                                            echo '<p class="stars" class="fullstar">★★★☆☆</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 2 AND $datas['moyenne']<3 ){
+
+                                            echo '<p class="stars" class="fullstar">★★☆☆☆</p>';
+                                        } 
+                                        if ($datas['moyenne'] >= 1 AND $datas['moyenne']<2 ){
+
+                                            echo '<p class="stars" class="fullstar">★☆☆☆☆</p>';
+                                        }
+                                        elseif(empty($datas['moyenne'])) {
+                                            echo '<p class="stars" class="fullstar">Nouveau !</p>';
+                                        }
+                                       
+                                    ?>
                         </div>
                         <a id="details" target="_blank" href="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">Fiche détaillée</a>
                     </div>

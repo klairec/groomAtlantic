@@ -2,18 +2,35 @@
 
 <?php $this->start('css') ?>
 <style>
-    header {
-        display: none;
-    }
+header {
+    display: none;
+}
 
-    body{
-        background: #89b5f7;
-    }
+body{
+    background: #89b5f7;
+}
+.well-notif {
+    border:0;
+    border-left:5px solid #9e9e9e;
+    border-radius:0;
+}
+.nb-notif {
+    font-size: 13px;
+    font-weight: 700;
+    display:  inline-block;
+    background: grey;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+}
+.nb-notif.active {
+    background: #296190;
+}
 </style>
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
-
 <div class="table">
     <div class="header-text">
         <div id="DivFormG" class="row">
@@ -21,9 +38,9 @@
                 <section class="profile">
                     <h3 class="strong white text-center">MON PROFIL</h3>
                     <figure id="profile_picture">
-                        <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle">
+                        <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle" alt="photo_de_profil">
                     </figure>
-                    <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
+                    <p class="strong white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                     <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
                     <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
                     <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
@@ -40,7 +57,9 @@
 
                 <!-- AFFICHAGE DES SERVICES/PRIX -->
                 <hr>
-                <section class="skills">
+
+               
+
                     <h3 class="light white text-center">MES SERVICES</h3>
                     <?php if(!empty($services)):?>
                     <?php 
@@ -50,64 +69,66 @@
                     echo '</pre>';
                     */
                     ?> 
-                    <div class="form-group">
-                        <h4 class="light white text-center">Ma description</h4>
-                        <textarea rows="10" cols="50" id="comment">
+                   <div class="container">
+                    <div class="panel panel-default">
+                   <h5 class="text-center">Ma Description</h5>
+                       <div class="panel-body">
                             <?php foreach ($prices as $price): ?>
                             <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
-                        </textarea>
+                        </div>
+                        </div>
+</div>
+                      
+
                         <section class="tableau1">                 
-                            </div>
-
+                    </div>
                         <div class="row">
-
-                            <center><table width=60%>
-
-                                <tbody>
-                                    <tr align="center">
-                                        <td><strong>Compétences</strong></td>
-                                        <?php foreach ($services as $service): ?>
-                                        <td><?= $service['skills']; ?></td>
-                                        <?php endforeach; ?>
-                                    </tr>
-                                    <tr align="center">
-                                        <td><strong>Prix</strong></td>
-                                        <?php $pricesTab = explode(',', $prices[0]['price']); ?>
-                                        <?php foreach ($pricesTab as $price): ?>
-                                        <td><?= $price ?>€</td>
-                                        <?php endforeach; ?>
-                                    </tr>
-                                </tbody>
+                            <center>
+                                <table width=60%>
+                                    <tbody>
+                                        <tr align="center">
+                                            <td><strong>Compétences</strong></td>
+                                            <?php foreach ($services as $service): ?>
+                                            <td><?= $service['skills']; ?></td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                        <tr align="center">
+                                            <td><strong>Prix</strong></td>
+                                            <?php $pricesTab = explode(',', $prices[0]['price']); ?>
+                                            <?php foreach ($pricesTab as $price): ?>
+                                            <td><?= $price ?>€</td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </center>
                             <br>
                         </div>
-                        </section>
-                    <?php foreach ($prices as $test): ?>  
-                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
-                    <br>
+                        
+                    <!--<?php //if(!empty($prices[0]['id_groom'])): ?>-->
+                    <?php foreach ($prices as $test): ?>
+                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="modifServ btn btn-blue" value="change">Modifier mes services</a>
                     <?php endforeach; ?>
-
+                    <!--<?php //endif; ?>-->
                     <br>
-
                     <?php else: ?>
                     <div class="alert alert-danger">
                         Aucune service renseigné.
                     </div>
                     <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
-
+</section>
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
-
-                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
-
+                    <?php if(empty($prices[0]['id_groom'])): ?>
+                        <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
+                    <?php endif; ?>
+                    
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content modal-popup">
                                 <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
                                 <h3 class="white">Ajouter des services</h3>
                                 <form method="POST" action="<?= $this->url('users_showgroom') ?>">
-
                                     <div class="form-group">
                                         <label for="description">Ajouter une description</label>
                                         <textarea name="description" maxlength="300"></textarea>
@@ -173,59 +194,47 @@
                         </div>
                     </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
                     <hr>
+
+
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
+                    <h3 class="light white text-center">
+                        NOTIFICATIONS <span id="countNotif" class="nb-notif <?=($total_notif) ? 'active' : '';?>"><?=$total_notif; ?></span>
+                    </h3>
 
-                    <h3 class="light white text-center">Notifications</h3>
+                    <div class="container text-left">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <?php if(!empty($notifications)): ?>
+                                    <?php foreach($notifications as $notif): ?>
 
-                    <!-- CONTACT ENGAGE -->
+                                        <div class="well well-sm well-notif" style="">
+                                            <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i> 
+                                            Le <?=\DateTime::createFromFormat('Y-m-d H:i:s', $notif['contact_date'])->format('d/m/Y \à H:i'); ?> vous avez été contacté par <?=$notif['owner_firstname'].' '.$notif['owner_lastname'];?> pour la location <?=$notif['rent_title']; ?>
+                                            <address><?=ucwords(mb_strtolower($notif['city'], 'UTF-8')).' - département: '.substr($notif['postcode'], 0,2); ?></address>
 
-                    <?php if(!empty($contacts)):?>
-
-                    <?php foreach ($contacts as $contact): ?>
-
-                    <div>
-                        <p><?= 'Vous avez été contacté par '.$contact['firstname'] .' '. $contact['lastname'].', pour la location suivante :'; ?></p>
-                        <?php foreach ($propositions as $proposition): ?>
-                        <p><?= $proposition['id'] . $proposition['id_type'].', '.$proposition['city'].'<br>'.'Souhaitez-vous lui communiquer vos coordonnées ?'; ?></p>
-                        <?php endforeach; ?>
-                        <form method="POST" action="">
-                            <label>
-                                <input type="checkbox" id="cbox1" value="checkbox1">Oui
-                            </label>
-                            <label>
-                                <input type="checkbox" id="cbox2" value="checkbox2">Non
-                            </label>
-                        </form>
+                                            <form id="notif_form_<?=$notif['contact_id'];?>" method="POST" class="request_contact">
+                                                <div class="text-center">
+                                                    <label>
+                                                        <input type="radio" name="accept_contact" id="cbox_yes_<?=$notif['contact_id'];?>" data-id="<?=$notif['contact_id'];?>" value="yes">&nbsp; Oui
+                                                    </label>   
+                                                    <label>
+                                                        <input type="radio" name="accept_contact" id="cbox_yes_<?=$notif['contact_id'];?>" data-id="<?=$notif['contact_id'];?>" value="no">&nbsp; Non
+                                                    </label>
+                                                </div>
+                                                    
+                                                <div id="notif_conf_<?=$notif['contact_id'];?>"></div>
+                                            </form>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div class="alert alert-danger">Aucune notification actuellement</div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                     </div>
-                    <?php endforeach; ?>
-                    <?php else: ?>
-                    <div class="alert alert-danger">
-                        <p>Pas de contact pour le moment</p>
-                    </div>
-                    <?php endif; ?>
 
-                    <!-- CONFIRMATION DE CONTACT -->
 
-                    <?php if(!empty($contacts)):?>
-
-                    <?php foreach ($contacts as $contact): ?>
-                    <div>
-                        <p><?= $contact['firstname'] .' '. $contact['lastname'].' a confirmé avoir travailler avec vous, le confirmez-vous également ?'; ?></p>
-                        <form method="POST" action="">
-                            <label>
-                                <input type="checkbox" id="cbox3" value="checkbox1">Oui
-                            </label>   
-                            <label>
-                                <input type="checkbox" id="cbox4" value="checkbox2">Non
-                            </label>
-                        </form>
-                    </div>
-                    <?php endforeach; ?>
-                    <?php else: ?>
-                    <div class="alert alert-danger">
-                        <p>Pas de confirmation pour le moment</p>
-                    </div>
-                    <?php endif; ?>
+                    <hr>
 
                     <!-- NOUVEAU COMMENTAIRE DISPONIBLE -->
 
@@ -244,10 +253,10 @@
                     </div>
                     <?php endif; ?>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>
 </div>
@@ -287,3 +296,33 @@
 </div>
 
 <?php $this->stop('main_content') ?>
+<?php $this->start('js') ?>
+<script>
+$(document).ready(function(e){
+
+    $('input[name="accept_contact"]').on('click', function(e){
+
+        if($(this).is(':checked')){
+            var $currentRadio = $(this).val();
+            var $currentId = $(this).data('id');
+
+            $.ajax({
+                url: '<?=$this->url('ajax_validate_contact_request');?>',
+                type: 'post',
+                data: {id_contact: $currentId, choice: $currentRadio},
+                success: function(resPHP){
+                    if(resPHP.code === true){
+                        $('#notif_form_'+$currentId +' label').fadeOut();
+                    }
+                    $('#notif_conf_'+$currentId).html(resPHP.message);
+                    $('#countNotif').text(resPHP.nbNotifs);
+                    if(resPHP.nbNotifs == '0'){
+                        $('#countNotif').removeClass('active');
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+<?php $this->stop('js') ?>

@@ -21,4 +21,21 @@ class RentalsModel extends \W\Model\Model
 
 		return false;
 	}
+
+	public function findUpdtRental($id_rental){
+		// Selectionne tous les champs de la table Rentals et l'ID du connecté
+		$sql = 'SELECT r.* FROM '.$this->table.' AS r WHERE r.id = :rid';
+		
+		$sth = $this->dbh->prepare($sql);		
+		$sth->bindValue(':rid', $id_rental);
+		if($sth->execute()){
+			return $sth->fetch(); // Renvoi les résultats
+		}
+
+		return false;
+	}
+
+
+
+
 }

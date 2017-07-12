@@ -264,13 +264,18 @@ class RentalsController extends Controller
 
 			}
 		} 
-
+			// affiche les locations du proprio
 		$voirLoc = new RentalsController();
         $locations = $voirLoc->showRentals($me['id']);
+        	//affiche LA location qu'il veut update :
+        $showUpdtLoc = new RentalsModel(); 
+        $updtLoc = $showUpdtLoc->findUpdtRental(17);
+
 
 		$params = [
         'locations' => $locations,
         'errors' => $errors,
+        'updtLoc' => $updtLoc,
         ];    
 
 		$this->show('users/ownerProfile/changeRental', $params);

@@ -16,18 +16,17 @@
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
 
-
 <div class="table">
 <div class="header-text">
     <div id="DivFormG" class="row">
         <div class="col-md-12 text-center">
             <section class="profile">
                 <h3 class="strong white text-center">MON PROFIL</h3>
-                <figure>
-                    <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" alt="photo_de_profil">
+                <figure id="profile_picture">
+                    <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle" alt="photo_de_profil">
                 </figure>
                 <p class="strong white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
-                <p class="strong white text-center">Email : <?=$showInfos['email']; ?></p>
+                <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
                 <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
                 <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
                 <p class="light white text-center">Code postal : <?=$showInfos['postcode']; ?></p>
@@ -42,6 +41,8 @@
             </section>
 
 <!-- AFFICHAGE DES DONNEES UTILISATEUR -->
+            
+            <hr>
 
 <!-- AFFICHAGE INFOS LOCATIONS -->
 
@@ -90,7 +91,7 @@
                                 <form method="POST" action="<?= $this->url('users_showowner') ?>">
                                     <div class="form-group text-center">
                                         <label for="title">Titre</label>
-                                        <input type="text" name="title" id="title">
+                                        <input type="text" name="title" id="title" placeholder="Le nom de votre maison...">
                                     </div>
                                     <div class="form-group text-center">
                                         <label for="type">Type de location</label>
@@ -142,18 +143,20 @@
                         </div>
                     </div>
                 </section><!-- FIN AJOUT D'UNE LOCATION / FENETRE MODALE -->
-
+                <hr>
                 <!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
 
                 <section class="groom_research">
                     <h3 class="light white text-center">ACCUEIL</h3>
                     <a href="<?= $this->url('default_home'); ?>" class="btn btn-blue">Rechercher un groom</a>
-                </div>
+                </section>
             </div>
         </div>
     </div>
-</section><!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+</div>
 
+<!-- AFFICHAGE REDIRECTION VERS LA PAGE DE RECHERCHE -->
+<hr>
 <!-- AFFICHAGE NOTIFICATIONS -->
 
 <section class="notifications">
@@ -170,7 +173,8 @@
     <!-- AFFICHAGE NOTATION -->
 
     <div></div>
-</section><!-- AFFICHAGE NOTIFICATIONS -->
+</section>
+<!-- AFFICHAGE NOTIFICATIONS -->
 
 <!-- AFFICHAGE AVIS LAISSES -->
 
@@ -179,6 +183,7 @@
         <div class="header-text">
             <div id="DivFormG" class="row">
                 <div class="text-center">
+                    <hr>
                     <h3 class="light white text-center">MES AVIS LAISSES</h3>
                     <?php if(!empty($comments)):?>
                         <?php foreach ($comments as $comment): ?>

@@ -39,20 +39,20 @@ class ServicesInfosModel extends \W\Model\Model
 		return $sth->fetchAll();
 	}
 
-	public function searchByCP($search){ // Fonction qui recherche le groom en fonction du CP rentré, jointé avec les infos de users
-
+	public function searchByCP($search, $order = false, array $searchCompetences = NULL){ // Fonction qui recherche le groom en fonction du CP rentré, jointé avec les infos de users
 		
 		
-		// TENTATIVE D'INCLURE LE FIND IN SET DANS LA RECHERHE  : $sql = 'SELECT s.*, u.*, g.* FROM groom_services AS g, ' . $this->table.' AS s INNER JOIN users AS u ON s.id_groom = u.id WHERE s.city LIKE :city AND FIND_IN_SET(g.id, id_skill) ';
-
 /*
+u.firstname, u.lastname, u.postcode, u.photo, u.date_creation, u.lat, u.lng, , s.description, s.price, s.id_skill, s.id_groom 
+
+
 		$searchCompetences = [
 			'competence_1' => 1,
-			//'competence_2' => 2,
+			'competence_2' => 2,
 			'competence_3' => 3,
 			'competence_4' => 4,
 		];
-
+*/
         $sql = 'SELECT u.id as user_id, AVG(c.note) as moyenne, u.*, s.* 
         FROM users AS u 
         INNER JOIN services_infos AS s
@@ -60,7 +60,7 @@ class ServicesInfosModel extends \W\Model\Model
         LEFT JOIN comments AS c
         ON c.id_groom = s.id_groom
         WHERE u.postcode 
-        LIKE "33%"';
+        LIKE :city';
 
         if(is_array($searchCompetences) && !empty($searchCompetences)){
 
@@ -75,17 +75,16 @@ class ServicesInfosModel extends \W\Model\Model
 
         $sql.= ' GROUP BY u.id ';
 
-        if(true){
+        if($order == true){
         	$sql.= ' ORDER BY moyenne DESC';
-        }    
+        }   
+
+        /*
 		if($order == 'tamaman'){
         	$sql.=  ' ORDER BY user_id DESC';
-        }
-
-
-
-
-        debug($sql); die;
+        }   
+		*/
+        //debug($sql); die;
         
         $sth = $this->dbh->prepare($sql);	
 			
@@ -96,9 +95,8 @@ class ServicesInfosModel extends \W\Model\Model
 		}
         return $sth->fetchAll();
 
-*/
-        /**********/
-
+       
+/*
         
         $sql = 'SELECT s.*, u.* 
         FROM ' . $this->table.' AS s 
@@ -115,6 +113,9 @@ class ServicesInfosModel extends \W\Model\Model
 			return false;
 		}
         return $sth->fetchAll();
+
+*/
+      
 
 
 

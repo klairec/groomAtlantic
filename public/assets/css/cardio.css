@@ -185,11 +185,11 @@ nav.navbar-fixed-top {
 }
 
 nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
-	color: #bbb;
+	color: #f06467;
 }
 
 .icon-bar {
-	background: #bbb;
+	background: #f06467;
 }
 
 /* Buttons */
@@ -1296,6 +1296,11 @@ padding: 0 5px
 	margin:20em 0 0 0;
 }
 
+/* MODALE GD*/
+#btn_modal {
+	padding: 25px;
+}
+
 /* BTN TOP PAGE*/
 #bt-retour-haut {
 	background: rgba (0, 0, 0, 0.5);
@@ -1317,7 +1322,7 @@ padding: 0 5px
 
 .tableau1 table, th, td {
 	 border: 2px solid white;
-	 color: white;
+	 color: black;
 }
 
 .profile textarea{

@@ -44,23 +44,23 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="<?= $this->url('default_home') ?>">Accueil</a></li>
-					<li><a href="#services">Nos Grooms</a></li>
-					<li><a href=" #revenus">Vos Avantages</a></li>
+					<li><a href="<?= $this->url('default_home') ?>" style="color:#f06467;">Accueil</a></li>
+					<li><a href="<?= $this->url('default_home') ?>"  style="color:#f06467;">Nos Grooms</a></li>
+					<li><a href="<?= $this->url('default_home') ?>"  style="color:#f06467;">Vos Avantages</a></li>
 					<?php if(!empty($w_user)){ ?> <!-- Si un utilisateur est connecté-->
                     	
                             <?php if($w_user['role'] == 'owner'){ ?> <!-- Si c'est un proprio on affiche "mon profil" qui pointe le profil proprio-->
-                                <li><a href="<?= $this->url('users_showowner') ?>">Mon profil</a></li>
+                                <li><a href="<?= $this->url('users_showowner') ?>"  style="color:#f06467;">Mon profil</a></li>
                             <?php } ?> 
                             <?php if($w_user['role'] == 'groom'){ ?> <!-- Si c'est un groom on affiche "mon profil" qui pointe le profil groom-->
-                                <li><a href="<?= $this->url('users_showgroom') ?>">Mon profil</a></li>
+                                <li><a href="<?= $this->url('users_showgroom') ?>"  style="color:#f06467;">Mon profil</a></li>
                             <?php } ?>
                             <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco -->
                             <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
                         <?php } 
             
                         else{ ?> <!-- Si on a pas d'utilisateur connecté, on affiche la connexion et l'inscription-->
-                            <li><a href="<?= $this->url('users_pickRole') ?>">Devenir Membre</a></li>
+                            <li><a href="<?= $this->url('users_pickRole') ?>"  style="color:#f06467;">Devenir Membre</a></li>
 				            <li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Connexion</a></li>
 				        <?php } ?>
 				</ul>
@@ -184,8 +184,7 @@
 	<script src="<?= $this->assetUrl('js/jquery.onepagenav.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/main.js') ?>"></script>
 
-	<!-- Bout de JS Guillaume -->
-
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 	<?=$this->section('js');?>
   
 </body>

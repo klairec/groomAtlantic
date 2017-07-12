@@ -6,7 +6,7 @@ use \W\Controller\Controller;
 use \Model\ContactRequestsModel;
 
 
-class Contact_requestsController extends Controller
+class ContactRequestsController extends Controller
 {
 
     public function ContactAuthor(){

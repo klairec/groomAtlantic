@@ -24,28 +24,12 @@
         .cMonTableauCollapse2 {
           width:600px;
           border-collapse: collapse;
-          border: 15px solid #758de5;
+          border: 5px solid #ffffff;
         }
 
         .cMonTableauCollapse2 th, .cMonTableauCollapse2 td {
-          border: 15px solid #a5b6f1;
+          border: 10px solid #ffffff;
         }
-      
-
-        /*.contact1, #connect2 {
-            color: #fff; 
-            text-align: center; 
-            display: block; 
-            font-size: 1.5em;
-            background:rgba(240, 100, 103, 0.8);
-            margin:auto 20em;
-            border-radius: 30px;
-            padding: 1em 0 1em 0px;
-        }*/
-
-       /*.contact1:hover, #connect2:hover {
-           background:rgba(240, 100, 103, 1);
-        }*/
 
         #retourAccueil {
         color: #fff; 
@@ -73,7 +57,6 @@
             <div class="header-text">
                 <div id="DivFormO" class="row">
                     <div class="col-md-12 text-center">
-
                    
                     <?php 
                  
@@ -97,10 +80,9 @@
                         <?php
                         }
                         ?>
-
-                            <h3> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
+                            <h3 class="white"> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
                             <table id="TabComp" class="cMonTableauCollapse2">
-                                <thead>Mes compétences et tarifs : </thead>
+                                <h4 class="white">Mes services et tarifs : </h4>
                                 <tr>
                                     <?php                                                            
                                         foreach ($datas['comp'] as $skill) {
@@ -124,7 +106,7 @@
                                 </tr>
                             </table>
                             <div class="title">
-                                <h5>Groom sur
+                                <h5 class="white">Groom sur
                                 <?php
                                     foreach ($datas['villeAction'] as $city) {
                                          echo ucfirst(strtolower($city));
@@ -134,21 +116,21 @@
                                 </h5>
 
                                 <div id="description">
-                                    <h4>A propos : </h4>
-                                        <p>
-                                        <?php                                    
+                                    <h4 class="white">A propos : </h4>                             
+                                    <p>
+                                    <?php
                                             echo $datas['description'];                                    
-                                        ?> 
-                                        </p>
+                                    ?> 
+                                    </p>
                                 </div>
                                 <div>
-                                    <h4>Commentaires laissés à <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
+                                    <h4 class="white">Commentaires laissés à <?= ucfirst($datas['firstname']).' '.ucfirst(substr($datas['lastname'], 0, 1)).'.' ?></h4>
                                     <?php foreach ($datas['comments'] as $com) {
                                        echo '<p>"'.$com['content'].'" laissé le : ' .$com['date'].' </p>';
                                     } ?>
                                 </div>
                                 <div>
-                                    <h4>Note moyenne : </h4>
+                                    <h4 class="white">Note moyenne : </h4>
                                     <?php foreach ($datas['NoteMoyenne'] as $note) {
 
                                         if ($note['AVG(note)'] == 5 ){
@@ -171,6 +153,9 @@
 
                                             echo '<span class="fullstar">★☆☆☆☆</span>';
                                         } 
+                                        elseif(empty($datas['moyenne'])) {
+                                            echo '<p class="stars" class="fullstar">Nouveau !</p>';
+                                        }
                                     }     
                                     ?>
                                 </div>
@@ -237,8 +222,7 @@
     <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content modal-popup">
-                <!--<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>-->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span id="btn_modal" aria-hidden="true">&times;</span></button>
                 <h3 class="white">Entrer en contact avec Claire ?</h3>
                 <form method="POST" action="<?= $this->url('Search_groomDetails', ['id' => $datas['id_groom']])?>">
                     <div>
@@ -260,7 +244,7 @@
                 </div>
                 <div>
                     <label>
-                        <h5>Ecrivez lui quelque chose...</h5>
+                        <h5 class="white">Ecrivez lui quelque chose...</h5>
                         <textarea type="text" name="title" id="title" value="" class="form-control" rows="3"></textarea>
                     </label>
                 </div>

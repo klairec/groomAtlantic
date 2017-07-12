@@ -15,6 +15,3 @@ class Groom_servicesModel extends \W\Model\Model
 
 	}
 }
-
-
-

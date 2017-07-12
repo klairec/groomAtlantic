@@ -58,27 +58,25 @@
                             <?php endforeach; ?>
                         </textarea>
                         <section class="tableau1">                 
-                            </div>
-
+                    </div>
                         <div class="row">
-
-                            <center><table width=60%>
-
-                                <tbody>
-                                    <tr align="center">
-                                        <td><strong>Compétences</strong></td>
-                                        <?php foreach ($services as $service): ?>
-                                        <td><?= $service['skills']; ?></td>
-                                        <?php endforeach; ?>
-                                    </tr>
-                                    <tr align="center">
-                                        <td><strong>Prix</strong></td>
-                                        <?php $pricesTab = explode(',', $prices[0]['price']); ?>
-                                        <?php foreach ($pricesTab as $price): ?>
-                                        <td><?= $price ?>€</td>
-                                        <?php endforeach; ?>
-                                    </tr>
-                                </tbody>
+                            <center>
+                                <table width=60%>
+                                    <tbody>
+                                        <tr align="center">
+                                            <td><strong>Compétences</strong></td>
+                                            <?php foreach ($services as $service): ?>
+                                            <td><?= $service['skills']; ?></td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                        <tr align="center">
+                                            <td><strong>Prix</strong></td>
+                                            <?php $pricesTab = explode(',', $prices[0]['price']); ?>
+                                            <?php foreach ($pricesTab as $price): ?>
+                                            <td><?= $price ?>€</td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </center>
                             <br>
@@ -88,9 +86,7 @@
                     <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
                     <br>
                     <?php endforeach; ?>
-
                     <br>
-
                     <?php else: ?>
                     <div class="alert alert-danger">
                         Aucune service renseigné.
@@ -100,14 +96,12 @@
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
 
                     <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
-
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content modal-popup">
                                 <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
                                 <h3 class="white">Ajouter des services</h3>
                                 <form method="POST" action="<?= $this->url('users_showgroom') ?>">
-
                                     <div class="form-group">
                                         <label for="description">Ajouter une description</label>
                                         <textarea name="description" maxlength="300"></textarea>
@@ -244,10 +238,10 @@
                     </div>
                     <?php endif; ?>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>
 </div>

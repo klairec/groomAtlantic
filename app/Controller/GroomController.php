@@ -26,7 +26,6 @@ class GroomController extends \W\Controller\Controller
 		$post = [];
 		$errors = [];
 
-
 		// on nettoie le tableau post
 		if(!empty($_POST)){
 
@@ -39,7 +38,6 @@ class GroomController extends \W\Controller\Controller
 					$post[$key] = trim(strip_tags($value));
 				}
 			}
-			
 			
 			// on retire les valeurs d'input inférieures à 0
 			$tab= array();
@@ -62,7 +60,6 @@ class GroomController extends \W\Controller\Controller
 				}
 			}
 			
-			
 			if(count($tab) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
@@ -70,7 +67,6 @@ class GroomController extends \W\Controller\Controller
 			if(!v::stringType()->length(20,300)->validate($post['description'])){
 				$errors[] = 'La description doit comprendre entre 20 et 300 caractères.';
 			}
-			
 
 			if(count($errors) === 0){
 				
@@ -135,7 +131,6 @@ class GroomController extends \W\Controller\Controller
 		return $listPrices;
 	}
 
-
 	/*
 	* Modifications des services du profil concierge
 	*/
@@ -157,7 +152,6 @@ class GroomController extends \W\Controller\Controller
 		$post = [];
 		$errors = [];
 
-
 		// on nettoie le tableau post
 		if(!empty($_POST)){
 
@@ -170,7 +164,6 @@ class GroomController extends \W\Controller\Controller
 					$post[$key] = trim(strip_tags($value));
 				}
 			}
-			
 			
 			// on retire les valeurs d'input inférieures à 0
 			$tab= array();
@@ -193,7 +186,6 @@ class GroomController extends \W\Controller\Controller
 				}
 			}
 			
-			
 			if(count($tab) != count($post['id_skill'])){
 				$errors[] = 'Un/des couple(s) service/prix est/sont incomplet(s).';
 			}
@@ -202,7 +194,6 @@ class GroomController extends \W\Controller\Controller
 				$errors[] = 'La description doit comprendre entre 20 et 300 caractères.';
 			}
 			
-
 			if(count($errors) === 0){
 				
 				if(!empty($post['id_skill']) && !empty($post['price'])){

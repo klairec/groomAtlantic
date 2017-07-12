@@ -30,22 +30,6 @@
         .cMonTableauCollapse2 th, .cMonTableauCollapse2 td {
           border: 15px solid #a5b6f1;
         }
-      
-
-        /*.contact1, #connect2 {
-            color: #fff; 
-            text-align: center; 
-            display: block; 
-            font-size: 1.5em;
-            background:rgba(240, 100, 103, 0.8);
-            margin:auto 20em;
-            border-radius: 30px;
-            padding: 1em 0 1em 0px;
-        }*/
-
-       /*.contact1:hover, #connect2:hover {
-           background:rgba(240, 100, 103, 1);
-        }*/
 
         #retourAccueil {
         color: #fff; 
@@ -73,7 +57,6 @@
             <div class="header-text">
                 <div id="DivFormO" class="row">
                     <div class="col-md-12 text-center">
-
                    
                     <?php 
                  
@@ -97,7 +80,6 @@
                         <?php
                         }
                         ?>
-
                             <h3> Groom depuis le <?= ucfirst($datas['date_creation']) ?></h3>
                             <table id="TabComp" class="cMonTableauCollapse2">
                                 <thead>Mes compétences et tarifs : </thead>

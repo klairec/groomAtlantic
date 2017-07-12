@@ -15,7 +15,6 @@ class Groom_servicesController extends Controller
             'groomservice' => $groomservice,
         ];
 
-
         $this->show('users/Profile/showService', $params);
     }
 }

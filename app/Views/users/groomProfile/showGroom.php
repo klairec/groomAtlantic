@@ -13,7 +13,6 @@
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
-
 <div class="table">
     <div class="header-text">
         <div id="DivFormG" class="row">
@@ -21,9 +20,9 @@
                 <section class="profile">
                     <h3 class="strong white text-center">MON PROFIL</h3>
                     <figure id="profile_picture">
-                        <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle">
+                        <img src="<?= $this->assetUrl('img/profilePict/'), $showInfos['photo'] ?>" class="img-circle" alt="photo_de_profil">
                     </figure>
-                    <p class="light white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
+                    <p class="strong white text-center">Bonjour,&nbsp;<?=$showInfos['firstname']; ?>&nbsp;<?=$showInfos['lastname']; ?></p>
                     <p class="light white text-center">Email : <?=$showInfos['email']; ?></p>
                     <p class="light white text-center">Téléphone : <?=$showInfos['phone']; ?></p>
                     <p class="light white text-center">Adresse : <?=$showInfos['address']; ?></p>
@@ -40,7 +39,9 @@
 
                 <!-- AFFICHAGE DES SERVICES/PRIX -->
                 <hr>
-                <section class="skills">
+
+               
+
                     <h3 class="light white text-center">MES SERVICES</h3>
                     <?php if(!empty($services)):?>
                     <?php 
@@ -50,67 +51,69 @@
                     echo '</pre>';
                     */
                     ?> 
-                    <div class="form-group">
-                        <h4 class="light white text-center">Ma description</h4>
-                        <textarea rows="10" cols="50"id="comment">
+                   <div class="container">
+                    <div class="panel panel-default">
+                   <h5 class="text-center">Ma Description</h5>
+                       <div class="panel-body">
                             <?php foreach ($prices as $price): ?>
-                            <?= nl2br($showInfos['description']); ?>
+                            <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
-                        </textarea>
+                        </div>
+                        </div>
+</div>
+                      
+
                         <section class="tableau1">                 
-                            </div>
-
+                    </div>
                         <div class="row">
-
-                            <center><table width=60%>
-
-                                <tbody>
-                                    <tr align="center">
-                                        <td><strong>Compétences</strong></td>
-                                        <?php foreach ($services as $service): ?>
-                                        <td><?= $service['skills']; ?></td>
-                                        <?php endforeach; ?>
-                                    </tr>
-                                    <tr align="center">
-                                        <td><strong>Prix</strong></td>
-                                        <?php $pricesTab = explode(',', $prices[0]['price']); ?>
-                                        <?php foreach ($pricesTab as $price): ?>
-                                        <td><?= $price ?>€</td>
-                                        <?php endforeach; ?>
-                                    </tr>
-                                </tbody>
+                            <center>
+                                <table width=60%>
+                                    <tbody>
+                                        <tr align="center">
+                                            <td><strong>Compétences</strong></td>
+                                            <?php foreach ($services as $service): ?>
+                                            <td><?= $service['skills']; ?></td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                        <tr align="center">
+                                            <td><strong>Prix</strong></td>
+                                            <?php $pricesTab = explode(',', $prices[0]['price']); ?>
+                                            <?php foreach ($pricesTab as $price): ?>
+                                            <td><?= $price ?>€</td>
+                                            <?php endforeach; ?>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </center>
                             <br>
                         </div>
-                        </section>
-                    <?php foreach ($prices as $test): ?>  
-                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="btn btn-blue" value="change">Modifier</a>
-                    <br>
+                        
+                    <!--<?php //if(!empty($prices[0]['id_groom'])): ?>-->
+                    <?php foreach ($prices as $test): ?>
+                    <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="modifServ btn btn-blue" value="change">Modifier mes services</a>
                     <?php endforeach; ?>
-
+                    <!--<?php //endif; ?>-->
                     <br>
-
                     <?php else: ?>
                     <div class="alert alert-danger">
                         Aucune service renseigné.
                     </div>
                     <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
-
+</section>
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
-
-                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
-
+                    <?php if(empty($prices[0]['id_groom'])): ?>
+                        <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
+                    <?php endif; ?>
+                    
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content modal-popup">
                                 <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
                                 <h3 class="white">Ajouter des services</h3>
                                 <form method="POST" action="<?= $this->url('users_showgroom') ?>">
-
                                     <div class="form-group">
                                         <label for="description">Ajouter une description</label>
-                                        <textarea name="description"></textarea>
+                                        <textarea name="description" maxlength="300"></textarea>
                                     </div>
                                     <?php
                                     if(!empty($errorsText)){
@@ -175,14 +178,14 @@
                     <hr>
                     <!-- AFFICHAGE DES NOTIFICATIONS -->
 
-                    <h3 class="light white text-center">Notifications</h3>
+                    <h3 class="light white text-center">NOTIFICATIONS</h3>
 
                     <!-- CONTACT ENGAGE -->
 
                     <?php if(!empty($contacts)):?>
 
                     <?php foreach ($contacts as $contact): ?>
-
+<div class="container">
                     <div>
                         <p><?= 'Vous avez été contacté par '.$contact['firstname'] .' '. $contact['lastname'].', pour la location suivante :'; ?></p>
                         <?php foreach ($propositions as $proposition): ?>
@@ -244,10 +247,10 @@
                     </div>
                     <?php endif; ?>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>
 </div>
@@ -287,3 +290,8 @@
 </div>
 
 <?php $this->stop('main_content') ?>
+<?php $this->start('js') ?>
+<script>
+
+</script>
+<?php $this->stop('js') ?>

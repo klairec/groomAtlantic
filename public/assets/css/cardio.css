@@ -185,11 +185,11 @@ nav.navbar-fixed-top {
 }
 
 nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
-	color: #bbb;
+	color: #f06467;
 }
 
 .icon-bar {
-	background: #bbb;
+	background: #f06467;
 }
 
 /* Buttons */
@@ -1098,7 +1098,6 @@ footer .social-footer li:hover a {
 }
 
 /* FOND DIV NOS SERVICES */
-
 .heading h4{
 	color: white;
 }
@@ -1259,7 +1258,6 @@ footer .social-footer li:hover a {
 }
 
 /* FORMS INSCRIPTION */
-
 #DivFormG, #DivFormO {
     margin-top: 14em;
     text-align: center;
@@ -1277,14 +1275,12 @@ footer .social-footer li:hover a {
 }
 
 /* CADRE PP */
-
 #profile_picture {
 	max-width: 400px;
 	margin:auto;
 }
 
 /* MINI FICHE GROOM */
-
 #TabComp {
 	margin:auto;
 }
@@ -1295,16 +1291,17 @@ text-align: center;
 padding: 0 5px
 }
 
-
-
 /* FLASH ERREURS */
-
 #flashMsg{
 	margin:20em 0 0 0;
 }
 
-/* BTN TOP PAGE*/
+/* MODALE GD*/
+#btn_modal {
+	padding: 25px;
+}
 
+/* BTN TOP PAGE*/
 #bt-retour-haut {
 	background: rgba (0, 0, 0, 0.5);
 	position: fixed;
@@ -1317,22 +1314,28 @@ padding: 0 5px
 #bt-retour-haut a {
 	color: white;
 }
-/* showGroom */
-
+/* SHOWGROOM */
 .profile img{
 	width: 100px;
 	height: 100px;
-
 }
+
 .tableau1 table, th, td {
 	 border: 2px solid white;
-	 color: white;
+	 color: black;
 }
-
 
 .profile textarea{
 	text-align: center;
 }
+
+/* IMG FICHES GROOM*/
+#skills_img {
+	width: 40px;
+	height: 40px;
+	margin: 15px;
+}
+
 /* Media Queries */
 
 @media(max-width:991px) {

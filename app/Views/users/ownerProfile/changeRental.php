@@ -41,11 +41,12 @@
                         </div>
                         <div class="form-group">
                             <label for="area"><h4>Surface</h4></label>
-                            <input type="text" name="area" id="area" placeholder="..m²" class="form-control" value="<?= $updtLoc['area'] ?> m²">
+
+                            <input type="text" maxlength="4" name="area" id="area" placeholder="..m²" class="form-control" value="<?= $updtLoc['area'] ?> m²">
                         </div>
                         <div class="form-group">
                             <label for="rooms"><h4>Nombre de pièces</h4></label>
-                            <input type="text" name="rooms" id="rooms" class="form-control" value="<?= $updtLoc['rooms'] ?>">
+                            <input type="text" maxlength="3" name="rooms" id="rooms" class="form-control" value="<?= $updtLoc['rooms'] ?>">
                         </div>
                         <div class="form-group">
                             <label for="outdoor_fittings"><h4>Equipements extérieurs</h4></label>
@@ -55,22 +56,18 @@
                                 <input type="checkbox" name="outdoor_fittings[]" value="jardin"                                
                                 >
                             </label>
-                            
                             <label for="terrasse">
                                 <h5>Terrasse</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="terrasse">
                             </label>
-                            
                             <label for="balcon">
                                 <h5>Balcon</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="balcon">
                             </label>
-                            
                             <label for="piscine">
                                 <h5>Piscine</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="piscine">
                             </label>
-                            
                             <label for="jacuzzi">
                                 <h5>Jacuzzi</h5>
                                 <input type="checkbox" name="outdoor_fittings[]" value="jacuzzi">
@@ -83,8 +80,10 @@
                         </div>
                         <div class="form-group">
                             <label for="postcode"><h4>Code postal</h4></label>
-                            <input type="text" name="postcode" id="postcode" placeholder="" class="form-control"
+
+                            <input type="text" maxlength="5" name="postcode" id="postcode" placeholder="" class="form-control"
                             value="<?= $updtLoc['postcode'] ?>">
+
                         </div>
                         <div class="form-group">
                             <label for="city"><h4>Ville</h4></label>

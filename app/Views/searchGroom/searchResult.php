@@ -16,21 +16,6 @@
     height: 100px;
     }
 
-    /*#retourAccueil {
-        color: #fff; 
-        text-align: center; 
-        display: block; 
-        font-size: 1.5em;
-        background:rgba(240, 100, 103, 0.8);
-        margin:auto 20em;
-        border-radius: 30px;
-        padding: 5px 0 5px 0px;
-    }
-
-    #retourAccueil:hover {
-        background:rgba(240, 100, 103, 1);
-    }*/
-
     #details{
         background:rgba(41, 97, 144, 0.7);      
         font-size: 1.5em; 
@@ -69,7 +54,6 @@
     }
 
                 ?>
-
                 <h3 class="light white" style="color:#f06467">Nos Grooms près de : <?= $ville['NomVille'].'('.$fullCp.')'; ?></h3>
             </div>        
             <div class="row">
@@ -102,7 +86,6 @@
                         });
 
                         var infowindow = new google.maps.InfoWindow();
-
                         var marker, i;
 
                         for (i = 0; i < locations.length; i++) {
@@ -127,7 +110,6 @@
                                     window.location.href = this.url; //a definir sur l'ID du groom
                                 }
                             })(marker, i));
-
                         }
                     }
 
@@ -176,35 +158,30 @@
                             <div style="text-align: center" class="overlay text-center">
                                 <h5 class="white">Mes compétences & tarifs : </h5>
                                 <h5 class="light light-white"></h5>
-
                                 
                                         <?php                                                   
                     foreach ($datas['comp'] as $skill) {
                         
                         
                        if ($skill['skills'] == "Ménage"){
-                            ?><img src="<?= $this->assetUrl('img/icons/cleaner.png') ?>" alt="Preloader image"><?php
+                            ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/cleaner.png') ?>" alt="Preloader image"><?php
                         }
                         if ($skill['skills'] == "Accueil voyageurs"){
-                            ?><img src="<?= $this->assetUrl('img/icons/check-in-marker.png') ?>" alt="Preloader image"><?php
+                            ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/check-in-marker.png') ?>" alt="Preloader image"><?php
                         }
                         if ($skill['skills'] == "Départ voyageurs"){
-                            ?><img src="<?= $this->assetUrl('img/icons/checkout.png') ?>" alt="Preloader image"><?php
+                            ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/checkout.png') ?>" alt="Preloader image"><?php
                         }
                         if ($skill['skills'] == "Entretien jardin"){
-                            ?><img src="<?= $this->assetUrl('img/icons/garden.png') ?>" alt="Preloader image"><?php
+                            ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/garden.png') ?>" alt="Preloader image"><?php
                         }
                         if ($skill['skills'] == "Entretien piscine"){
-                            ?><img src="<?= $this->assetUrl('img/icons/pool.png') ?>" alt="Preloader image"><?php
+                            ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/pool.png') ?>" alt="Preloader image"><?php
                         }
                         if ($skill['skills'] == "Bricolage / Réparation"){
-                            ?><img src="<?= $this->assetUrl('img/icons/wrenchNB.png') ?>" alt="Preloader image"><?php
+                            ?><img id="skills_img" src="<?= $this->assetUrl('img/icons/wrenchNB.png') ?>" alt="Preloader image"><?php
                         }
-
-
-
                     }
-
                                         ?>
 
 

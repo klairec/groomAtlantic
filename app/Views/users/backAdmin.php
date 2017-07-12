@@ -38,21 +38,21 @@
                         </tr>
 
                         <?php
-                        foreach($users as $user){
+                        foreach($usersList as $user){
                             ?>
                             <tr>
-                            <td><?= $user['id'] ?></td>
-                            <td><?= $user['firstname'] ?></td>
-                            <td><?= $user['lastname'] ?></td>
-                            <td><?= $user['email'] ?></td>
-                            <td><?= $user['phone'] ?></td>
-                            <td><?= $user['address'] ?></td>
-                            <td><?= $user['postcode'] ?></td>
-                            <td><?= $user['cityUser'] ?></td>
-                            <td><?= $user['date_creation'] ?></td>
-                            <td><?= $user['role'] ?></td>
-                            <td><input type="checkbox" name="cbxBan" value="<?= $user['banned'] ?>">Bannir</td>
-                            </tr>';
+                            <td><?= $user['id']; ?></td>
+                            <td><?= $user['firstname']; ?></td>
+                            <td><?= $user['lastname']; ?></td>
+                            <td><?= $user['email']; ?></td>
+                            <td><?= $user['phone']; ?></td>
+                            <td><?= $user['address']; ?></td>
+                            <td><?= $user['postcode']; ?></td>
+                            <td><?= $user['cityUser']; ?></td>
+                            <td><?= $user['date_creation']; ?></td>
+                            <td><?= $user['role']; ?></td>
+                            <td>Bannir <input type="checkbox" name="cbxBan" value="<?= $user['banned']; ?>"></td>
+                            </tr>
                         <?php
                         }
                         ?>

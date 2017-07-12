@@ -50,7 +50,7 @@
 							</div>
 							<div class="form-group">
 								<label for="postcode"><h4>Code postal</h4></label>
-								<input name="postcode" type="text" class="form-control" value="<?=$w_user['postcode']; ?>">
+								<input name="postcode" type="text" maxlength="5" class="form-control" value="<?=$w_user['postcode']; ?>">
 							</div>
 							<div class="form-group">
 								<label for="cityUser"><h4>Ville</h4></label>

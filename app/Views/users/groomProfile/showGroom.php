@@ -54,7 +54,7 @@
                         <h4 class="light white text-center">Ma description</h4>
                         <textarea rows="10" cols="50"id="comment">
                             <?php foreach ($prices as $price): ?>
-                            <?= nl2br($showInfos['description']); ?>
+                            <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
                         </textarea>
                         <section class="tableau1">                 

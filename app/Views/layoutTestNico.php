@@ -55,6 +55,9 @@
                             <?php if($w_user['role'] == 'groom'){ ?> <!-- Si c'est un groom on affiche "mon profil" qui pointe le profil groom-->
                                 <li><a href="<?= $this->url('users_showgroom') ?>"  style="color:#f06467;">Mon profil</a></li>
                             <?php } ?>
+                            <?php if($w_user['role'] == 'admin'){ ?> 
+                                <li><a href="<?= $this->url('users_backAdmin') ?>"  style="color:#f06467;">Espace administrateur</a></li>
+                            <?php } ?>
                             <!-- Dans tous les cas si un utilisateur est connecté, on affiche la déco -->
                             <li><a href="<?= $this->url('default_home') ?>?deco=1" class="btn btn-blue">Déconnexion</a></li>
                         <?php } 

@@ -61,4 +61,58 @@ class AjaxController extends \W\Controller\Controller
 
 		$this->showJson($json);
 	}
+
+
+
+	public function confirmJobByOwner()
+	{
+		if(!empty($_POST)){
+
+			$post = array_map('trim', array_map('strip_tags', $_POST));
+
+			$errors = [
+				(!v::intVal()->validate((int) $post['id_contact_request'])) ? 'L\'id contact est invalide' : null,
+			];
+
+			$errors = array_filter($errors);
+
+
+			if(count($errors) === 0){
+				$data = [
+					'owner_confirm' => 1,
+				];
+				$contactRequestModel = new \Model\ContactRequestsModel();
+				$update = $contactRequestModel->update($data, (int) $post['id_contact_request']);
+
+				if($update){
+					$json = [
+						'code' 		=> true,
+						'message' 	=> '<div class="text-success">Merci pour votre confirmation</div>',
+						'nbNotifs'	=> $contactRequestModel->totalNotifications,
+					];
+				}
+				else {
+					// En théorie on arrive pas ici..
+				}
+			}
+			else {
+				// S'il y a des erreurs
+				$json = [
+					'code' 		=> false,
+					'message' 	=> '<div class="text-danger">'.implode(', ', $errors).'</div>',
+					'nbNotifs'	=> $contactRequestModel->totalNotifications,
+				];
+
+			}
+
+
+			$this->showJson($json);
+		}
+	}
+
+
+	public function confirmJobByGroom()
+	{
+
+	}
 }

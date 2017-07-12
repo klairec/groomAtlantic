@@ -2,13 +2,56 @@
 
 <?php $this->start('css') ?>
 <style>
-    header {
-        display: none;
-    }
+header {
+    display: none;
+}
 
-    body{
-        background: #89b5f7;
-    }
+body{
+    background: #89b5f7;
+}
+
+.well-notif {
+    border:0;
+    border-left:5px solid #9e9e9e;
+    border-radius:0;
+}
+.nb-notif {
+    font-size: 13px;
+    font-weight: 700;
+    display:  inline-block;
+    background: grey;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+}
+.nb-notif.active {
+    background: #296190;
+}
+.fa-default {
+    color: inherit;
+    font-size: inherit;
+    margin-left: 0;
+    margin-bottom: 0;
+
+}
+.fa-coords {
+    color: #f06467;
+    font-size: inherit;
+    margin-left: 0;
+    display: inline-block;
+    width: 15px;
+    margin-right: 3px;
+}
+.confirm-job {
+    border-radius: 0;
+    padding: 7px 7px;
+    border: 1px solid #4cae4c;
+    line-height: 14px;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
 </style>
 <?php $this->stop('css') ?>
 
@@ -160,19 +203,61 @@
 <!-- AFFICHAGE NOTIFICATIONS -->
 
 <section class="notifications">
-    <h3 class="light white text-center">NOTIFICATIONS</h3>
 
-    <!-- AFFICHAGE DES COORDONNES RECUES -->
+    <h3 class="light white text-center">
+        NOTIFICATIONS <span id="countNotif" class="nb-notif <?=($total_notif) ? 'active' : '';?>"><?=$total_notif; ?></span>
+    </h3>
+    <div class="container text-left">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <?php if(!empty($notifications)): ?>
+                    <?php foreach($notifications as $notif): ?>
 
-    <div></div>
+                        <div class="well well-sm well-notif" style="">
+                            <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i> 
+                            Le <?=\DateTime::createFromFormat('Y-m-d H:i:s', $notif['contact_date'])->format('d/m/Y \à H:i'); ?>, <?=$notif['groom_firstname'].' '.$notif['groom_lastname'];?> a accepté votre demande pour la location <?=$notif['rent_title']; ?>
+                            <address><?=ucwords(mb_strtolower($notif['city'], 'UTF-8')).' - département: '.substr($notif['postcode'], 0,2); ?></address>
 
-    <!-- AFFICHAGE CONFIRMATION  -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    Voici ses coordonnées :
+                                    <ul class="list-unstyled" style="padding-left: 40px;">
+                                        <li>
+                                            <i class="fa fa-user fa-coords" aria-hidden="true"></i> <?=$notif['groom_firstname'].' '.$notif['groom_lastname'];?>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-phone fa-coords" aria-hidden="true"></i> <?=$notif['groom_phone'];?>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope-o fa-coords" aria-hidden="true"></i> <?=$notif['groom_mail'];?>
+                                        </li>
+                                    </ul>
+                                </div>
 
-    <div></div>
+                                <div class="col-md-6">
+                                        <div class="text-center">
+                                        <h4 style="font-size:16px">Vous avez travaillé avec ce groom ?</h4>
 
-    <!-- AFFICHAGE NOTATION -->
+                                        <br>
+                                        <form method="post" id="confirmJob-<?=$notif['contact_id'];?>">
 
-    <div></div>
+                                            <button type="submit" class="btn-success confirm-job" data-id="<?=$notif['contact_id'];?>">
+                                                <i class="fa fa-check fa-default" aria-hidden="true"></i> Oui, j'ai utilisé cet esclave
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                
+                <?php else: ?>
+
+                    <div class="alert alert-danger">Aucune notification actuellement</div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- AFFICHAGE NOTIFICATIONS -->
 
@@ -209,3 +294,26 @@
 </section><!-- AFFICHAGE AVIS LAISSES -->
 
 <?php $this->stop('main_content') ?>
+
+
+<?php $this->start('js') ?>
+<script>
+$(function(){
+
+    $('.confirm-job').on('click', function(e){
+        e.preventDefault();
+
+        $idJob = $(this).data('id');
+
+        $.ajax({
+            url: '<?=$this->url('ajax_confirm_job_owner');?>',
+            method: 'post',
+            data: {id_contact_request: $idJob },
+            success: function(resPHP){
+                $('#confirmJob-'+$idJob).html(resPHP.message);
+            }
+        });
+    });
+});
+</script>
+<?php $this->stop('js') ?>

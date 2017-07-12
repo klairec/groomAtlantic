@@ -610,12 +610,17 @@ class UsersController extends Controller
         $commentsAd = $commentsAddr->commentsAddressee();
 
 
+        $contactRequestsModel = new \Model\ContactRequestsModel;
+        $notifications = $contactRequestsModel->showRequestForOwnerId($user_connect['id']);
+
         $params = [
             'showInfos'     => $showInfos,
             'addRental'     => $addRental,
             'locations'     => $locations,
             'comments'      => $comments,
             'commentsAd'    => $commentsAd,
+            'notifications' => $notifications,
+            'total_notif'   => $contactRequestsModel->totalNotifications
         ];  
 
         $this->show('users/ownerProfile/showOwner', $params);

@@ -45,4 +45,6 @@ $w_routes = array(
 
 	// Ajax
 	['GET|POST', '/ajax/validateContactRequest', 'Ajax#validateContactRequest', 'ajax_validate_contact_request'],
+	['GET|POST', '/ajax/confirmJobByOwner', 'Ajax#confirmJobByOwner', 'ajax_confirm_job_owner'],
+	['GET|POST', '/ajax/confirmJobByGroom', 'Ajax#confirmJobByGroom', 'ajax_confirm_job_groom'],
 );

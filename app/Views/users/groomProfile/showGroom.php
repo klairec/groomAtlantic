@@ -52,7 +52,7 @@
                     ?> 
                     <div class="form-group">
                         <h4 class="light white text-center">Ma description</h4>
-                        <textarea rows="10" cols="50"id="comment">
+                        <textarea rows="10" cols="50" id="comment">
                             <?php foreach ($prices as $price): ?>
                             <?= nl2br($price['description']); ?>
                             <?php endforeach; ?>
@@ -110,7 +110,7 @@
 
                                     <div class="form-group">
                                         <label for="description">Ajouter une description</label>
-                                        <textarea name="description"></textarea>
+                                        <textarea name="description" maxlength="300"></textarea>
                                     </div>
                                     <?php
                                     if(!empty($errorsText)){

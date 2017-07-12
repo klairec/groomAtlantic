@@ -39,11 +39,11 @@
                         </div>
                         <div class="form-group">
                             <label for="area"><h4>Surface</h4></label>
-                            <input type="text" name="area" id="area" placeholder="..m²" class="form-control">
+                            <input type="text" maxlength="4" name="area" id="area" placeholder="..m²" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="rooms"><h4>Nombre de pièces</h4></label>
-                            <input type="text" name="rooms" id="rooms" class="form-control">
+                            <input type="text" maxlength="3" name="rooms" id="rooms" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="outdoor_fittings"><h4>Equipements extérieurs</h4></label>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="form-group">
                             <label for="postcode"><h4>Code postal</h4></label>
-                            <input type="text" name="postcode" id="postcode" placeholder="" class="form-control">
+                            <input type="text" maxlength="5" name="postcode" id="postcode" placeholder="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="city"><h4>Ville</h4></label>

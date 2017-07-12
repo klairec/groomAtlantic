@@ -13,7 +13,6 @@
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
-
 <div class="table">
     <div class="header-text">
         <div id="DivFormG" class="row">
@@ -82,10 +81,9 @@
                             <br>
                         </div>
                         </section>
-                    <?php foreach ($prices as $test): ?>  
+                    <?php if(!empty($prices[0]['id_groom'])): ?>  
                     <a href="<?= $this->url('services_change', ['id' => $test['id']]) ?>" class="modifServ btn btn-blue" value="change">Modifier mes services</a>
-                    <br>
-                    <?php endforeach; ?>
+                    <?php endif; ?>
                     <br>
                     <?php else: ?>
                     <div class="alert alert-danger">
@@ -94,8 +92,9 @@
                     <?php endif; ?><!-- AFFICHAGE DES SERVICES/PRIX -->
 
                     <!-- AJOUT DE SERVICES / FENETRE MODALE -->
-
-                    <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
+                    <?php if(empty($prices[0]['id_groom'])): ?>
+                        <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
+                    <?php endif; ?>
                     
                     <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

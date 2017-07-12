@@ -153,6 +153,9 @@
 
                                             echo '<span class="fullstar">★☆☆☆☆</span>';
                                         } 
+                                        elseif(empty($datas['moyenne'])) {
+                                            echo '<p class="stars" class="fullstar">Nouveau !</p>';
+                                        }
                                     }     
                                     ?>
                                 </div>

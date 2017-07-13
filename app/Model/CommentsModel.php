@@ -44,10 +44,12 @@ class CommentsModel extends \W\Model\Model
     }
 
     // Récupération du destinataire du commentaire (groom)
-    public function commentsAddresseeName(){
+    public function commentsAddresseeName($idgroom){
 
-        $sql = 'SELECT c.*, u.firstname, u.id FROM '.$this->table.' AS c INNER JOIN users AS u ON c.id_groom = u.id';
+        $sql = 'SELECT c.*, u.firstname, u.id FROM '.$this->table.' AS c INNER JOIN users AS u ON c.id_groom = u.id WHERE u.id = :idu';
         $select = $this->dbh->prepare($sql);
+        $select->bindValue(':idu', $idgroom);
+
         if($select->execute()){
             return $select->fetchAll(); // Renvoie les résultats
         }

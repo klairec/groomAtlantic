@@ -618,8 +618,9 @@ class UsersController extends Controller
         $commentsC = new CommentsModel;
         $comments = $commentsC->showCommentsById($user_connect['id']);
 
-        $commentsAddr = new CommentsController();
-        $commentsAd = $commentsAddr->commentsAddressee();
+
+        $commentsAddr = new CommentsModel;
+        $commentsAd = $commentsAddr->commentsAddresseeName($user_connect['id']);
 
         $contactRequestsModel = new \Model\ContactRequestsModel;
         $total_notif = 0;

@@ -85,10 +85,13 @@
                             <label for="city"><h4>Ville</h4></label>
                             <input type="text" name="city" id="city" placeholder="" class="form-control" value="<?= $updtLoc['city'] ?>">
                         </div>
+                        <div class="form-group text-center">
                             <button type="submit" class="btn btn-default">Modifier</button>
-                            <br><br>
+                        </div>
                     </form>
+                    <div class="form-group text-center">
                     <a href="<?= $this->url('users_showowner')?>" class="btn btn-default">Retour</a>
+                    </div>
                 </div>
             </div>
         </div>

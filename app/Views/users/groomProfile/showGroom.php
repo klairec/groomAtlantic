@@ -120,7 +120,7 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
         </section><!-- AJOUT DE SERVICES / FENETRE MODALE -->
         <section>
-            <div class="container">
+            <div class="container text-center">
           
                     
                         <?php if(empty($prices[0]['id_groom'])): ?>

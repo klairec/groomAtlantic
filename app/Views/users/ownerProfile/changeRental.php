@@ -13,7 +13,7 @@
 <?php $this->stop('css') ?>
 
 <?php $this->start('main_content') ?>
-<?php print_r( explode('|', $updtLoc['outdoor_fittings']) ) ?>
+<?php // print_r( explode('|', $updtLoc['outdoor_fittings']) ) ?>
 <div class="container">
     <div class="table">
         <div class="header-text">

@@ -167,7 +167,7 @@ class AjaxController extends \W\Controller\Controller
 
 			$errors = [
 				(!v::intVal()->length(1)->validate((int) $post['note_groom'])) ? 'La note est invalide.' : null,
-				(!v::stringType()->length(20,300)->validate($post['content_groom'])) ? 'Le commentaire ne doit pas dépasser les 300 caractères.' : null,
+				(!v::stringType()->length(null ,300)->validate($post['content_groom'])) ? 'Le commentaire ne doit pas dépasser les 300 caractères.' : null,
 			];
 
 			$errors = array_filter($errors);

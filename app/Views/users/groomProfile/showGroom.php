@@ -1,4 +1,4 @@
-Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
+<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
 <?php $this->start('css') ?>
 <style>
@@ -27,6 +27,16 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
     .nb-notif.active {
         background: #296190;
     }
+
+    .confirm-job {
+        border-radius: 0;
+        padding: 7px 7px;
+        border: 1px solid #4cae4c;
+        line-height: 14px;
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+    }
 </style>
 <?php $this->stop('css') ?>
 
@@ -52,15 +62,15 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
                     <br>
                     <br>
                     <a href="<?= $this->url('delete_profile');?>" class="btn btn-blue"
-                       onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
-                       Me désinscrire</a><br>
-                   </section><!-- FIN AFFICHAGE DES DONNEES UTILISATEUR -->
+                     onClick="if(confirm('Souhaitez-vous supprimer votre compte ?')){return true;}else{return false;}">
+                     Me désinscrire</a><br>
+                 </section><!-- FIN AFFICHAGE DES DONNEES UTILISATEUR -->
 
+                 
+                 <hr>
 
-                   <hr>
-
-                   <h3 class="light white text-center">MES SERVICES</h3><!-- AFFICHAGE DES SERVICES/PRIX -->
-                   <?php if(!empty($services)):?>
+                 <h3 class="light white text-center">MES SERVICES</h3><!-- AFFICHAGE DES SERVICES/PRIX -->
+                 <?php if(!empty($services)):?>
                     <?php 
                     /*
                     echo '<pre>';
@@ -70,14 +80,14 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
                     ?> 
                     <div class="container">
                         <div class="panel panel-default">
-                           <h5 class="text-center">Ma Description</h5>
-                           <div class="panel-body">
-                            <?php foreach ($prices as $price): ?>
-                                <?= nl2br($price['description']); ?>
-                            <?php endforeach; ?>
+                             <h5 class="text-center">Ma Description</h5>
+                             <div class="panel-body">
+                                <?php foreach ($prices as $price): ?>
+                                    <?= nl2br($price['description']); ?>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
                 <section class="tableau1">                 
@@ -119,41 +129,6 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
 
 
         </section><!-- AJOUT DE SERVICES / FENETRE MODALE -->
-<<<<<<< HEAD
-        <section>
-            <div class="container text-center">
-          
-                    
-                        <?php if(empty($prices[0]['id_groom'])): ?>
-                            <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
-                        <?php endif; ?>
-                   
-              
-            </div>
-            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content modal-popup">
-                        <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-                        <h3 class="white">Ajouter des services</h3>
-                        <form method="POST" action="<?= $this->url('users_showgroom') ?>">
-                            <div class="form-group">
-                                <label for="description">Ajouter une description</label>
-                                <textarea name="description" maxlength="300"></textarea>
-                            </div>
-                            <?php
-                            if(!empty($errorsText)){
-                                echo '<p style="color:red";>'.implode('<br>', $errorsText);
-                            }
-                            ?>
-                            <table>
-                                <tr>
-                                    <label for="checkIn">
-                                        <td>Check-in</td>
-                                        <td><input type="checkbox" name="id_skill[]" value="1"></td>
-                                        <td><input type="text" name="price[]" value=""></td>
-                                    </label>
-                                </tr>
-=======
         <?php if(empty($prices[0]['id_groom'])): ?>
             <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
         <?php endif; ?>
@@ -214,55 +189,23 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
                                     <td><input type="checkbox" name="id_skill[]" value="5"></td>
                                     <td><input type="text" name="price[]" placeholder="prix au m2"></td>
                                 </label>
->>>>>>> 18c37b7cc0a63676166c8fe88413c3185548e55d
                                 <br>
-                                <tr>
-                                    <label for="checkOut">
-                                        <td>Check-out</td>
-                                        <td><input type="checkbox" name="id_skill[]" value="2"></td>
-                                        <td><input type="text" name="price[]"></td>
-                                    </label>
-                                </tr>
+                            </tr>
+                            <tr>
+                                <label for="fixing">`
+                                    <td>Petit bricolage / Réparations</td>
+                                    <td><input type="checkbox" name="id_skill[]" value="6"></td>
+                                    <td><input type="text" name="price[]"></td>
+                                </label>
                                 <br>
-                                <tr>
-                                    <label for="cleaning">
-                                        <td>Ménage</td>
-                                        <td><input type="checkbox" name="id_skill[]" value="3"></td>
-                                        <td><input type="text" name="price[]" placeholder="prix au m2"></td>
-                                    </label>
-                                    <br>
-                                </tr>
-                                <tr>
-                                    <label for="gardenMaintenance">
-                                        <td>Entretien espaces verts</td>
-                                        <td><input type="checkbox" name="id_skill[]" value="4"></td>
-                                        <td><input type="text" name="price[]" placeholder="prix au m2"></td>
-                                    </label>
-                                    <br>
-                                </tr>
-                                <tr>
-                                    <label for="spMaintenance">
-                                        <td>Entretien piscine</td>
-                                        <td><input type="checkbox" name="id_skill[]" value="5"></td>
-                                        <td><input type="text" name="price[]" placeholder="prix au m2"></td>
-                                    </label>
-                                    <br>
-                                </tr>
-                                <tr>
-                                    <label for="fixing">`
-                                        <td>Petit bricolage / Réparations</td>
-                                        <td><input type="checkbox" name="id_skill[]" value="6"></td>
-                                        <td><input type="text" name="price[]"></td>
-                                    </label>
-                                    <br>
-                                </tr>
-                            </table>
-                            <button type="submit" class="btn btn-submit">Ajouter</button>
-                        </form>
-                    </div>
+                            </tr>
+                        </table>
+                        <button type="submit" class="btn btn-submit">Ajouter</button>
+                    </form>
                 </div>
             </div>
-        </section><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
+        </div><!-- FIN D'AJOUT DE SERVICES / FENETRE MODALE -->
+
         <hr>
 
         <!-- AFFICHAGE DES NOTIFICATIONS -->
@@ -298,28 +241,35 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
                                     <div id="notif_conf_<?=$notif['contact_id'];?>"></div>
                                 </form>
                             </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                        <?php foreach($notifications2 as $notif): ?>
+                            <?php foreach($notifications2 as $notif): ?>
                             <!-- CONFIRMATION D'INTERACTION -->
                             <div class="well well-sm well-notif" style="">
-                                <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i>
-                                <div class="col-md-6">
-                                    <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?> a confirmé avoir fait appel à vos services pour la location <?=$notif['rent_title']; ?>. 
-                                    <br>
-                                    <h4 style="font-size:16px">Avez-vous travaillé pour ce propriétaire ?</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
 
-                                    <form method="post" id="confirmJob-<?=$notif['contact_id'];?>">
+                                        <br><br>
+                                        <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i>
+                                        <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?> a confirmé avoir fait appel à vos services pour la location <?=$notif['rent_title']; ?>. 
+                                        <br>
+                                    </div>
+                                    <div class="col-md-6">
 
-                                        <button type="submit" class="btn-success confirm-job" data-id="<?=$notif['contact_id'];?>">
-                                            <i class="fa fa-check fa-default" aria-hidden="true"></i> Oui, je confirme avoir travailler avec <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?>
-                                        </button>
+                                        <h4 style="font-size:16px">Avez-vous travaillé pour ce propriétaire ?</h4>
 
-                                    </form>
+                                            <form method="post" id="confirmJob-<?=$notif['contact_id'];?>">
+
+                                                <button type="submit" class="btn-success confirm-job" data-id="<?=$notif['contact_id'];?>">
+                                                <i class="fa fa-check fa-default" aria-hidden="true"></i> Oui, je confirme avoir travailler avec <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?>
+                                                </button>
+
+                                            </form>
+                                    </div>
+                                        
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
 
                             <!-- NOUVEL AVIS
                             <div class="well well-sm well-notif" style="">
@@ -330,35 +280,35 @@ Y<?php $this->layout('layoutTestNico', ['title' => 'Mon profil']) ?>
                                 <div class="clearfix"></div>
                             </div> -->
 
-
-                        <?php else: ?>
-                            <div class="alert alert-danger">Aucune notification actuellement</div>
-                        <?php endif; ?>
-                 
-               
-
-
-
-            <hr>
-
-            <!-- NOUVEAU COMMENTAIRE DISPONIBLE -->
-
-            <?php if(!empty($comments)):?>
-
-                <?php foreach ($comments as $comment): ?>
-                    <div>
-                        <?php foreach ($commentsA as $commentA): ?>
-                            <p><?= $commentA['firstname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <div class="alert alert-danger">
-                    <p>Pas de dernier commentaire pour le moment.</p>
+                        
+                    <?php else: ?>
+                        <div class="alert alert-danger">Aucune notification actuellement</div>
+                    <?php endif; ?>
                 </div>
-            <?php endif; ?>
+            </div>
         </div>
+
+
+        <hr>
+
+        <!-- NOUVEAU COMMENTAIRE DISPONIBLE -->
+
+        <?php if(!empty($comments)):?>
+
+            <?php foreach ($comments as $comment): ?>
+                <div>
+                    <?php foreach ($commentsA as $commentA): ?>
+                        <p><?= $commentA['firstname'].' a donné son avis sur votre prestation, vous pouvez le visualiser dans <a href=""><strong>Avis obtenus</strong></a>'; ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="alert alert-danger">
+                <p>Pas de dernier commentaire pour le moment.</p>
+            </div>
+        <?php endif; ?>
     </div>
+</div>
 </div>
 </div>
 </div>

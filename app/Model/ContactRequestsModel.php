@@ -58,7 +58,7 @@ class ContactRequestsModel extends \W\Model\Model
     public function showRequestForGroomId($id_groom, $options)
     {
 
-        $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id, c.message, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
+        $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id, c.message,  groom.id AS groom_id, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, owner.id AS owner_id, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
 
             FROM '.$this->table.' AS c 
             JOIN users AS groom ON c.id_groom = groom.id
@@ -100,7 +100,7 @@ class ContactRequestsModel extends \W\Model\Model
     {
 
 
-        $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, groom.phone AS groom_phone, groom.email AS groom_mail, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
+        $sql = 'SELECT SQL_CALC_FOUND_ROWS c.id AS contact_id, c.groom_accept, c.owner_confirm, c.groom_confirm, c.date AS contact_date, c.rent_id,  groom.id AS groom_id, owner.id AS owner_id, groom.firstname AS groom_firstname, groom.lastname AS groom_lastname, groom.phone AS groom_phone, groom.email AS groom_mail, owner.firstname AS owner_firstname, owner.lastname AS owner_lastname, r.title AS rent_title, r.postcode, r.city
 
             FROM '.$this->table.' AS c 
             JOIN users AS groom ON c.id_groom = groom.id 

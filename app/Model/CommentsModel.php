@@ -19,10 +19,12 @@ class CommentsModel extends \W\Model\Model
     }
 
     // Récupération des commentaires pour l'espace propriétaire
-    public function showCommentsById(){
+    public function showCommentsById($id_user){
 
-        $sql = 'SELECT c.*, u.* FROM '.$this->table.' AS c INNER JOIN users AS u ON c.id_owner = u.id ORDER BY date DESC';
+        $sql = 'SELECT c.* FROM '.$this->table.' AS c WHERE c.id_owner = :cid ORDER BY date DESC';
         $select = $this->dbh->prepare($sql);
+        
+        $select->bindValue(':cid', $id_user);
         if($select->execute()){
             return $select->fetchAll(); // Renvoie les résultats
         }

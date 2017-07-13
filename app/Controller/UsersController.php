@@ -6,6 +6,7 @@ use \W\Controller\Controller;
 use \Model\UsersModel;
 use \W\Security\AuthentificationModel;
 use \Model\ResetPasswordModel;
+use \Model\CommentsModel;
 use \Controller\CommentsController;
 use \Controller\ContactRequestsController;
 use \Controller\RentalsController;
@@ -613,8 +614,9 @@ class UsersController extends Controller
         $voirLoc = new RentalsController();
         $locations = $voirLoc->showRentals($user_connect['id']); 
 
-        $commentsController = new CommentsController();
-        $comments = $commentsController->commentListOwner();
+
+        $commentsC = new CommentsModel;
+        $comments = $commentsC->showCommentsById($user_connect['id']);
 
         $commentsAddr = new CommentsController();
         $commentsAd = $commentsAddr->commentsAddressee();

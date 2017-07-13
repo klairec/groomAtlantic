@@ -127,7 +127,9 @@
             <div class="modal-dialog">
                 <div class="modal-content modal-popup">
                     <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-                    <h3 class="white">Ajouter des services</h3>
+                    <div class="form-group">
+                        <h3 class="white">Ajouter des services</h3>
+                    </div>
                     <form method="POST" action="<?= $this->url('users_showgroom') ?>">
                         <div class="form-group">
                             <label for="description">Ajouter une description</label>

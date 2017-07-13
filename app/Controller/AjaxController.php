@@ -162,12 +162,12 @@ class AjaxController extends \W\Controller\Controller
 		if(!empty($_POST)){
 
 			
-			$post = trim(strip_tags($value));
+			$post = array_map('trim', array_map('strip_tags', $_POST));
 			
 
 			$errors = [
-				(!v::intVal()->length(1)->validate((int) $post['note'])) ? 'La note est invalide.' : null,
-				(!v::stringType()->length(20,300)->validate($post['description'])) ? 'Le commentaire ne doit pas dépasser les 300 caractères.' : null,
+				(!v::intVal()->length(1)->validate((int) $post['note_groom'])) ? 'La note est invalide.' : null,
+				(!v::stringType()->length(20,300)->validate($post['content_groom'])) ? 'Le commentaire ne doit pas dépasser les 300 caractères.' : null,
 			];
 
 			$errors = array_filter($errors);
@@ -175,13 +175,14 @@ class AjaxController extends \W\Controller\Controller
 
 			if(count($errors) === 0){
 				$data = [
-					'description' => $post['description'],
-					'note' 		  => $post['note'],
+					'content' 	  => $post['content_groom'],
+					'note' 		  => $post['note_groom'],
 					'date' 		  => date('c'),
-					'id_groom' 	  => $post['note'],
-					'id_owner' 	  => $post['note'],
+					'id_groom' 	  => $post['id_groom_rate'],
+					'id_owner' 	  => $post['id_owner'],
 				];
 
+				$contactRequestModel = new \Model\ContactRequestsModel;
 				$commentsModel = new \Model\CommentsModel();
 				$insert = $commentsModel->insert($data);
 

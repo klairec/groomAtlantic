@@ -262,17 +262,27 @@
                                                     <h4 style="font-size:16px">Laissez un avis à <?=$notif['groom_firstname'].' '.$notif['groom_lastname'];?></h4>
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
-                                                            Note 
-
-                                                        </div>
-                                                        <br>
-                                                        <div class="col-md-6">
-                                                            Commentaires 
-                                                            <label for="comment">
-                                                                <textarea name="comment" class="form-control"></textarea>
-                                                            </label>
-                                                        </div>
+                                                        <form method="post" id="confirmRate-<?=$notif['contact_id'];?>">
+                                                            <input type="hidden" name="groom_id" value="<?=$notif['groom_id'];?>">
+                                                            <input type="hidden" name="owner_id" value="<?=$notif['owner_id'];?>">
+                                                            <div class="col-md-6">
+                                                                Note 
+                                                                <input type="radio" name="rate" value="1">1
+                                                                <input type="radio" name="rate" value="2">2
+                                                                <input type="radio" name="rate" value="3">3
+                                                                <input type="radio" name="rate" value="4">4
+                                                                <input type="radio" name="rate" value="5">5
+                                                            </div>
+                                                            <br>
+                                                            <div class="col-md-6">
+                                                                <label for="content"> Commentaires </label>
+                                                                <textarea name="content" maxlenght="200" class="form-control"></textarea>
+                                                            </div>
+                                                            <br>
+                                                            <button type="submit" class="btn-success confirm-rate" data-id="<?=$notif['contact_id'];?>">
+                                                                <i class="fa fa-check fa-default" aria-hidden="true"></i> Poster
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             <?php endforeach; ?>
@@ -322,24 +332,51 @@
                         <?php $this->stop('main_content') ?>
 
 
-                        <?php $this->start('js') ?>
-                        <script>
-                            $(function(){
+<?php $this->start('js') ?>
+<script>
+$(function(){
 
-                                $('.confirm-job').on('click', function(e){
-                                    e.preventDefault();
+    $('.confirm-job').on('click', function(e){
+        e.preventDefault();
 
-                                    $idJob = $(this).data('id');
+        $idJob = $(this).data('id');
 
-                                    $.ajax({
-                                        url: '<?=$this->url('ajax_confirm_job_owner');?>',
-                                        method: 'post',
-                                        data: {id_contact_request: $idJob },
-                                        success: function(resPHP){
-                                            $('#confirmJob-'+$idJob).html(resPHP.message);
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
-                        <?php $this->stop('js') ?>
+        $.ajax({
+            url: '<?=$this->url('ajax_confirm_job_owner');?>',
+            method: 'post',
+            data: {id_contact_request: $idJob },
+            success: function(resPHP){
+                $('#confirmJob-'+$idJob).html(resPHP.message);
+            }
+        });
+    });
+    
+    $('.confirm-rate').click(function(e){
+        console.log('click');
+        e.preventDefault();
+
+        $idJob = $(this).data('id');
+
+        $currentForm = $('#confirmRate-'+$idJob);
+        $idGroom = $currentForm.find('input[name="groom_id"]').val();
+        $idOwner = $currentForm.find('input[name="owner_id"]').val();
+        $groomNote = $currentForm.find('input[name="rate"]:checked').val();
+        $groomComment = $currentForm.find('textarea[name="content"]').val();
+
+        $.ajax({
+            url: '<?=$this->url('ajax_comment_by_owner');?>',
+            method: 'post',
+            data: {
+                id_groom_rate: $idGroom,
+                id_owner : $idOwner,
+                note_groom : $groomNote,
+                content_groom : $groomComment,
+            },
+            success: function(resPHP){
+                $('#confirmRate-'+$idGroom).html(resPHP.message);
+            }
+        });
+    });
+});
+</script>
+<?php $this->stop('js') ?>

@@ -27,6 +27,16 @@
     .nb-notif.active {
         background: #296190;
     }
+
+    .confirm-job {
+        border-radius: 0;
+        padding: 7px 7px;
+        border: 1px solid #4cae4c;
+        line-height: 14px;
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+    }
 </style>
 <?php $this->stop('css') ?>
 
@@ -236,21 +246,28 @@
                             <?php foreach($notifications2 as $notif): ?>
                             <!-- CONFIRMATION D'INTERACTION -->
                             <div class="well well-sm well-notif" style="">
-                            <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i>
-                                <div class="col-md-6">
-                                    <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?> a confirmé avoir fait appel à vos services pour la location <?=$notif['rent_title']; ?>. 
-                                    <br>
-                                    <h4 style="font-size:16px">Avez-vous travaillé pour ce propriétaire ?</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
 
-                                        <form method="post" id="confirmJob-<?=$notif['contact_id'];?>">
+                                        <br><br>
+                                        <i class="fa fa-bullhorn fa-2x pull-left" aria-hidden="true" style="color:#333;margin-left:0;"></i>
+                                        <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?> a confirmé avoir fait appel à vos services pour la location <?=$notif['rent_title']; ?>. 
+                                        <br>
+                                    </div>
+                                    <div class="col-md-6">
 
-                                            <button type="submit" class="btn-success confirm-job" data-id="<?=$notif['contact_id'];?>">
-                                            <i class="fa fa-check fa-default" aria-hidden="true"></i> Oui, je confirme avoir travailler avec <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?>
-                                            </button>
+                                        <h4 style="font-size:16px">Avez-vous travaillé pour ce propriétaire ?</h4>
 
-                                        </form>
+                                            <form method="post" id="confirmJob-<?=$notif['contact_id'];?>">
+
+                                                <button type="submit" class="btn-success confirm-job" data-id="<?=$notif['contact_id'];?>">
+                                                <i class="fa fa-check fa-default" aria-hidden="true"></i> Oui, je confirme avoir travailler avec <?= $notif['owner_firstname'].' '.$notif['owner_lastname']; ?>
+                                                </button>
+
+                                            </form>
+                                    </div>
+                                        
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
                             <?php endforeach; ?>
 

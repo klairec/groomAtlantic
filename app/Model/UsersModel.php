@@ -50,7 +50,7 @@ class UsersModel extends \W\Model\UsersModel
 
     public function getExGroom()
     {
-        $sql = 'SELECT * FROM users WHERE role = "groom" AND id IN (15,18,16,25) LIMIT 4'; 
+        $sql = 'SELECT * FROM users WHERE role = "groom" AND id IN (41,18,24,25) LIMIT 4'; 
         $result = $this->dbh->prepare($sql);
         if($result->execute())
         {

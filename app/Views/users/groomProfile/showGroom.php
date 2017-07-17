@@ -123,17 +123,20 @@
                 <br>
                 <?php else: ?>
                 <div class="alert alert-danger">
-                    Aucune service renseigné.
+                    Aucune service renseigné.<br> <br>
+                    Important ! Vous n'apparaitrez en tant que Groom disponible qu'une fois que vous aurez spécifié les services que vous proposez !
                 </div>
-                <?php endif; ?><!-- FIN AFFICHAGE DES SERVICES/PRIX -->
+                <?php endif; ?>
 
 
-                </section><!-- AJOUT DE SERVICES / FENETRE MODALE -->
+                
             <?php if(empty($prices[0]['id_groom'])): ?>
             <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Ajouter des services</a>
             <?php endif; ?>
 
-            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            </section> <!-- FIN AFFICHAGE DES SERVICES/PRIX -->
+
+            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><!-- AJOUT DE SERVICES / FENETRE MODALE -->
                 <div class="modal-dialog">
                     <div class="modal-content modal-popup">
                         <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>

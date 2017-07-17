@@ -69,27 +69,34 @@ class GroomController extends \W\Controller\Controller
 			}
 
 			if(count($errors) === 0){
+
+				$servicesInfosModel = new ServicesInfosModel();
+				$doublon = $servicesInfosModel->infosDoublon($me['id']);
+
+				if (!count($doublon)>0) {// Si on a pas de doublons
 				
-				if(!empty($post['id_skill']) && !empty($post['price'])){
+					if(!empty($post['id_skill']) && !empty($post['price'])){
 
-					$data = [
-						'id_skill'  => implode(',', $post['id_skill']),
-						'price'  	=> implode(',', $tab),
-						/*'work_area' => implode(',', $post['work_area']),*/
-						'description' => $post['description'],
-						'id_groom'	=> $me['id'],
-					];
+						$data = [
+							'id_skill'  => implode(',', $post['id_skill']),
+							'price'  	=> implode(',', $tab),
+							/*'work_area' => implode(',', $post['work_area']),*/
+							'description' => $post['description'],
+							'id_groom'	=> $me['id'],
+						];
 
-					// on insère les données tappées par l'utilisateur dans la BDD
-					$servicesInfosModel = new ServicesInfosModel();
-					$addSkills = $servicesInfosModel->insert($data);
-					if(!empty($addSkills)){
-						// Ajoute un message "flash" (stocké en session temporairement)
-						// Note : il faut toutefois ajouter l'affichage de ce message au layout
-						$this->flash('Vos services ont été ajoutés.', 'success');
+						// on insère les données tappées par l'utilisateur dans la BDD
+						$servicesInfosModel = new ServicesInfosModel();
+						$addsSkills = $servicesInfosModel->insert($data);
+						if(!empty($addSkills)){
+							// Ajoute un message "flash" (stocké en session temporairement)
+							// Note : il faut toutefois ajouter l'affichage de ce message au layout
+							$this->flash('Vos services ont été ajoutés.', 'success');
 
-						return $addSkills;
+							return $addSkills;
+						}
 					}
+
 				}
 				else {
 

@@ -145,6 +145,24 @@ u.firstname, u.lastname, u.postcode, u.photo, u.date_creation, u.lat, u.lng, , s
 		}
         return $sth->fetchAll();
 	}
+
+
+    public function infosDoublon($idGroom){ //select les requetes qui concernnent le groom // On la compare ensuite à celui qui fait la requete (id_owner) pour vérifier s'il ne contacte pas 2 fois la même personne
+
+        $sql = '
+
+        SELECT * 
+        FROM '.$this->table.' 
+        WHERE id_groom = :id_groom';
+        $sth = $this->dbh->prepare($sql);
+        // @todo : ordre des variables ?
+        $sth->bindValue(':id_groom', $idGroom);
+        
+        $sth->execute();
+
+        return $sth->fetchAll();
+        
+    }
 }
 
 
